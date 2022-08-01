@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "name": "Mohanad Alrwaihy",
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog"
+  },
+  "header": {
+    "hello": "Hello I'm Mohanad",
+    "subText": "Modern Web Site Developer",
+    "about": "About Me"
+  }
+}
