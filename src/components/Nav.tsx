@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { HiGlobeAlt, HiMoon, HiOutlineMenu, HiSun } from 'react-icons/hi'
 import { useI18n } from '../i18n/Internationalization'
+import { ROUTE_PATHS } from '../App'
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false)
 
   const { setLocale, locale, translate } = useI18n()
+  const { name, home, projects, blog } = translate('navigation')
 
   function toggleLanguage() {
     if (locale === 'en-US') {
@@ -21,25 +23,53 @@ export default function Nav() {
     return setLocale('en-US')
   }
 
-  const { name, home, projects, blog } = translate('navigation')
-
   return (
     <header>
       <nav className='w-full fixed top-0 z-50 bg-primary-white'>
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
           <li className='font-pattaya text-primary-400 text-base md:text-lg lg:text-xl'>
-            <Link to='/'>{name}</Link>
+            <Link to={ROUTE_PATHS.Home}>{name}</Link>
           </li>
-          <ul className='flex items-center gap-5'>
-            <li className='ml-auto py-1 px-4 rounded-md bg-primary-black text-primary-white'>
-              <a href='#about-me'>{home}</a>
+          <ul className='flex items-center gap-3'>
+            <li className='ml-auto'>
+              <NavLink
+                to={ROUTE_PATHS.Home}
+                className={({ isActive }) =>
+                  'py-1 px-4 ' +
+                  (isActive
+                    ? 'rounded-md bg-primary-black text-primary-white'
+                    : '')
+                }
+              >
+                {home}
+              </NavLink>
             </li>
             <li>
-              <a href='#skills'>{projects}</a>
+              <NavLink
+                to={ROUTE_PATHS.AllProjects}
+                className={({ isActive }) =>
+                  'py-1 px-4 ' +
+                  (isActive
+                    ? 'rounded-md bg-primary-black text-primary-white'
+                    : '')
+                }
+              >
+                {projects}
+              </NavLink>
             </li>
             <li>
-              <a href='#projects'>{blog}</a>
+              <NavLink
+                to={ROUTE_PATHS.Blog}
+                className={({ isActive }) =>
+                  'py-1 px-4 ' +
+                  (isActive
+                    ? 'rounded-md bg-primary-black text-primary-white'
+                    : '')
+                }
+              >
+                {blog}
+              </NavLink>
             </li>
           </ul>
           <ul className='flex items-center gap-5'>
@@ -56,36 +86,86 @@ export default function Nav() {
               </button>
             </li>
             <li>
-              <a href='#'>
+              <button className='flex items-center'>
                 {/* <HiSun /> */}
                 <HiMoon className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6' />
-              </a>
+              </button>
             </li>
           </ul>
         </ul>
 
         {/* Mobile Navigation */}
-        <ul className='flex items-center sm:hidden gap-5 shadow-md rounded-md  shadow-primary-400/10 py-5 px-10 mx-5 relative'>
+        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md  shadow-primary-400/10 py-5 px-10 mx-5 relative'>
           <li className='font-pattaya text-primary-400'>
-            <Link to='/'>Mohanad Alrwaihy</Link>
+            <Link to={ROUTE_PATHS.Home}>{name}</Link>
           </li>
           <li
             onClick={() => setOpenMenu((prevState) => !prevState)}
-            className='ml-auto cursor-pointer'
+            className='cursor-pointer'
           >
             <HiOutlineMenu className='fill-primary-400' />
           </li>
+
           {openMenu && (
             <ul className='absolute flex flex-col gap-5 text-center top-20 left-0 w-full p-6 bg-primary-white rounded-md shadow-md'>
               <li onClick={() => setOpenMenu(false)}>
-                <a href='#about-me'>About Me</a>
+                <NavLink
+                  to={ROUTE_PATHS.Home}
+                  className={({ isActive }) =>
+                    'py-1 px-4 ' +
+                    (isActive
+                      ? 'rounded-md bg-primary-black text-primary-white'
+                      : '')
+                  }
+                >
+                  {home}
+                </NavLink>
               </li>
               <li onClick={() => setOpenMenu(false)}>
-                <a href='#skills'>Skills</a>
+                <NavLink
+                  to={ROUTE_PATHS.AllProjects}
+                  className={({ isActive }) =>
+                    'py-1 px-4 ' +
+                    (isActive
+                      ? 'rounded-md bg-primary-black text-primary-white'
+                      : '')
+                  }
+                >
+                  {projects}
+                </NavLink>
               </li>
               <li onClick={() => setOpenMenu(false)}>
-                <a href='#projects'>My Work</a>
+                <NavLink
+                  to={ROUTE_PATHS.Blog}
+                  className={({ isActive }) =>
+                    'py-1 px-4 ' +
+                    (isActive
+                      ? 'rounded-md bg-primary-black text-primary-white'
+                      : '')
+                  }
+                >
+                  {blog}
+                </NavLink>
               </li>
+              <ul className='flex justify-center items-center gap-5 border-t border-primary-gray pt-5'>
+                <li>
+                  <button
+                    className='flex items-center gap-1'
+                    onClick={toggleLanguage}
+                  >
+                    <HiGlobeAlt className='w-5 h-5' />
+                    <span className='text-xs uppercase'>
+                      {locale === 'en-US' ? 'AR' : 'EN'}
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button className='flex items-center'>
+                    {/* <HiSun /> */}
+                    <HiMoon className='w-5 h-5' />
+                  </button>
+                </li>
+              </ul>
             </ul>
           )}
         </ul>
