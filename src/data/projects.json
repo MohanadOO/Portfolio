@@ -1,0 +1,44 @@
+{
+  "chat-application": {
+    "title": { "en": "Chat Application", "ar": "برنامج دردشة" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/chat_application",
+    "images": [
+      "images/chat_application",
+      "images/chat_application",
+      "images/chat_application",
+      "images/chat_application"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Firebase", "icon": "/icons/firebase.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/chat-app",
+    "preview": "https://chat-application-firebase.vercel.app/"
+  },
+  "shop-application": {
+    "title": { "en": "Shop Application", "ar": "موقع تسوق" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/shop_application",
+    "images": [
+      "images/chat_application",
+      "images/chat_application",
+      "images/chat_application",
+      "images/chat_application"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "TypeScript", "icon": "/icons/typescript.svg" }
+    ],
+    "github": "",
+    "preview": ""
+  }
+}
