@@ -8,6 +8,18 @@ import AllProjects from './pages/AllProjects'
 import Blog from './pages/Blog'
 import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
+import ProjectDetails from './pages/ProjectDetails'
+
+export const ROUTE_PATHS = {
+  Home: '/',
+  AllProjects: '/projects',
+  Blog: '/blog',
+  ProjectDetails: '/projects/:id',
+}
+
+export const GOTO = {
+  ProjectDetails: (id: string) => `/projects/${id}`,
+}
 
 export default function App() {
   const { setMessages, loaded, setLocale } = useI18n()
@@ -27,8 +39,9 @@ export default function App() {
       if (language === 'ar-SA') {
         document.documentElement.dir = 'rtl'
         document.documentElement.lang = 'ar'
+        return setLocale(language)
       }
-      return setLocale(language)
+      return setLocale('en-US')
     }
     const userLanguage = navigator.language.split('-')[0]
     if (userLanguage === 'ar') {
@@ -57,10 +70,13 @@ export default function App() {
       <Nav />
       <div className='min-h-screen'>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/projects' element={<AllProjects />} />
-          {/* <Route path='/:projectID' element={<Project/>} */}
+          <Route path={ROUTE_PATHS.Home} element={<Home />} />
+          <Route path={ROUTE_PATHS.Blog} element={<Blog />} />
+          <Route path={ROUTE_PATHS.AllProjects} element={<AllProjects />} />
+          <Route
+            path={ROUTE_PATHS.ProjectDetails}
+            element={<ProjectDetails />}
+          />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </div>
