@@ -21,6 +21,7 @@ module.exports = {
       addVariant('child', '& > *')
       addVariant('child-hover', '& > *:hover')
       addVariant('ar', '&:lang(ar)')
+      addVariant('en', '&:lang(en)')
     },
   ],
 }

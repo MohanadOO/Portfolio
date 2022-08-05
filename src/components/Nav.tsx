@@ -25,10 +25,10 @@ export default function Nav() {
 
   return (
     <header>
-      <nav className='w-full fixed top-0 z-50 bg-primary-white'>
+      <nav className='w-full fixed top-0 z-50 bg-primary-white font-bold'>
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
-          <li className='font-pattaya text-primary-400 text-base md:text-lg lg:text-xl'>
+          <li className='font-pattaya font-normal text-primary-400 text-base md:text-lg lg:text-xl'>
             <Link to={ROUTE_PATHS.Home}>{name}</Link>
           </li>
           <ul className='flex items-center gap-3'>
@@ -36,7 +36,7 @@ export default function Nav() {
               <NavLink
                 to={ROUTE_PATHS.Home}
                 className={({ isActive }) =>
-                  'py-1 px-4 ' +
+                  'py-3 px-5 ' +
                   (isActive
                     ? 'rounded-md bg-primary-black text-primary-white'
                     : '')
@@ -49,7 +49,7 @@ export default function Nav() {
               <NavLink
                 to={ROUTE_PATHS.AllProjects}
                 className={({ isActive }) =>
-                  'py-1 px-4 ' +
+                  'py-3 px-5 ' +
                   (isActive
                     ? 'rounded-md bg-primary-black text-primary-white'
                     : '')
@@ -62,7 +62,7 @@ export default function Nav() {
               <NavLink
                 to={ROUTE_PATHS.Blog}
                 className={({ isActive }) =>
-                  'py-1 px-4 ' +
+                  'py-3 px-5 ' +
                   (isActive
                     ? 'rounded-md bg-primary-black text-primary-white'
                     : '')
@@ -73,7 +73,6 @@ export default function Nav() {
             </li>
           </ul>
           <ul className='flex items-center gap-5'>
-            <li className='w-[0.10rem] h-7 bg-primary-400 rounded-lg ml-auto'></li>
             <li>
               <button
                 className='flex items-center gap-1'
@@ -112,7 +111,7 @@ export default function Nav() {
                 <NavLink
                   to={ROUTE_PATHS.Home}
                   className={({ isActive }) =>
-                    'py-1 px-4 ' +
+                    'py-3 px-5 ' +
                     (isActive
                       ? 'rounded-md bg-primary-black text-primary-white'
                       : '')
@@ -125,7 +124,7 @@ export default function Nav() {
                 <NavLink
                   to={ROUTE_PATHS.AllProjects}
                   className={({ isActive }) =>
-                    'py-1 px-4 ' +
+                    'py-3 px-5 ' +
                     (isActive
                       ? 'rounded-md bg-primary-black text-primary-white'
                       : '')
@@ -138,7 +137,7 @@ export default function Nav() {
                 <NavLink
                   to={ROUTE_PATHS.Blog}
                   className={({ isActive }) =>
-                    'py-1 px-4 ' +
+                    'py-3 px-5 ' +
                     (isActive
                       ? 'rounded-md bg-primary-black text-primary-white'
                       : '')

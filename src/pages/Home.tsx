@@ -164,39 +164,33 @@ function Skills() {
           <p className='text-sm first-letter:text-3xl mt-3 first-letter:text-secondary-400 first-letter:font-medium leading-8 text-primary-gray'>
             These are the most tools I'm Comfortable Using
           </p> */}
-          <ul className='mt-10 flex items-center justify-evenly gap-5 child:flex child:flex-col child:items-center child:gap-4 child:py-3 child:px-5 lg:child:py-5 lg:child:px-10 child:rounded-md flex-wrap md:w-[70vw]'>
+          <ul className='mt-10 flex items-center justify-center md:justify-evenly gap-10 md:gap-5 child:flex child:flex-col child:items-center child:gap-4 child:py-3 child:px-5 lg:child:py-5 lg:child:px-10 child:rounded-md flex-wrap md:w-[60vw]'>
             <li className='shadow-md shadow-[#007ACC]/10'>
-              <span className='font-light text-lg tracking-wider text-[#007ACC]'>
-                TypeScript
-              </span>
+              <span className='text-xl text-[#007ACC]'>TypeScript</span>
               <SiTypescript className='w-8 h-8 fill-[#007ACC]' />
             </li>
 
             <li className='shadow-md shadow-[#00D8FF]/10'>
-              <span className='font-light text-lg tracking-wider text-[#00D8FF]'>
-                React
-              </span>
+              <span className='text-xl text-[#00D8FF]'>React</span>
               <SiReact className='w-8 h-8 fill-[#00D8FF]' />
             </li>
 
             <li className='shadow-md shadow-[#1EA8BC]/10'>
-              <span className='font-light text-lg tracking-wider bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
+              <span className='text-xl bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
                 Tailwind
               </span>
               <SiTailwindcss className='w-8 h-8 fill-[#1EA8BC]' />
             </li>
 
             <li className='shadow-md shadow-[#F6820C]/10'>
-              <span className='font-light text-lg tracking-wider bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
+              <span className='text-xl bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
                 Firebase
               </span>
               <SiFirebase className='w-8 h-8  fill-[#F6820C]' />
             </li>
 
             <li className='shadow-md shadow-[#E535AB]/10'>
-              <span className='font-light text-lg tracking-wider text-[#E535AB] '>
-                GraphQl
-              </span>
+              <span className='text-xl text-[#E535AB] '>GraphQl</span>
               <SiGraphql className='w-8 h-8 fill-[#E535AB]' />
             </li>
           </ul>
