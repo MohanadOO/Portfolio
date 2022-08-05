@@ -108,11 +108,14 @@ function AboutMe() {
 
       <div className='flex flex-col-reverse md:flex-row items-center md:items-stretch gap-10'>
         <div>
-          <img
-            className='aspect-[1/1] max-w-[15rem] xl:max-w-sm 3xl:max-w-md rounded-md object-cover object-center'
-            src='/images/MyPicture.png'
-            alt='Mohanad Alrwaihy Picture'
-          />
+          <picture>
+            <source srcSet='/images/MyPicture.webp' type='image/webp' />
+            <img
+              className='aspect-[1/1] max-w-[15rem] xl:max-w-sm 3xl:max-w-md rounded-md object-cover object-center'
+              src='/images/MyPicture.png'
+              alt='Mohanad Alrwaihy Picture'
+            />
+          </picture>
         </div>
         <div className='flex flex-col gap-5 items-center md:items-start justify-evenly'>
           <h3 className='font-bold py-2 px-5 bg-primary-black text-primary-white rounded-md shadow-lg lg:text-lg xl:text-xl'>

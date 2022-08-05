@@ -31,15 +31,16 @@ export default function ProjectCard({ link }: ProjectCardType) {
     )
   })
 
-  
-
   return (
     <div className='bg-white border-[1px] rounded-md border-primary-black shadow-[7px_7px_0px_black] max-w-sm mx-auto pb-5'>
-      <img
-        className='max-w-sm w-full aspect-[16/11] object-cover object-center contrast-75 cursor-pointer'
-        src={`${mainImgURL}.png`}
-        alt={`${locale === 'ar-SA' ? title.ar : title.en}_preview`}
-      />
+      <picture>
+        <source srcSet={`${mainImgURL}.webp`} type='image/webp' />
+        <img
+          className='max-w-sm w-full aspect-[16/11] object-cover object-center contrast-75'
+          src={`${mainImgURL}.png`}
+          alt={`${locale === 'ar-SA' ? title.ar : title.en}_preview`}
+        />
+      </picture>
       <div className='p-5'>
         <ul className='w-full flex mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:text-primary-white'>
           {allSkills}
