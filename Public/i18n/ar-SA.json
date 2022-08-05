@@ -22,5 +22,9 @@
     "sectionHeader": "مشاريعي",
     "checkProject": "اقرأ اكثر",
     "viewAll": "كل المشاريع"
+  },
+  "footer": {
+    "text": "صمم بكل حب عن طريق",
+    "name": "مهند الرويحي"
   }
 }

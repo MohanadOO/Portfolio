@@ -22,5 +22,9 @@
     "sectionHeader": "My Work",
     "checkProject": "Check Project",
     "viewAll": "View All"
+  },
+  "footer": {
+    "text": "Made With Care By",
+    "name": "Mohanad Alrwaihy"
   }
 }
