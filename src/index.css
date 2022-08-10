@@ -9,6 +9,6 @@
 
 @layer components {
   .section_header {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-400 z-10 uppercase first-letter:py-5 first-letter:text-primary-white en:first-letter:pl-16 ar:first-letter:pr-16  first-letter:bg-primary-400 first-letter:rounded-md first-letter:shadow-lg;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-400 z-10 uppercase first-letter:py-5 first-letter:text-primary-white en:first-letter:pl-16 ar:first-letter:pr-16  first-letter:bg-primary-400 first-letter:rounded-md  en:first-letter:shadow-[-7px_7px_0_black] ar:first-letter:shadow-[7px_7px_0_black];
   }
 }

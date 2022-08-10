@@ -7,20 +7,22 @@
   },
   "header": {
     "hello": "Hello I'm Mohanad",
-    "subText": "Modern Web Site Developer",
+    "subText": "Websites developer passionate to keep up with new web technologies",
     "about": "About Me"
   },
   "aboutMe": {
     "sectionHeader": "About",
-    "aboutMe": "Electronics Engineer Graduate ⚡ | Web Developer Self Taught",
-    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    "aboutMe": "Electronics Engineer ⚡ | Web Developer 💻",
+    "descP1": "My name is Mohanad Alrwaihy I have a Bachelor degree in Electronics Engineering from MMU University (MMU) In Malaysia.",
+    "descP2": "In June 2021 In a Trimester break I wanted to learn something new and because of my experience in my field I knew that I love anything related to coding and after doing some research I discovered freeCodeCamp and start learning more and more about Web Development Since then."
   },
   "skills": {
-    "sectionHeader": "Skills"
+    "sectionHeader": "Skills",
+    "subText": "These are the most tools I'm working with."
   },
   "projects": {
     "sectionHeader": "My Work",
-    "checkProject": "Check Project",
+    "checkProject": "Read More",
     "viewAll": "View All"
   },
   "footer": {

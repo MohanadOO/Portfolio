@@ -68,14 +68,19 @@ export default function App() {
   return (
     <>
       <Nav />
-      <Routes>
-        <Route path={ROUTE_PATHS.Home} element={<Home />} />
-        <Route path={ROUTE_PATHS.Blog} element={<Blog />} />
-        <Route path={ROUTE_PATHS.AllProjects} element={<AllProjects />} />
-        <Route path={ROUTE_PATHS.ProjectDetails} element={<ProjectDetails />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-      <Footer />
+      <div className='min-h-screen relative'>
+        <Routes>
+          <Route path={ROUTE_PATHS.Home} element={<Home />} />
+          <Route path={ROUTE_PATHS.Blog} element={<Blog />} />
+          <Route path={ROUTE_PATHS.AllProjects} element={<AllProjects />} />
+          <Route
+            path={ROUTE_PATHS.ProjectDetails}
+            element={<ProjectDetails />}
+          />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   )
 }

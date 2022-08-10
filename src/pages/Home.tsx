@@ -17,7 +17,9 @@ import { useI18n } from '../i18n/Internationalization'
 export default function Home() {
   return (
     <>
+      <div className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10'>
       <div className='mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 child:my-64'>
+
         <Header />
         <AboutMe />
         <Skills />
@@ -38,14 +40,21 @@ function Header() {
     >
       <div className='flex flex-col gap-10'>
         <h1 className='text-7xl lg:text-8xl 2xl:text-9xl text-primary-400 font-bold max-w-lg'>
+          className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-400 to-secondary-400 text-transparent bg-clip-text font-bold mx-auto py-7'
+        >
           {hello}
         </h1>
         <p className='font-light text-2xl lg:text-3xl 2xl:text-4xl text-primary-black/70 italic'>
+            className='cursor-pointer inline-block text-primary-black'
+          >
+            👋
+          className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 italic max-w-sm lg:max-w-md mx-auto'
+        >
           {subText}
         </p>
         <a
           href='#about-me'
-          className='flex items-center gap-3 self-center md:self-start py-3 px-6 border-2 border-primary-400 rounded-md text-primary-400 shadow-md shadow-secondary-400/40'
+          className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black rounded-md text-primary-400 shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-[-7px_7px_0_black] ar:shadow-[7px_7px_0_black]'
         >
           <span>{about}</span>
           <HiArrowCircleDown className='w-6 h-6' />
@@ -54,6 +63,7 @@ function Header() {
 
       <svg
         className='absolute -z-10 opacity-10 md:relative md:opacity-100'
+        className='absolute -z-10 opacity-10'
         width='389'
         height='403'
         viewBox='0 0 389 403'
@@ -93,14 +103,14 @@ function Header() {
 
 function AboutMe() {
   const { translate } = useI18n()
-  const { sectionHeader, aboutMe, desc } = translate('aboutMe')
+  const { sectionHeader, aboutMe, descP1, descP2 } = translate('aboutMe')
 
   return (
     <section
       id='about-me'
       className='flex flex-col gap-10 lg:gap-20 my-12 scroll-mt-28'
     >
-      <div className='flex items-center mb-10 md:mx-0'>
+      <div className='flex items-center mx-auto mb-10 md:mx-0 '>
         <h2 className='section_header'>{sectionHeader}</h2>
       </div>
 
@@ -108,10 +118,16 @@ function AboutMe() {
 
       <div className='flex flex-col-reverse md:flex-row items-center md:items-stretch gap-10'>
         <div>
+        className='flex flex-col-reverse md:flex-row items-center md:items-start justify-around gap-10 lg:gap-20 pb-12'
+      >
+            className='font-bold font-pattaya text-xs lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
+          >
+            {aboutMe}
           <picture>
             <source srcSet='/images/MyPicture.webp' type='image/webp' />
             <img
               className='aspect-[1/1] max-w-[15rem] xl:max-w-sm 3xl:max-w-md rounded-md object-cover object-center'
+              className='aspect-square max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 cursor-pointer'
               src='/images/MyPicture.png'
               alt='Mohanad Alrwaihy Picture'
             />
@@ -142,54 +158,80 @@ function AboutMe() {
       </div>
 
       <hr className='border-primary-black/40' />
+          className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden'
+        >
+            className='text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
+          >
+            {descP1}
+            variants={fadeInRight}
+            className='mb-7 text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
+          >
+            {descP2}
+            className='flex items-center gap-4 mt-auto child-hover:scale-110'
+          >
+              <a href='https://github.com/MohanadOO' target='_blank'>
+                <AiFillGithub className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
+              </a>
+              <a href='https://twitter.com/Mohanad_OOO' target='_blank'>
+                <AiOutlineTwitter className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
+              </a>
+              <a
+                href='https://www.linkedin.com/in/mohanad-alrwahiy-176aa719b/'
+                target='_blank'
+              >
+                <AiFillLinkedin className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
+              <a href='' target='_blank'>
+                <BsWhatsapp className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
+              </a>
     </section>
   )
 }
 
 function Skills() {
   const { translate } = useI18n()
+  const { sectionHeader, subText } = translate('skills')
+
   return (
     <section
       id='skills'
-      className='flex flex-col md:flex-row justify-center md:justify-start items-center w-full scroll-mt-28'
+      className='flex flex-col md:flex-row justify-center md:justify-start items-center w-full scroll-mt-28 my-48'
     >
       <div className='flex flex-col gap-5 max-w-md lg:max-w-lg w-full'>
         <div className='flex items-center mb-10 mx-auto md:mx-0'>
           <h2 className='section_header first-letter:rounded-full first-letter:bg-secondary-400 text-secondary-400'>
-            {translate('skills')['sectionHeader']}
+            {sectionHeader}
           </h2>
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
-          {/* <h3 className='uppercase text-3xl'>My Best Skills</h3>
-          <p className='text-sm first-letter:text-3xl mt-3 first-letter:text-secondary-400 first-letter:font-medium leading-8 text-primary-gray'>
-            These are the most tools I'm Comfortable Using
-          </p> */}
-          <ul className='mt-10 flex items-center justify-center md:justify-evenly gap-10 md:gap-5 child:flex child:flex-col child:items-center child:gap-4 child:py-3 child:px-5 lg:child:py-5 lg:child:px-10 child:rounded-md flex-wrap md:w-[60vw]'>
-            <li className='shadow-md shadow-[#007ACC]/10'>
+          <h3 className='text-xl first-letter:font-pattaya first-letter:text-5xl mt-3 first-letter:text-secondary-400 first-letter:font-medium leading-8 '>
+            {subText}
+          </h3>
+          <ul className='mt-10 flex items-center justify-center md:justify-evenly gap-10 md:gap-5 child:flex child:flex-col child:items-center child:gap-4 child:py-3 child:px-5 lg:child:py-5 lg:child:px-10 child:rounded-md flex-wrap md:w-[80vw]'>
+            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#007ACC]/60 ar:shadow-[#007ACC]/60'>
               <span className='text-xl text-[#007ACC]'>TypeScript</span>
               <SiTypescript className='w-8 h-8 fill-[#007ACC]' />
             </li>
 
-            <li className='shadow-md shadow-[#00D8FF]/10'>
+            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#00D8FF]/60 ar:shadow-[#00D8FF]/60'>
               <span className='text-xl text-[#00D8FF]'>React</span>
               <SiReact className='w-8 h-8 fill-[#00D8FF]' />
             </li>
 
-            <li className='shadow-md shadow-[#1EA8BC]/10'>
+            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#1EA8BC]/60 ar:shadow-[#1EA8BC]/60'>
               <span className='text-xl bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
                 Tailwind
               </span>
               <SiTailwindcss className='w-8 h-8 fill-[#1EA8BC]' />
             </li>
 
-            <li className='shadow-md shadow-[#F6820C]/10'>
+            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#F6820C]/60 ar:shadow-[#F6820C]/60'>
               <span className='text-xl bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
                 Firebase
               </span>
               <SiFirebase className='w-8 h-8  fill-[#F6820C]' />
             </li>
 
-            <li className='shadow-md shadow-[#E535AB]/10'>
+            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#E535AB]/60 ar:shadow-[#E535AB]/60'>
               <span className='text-xl text-[#E535AB] '>GraphQl</span>
               <SiGraphql className='w-8 h-8 fill-[#E535AB]' />
             </li>
@@ -211,9 +253,16 @@ function Projects() {
           <h2 className='section_header'>{sectionHeader}</h2>
         </div>
 
+        <div className='bg-gradient-to-r  from-primary-400/60 to-secondary-400/60 pt-10 pb-32 flex flex-col gap-20'>
         <div className='bg-primary-400/40 pt-10 pb-32 flex flex-col gap-20'>
           <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-12 md:mx-20 lg:mx-40 gap-10'>
+            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center mx-12 md:mx-20 lg:mx-40 gap-10'
+          >
             <ProjectCard link={'chat-application'} />
+            <ProjectCard link={'half-life-2-home'} />
+            <ProjectCard link={'manage-landing-page'} />
+            <ProjectCard link={'bookmark-landing-page'} />
+            <ProjectCard link={'room-home-page'} />
             <ProjectCard link={'shop-application'} />
           </div>
 
