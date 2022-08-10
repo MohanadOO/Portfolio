@@ -5,12 +5,12 @@
       "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
       "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
     },
-    "mainImgURL": "/images/chat_application",
+    "mainImgURL": "/images/Projects/Chat Application/1",
     "images": [
-      "images/chat_application",
-      "images/chat_application",
-      "images/chat_application",
-      "images/chat_application"
+      "/images/Projects/Chat Application/1",
+      "/images/Projects/Chat Application/2",
+      "/images/Projects/Chat Application/3",
+      "/images/Projects/Chat Application/4"
     ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
@@ -26,12 +26,12 @@
       "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
       "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
     },
-    "mainImgURL": "/images/shop_application",
+    "mainImgURL": "/images/Projects/Shop Application/1",
     "images": [
-      "images/chat_application",
-      "images/chat_application",
-      "images/chat_application",
-      "images/chat_application"
+      "/images/Projects/Shop Application/1",
+      "/images/Projects/Shop Application/2",
+      "/images/Projects/Shop Application/3",
+      "/images/Projects/Shop Application/4"
     ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
@@ -40,5 +40,90 @@
     ],
     "github": "",
     "preview": ""
+  },
+  "half-life-2-home": {
+    "title": { "en": "Half Life 2", "ar": "هالف لايف 2" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/Projects/Half-Life 2/1",
+    "images": [
+      "/images/Projects/Half-Life 2/1",
+      "/images/Projects/Half-Life 2/2",
+      "/images/Projects/Half-Life 2/3",
+      "/images/Projects/Half-Life 2/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "TypeScript", "icon": "/icons/typescript.svg" },
+      { "name": "Framer", "icon": "/icons/framer.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/half-life-2-home",
+    "preview": "https://half-life-2-home.vercel.app/"
+  },
+  "manage-landing-page": {
+    "title": { "en": "Manage Landing Page", "ar": "مانيج صفحة هبوط" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/Projects/Manage Landing Page/1",
+    "images": [
+      "/images/Projects/Manage Landing Page/1",
+      "/images/Projects/Manage Landing Page/2",
+      "/images/Projects/Manage Landing Page/3",
+      "/images/Projects/Manage Landing Page/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Swiper", "icon": "/icons/swiper.svg" },
+      { "name": "Headless UI", "icon": "/icons/headlessui.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/manage-landing-page",
+    "preview": "https://manage-landing-page-plum.vercel.app/"
+  },
+  "bookmark-landing-page": {
+    "title": { "en": "Bookmark Landing Page", "ar": "بووكمارك صفحة هبوط" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/Projects/Bookmark Landing Page/1",
+    "images": [
+      "/images/Projects/Bookmark Landing Page/1",
+      "/images/Projects/Bookmark Landing Page/2",
+      "/images/Projects/Bookmark Landing Page/3",
+      "/images/Projects/Bookmark Landing Page/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Headless UI", "icon": "/icons/headlessui.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/bookmark-landing-page",
+    "preview": "https://bookmark-landing-page-beta-nine.vercel.app/"
+  },
+  "room-home-page": {
+    "title": { "en": "Room Home Page", "ar": "صفحة منزل رئيسية" },
+    "desc": {
+      "en": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapienLorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
+      "ar": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور "
+    },
+    "mainImgURL": "/images/Projects/Room Home Page/1",
+    "images": [
+      "/images/Projects/Room Home Page/1",
+      "/images/Projects/Room Home Page/2",
+      "/images/Projects/Room Home Page/3",
+      "/images/Projects/Room Home Page/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/room-homepage",
+    "preview": "https://room-homepage-phi-liard.vercel.app/"
   }
 }
