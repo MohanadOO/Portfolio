@@ -14,6 +14,8 @@ import {
 } from 'react-icons/si'
 import { useI18n } from '../i18n/Internationalization'
 
+import { motion } from 'framer-motion'
+
 export default function Home() {
   return (
     <>
@@ -36,33 +38,47 @@ function Header() {
   return (
     <section
       id='header'
-      className='self-center text-center md:text-left ar:md:text-right flex flex-col gap-10 md:flex-row justify-center md:justify-between items-center w-full'
+      className='self-center text-center flex justify-center items-center w-full h-screen'
     >
-      <div className='flex flex-col gap-10'>
-        <h1 className='text-7xl lg:text-8xl 2xl:text-9xl text-primary-400 font-bold max-w-lg'>
+      <motion.div
+        variants={fadeInContainer}
+        initial='initial'
+        animate='animate'
+        className='flex flex-col gap-10'
+      >
+        <motion.h1
+          variants={fadeInLeft}
           className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-400 to-secondary-400 text-transparent bg-clip-text font-bold mx-auto py-7'
         >
           {hello}
-        </h1>
-        <p className='font-light text-2xl lg:text-3xl 2xl:text-4xl text-primary-black/70 italic'>
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
             className='cursor-pointer inline-block text-primary-black'
           >
             👋
+          </motion.div>
+        </motion.h1>
+        <motion.p
+          variants={fadeInLeft}
           className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 italic max-w-sm lg:max-w-md mx-auto'
         >
           {subText}
-        </p>
-        <a
+        </motion.p>
+        <motion.a
+          variants={fadeInLeft}
           href='#about-me'
           className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black rounded-md text-primary-400 shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-[-7px_7px_0_black] ar:shadow-[7px_7px_0_black]'
         >
           <span>{about}</span>
           <HiArrowCircleDown className='w-6 h-6' />
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
 
-      <svg
-        className='absolute -z-10 opacity-10 md:relative md:opacity-100'
+      <motion.svg
+        variants={shapesContainerVariant}
+        initial='hidden'
+        animate='visible'
         className='absolute -z-10 opacity-10'
         width='389'
         height='403'
@@ -70,33 +86,32 @@ function Header() {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <path
+        <motion.path
+          variants={fadeTop}
           d='M187.286 93.3333C187.286 144.88 145.499 186.667 93.9524 186.667C42.4058 186.667 0.619019 144.88 0.619019 93.3333C0.619019 41.7868 42.4058 0 93.9524 0C145.499 0 187.286 41.7868 187.286 93.3333Z'
           fill='#5F95D8'
           fillOpacity='0.3'
         />
-        <path
+        <motion.path
+          variants={fadeTop}
           d='M187.286 309.167C187.286 360.713 145.499 402.5 93.9524 402.5C42.4058 402.5 0.619019 360.713 0.619019 309.167C0.619019 257.62 42.4058 215.833 93.9524 215.833C145.499 215.833 187.286 257.62 187.286 309.167Z'
           fill='#7257D1'
         />
-        <rect
+        <motion.rect
+          variants={fadeTop}
           x='202.286'
           width='186.667'
           height='186.667'
           rx='50'
           fill='#5F95D8'
         />
-        <path
+        <motion.path
+          variants={fadeTop}
           d='M202.286 265.667C202.286 238.052 224.671 215.667 252.286 215.667H338.952C366.567 215.667 388.952 238.052 388.952 265.667V352.333C388.952 379.948 366.567 402.333 338.952 402.333H252.286C224.672 402.333 202.286 379.948 202.286 352.333V265.667Z'
           fill='#6B56EB'
           fillOpacity='0.5'
         />
-        <path
-          d='M202.286 265.667C202.286 238.052 224.671 215.667 252.286 215.667H338.952C366.567 215.667 388.952 238.052 388.952 265.667V352.333C388.952 379.948 366.567 402.333 338.952 402.333H252.286C224.672 402.333 202.286 379.948 202.286 352.333V265.667Z'
-          fill='#7257D1'
-          fillOpacity='0.3'
-        />
-      </svg>
+      </motion.svg>
     </section>
   )
 }
@@ -114,75 +129,88 @@ function AboutMe() {
         <h2 className='section_header'>{sectionHeader}</h2>
       </div>
 
-      <hr className='border-primary-black/40' />
-
-      <div className='flex flex-col-reverse md:flex-row items-center md:items-stretch gap-10'>
-        <div>
+      <motion.div
+        variants={fadeInContainer}
+        initial='initial'
+        whileInView='animate'
+        viewport={{ once: true }}
         className='flex flex-col-reverse md:flex-row items-center md:items-start justify-around gap-10 lg:gap-20 pb-12'
       >
+        <motion.div variants={fadeInLeft}>
+          <motion.h3
+            variants={fadeInRight}
             className='font-bold font-pattaya text-xs lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
           >
             {aboutMe}
+          </motion.h3>
           <picture>
             <source srcSet='/images/MyPicture.webp' type='image/webp' />
-            <img
-              className='aspect-[1/1] max-w-[15rem] xl:max-w-sm 3xl:max-w-md rounded-md object-cover object-center'
+            <motion.img
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 10,
+              }}
               className='aspect-square max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 cursor-pointer'
               src='/images/MyPicture.png'
               alt='Mohanad Alrwaihy Picture'
             />
           </picture>
-        </div>
-        <div className='flex flex-col gap-5 items-center md:items-start justify-evenly'>
-          <h3 className='font-bold py-2 px-5 bg-primary-black text-primary-white rounded-md shadow-lg lg:text-lg xl:text-xl'>
-            {aboutMe}
-          </h3>
-          <p className='text-sm md:text-base xl:text-lg 2xl:text-xl font-light first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-black first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 2xl:max-w-2xl text-primary-black'>
-            {desc}
-          </p>
-          <ul className='flex items-center gap-4 '>
-            <li>
-              <AiFillGithub className='w-6 h-6 lg:w-8 lg:h-8 fill-primary-400 cursor-pointer' />
-            </li>
-            <li>
-              <AiOutlineTwitter className='w-6 h-6 lg:w-8 lg:h-8 fill-primary-400 cursor-pointer' />
-            </li>
-            <li>
-              <AiFillLinkedin className='w-6 h-6 lg:w-8 lg:h-8 fill-primary-400 cursor-pointer' />
-            </li>
-            <li>
-              <BsWhatsapp className='w-6 h-6 lg:w-8 lg:h-8 fill-primary-400 cursor-pointer' />
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <hr className='border-primary-black/40' />
+        </motion.div>
+        <motion.div
+          variants={fadeInContainer}
+          initial='initial'
+          whileInView='animate'
+          viewport={{ once: true }}
           className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden'
         >
+          <motion.p
+            variants={fadeInRight}
             className='text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
           >
             {descP1}
+          </motion.p>
+          <motion.p
             variants={fadeInRight}
             className='mb-7 text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
           >
             {descP2}
+          </motion.p>
+          <motion.ul
+            variants={fadeInContainer}
+            initial='initial'
+            whileInView='animate'
+            viewport={{ once: true }}
             className='flex items-center gap-4 mt-auto child-hover:scale-110'
           >
+            <motion.li variants={fadeInRight}>
               <a href='https://github.com/MohanadOO' target='_blank'>
                 <AiFillGithub className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
+            </motion.li>
+            <motion.li variants={fadeInRight}>
               <a href='https://twitter.com/Mohanad_OOO' target='_blank'>
                 <AiOutlineTwitter className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
+            </motion.li>
+            <motion.li variants={fadeInRight}>
               <a
                 href='https://www.linkedin.com/in/mohanad-alrwahiy-176aa719b/'
                 target='_blank'
               >
                 <AiFillLinkedin className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
+              </a>
+            </motion.li>
+            <motion.li variants={fadeInRight}>
               <a href='' target='_blank'>
                 <BsWhatsapp className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
+            </motion.li>
+          </motion.ul>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
@@ -254,8 +282,10 @@ function Projects() {
         </div>
 
         <div className='bg-gradient-to-r  from-primary-400/60 to-secondary-400/60 pt-10 pb-32 flex flex-col gap-20'>
-        <div className='bg-primary-400/40 pt-10 pb-32 flex flex-col gap-20'>
-          <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-12 md:mx-20 lg:mx-40 gap-10'>
+          <motion.div
+            variants={projectsContainer}
+            initial='initial'
+            whileInView='animate'
             className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center mx-12 md:mx-20 lg:mx-40 gap-10'
           >
             <ProjectCard link={'chat-application'} />
@@ -263,9 +293,7 @@ function Projects() {
             <ProjectCard link={'manage-landing-page'} />
             <ProjectCard link={'bookmark-landing-page'} />
             <ProjectCard link={'room-home-page'} />
-            <ProjectCard link={'shop-application'} />
-          </div>
-
+          </motion.div>
           <Link
             to={ROUTE_PATHS.AllProjects}
             className='py-3 px-6 w-32 bg-primary-white text-primary-black self-center rounded-lg shadow-lg font-pattaya text-center'
@@ -276,4 +304,87 @@ function Projects() {
       </div>
     </section>
   )
+}
+
+const shapesContainerVariant = {
+  hidden: {
+    scale: 0.9,
+  },
+  visible: {
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.5,
+      duration: 1.2,
+      when: 'afterChildren',
+      repeat: Infinity,
+      repeatType: 'reverse',
+      type: 'tween',
+    },
+  },
+}
+
+const fadeInContainer = {
+  initial: {
+    y: -100,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.7,
+    },
+  },
+}
+
+const projectsContainer = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.7,
+    },
+  },
+}
+
+const fadeTop = {
+  hidden: {
+    scale: 0,
+    y: '-100%',
+  },
+  visible: {
+    scale: 1,
+    y: 0,
+  },
+}
+
+const fadeInLeft = {
+  initial: {
+    scale: 0,
+    x: '-100%',
+  },
+  animate: {
+    scale: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+}
+
+const fadeInRight = {
+  initial: {
+    scale: 0,
+    x: '200%',
+  },
+  animate: {
+    scale: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
 }
