@@ -20,8 +20,6 @@ export default function Home() {
   return (
     <>
       <div className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10'>
-      <div className='mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 child:my-64'>
-
         <Header />
         <AboutMe />
         <Skills />
@@ -134,7 +132,7 @@ function AboutMe() {
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
-        className='flex flex-col-reverse md:flex-row items-center md:items-start justify-around gap-10 lg:gap-20 pb-12'
+        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center justify-evenly gap-10 pb-12'
       >
         <motion.div variants={fadeInLeft}>
           <motion.h3
@@ -153,7 +151,7 @@ function AboutMe() {
                 stiffness: 400,
                 damping: 10,
               }}
-              className='aspect-square max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 cursor-pointer'
+              className='aspect-square md:aspect-[3/4] max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 cursor-pointer'
               src='/images/MyPicture.png'
               alt='Mohanad Alrwaihy Picture'
             />
@@ -164,17 +162,17 @@ function AboutMe() {
           initial='initial'
           whileInView='animate'
           viewport={{ once: true }}
-          className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden'
+          className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden p-5'
         >
           <motion.p
             variants={fadeInRight}
-            className='text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
+            className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80'
           >
             {descP1}
           </motion.p>
           <motion.p
             variants={fadeInRight}
-            className='mb-7 text-sm sm:text-base xl:text-xl 2xl:text-2xl first-letter:text-3xl md:first-letter:text-4xl lg:first-letter:text-5xl xl:first-letter:text-6xl 2xl:first-letter:text-7xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black font-light'
+            className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80'
           >
             {descP2}
           </motion.p>
