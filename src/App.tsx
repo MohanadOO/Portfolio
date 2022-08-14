@@ -10,6 +10,9 @@ import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import ProjectDetails from './pages/ProjectDetails'
 
+import ar from './i18n/ar-SA.json'
+import en from './i18n/en-US.json'
+
 export const ROUTE_PATHS = {
   Home: '/',
   AllProjects: '/projects',
@@ -25,12 +28,7 @@ export default function App() {
   const { setMessages, loaded, setLocale } = useI18n()
 
   useEffect(() => {
-    Promise.all([
-      fetch('/i18n/ar-SA.json').then((x) => x.json()),
-      fetch('/i18n/en-US.json').then((x) => x.json()),
-    ]).then(([arSA, enUS]) => {
-      setMessages({ 'ar-SA': arSA, 'en-US': enUS })
-    })
+    setMessages({ 'ar-SA': ar, 'en-US': en })
   }, [setMessages])
 
   useEffect(() => {

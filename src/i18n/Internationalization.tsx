@@ -19,7 +19,7 @@ const I18nContext = createContext<{
     key: string,
     defaultMessage?: string,
     local?: string
-  ) => string | undefined
+  ) => string | undefined | any
 }>({
   messages: {},
   setMessages: () => {},
