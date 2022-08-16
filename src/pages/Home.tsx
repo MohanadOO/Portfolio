@@ -292,12 +292,6 @@ function Projects() {
             <ProjectCard link={'bookmark-landing-page'} />
             <ProjectCard link={'room-home-page'} />
           </motion.div>
-          <Link
-            to={ROUTE_PATHS.AllProjects}
-            className='py-3 px-6 w-32 bg-primary-white text-primary-black self-center rounded-lg shadow-lg font-pattaya text-center'
-          >
-            {viewAll}
-          </Link>
         </div>
       </div>
     </section>

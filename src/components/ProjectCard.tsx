@@ -39,9 +39,9 @@ export default function ProjectCard({ link }: ProjectCardType) {
       <motion.div
         variants={cardVariant}
         whileHover='hover'
-        className='bg-white border-[1px] border-primary-black shadow-[7px_7px_0px_black] max-w-sm mx-auto pb-5'
+        className='bg-white border-[1px] border-primary-black shadow-[7px_7px_0px_black] max-w-sm mx-auto pb-5 h-full flex flex-col'
       >
-        <div className='overflow-hidden relative [&_a]:hover:opacity-100 [&_picture_img]:hover:scale-100 [&_picture_img]:hover:brightness-75'>
+        <div className='overflow-hidden relative [&_a]:hover:opacity-100 [&_picture_img]:hover:scale-100 [&_picture_img]:hover:brightness-75 h-full'>
           <picture>
             <source srcSet={`${mainImgURL}.webp`} type='image/webp' />
             <img
@@ -67,26 +67,26 @@ export default function ProjectCard({ link }: ProjectCardType) {
             <AiFillGithub className='w-6 h-6 fill-primary-white' />
           </a>
         </div>
-        <div className='p-5'>
+        <div className='p-5 h-full'>
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:text-primary-white'>
+            <li>
+              <span className='text-xs lg:text-sm'>{skills[0].name}</span>
+              <img
+                className='w-4 h-4 bg-transparent'
+                src={skills[0].icon}
+                alt={`${skills[0].name}_icon`}
+              />
+            </li>
             {skills[1] !== undefined && (
               <li>
-                <span className='text-xs lg:text-sm'>{skills[0].name}</span>
+                <span className='text-xs lg:text-sm'>{skills[1].name}</span>
                 <img
                   className='w-4 h-4 bg-transparent'
-                  src={skills[0].icon}
-                  alt={`${skills[0].name}_icon`}
+                  src={skills[1].icon}
+                  alt={`${skills[1].name}_icon`}
                 />
               </li>
             )}
-            <li>
-              <span className='text-xs lg:text-sm'>{skills[1].name}</span>
-              <img
-                className='w-4 h-4 bg-transparent'
-                src={skills[1].icon}
-                alt={`${skills[1].name}_icon`}
-              />
-            </li>
             {skills[2] !== undefined && (
               <li>
                 <span className='text-xs lg:text-sm'>{skills[2].name}</span>
