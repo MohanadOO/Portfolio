@@ -54,30 +54,32 @@ export default function Nav() {
             </li>
             <li>
               <NavLink
+                onClick={(e) => e.preventDefault()}
                 to={ROUTE_PATHS.AllProjects}
                 title={projects}
                 className={({ isActive }) =>
-                  'py-3 px-5 rounded-md ' +
+                  'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                   (isActive
-                    ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                    : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
+                    ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
+                    : 'ring-0 ring-transparent hover:ring-primary-black transition-all')
                 }
               >
-                {projects}
+                {projects}...
               </NavLink>
             </li>
             <li>
               <NavLink
+                onClick={(e) => e.preventDefault()}
                 to={ROUTE_PATHS.Blog}
                 title={blog}
                 className={({ isActive }) =>
-                  'py-3 px-5 rounded-md ' +
+                  'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                   (isActive
-                    ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                    : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
+                    ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
+                    : 'ring-0 ring-transparent hover:ring-primary-black transition-all')
                 }
               >
-                {blog}
+                {blog}...
               </NavLink>
             </li>
           </ul>
@@ -134,30 +136,32 @@ export default function Nav() {
               </li>
               <li onClick={() => setOpenMenu(false)}>
                 <NavLink
+                  onClick={(e) => e.preventDefault()}
                   to={ROUTE_PATHS.AllProjects}
                   title={projects}
                   className={({ isActive }) =>
-                    'py-3 px-5 rounded-md ' +
+                    'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                     (isActive
-                      ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                      : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
+                      ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
+                      : 'ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all')
                   }
                 >
-                  {projects}
+                  {projects}...
                 </NavLink>
               </li>
               <li onClick={() => setOpenMenu(false)}>
                 <NavLink
+                  onClick={(e) => e.preventDefault()}
                   to={ROUTE_PATHS.Blog}
                   title={blog}
                   className={({ isActive }) =>
-                    'py-3 px-5 rounded-md ' +
+                    'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                     (isActive
-                      ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                      : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
+                      ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
+                      : 'ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all')
                   }
                 >
-                  {blog}
+                  {blog}...
                 </NavLink>
               </li>
               <ul className='flex justify-center items-center gap-5 border-t border-primary-gray pt-5'>

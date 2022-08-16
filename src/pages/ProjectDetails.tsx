@@ -64,16 +64,14 @@ export default function ProjectDetails() {
           <div className='flex justify-between mt-5 gap-3'>
             {images.map((image, index) => {
               return (
-                <>
-                  <picture key={index}>
-                    <source srcSet={`${image}.webp`} type='image/webp' />
-                    <img
-                      className='aspect-[2/1] rounded-md object-cover object-top ring-2 ring-primary-400/40'
-                      alt={index}
-                      src={`${image}.png`}
-                    />
-                  </picture>
-                </>
+                <picture key={index}>
+                  <source srcSet={`${image}.webp`} type='image/webp' />
+                  <img
+                    className='aspect-[2/1] rounded-md object-cover object-top ring-2 ring-primary-400/40'
+                    alt={index}
+                    src={`${image}.png`}
+                  />
+                </picture>
               )
             })}
           </div>
