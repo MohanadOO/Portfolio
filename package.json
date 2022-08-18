@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite build && vite preview",
+    "tsPreview": "tsc && vite build && vite preview"
   },
   "dependencies": {
     "framer-motion": "^7.0.1",
