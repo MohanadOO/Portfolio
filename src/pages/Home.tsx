@@ -77,7 +77,7 @@ function Header() {
         variants={shapesContainerVariant}
         initial='hidden'
         animate='visible'
-        className='absolute -z-10 opacity-10'
+        className='absolute -z-10 opacity-10 max-w-[300px] md:max-w-sm xl:max-w-lg'
         width='389'
         height='403'
         viewBox='0 0 389 403'
@@ -162,17 +162,17 @@ function AboutMe() {
           initial='initial'
           whileInView='animate'
           viewport={{ once: true }}
-          className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden p-5'
+          className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden py-5'
         >
           <motion.p
             variants={fadeInRight}
-            className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80'
+            className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
             {descP1}
           </motion.p>
           <motion.p
             variants={fadeInRight}
-            className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80'
+            className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
             {descP2}
           </motion.p>
@@ -223,43 +223,47 @@ function Skills() {
       className='flex flex-col md:flex-row justify-center md:justify-start items-center w-full scroll-mt-28 my-48'
     >
       <div className='flex flex-col gap-5 max-w-md lg:max-w-lg w-full'>
-        <div className='flex items-center mb-10 mx-auto md:mx-0'>
+        <div className='flex items-center mb-12 mx-auto md:mx-0'>
           <h2 className='section_header first-letter:rounded-full first-letter:bg-secondary-400 text-secondary-400'>
             {sectionHeader}
           </h2>
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
-          <h3 className='text-xl first-letter:font-pattaya first-letter:text-5xl mt-3 first-letter:text-secondary-400 first-letter:font-medium leading-8 '>
+          <h3 className='text-xl first-letter:font-pattaya ar:first-letter:font-lato first-letter:text-5xl first-letter:text-secondary-400 first-letter:font-medium leading-8'>
             {subText}
           </h3>
-          <ul className='mt-10 flex items-center justify-center md:justify-evenly gap-10 md:gap-5 child:flex child:flex-col child:items-center child:gap-4 child:py-3 child:px-5 lg:child:py-5 lg:child:px-10 child:rounded-md flex-wrap md:w-[80vw]'>
+          <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw]'>
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#007ACC]/60 ar:shadow-[#007ACC]/60'>
-              <span className='text-xl text-[#007ACC]'>TypeScript</span>
-              <SiTypescript className='w-8 h-8 fill-[#007ACC]' />
+              <span className='text-lg md:text-xl text-[#007ACC]'>
+                TypeScript
+              </span>
+              <SiTypescript className='w-7 h-7 md:w-8 md:h-8 fill-[#007ACC]' />
             </li>
 
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#00D8FF]/60 ar:shadow-[#00D8FF]/60'>
-              <span className='text-xl text-[#00D8FF]'>React</span>
-              <SiReact className='w-8 h-8 fill-[#00D8FF]' />
+              <span className='text-lg md:text-xl text-[#00D8FF]'>React</span>
+              <SiReact className='w-7 h-7 md:w-8 md:h-8 fill-[#00D8FF]' />
             </li>
 
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#1EA8BC]/60 ar:shadow-[#1EA8BC]/60'>
-              <span className='text-xl bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
+              <span className='text-lg md:text-xl bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
                 Tailwind
               </span>
-              <SiTailwindcss className='w-8 h-8 fill-[#1EA8BC]' />
+              <SiTailwindcss className='w-7 h-7 md:w-8 md:h-8 fill-[#1EA8BC]' />
             </li>
 
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#F6820C]/60 ar:shadow-[#F6820C]/60'>
-              <span className='text-xl bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
+              <span className='text-lg md:text-xl bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
                 Firebase
               </span>
-              <SiFirebase className='w-8 h-8  fill-[#F6820C]' />
+              <SiFirebase className='w-7 h-7 md:w-8 md:h-8  fill-[#F6820C]' />
             </li>
 
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#E535AB]/60 ar:shadow-[#E535AB]/60'>
-              <span className='text-xl text-[#E535AB] '>GraphQl</span>
-              <SiGraphql className='w-8 h-8 fill-[#E535AB]' />
+              <span className='text-lg md:text-xl text-[#E535AB] '>
+                GraphQl
+              </span>
+              <SiGraphql className='w-7 h-7 md:w-8 md:h-8 fill-[#E535AB]' />
             </li>
           </ul>
         </div>
