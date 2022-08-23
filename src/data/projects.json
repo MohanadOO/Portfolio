@@ -6,23 +6,10 @@
       "ar": "شاتي هوا برنامج محادثات تم بناءه بأستعمال Socket.IO وهي تقنية تتيح للخادم والمستخدم ان يبقوا على اتصال دائم وبذلك المستخدم يستطيع ان يرسل ويستقبل من السيرفر دون الحاجة لطلب المعلومات كل مرة ولكن سيكون هناك اتصال دائم يتيح ارسال واستقبال البيانات في نفس الوقت, عن طريق شاتي يمكنك اضافة اصدقائك, انضمام .لمجموعة, او انشاء مجموعتك الخاصة والبدء في الدردشة."
     },
     "mainImgURL": "/images/Projects/Chat-Application/1",
-    "images": [
-      "/images/Projects/Chat-Application/1",
-      "/images/Projects/Chat-Application/2",
-      "/images/Projects/Chat-Application/3",
-      "/images/Projects/Chat-Application/4"
-    ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
       { "name": "Socket.io", "icon": "/icons/socket_io.svg" },
-      { "name": "Firebase", "icon": "/icons/firebase.svg" },
-      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
-      { "name": "HeadlessUI", "icon": "/icons/headlessui.svg" },
-      { "name": "React Router", "icon": "/icons/reactrouter.svg" },
-      { "name": "React Hook Forms", "icon": "/icons/reacthookform.svg" },
-      { "name": "Framer Motion", "icon": "/icons/framer.svg" },
-      { "name": "Vercel", "icon": "/icons/vercel.svg" },
-      { "name": "Express", "icon": "/icons/express.svg" }
+      { "name": "Firebase", "icon": "/icons/firebase.svg" }
     ],
     "github": "https://github.com/MohanadOO/chat-app",
     "preview": "https://chat-application-firebase.vercel.app/"
@@ -34,18 +21,10 @@
       "ar": "هذه الصفحة نسخة لموقع Basic Agency مع تغييرات في المحتوى المعروض وأخترت ان اعرض معلومات عامة عن لعبة Half-Life 2 وهي لعبة شوتر تم تطويرها عن طريقة شركة Valve."
     },
     "mainImgURL": "/images/Projects/Half-Life-2/1",
-    "images": [
-      "/images/Projects/Half-Life-2/1",
-      "/images/Projects/Half-Life-2/2",
-      "/images/Projects/Half-Life-2/3",
-      "/images/Projects/Half-Life-2/4"
-    ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
       { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
-      { "name": "TypeScript", "icon": "/icons/typescript.svg" },
-      { "name": "Framer Motion", "icon": "/icons/framer.svg" },
-      { "name": "Vercel", "icon": "/icons/vercel.svg" }
+      { "name": "TypeScript", "icon": "/icons/typescript.svg" }
     ],
     "github": "https://github.com/MohanadOO/half-life-2-home",
     "preview": "https://half-life-2-home.vercel.app/"
@@ -57,17 +36,10 @@
       "ar": "هذا حل لأحدى تحديات موقع Frontend Mentor الذي يعرض الكثير من التحديات التي تساعد على سقل مهارات المبرمجين عن طريق بناء مشاريع واقعية."
     },
     "mainImgURL": "/images/Projects/Manage-Landing-Page/1",
-    "images": [
-      "/images/Projects/Manage-Landing-Page/1",
-      "/images/Projects/Manage-Landing-Page/2",
-      "/images/Projects/Manage-Landing-Page/3",
-      "/images/Projects/Manage-Landing-Page/4"
-    ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
       { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
-      { "name": "Swiper", "icon": "/icons/swiper.svg" },
-      { "name": "HeadlessUI", "icon": "/icons/headlessui.svg" }
+      { "name": "Swiper", "icon": "/icons/swiper.svg" }
     ],
     "github": "https://github.com/MohanadOO/manage-landing-page",
     "preview": "https://manage-landing-page-plum.vercel.app/"
@@ -79,17 +51,10 @@
       "ar": "هذا حل لأحدى تحديات موقع Frontend Mentor الذي يعرض الكثير من التحديات التي تساعد على سقل مهارات المبرمجين عن طريق بناء مشاريع واقعية."
     },
     "mainImgURL": "/images/Projects/Bookmark-Landing-Page/1",
-    "images": [
-      "/images/Projects/Bookmark-Landing-Page/1",
-      "/images/Projects/Bookmark-Landing-Page/2",
-      "/images/Projects/Bookmark-Landing-Page/3",
-      "/images/Projects/Bookmark-Landing-Page/4"
-    ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
       { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
-      { "name": "Headless UI", "icon": "/icons/headlessui.svg" },
-      { "name": "Vercel", "icon": "/icons/vercel.svg" }
+      { "name": "Headless UI", "icon": "/icons/headlessui.svg" }
     ],
     "github": "https://github.com/MohanadOO/bookmark-landing-page",
     "preview": "https://bookmark-landing-page-beta-nine.vercel.app/"
@@ -101,12 +66,6 @@
       "ar": "هذا حل لأحدى تحديات موقع Frontend Mentor الذي يعرض الكثير من التحديات التي تساعد على سقل مهارات المبرمجين عن طريق بناء مشاريع واقعية."
     },
     "mainImgURL": "/images/Projects/Room-Home-Page/1",
-    "images": [
-      "/images/Projects/Room-Home-Page/1",
-      "/images/Projects/Room-Home-Page/2",
-      "/images/Projects/Room-Home-Page/3",
-      "/images/Projects/Room-Home-Page/4"
-    ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },
       { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },

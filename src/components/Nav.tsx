@@ -1,14 +1,7 @@
 import { useState } from 'react'
 
-import {
-  HiGlobeAlt,
-  HiOutlineHome,
-  HiOutlineMenu,
-  HiOutlineMoon,
-  HiOutlineSun,
-} from 'react-icons/hi'
+import { HiGlobeAlt, HiOutlineMenu, HiOutlineMoon } from 'react-icons/hi'
 import { useI18n } from '../i18n/Internationalization'
-import { ROUTE_PATHS } from '../App'
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false)

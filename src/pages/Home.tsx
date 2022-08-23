@@ -1,18 +1,6 @@
 import ProjectCard from '../components/ProjectCard'
-import { useI18n } from '../i18n/Internationalization'
 
 export default function Home() {
-  return (
-    <>
-      <Projects />
-    </>
-  )
-}
-
-function Projects() {
-  const { translate } = useI18n()
-  const { sectionHeader } = translate('projects')
-
   return (
     <section
       id='projects'
