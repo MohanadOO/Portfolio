@@ -1,31 +1,10 @@
 import projects from '../data/projects.json'
-import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n/Internationalization'
 import { GOTO } from '../App'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiEye } from 'react-icons/hi'
-import { motion } from 'framer-motion'
-
 type ProjectCardType = {
   link: string
-}
-
-const cardVariant = {
-  initial: {
-    scale: 0,
-    x: '100%',
-  },
-  animate: {
-    scale: 1,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      type: 'spring',
-    },
-  },
-  hover: {
-    scale: 1.1,
-  },
 }
 
 export default function ProjectCard({ link }: ProjectCardType) {
@@ -35,12 +14,8 @@ export default function ProjectCard({ link }: ProjectCardType) {
   const { locale } = useI18n()
 
   return (
-    <motion.div variants={cardVariant}>
-      <motion.div
-        variants={cardVariant}
-        whileHover='hover'
-        className='bg-white border-[1px] border-primary-black shadow-[7px_7px_0px_black] max-w-sm mx-auto pb-5 h-full flex flex-col'
-      >
+    <div>
+      <div className='bg-white border-[1px] border-primary-black shadow-[7px_7px_0px_black] max-w-sm mx-auto pb-5 h-full flex flex-col'>
         <div className='overflow-hidden relative [&_a]:hover:opacity-100 [&_picture_img]:hover:scale-100 [&_picture_img]:hover:brightness-75 h-full'>
           <picture>
             <source srcSet={`${mainImgURL}.webp`} type='image/webp' />
@@ -104,14 +79,11 @@ export default function ProjectCard({ link }: ProjectCardType) {
           <p className='max-w-xs w-full text-sm leading-6 mt-3 text-primary-black/80 my-10 h-24  overflow-hidden'>
             {locale === 'ar-SA' ? desc.ar : desc.en}
           </p>
-          <Link
-            to={GOTO.ProjectDetails(link)}
-            className='py-3 px-6 text-primary-400 rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'
-          >
+          <a className='py-3 px-6 text-primary-400 rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'>
             {checkProject}
-          </Link>
+          </a>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }

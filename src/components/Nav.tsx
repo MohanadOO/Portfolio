@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+
 import {
   HiGlobeAlt,
   HiOutlineHome,
@@ -35,52 +35,34 @@ export default function Nav() {
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
           <li className='font-pattaya font-normal text-primary-400 text-base md:text-lg lg:text-xl'>
-            <Link to={ROUTE_PATHS.Home}>{name}</Link>
+            <a>{name}</a>
           </li>
           <ul className='flex items-center gap-3'>
             <li className='ml-auto'>
-              <NavLink
-                to={ROUTE_PATHS.Home}
+              <a
                 title={home}
-                className={({ isActive }) =>
-                  'py-3 px-5 rounded-md ' +
-                  (isActive
-                    ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                    : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
-                }
+                className='py-3 px-5 rounded-md ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all'
               >
                 {home}
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink
+              <a
                 onClick={(e) => e.preventDefault()}
-                to={ROUTE_PATHS.AllProjects}
                 title={projects}
-                className={({ isActive }) =>
-                  'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
-                  (isActive
-                    ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
-                    : 'ring-0 ring-transparent hover:ring-primary-black transition-all')
-                }
+                className='py-3 px-5 rounded-md cursor-default text-gray-400 line-through ring-0 ring-transparent hover:ring-primary-black transition-all'
               >
                 {projects}...
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink
+              <a
                 onClick={(e) => e.preventDefault()}
-                to={ROUTE_PATHS.Blog}
                 title={blog}
-                className={({ isActive }) =>
-                  'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
-                  (isActive
-                    ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
-                    : 'ring-0 ring-transparent hover:ring-primary-black transition-all')
-                }
+                className='py-3 px-5 rounded-md cursor-default text-gray-400 line-through ring-0 ring-transparent hover:ring-primary-black transition-all'
               >
                 {blog}...
-              </NavLink>
+              </a>
             </li>
           </ul>
           <ul className='flex items-center gap-4'>
@@ -107,9 +89,7 @@ export default function Nav() {
         {/* Mobile Navigation */}
         <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md  shadow-primary-400/10 py-5 px-10 mx-5 relative'>
           <li className='font-pattaya text-primary-400'>
-            <Link to={ROUTE_PATHS.Home} title={name}>
-              {name}
-            </Link>
+            <a title={name}>{name}</a>
           </li>
           <li
             onClick={() => setOpenMenu((prevState) => !prevState)}
@@ -121,48 +101,30 @@ export default function Nav() {
           {openMenu && (
             <ul className='absolute flex flex-col gap-10 text-center top-20 left-0 w-full p-6 bg-primary-white rounded-md shadow-md'>
               <li onClick={() => setOpenMenu(false)}>
-                <NavLink
-                  to={ROUTE_PATHS.Home}
+                <a
                   title={home}
-                  className={({ isActive }) =>
-                    'py-3 px-5 rounded-md gap-3 ' +
-                    (isActive
-                      ? 'border-b-2 border-primary-400 text-primary-400 rounded-none cursor-default'
-                      : 'ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all')
-                  }
+                  className='py-3 px-5 rounded-md gap-3 ring-1 ring-transparent hover:ring-primary-black en:hover:shadow-[-5px_5px_0_#042A44] ar:hover:shadow-[5px_5px_0_#042A44] transition-all'
                 >
                   {home}
-                </NavLink>
+                </a>
               </li>
               <li onClick={() => setOpenMenu(false)}>
-                <NavLink
+                <a
                   onClick={(e) => e.preventDefault()}
-                  to={ROUTE_PATHS.AllProjects}
                   title={projects}
-                  className={({ isActive }) =>
-                    'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
-                    (isActive
-                      ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
-                      : 'ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all')
-                  }
+                  className='py-3 px-5 rounded-md cursor-default text-gray-400 line-through ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all'
                 >
                   {projects}...
-                </NavLink>
+                </a>
               </li>
               <li onClick={() => setOpenMenu(false)}>
-                <NavLink
+                <a
                   onClick={(e) => e.preventDefault()}
-                  to={ROUTE_PATHS.Blog}
                   title={blog}
-                  className={({ isActive }) =>
-                    'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
-                    (isActive
-                      ? 'border-b-0 border-primary-400 text-primary-400 rounded-none cursor-default'
-                      : 'ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all')
-                  }
+                  className='py-3 px-5 rounded-md cursor-default text-gray-400 line-through ring-0 ring-transparent hover:ring-primary-black en#042A44] transition-all'
                 >
                   {blog}...
-                </NavLink>
+                </a>
               </li>
               <ul className='flex justify-center items-center gap-5 border-t border-primary-gray pt-5'>
                 <li>
