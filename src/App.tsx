@@ -8,14 +8,12 @@ import Footer from './components/Footer'
 import ar from './i18n/ar-SA.json'
 import en from './i18n/en-US.json'
 
-
 export default function App() {
   const { setMessages, loaded, setLocale } = useI18n()
 
   useEffect(() => {
     setMessages({ 'ar-SA': ar, 'en-US': en })
   }, [setMessages])
-
 
   if (!loaded) {
     return (
@@ -29,7 +27,7 @@ export default function App() {
     <>
       <Nav />
       <div className='min-h-screen relative'>
-        <Home/>
+        <Home />
         <Footer />
       </div>
     </>

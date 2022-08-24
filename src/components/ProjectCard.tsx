@@ -1,11 +1,14 @@
+// @ts-nocheck
 import projects from '../data/projects.json'
 import { useI18n } from '../i18n/Internationalization'
-import { GOTO } from '../App'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiEye } from 'react-icons/hi'
+
 type ProjectCardType = {
   link: string
 }
+
+type ProjectType = any
 
 export default function ProjectCard({ link }: ProjectCardType) {
   const { translate } = useI18n()

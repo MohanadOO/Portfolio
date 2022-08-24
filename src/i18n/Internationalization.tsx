@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 type MessageProp = {
-  [key: string]: { [key: string]: string }
+  [key: string]: { [key: string]: string | any }
 }
 
 type I18ProviderType = {
