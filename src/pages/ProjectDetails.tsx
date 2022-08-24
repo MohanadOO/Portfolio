@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useParams } from 'react-router-dom'
 import { useI18n } from '../i18n/Internationalization'
 import projects from '../data/projects.json'
@@ -16,8 +17,8 @@ export default function ProjectDetails() {
 
   if (projects[param.id] === undefined) {
     return (
-      <div className='h-screen mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10'>
-        Wrong
+      <div className='h-screen mt-32 mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10'>
+        Project Dose not exist
       </div>
     )
   }
@@ -62,13 +63,13 @@ export default function ProjectDetails() {
             />
           </picture>
           <div className='flex justify-between mt-5 gap-3'>
-            {images.map((image, index) => {
+            {images.map((image: string, index: number) => {
               return (
                 <picture key={index}>
                   <source srcSet={`${image}.webp`} type='image/webp' />
                   <img
                     className='aspect-[2/1] rounded-md object-cover object-top ring-2 ring-primary-400/40'
-                    alt={index}
+                    alt={index.toString()}
                     src={`${image}.png`}
                   />
                 </picture>

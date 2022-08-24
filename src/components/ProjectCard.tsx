@@ -1,3 +1,4 @@
+// @ts-nocheck
 import projects from '../data/projects.json'
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n/Internationalization'
