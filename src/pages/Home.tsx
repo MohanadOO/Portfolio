@@ -1,3 +1,4 @@
+// @ts-nocheck
 import ProjectCard from '../components/ProjectCard'
 import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '../App'
