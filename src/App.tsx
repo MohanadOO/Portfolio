@@ -38,6 +38,7 @@ export default function App() {
       if (language === 'ar-SA') {
         document.documentElement.dir = 'rtl'
         document.documentElement.lang = 'ar'
+        document.title = 'مهند الرويحي'
         return setLocale(language)
       }
       return setLocale('en-US')
@@ -47,11 +48,13 @@ export default function App() {
       localStorage.setItem('language', 'ar-SA')
       document.documentElement.dir = 'rtl'
       document.documentElement.lang = 'ar'
+      document.title = 'مهند الرويحي'
       return setLocale('ar-SA')
     } else {
       localStorage.setItem('language', 'en-US')
       document.documentElement.dir = 'ltr'
       document.documentElement.lang = 'en'
+      document.title = 'Mohanad Alrwaihy'
       return setLocale('en-US')
     }
   }, [])

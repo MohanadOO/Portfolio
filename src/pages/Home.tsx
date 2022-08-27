@@ -1,7 +1,5 @@
 // @ts-nocheck
 import ProjectCard from '../components/ProjectCard'
-import { Link } from 'react-router-dom'
-import { ROUTE_PATHS } from '../App'
 
 import { HiArrowCircleDown } from 'react-icons/hi'
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai'
@@ -133,11 +131,11 @@ function AboutMe() {
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
-        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center justify-evenly gap-10 pb-12'
+        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center lg:justify-between gap-10 lg:gap-0 pb-12'
       >
         <motion.div variants={fadeInLeft}>
           <motion.h3
-            variants={fadeInRight}
+            variants={fadeInRightText}
             className='font-bold font-pattaya text-xs lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
           >
             {aboutMe}
@@ -166,13 +164,13 @@ function AboutMe() {
           className='flex flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden py-5'
         >
           <motion.p
-            variants={fadeInRight}
+            variants={fadeInRightText}
             className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
             {descP1}
           </motion.p>
           <motion.p
-            variants={fadeInRight}
+            variants={fadeInRightText}
             className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
             {descP2}
@@ -184,17 +182,17 @@ function AboutMe() {
             viewport={{ once: true }}
             className='flex items-center gap-4 mt-auto child-hover:scale-110'
           >
-            <motion.li variants={fadeInRight}>
+            <motion.li variants={fadeInRightIcons}>
               <a href='https://github.com/MohanadOO' target='_blank'>
                 <AiFillGithub className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRight}>
-              <a href='https://twitter.com/Mohanad_OOO' target='_blank'>
+            <motion.li variants={fadeInRightIcons}>
+              <a href='https://twitter.com/MohanadOO_' target='_blank'>
                 <AiOutlineTwitter className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRight}>
+            <motion.li variants={fadeInRightIcons}>
               <a
                 href='https://www.linkedin.com/in/mohanad-alrwahiy-176aa719b/'
                 target='_blank'
@@ -202,8 +200,8 @@ function AboutMe() {
                 <AiFillLinkedin className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRight}>
-              <a href='' target='_blank'>
+            <motion.li variants={fadeInRightIcons}>
+              <a href='https://wa.me/966532407160' target='_blank'>
                 <BsWhatsapp className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform' />
               </a>
             </motion.li>
@@ -289,6 +287,7 @@ function Projects() {
             variants={projectsContainer}
             initial='initial'
             whileInView='animate'
+            viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center mx-12 md:mx-20 lg:mx-40 gap-10'
           >
             <ProjectCard link={'chat-application'} />
@@ -341,8 +340,8 @@ const projectsContainer = {
   animate: {
     opacity: 1,
     transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.7,
+      delayChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 }
@@ -372,7 +371,7 @@ const fadeInLeft = {
   },
 }
 
-const fadeInRight = {
+const fadeInRightText = {
   initial: {
     scale: 0,
     x: '200%',
@@ -382,6 +381,20 @@ const fadeInRight = {
     x: 0,
     transition: {
       duration: 0.5,
+    },
+  },
+}
+
+const fadeInRightIcons = {
+  initial: {
+    scale: 0,
+    x: '200%',
+  },
+  animate: {
+    scale: 1,
+    x: 0,
+    transition: {
+      duration: 0.2,
     },
   },
 }
