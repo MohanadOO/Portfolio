@@ -1,6 +1,5 @@
 // @ts-nocheck
 import ProjectCard from '../components/ProjectCard'
-
 import { HiArrowCircleDown } from 'react-icons/hi'
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai'
 import { BsWhatsapp } from 'react-icons/bs'
@@ -11,7 +10,8 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
-import { useI18n } from '../i18n/Internationalization'
+
+import { useTranslation } from 'react-i18next'
 
 import { motion } from 'framer-motion'
 
@@ -29,8 +29,7 @@ export default function Home() {
 }
 
 function Header() {
-  const { translate } = useI18n()
-  const { hello, subText, about } = translate('header')
+  const { t } = useTranslation('translation', { keyPrefix: 'header' })
 
   return (
     <section
@@ -47,7 +46,7 @@ function Header() {
           variants={fadeInLeft}
           className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-400 to-secondary-400 text-transparent bg-clip-text font-bold mx-auto py-7'
         >
-          {hello}
+          {t('hello')}
           <motion.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
@@ -60,14 +59,14 @@ function Header() {
           variants={fadeInLeft}
           className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 italic max-w-sm lg:max-w-md mx-auto'
         >
-          {subText}
+          {t('subText')}
         </motion.p>
         <motion.a
           variants={fadeInLeft}
           href='#about-me'
           className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black rounded-md text-primary-400 shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-[-7px_7px_0_black] ar:shadow-[7px_7px_0_black]'
         >
-          <span>{about}</span>
+          <span>{t('about')}</span>
           <HiArrowCircleDown className='w-6 h-6' />
         </motion.a>
       </motion.div>
@@ -114,8 +113,7 @@ function Header() {
 }
 
 function AboutMe() {
-  const { translate } = useI18n()
-  const { sectionHeader, aboutMe, descP1, descP2 } = translate('aboutMe')
+  const { t } = useTranslation('translation', { keyPrefix: 'aboutMe' })
 
   return (
     <section
@@ -123,7 +121,7 @@ function AboutMe() {
       className='flex flex-col gap-10 lg:gap-20 my-12 scroll-mt-28'
     >
       <div className='flex items-center mx-auto mb-10 md:mx-0 '>
-        <h2 className='section_header'>{sectionHeader}</h2>
+        <h2 className='section_header'>{t('sectionHeader')}</h2>
       </div>
 
       <motion.div
@@ -131,14 +129,14 @@ function AboutMe() {
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
-        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center lg:justify-between gap-10 lg:gap-0 pb-12'
+        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center gap-10 lg:gap-20 pb-12'
       >
         <motion.div variants={fadeInLeft}>
           <motion.h3
             variants={fadeInRightText}
             className='font-bold font-pattaya text-xs lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
           >
-            {aboutMe}
+            {t('aboutMe')}
           </motion.h3>
           <picture>
             <source srcSet='/images/MyPicture.webp' type='image/webp' />
@@ -167,13 +165,13 @@ function AboutMe() {
             variants={fadeInRightText}
             className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
-            {descP1}
+            {t('descP1')}
           </motion.p>
           <motion.p
             variants={fadeInRightText}
             className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
           >
-            {descP2}
+            {t('descP2')}
           </motion.p>
           <motion.ul
             variants={fadeInContainer}
@@ -213,8 +211,7 @@ function AboutMe() {
 }
 
 function Skills() {
-  const { translate } = useI18n()
-  const { sectionHeader, subText } = translate('skills')
+  const { t } = useTranslation('translation', { keyPrefix: 'skills' })
 
   return (
     <section
@@ -224,12 +221,12 @@ function Skills() {
       <div className='flex flex-col gap-5 max-w-md lg:max-w-lg w-full'>
         <div className='flex items-center mb-12 mx-auto md:mx-0'>
           <h2 className='section_header first-letter:rounded-full first-letter:bg-secondary-400 text-secondary-400'>
-            {sectionHeader}
+            {t('sectionHeader')}
           </h2>
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
           <h3 className='text-xl first-letter:font-pattaya ar:first-letter:font-lato first-letter:text-5xl first-letter:text-secondary-400 first-letter:font-medium leading-8'>
-            {subText}
+            {t('subText')}
           </h3>
           <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw]'>
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 en:shadow-[#007ACC]/60 ar:shadow-[#007ACC]/60'>
@@ -272,14 +269,13 @@ function Skills() {
 }
 
 function Projects() {
-  const { translate } = useI18n()
-  const { sectionHeader, viewAll } = translate('projects')
+  const { t } = useTranslation('translation', { keyPrefix: 'projects' })
 
   return (
     <section id='projects' className='flex items-center w-full scroll-mt-28'>
       <div className='flex flex-col gap-5 w-screen'>
         <div className='flex items-center mb-10 mx-auto md:mx-20 lg:mx-40'>
-          <h2 className='section_header'>{sectionHeader}</h2>
+          <h2 className='section_header'>{t('sectionHeader')}</h2>
         </div>
 
         <div className='bg-gradient-to-r  from-primary-400/60 to-secondary-400/60 pt-10 pb-32 flex flex-col gap-20'>

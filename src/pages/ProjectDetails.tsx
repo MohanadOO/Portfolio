@@ -1,11 +1,11 @@
 // @ts-nocheck
 import { useParams } from 'react-router-dom'
-import { useI18n } from '../i18n/Internationalization'
 import projects from '../data/projects.json'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiExternalLink } from 'react-icons/hi'
 
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 type SkillType = {
   name: string
@@ -25,7 +25,9 @@ export default function ProjectDetails() {
 
   const { title, mainImgURL, desc, images, skills, github, preview } =
     projects[param.id]
-  const { locale } = useI18n()
+
+  const { i18n } = useTranslation()
+  const currentLanguage = i18n.resolvedLanguage
 
   const allSkills = skills.map((skill: SkillType) => {
     return (
@@ -59,7 +61,7 @@ export default function ProjectDetails() {
             <img
               className='aspect-video rounded-md object-cover object-top ring ring-primary-400 shadow-lg'
               src={`${mainImgURL}.png`}
-              alt={`${locale === 'ar-SA' ? title.ar : title.en}_Image`}
+              alt={`${currentLanguage === 'ar' ? title.ar : title.en}_Image`}
             />
           </picture>
           <div className='flex justify-between mt-5 gap-3'>
@@ -79,13 +81,13 @@ export default function ProjectDetails() {
         </div>
         <div className='flex flex-col flex-initial gap-5'>
           <h1 className='font-pattaya text-4xl lg:text-5xl xl:text-6xl text-primary-400 mt-10 lg:mt-0'>
-            {locale === 'ar-SA' ? title.ar : title.en}
+            {currentLanguage === 'ar' ? title.ar : title.en}
           </h1>
           <ul className='w-full mb-2 flex flex-wrap gap-2 child:flex child:gap-2 child:py-1 child:px-3 child:items-center child:rounded-md child:bg-primary-black child:text-primary-white'>
             {allSkills}
           </ul>
           <p className='mt-3 text-sm md:text-base xl:text-lg leading-6 max-w-xl'>
-            {locale === 'ar-SA' ? desc.ar : desc.en}
+            {currentLanguage === 'ar' ? desc.ar : desc.en}
           </p>
           <div className='flex mb-32 lg:mb-0 gap-5'>
             <a

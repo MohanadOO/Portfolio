@@ -1,12 +1,11 @@
-import { useI18n } from '../i18n/Internationalization'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
-  const { translate } = useI18n()
-  const { text, name } = translate('footer')
+  const { t } = useTranslation('translation', { keyPrefix: 'footer' })
   return (
     <footer className='absolute bottom-0 p-3 bg-primary-400 text-primary-white w-full text-center'>
-      {text}
-      <span className='font-bold font-pattaya mx-1'> {name}</span>
+      {t('text')}
+      <span className='font-bold font-pattaya mx-1'> {t('name')}</span>
     </footer>
   )
 }
