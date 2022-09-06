@@ -15,7 +15,7 @@ export default function Blog() {
         <h1 className='text-4xl lg:text-5xl xl:text-6xl text-center md:text-left text-primary-400'>
           Page is not available yet <IoTimerOutline className='inline' />
         </h1>
-        <button className='md:self-start py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
+        <button className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
           <Link to='/'>Back to Home Page</Link>
         </button>
       </div>

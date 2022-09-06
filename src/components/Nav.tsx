@@ -29,7 +29,12 @@ export default function Nav() {
 
   return (
     <header>
-      <nav className='w-full fixed top-0 z-50 bg-primary-white font-bold'>
+      <nav
+        aria-label={
+          currentLanguage === 'ar' ? 'الأرشادات الرئيسية' : 'Primary Navigation'
+        }
+        className='w-full fixed top-0 z-50 bg-primary-white font-bold'
+      >
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
           <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm first-letter:text-xl md:text-base first-letter:md:text-2xl lg:text-lg first-letter:lg:text-3xl hover:text-primary-400 transition-colors duration-300 ar:font-bold'>
@@ -65,6 +70,7 @@ export default function Nav() {
                 onClick={(e) => e.preventDefault()}
                 to={ROUTE_PATHS.AllProjects}
                 title={t('projects')}
+                aria-disabled='true'
                 className={({ isActive }) =>
                   'py-3 px-2 md:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md cursor-default text-gray-400 line-through ' +
                   (isActive
@@ -80,6 +86,7 @@ export default function Nav() {
                 onClick={(e) => e.preventDefault()}
                 to={ROUTE_PATHS.Blog}
                 title={t('blog')}
+                aria-disabled='true'
                 className={({ isActive }) =>
                   'py-3 px-2 md:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md cursor-default text-gray-400 line-through ' +
                   (isActive
@@ -96,6 +103,11 @@ export default function Nav() {
               <button
                 className='flex items-center gap-1'
                 onClick={toggleLanguage}
+                aria-label={
+                  currentLanguage === 'ar'
+                    ? 'تغيير اللغة للأنجليزية'
+                    : 'Change Language Arabic'
+                }
               >
                 <HiGlobeAlt className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6  fill-primary-400' />
                 <span className='text-xs text-primary-400'>
@@ -104,7 +116,14 @@ export default function Nav() {
               </button>
             </li>
             <li>
-              <button className='flex items-center'>
+              <button
+                aria-label={
+                  currentLanguage === 'ar'
+                    ? `حول الثيم ال ${'المظلم'}`
+                    : `Change to ${'dark'} mood`
+                }
+                className='flex items-center'
+              >
                 {/* <HiOutlineSun /> */}
                 <HiOutlineMoon className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 stroke-primary-400 hover:fill-primary-400' />
               </button>
@@ -157,6 +176,7 @@ export default function Nav() {
                   onClick={(e) => e.preventDefault()}
                   to={ROUTE_PATHS.AllProjects}
                   title={t('projects')}
+                  aria-disabled='true'
                   className={({ isActive }) =>
                     'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                     (isActive
@@ -172,6 +192,7 @@ export default function Nav() {
                   onClick={(e) => e.preventDefault()}
                   to={ROUTE_PATHS.Blog}
                   title={t('blog')}
+                  aria-disabled='true'
                   className={({ isActive }) =>
                     'py-3 px-5 rounded-md cursor-default text-gray-400 line-through ' +
                     (isActive
@@ -187,6 +208,11 @@ export default function Nav() {
                   <button
                     className='flex items-center gap-1'
                     onClick={toggleLanguage}
+                    aria-label={
+                      currentLanguage === 'ar'
+                        ? 'تغير اللغة'
+                        : 'Change Language'
+                    }
                   >
                     <HiGlobeAlt className='w-5 h-5' />
                     <span className='text-xs uppercase'>
@@ -195,7 +221,14 @@ export default function Nav() {
                   </button>
                 </li>
                 <li>
-                  <button className='flex items-center'>
+                  <button
+                    aria-label={
+                      currentLanguage === 'ar'
+                        ? `حول الثيم ال ${'المظلم'}`
+                        : `Change to ${'dark'} mood`
+                    }
+                    className='flex items-center'
+                  >
                     {/* <HiOutlineSun /> */}
                     {/* <HiOutlineMoon className='w-5 h-5' /> */}
                   </button>

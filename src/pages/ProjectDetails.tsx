@@ -41,6 +41,7 @@ export default function ProjectDetails() {
           className='w-4 h-4 lg:w-6 lg:h-6 bg-transparent'
           src={skill.icon}
           alt={`${skill.name}_icon`}
+          aria-hidden='true'
         />
       </li>
     )
@@ -53,8 +54,9 @@ export default function ProjectDetails() {
       animate='animate'
       id='project'
       className='min-h-screen flex'
+      aria-label={currentLanguage === 'ar' ? title.ar : title.en}
     >
-      <div className='flex flex-col lg:flex-row md:gap-10 lg:gap-20 mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 md:px-10  lg:items-center lg:justify-between mt-28 lg:mt-0 child:flex-1'>
+      <div className='flex flex-col lg:flex-row md:gap-10 lg:gap-20 mx-5 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 md:px-10 lg:items-center lg:justify-between mt-28 lg:mt-0 child:flex-1'>
         <div>
           <picture>
             <source srcSet={`${mainImgURL}.webp`} type='image/webp' />
@@ -62,6 +64,7 @@ export default function ProjectDetails() {
               className='aspect-video rounded-md object-cover object-top ring ring-primary-400 shadow-lg'
               src={`${mainImgURL}.png`}
               alt={`${currentLanguage === 'ar' ? title.ar : title.en}_Image`}
+              aria-hidden='true'
             />
           </picture>
           <div className='flex justify-between mt-5 gap-3'>
@@ -73,6 +76,7 @@ export default function ProjectDetails() {
                     className='aspect-[2/1] rounded-md object-cover object-top ring-2 ring-primary-400/40'
                     alt={index.toString()}
                     src={`${image}.png`}
+                    aria-hidden='true'
                   />
                 </picture>
               )

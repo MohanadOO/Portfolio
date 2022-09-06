@@ -4,7 +4,7 @@ import Nav from './components/Nav'
 import AllProjects from './pages/AllProjects'
 import Blog from './pages/Blog'
 import ErrorPage from './pages/ErrorPage'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import ProjectDetails from './pages/ProjectDetails'
 
 export const ROUTE_PATHS = {
