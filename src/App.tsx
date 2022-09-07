@@ -1,18 +1,11 @@
-// @ts-nocheck
-import { useEffect } from 'react'
-import { useI18n } from './i18n/Internationalization'
-
 import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
 import AllProjects from './pages/AllProjects'
 import Blog from './pages/Blog'
 import ErrorPage from './pages/ErrorPage'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import ProjectDetails from './pages/ProjectDetails'
-
-import ar from './i18n/ar-SA.json'
-import en from './i18n/en-US.json'
 
 export const ROUTE_PATHS = {
   Home: '/',
@@ -26,47 +19,6 @@ export const GOTO = {
 }
 
 export default function App() {
-  const { setMessages, loaded, setLocale } = useI18n()
-
-  useEffect(() => {
-    setMessages({ 'ar-SA': ar, 'en-US': en })
-  }, [setMessages])
-
-  useEffect(() => {
-    if (localStorage.getItem('language')) {
-      const language = localStorage.getItem('language')
-      if (language === 'ar-SA') {
-        document.documentElement.dir = 'rtl'
-        document.documentElement.lang = 'ar'
-        document.title = 'مهند الرويحي'
-        return setLocale(language)
-      }
-      return setLocale('en-US')
-    }
-    const userLanguage = navigator.language.split('-')[0]
-    if (userLanguage === 'ar') {
-      localStorage.setItem('language', 'ar-SA')
-      document.documentElement.dir = 'rtl'
-      document.documentElement.lang = 'ar'
-      document.title = 'مهند الرويحي'
-      return setLocale('ar-SA')
-    } else {
-      localStorage.setItem('language', 'en-US')
-      document.documentElement.dir = 'ltr'
-      document.documentElement.lang = 'en'
-      document.title = 'Mohanad Alrwaihy'
-      return setLocale('en-US')
-    }
-  }, [])
-
-  if (!loaded) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
-
   return (
     <>
       <Nav />
