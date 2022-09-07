@@ -95,7 +95,7 @@ export default function ProjectDetails() {
           </p>
           <div className='flex mb-32 lg:mb-0 gap-5'>
             <a
-              className='flex items-center gap-1 py-1 px-4 border-2 border-primary-400 text-primary-400 rounded-md shadow-md text-sm'
+              className='flex items-center gap-1 py-1 px-4 border-2 border-primary-black dark:border-primary-white rounded-md shadow-md text-sm'
               href={github}
               target='_blank'
             >

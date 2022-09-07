@@ -18,7 +18,7 @@ export default function Projects() {
           <h2 className='section_header'>{t('sectionHeader')}</h2>
         </div>
 
-        <div className='bg-gradient-to-r  from-primary-400/60 to-secondary-400/60 pt-10 pb-32 flex flex-col gap-20'>
+        <div className='bg-gradient-to-r from-primary-400/20 to-secondary-400/20 pt-10 pb-32 flex flex-col gap-20 shadow-lg'>
           <motion.div
             variants={projectsContainer}
             initial='initial'

@@ -47,7 +47,7 @@ export default function ProjectCard({ link }: ProjectCardType) {
       <motion.div
         variants={cardVariant}
         whileHover='hover'
-        className='bg-white border-[1px] border-primary-black shadow-[7px_7px_0px_black] mx-auto pb-5 h-full flex flex-col'
+        className='bg-white dark:bg-slate-900 border border-primary-black dark:border-primary-400 shadow-[7px_7px_0px_black] mx-auto pb-5 h-full flex flex-col'
       >
         <div className='overflow-hidden relative [&_a]:hover:opacity-100 [&_picture_img]:hover:scale-100 [&_picture_img]:hover:brightness-75 h-full'>
           <picture>
@@ -79,7 +79,7 @@ export default function ProjectCard({ link }: ProjectCardType) {
           </a>
         </div>
         <div className='p-5 h-full'>
-          <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:text-primary-white'>
+          <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-semibold'>
             <li>
               <p className='text-xs lg:text-sm'>{skills[0].name}</p>
               <img
@@ -115,12 +115,12 @@ export default function ProjectCard({ link }: ProjectCardType) {
           <h1 className='font-pattaya text-4xl mt-4 text-primary-400'>
             {currentLanguage === 'ar' ? title.ar : title.en}
           </h1>
-          <p className='max-w-xs w-full text-sm leading-6 mt-3 text-primary-black/80 my-10 h-24  overflow-hidden'>
+          <p className='max-w-xs w-full text-sm leading-6 mt-3 text-primary-black dark:text-primary-white my-10 h-24  overflow-hidden'>
             {currentLanguage === 'ar' ? desc.ar : desc.en}
           </p>
           <Link
             to={GOTO.ProjectDetails(link)}
-            className='py-3 px-6 text-primary-400 rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'
+            className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'
           >
             {t('checkProject')}
           </Link>

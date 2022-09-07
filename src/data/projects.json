@@ -104,8 +104,7 @@
     "images": [
       "/images/Projects/Room-Home-Page/1",
       "/images/Projects/Room-Home-Page/2",
-      "/images/Projects/Room-Home-Page/3",
-      "/images/Projects/Room-Home-Page/4"
+      "/images/Projects/Room-Home-Page/3"
     ],
     "skills": [
       { "name": "React", "icon": "/icons/react.svg" },

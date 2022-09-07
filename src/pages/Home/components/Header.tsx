@@ -23,7 +23,7 @@ export default function Header() {
         variants={fadeInContainer}
         initial='initial'
         animate='animate'
-        className='flex flex-col gap-10'
+        className='flex flex-col gap-10 z-20'
       >
         <motion.h1
           variants={fadeInLeft}
@@ -40,14 +40,14 @@ export default function Header() {
         </motion.h1>
         <motion.p
           variants={fadeInLeft}
-          className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 italic max-w-sm lg:max-w-md mx-auto'
+          className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 dark:text-primary-white/80 italic max-w-sm lg:max-w-md mx-auto'
         >
           {t('subText')}
         </motion.p>
         <motion.a
           variants={fadeInLeft}
           href='#about-me'
-          className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black rounded-md text-primary-400 shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-[-7px_7px_0_black] ar:shadow-[7px_7px_0_black]'
+          className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left-lg ar:shadow-right-lg dark:shadow-primary-white'
         >
           <span>{t('about')}</span>
           <HiArrowCircleDown className='w-6 h-6' />
@@ -58,7 +58,7 @@ export default function Header() {
         variants={shapesContainerVariant}
         initial='hidden'
         animate='visible'
-        className='absolute -z-10 opacity-10 max-w-[300px] md:max-w-sm xl:max-w-lg'
+        className='absolute z-10 opacity-10 max-w-[300px] md:max-w-sm xl:max-w-lg'
         width='389'
         height='403'
         viewBox='0 0 389 403'

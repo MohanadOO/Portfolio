@@ -47,7 +47,7 @@ export default function AboutMe() {
                 stiffness: 400,
                 damping: 10,
               }}
-              className='aspect-square md:aspect-[3/4] max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 cursor-pointer'
+              className='aspect-square md:aspect-[3/4] max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 border-primary-black dark:border-white cursor-pointer'
               src='/images/MyPicture.png'
               alt={
                 document.documentElement.lang === 'ar'
@@ -66,13 +66,13 @@ export default function AboutMe() {
         >
           <motion.p
             variants={fadeInRightText}
-            className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
+            className='text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP1')}
           </motion.p>
           <motion.p
             variants={fadeInRightText}
-            className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 border-b border-dashed border-primary-400 pb-5'
+            className='mb-7 text-sm sm:text-base xl:text-xl first-letter:text-2xl md:first-letter:text-3xl lg:first-letter:text-4xl xl:first-letter:text-5xl 2xl:first-letter:text-6xl first-letter:text-primary-400 first-letter:font-pattaya ar:first-letter:font-lato first-letter:font-bold text-center en:md:text-left ar:md:text-right leading-7 max-w-md 2xl:max-w-2xl text-primary-black/80 dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP2')}
           </motion.p>
