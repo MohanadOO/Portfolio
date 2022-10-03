@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "name": "Mohanad Alrwaihy",
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "resume": "Resume"
+  },
+  "checkBtn": "Check Project",
+  "github": "Repository",
+  "preview": "Preview",
+  "footer": {
+    "text": "Made With Care By",
+    "name": "Mohanad Alrwaihy"
+  }
+}

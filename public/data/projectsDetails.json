@@ -1,0 +1,92 @@
+{
+  "chat-application": {
+    "mainImgURL": "/images/Projects/Chat-Application/1",
+    "images": [
+      "/images/Projects/Chat-Application/1",
+      "/images/Projects/Chat-Application/2",
+      "/images/Projects/Chat-Application/3",
+      "/images/Projects/Chat-Application/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Socket.io", "icon": "/icons/socket_io.svg" },
+      { "name": "Firebase", "icon": "/icons/firebase.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "HeadlessUI", "icon": "/icons/headlessui.svg" },
+      { "name": "React Router", "icon": "/icons/reactrouter.svg" },
+      { "name": "React Hook Forms", "icon": "/icons/reacthookform.svg" },
+      { "name": "Framer Motion", "icon": "/icons/framer.svg" },
+      { "name": "Vercel", "icon": "/icons/vercel.svg" },
+      { "name": "Express", "icon": "/icons/express.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/chat-app",
+    "preview": "https://chat-application-firebase.vercel.app/"
+  },
+  "half-life-2-home": {
+    "mainImgURL": "/images/Projects/Half-Life-2/1",
+    "images": [
+      "/images/Projects/Half-Life-2/1",
+      "/images/Projects/Half-Life-2/2",
+      "/images/Projects/Half-Life-2/3",
+      "/images/Projects/Half-Life-2/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "TypeScript", "icon": "/icons/typescript.svg" },
+      { "name": "Framer Motion", "icon": "/icons/framer.svg" },
+      { "name": "Vercel", "icon": "/icons/vercel.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/half-life-2-home",
+    "preview": "https://half-life-2-home.vercel.app/"
+  },
+  "manage-landing-page": {
+    "mainImgURL": "/images/Projects/Manage-Landing-Page/1",
+    "images": [
+      "/images/Projects/Manage-Landing-Page/1",
+      "/images/Projects/Manage-Landing-Page/2",
+      "/images/Projects/Manage-Landing-Page/3",
+      "/images/Projects/Manage-Landing-Page/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Swiper", "icon": "/icons/swiper.svg" },
+      { "name": "HeadlessUI", "icon": "/icons/headlessui.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/manage-landing-page",
+    "preview": "https://manage-landing-page-plum.vercel.app/"
+  },
+  "bookmark-landing-page": {
+    "mainImgURL": "/images/Projects/Bookmark-Landing-Page/1",
+    "images": [
+      "/images/Projects/Bookmark-Landing-Page/1",
+      "/images/Projects/Bookmark-Landing-Page/2",
+      "/images/Projects/Bookmark-Landing-Page/3",
+      "/images/Projects/Bookmark-Landing-Page/4"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Headless UI", "icon": "/icons/headlessui.svg" },
+      { "name": "Vercel", "icon": "/icons/vercel.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/bookmark-landing-page",
+    "preview": "https://bookmark-landing-page-beta-nine.vercel.app/"
+  },
+  "room-home-page": {
+    "mainImgURL": "/images/Projects/Room-Home-Page/1",
+    "images": [
+      "/images/Projects/Room-Home-Page/1",
+      "/images/Projects/Room-Home-Page/2",
+      "/images/Projects/Room-Home-Page/3"
+    ],
+    "skills": [
+      { "name": "React", "icon": "/icons/react.svg" },
+      { "name": "Tailwind", "icon": "/icons/tailwindcss.svg" },
+      { "name": "Vercel", "icon": "/icons/vercel.svg" }
+    ],
+    "github": "https://github.com/MohanadOO/room-homepage",
+    "preview": "https://room-homepage-phi-liard.vercel.app/"
+  }
+}
