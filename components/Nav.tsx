@@ -78,11 +78,11 @@ export default function Nav() {
     <header>
       <nav
         aria-label={locale === 'ar' ? language.ar.label : language.en.label}
-        className='w-full fixed top-0 z-50 bg-primary-white dark:bg-slate-900'
+        className='w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-slate-900'
       >
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/50 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
-          <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm first-letter:text-xl md:text-base first-letter:md:text-2xl lg:text-lg first-letter:lg:text-3xl hover:text-primary-400 transition-colors duration-300 ar:font-bold'>
+          <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base lg:text-lg  hover:text-primary-400 transition-colors duration-300 ar:font-bold'>
             <Link title={t('name')} href='/'>
               {t('name')}
             </Link>
@@ -102,7 +102,7 @@ export default function Nav() {
 
         {/* Mobile Navigation */}
         <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-400/10 py-5 px-10  relative z-20 bg-primary-white dark:bg-slate-900 transition-colors'>
-          <li className='font-pattaya font-normal ar:font-bold first-letter:text-primary-400 first-letter:text-2xl hover:text-primary-400 transition-colors duration-300'>
+          <li className='font-pattaya font-normal ar:font-bold first-letter:text-primary-400 hover:text-primary-400 transition-colors duration-300'>
             <Link href='/' title={t('name')}>
               {t('name')}
             </Link>

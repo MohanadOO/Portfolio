@@ -16,7 +16,7 @@ export default function Header() {
     <section
       id='header'
       aria-label={t('sectionHeader')}
-      className='self-center text-center flex justify-center items-center w-full h-screen'
+      className='self-center text-center flex justify-center items-center w-full h-screen relative overflow-hidden'
     >
       <motion.div
         variants={fadeInContainer}

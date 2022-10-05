@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 import { motion } from 'framer-motion'
 import { getProjectData } from '../../utils/projectsUtils'
+import Image from 'next/image'
 
 type ProjectCardType = {
   link: string
@@ -25,17 +26,17 @@ export default function ProjectCard({ link, locale }: ProjectCardType) {
       <motion.div
         variants={cardVariant}
         whileHover='hover'
-        className='bg-white dark:bg-slate-900 border border-primary-black dark:border-primary-400 shadow-[7px_7px_0px_black] mx-auto pb-5 h-full flex flex-col'
+        className='bg-white dark:bg-slate-900  shadow-[7px_7px_0px_black] mx-auto pb-5 h-full flex flex-col'
       >
-        <div className='overflow-hidden relative [&_a]:hover:opacity-100 [&_picture_img]:hover:scale-100 [&_picture_img]:hover:brightness-75 h-full'>
-          <picture>
-            <source srcSet={`${mainImgURL}.webp`} type='image/webp' />
-            <img
-              className='aspect-[16/11] object-cover object-top saturate-[1.3] scale-105 transition-transform duration-300'
+        <div className='overflow-hidden relative [&_a]:hover:opacity-100 h-full group'>
+          <div className='relative aspect-[16/12] saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
+            <Image
+              layout='fill'
+              objectFit='contain'
               src={`${mainImgURL}.png`}
               alt={t('title')}
             />
-          </picture>
+          </div>
           <a
             href={preview}
             target='_blank'
@@ -60,8 +61,9 @@ export default function ProjectCard({ link, locale }: ProjectCardType) {
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold'>
             <li>
               <p className='text-xs lg:text-sm'>{skills[0].name}</p>
-              <img
-                className='w-4 h-4 bg-transparent'
+              <Image
+                width={18}
+                height={18}
                 src={skills[0].icon}
                 alt={`${skills[0].name}_icon`}
                 aria-hidden='true'

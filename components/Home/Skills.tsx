@@ -1,14 +1,32 @@
+import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
-import {
-  SiFirebase,
-  SiGraphql,
-  SiReact,
-  SiTailwindcss,
-  SiTypescript,
-} from 'react-icons/si'
 
 export default function Skills() {
   const { t } = useTranslation('home', { keyPrefix: 'skills' })
+
+  let mySkills = [
+    {
+      name: 'TypeScript',
+      url: '/icons/typescript.svg',
+      color: '#007ACC',
+    },
+    { name: 'React', url: '/icons/react.svg', color: '#00D8FF' },
+    {
+      name: 'Tailwind CSS',
+      url: '/icons/tailwindcss.svg',
+      color: '#1EA8BC',
+    },
+    {
+      name: 'Firebase',
+      url: '/icons/firebase.svg',
+      color: '#F6820C',
+    },
+    {
+      name: 'GraphQl',
+      url: '/icons/graphql.svg',
+      color: '#E535AB',
+    },
+  ]
 
   return (
     <section
@@ -24,39 +42,26 @@ export default function Skills() {
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
           <h3 className='text-xl leading-8'>{t('subText')}</h3>
-          <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw] child:font-bold'>
-            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#007ACC]/60 ar:shadow-[#007ACC]/60'>
-              <span className='text-lg md:text-xl text-[#007ACC]'>
-                TypeScript
-              </span>
-              <SiTypescript className='w-7 h-7 md:w-8 md:h-8 fill-[#007ACC]' />
-            </li>
-
-            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#00D8FF]/60 ar:shadow-[#00D8FF]/60'>
-              <span className='text-lg md:text-xl text-[#00D8FF]'>React</span>
-              <SiReact className='w-7 h-7 md:w-8 md:h-8 fill-[#00D8FF]' />
-            </li>
-
-            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#1EA8BC]/60 ar:shadow-[#1EA8BC]/60'>
-              <span className='text-lg md:text-xl bg-gradient-to-r from-[#1EA8BC] to-[#12CEB7] bg-clip-text text-transparent'>
-                Tailwind
-              </span>
-              <SiTailwindcss className='w-7 h-7 md:w-8 md:h-8 fill-[#1EA8BC]' />
-            </li>
-
-            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#F6820C]/60 ar:shadow-[#F6820C]/60'>
-              <span className='text-lg md:text-xl bg-gradient-to-r from-[#F6820C] to-[#FCCA3F] bg-clip-text text-transparent'>
-                Firebase
-              </span>
-              <SiFirebase className='w-7 h-7 md:w-8 md:h-8  fill-[#F6820C]' />
-            </li>
-
-            <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#E535AB]/60 ar:shadow-[#E535AB]/60'>
-              <span className='text-lg md:text-xl text-[#E535AB] '>
-                GraphQl
-              </span>
-              <SiGraphql className='w-7 h-7 md:w-8 md:h-8 fill-[#E535AB]' />
-            </li>
+          <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw]'>
+            {mySkills.map((skill) => {
+              return (
+                <li
+                  key={skill.name}
+                  className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white child:w-28 child:text-center'
+                >
+                  <span className='text-lg font-pattaya md:text-xl'>
+                    {skill.name}
+                  </span>
+                  <Image
+                    width={32}
+                    height={32}
+                    src={skill.url}
+                    alt={`${skill.name}_icon`}
+                    aria-hidden='true'
+                  />
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>

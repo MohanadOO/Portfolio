@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html className='font-lato scroll-smooth bg-primary-white text-primary-black'>
       <Head>
-        <meta charset='UTF-8' />
+        <meta charSet='UTF-8' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
