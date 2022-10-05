@@ -57,7 +57,7 @@ export default function ProjectCard({ link, locale }: ProjectCardType) {
           </a>
         </div>
         <div className='p-5 h-full'>
-          <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-semibold'>
+          <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold'>
             <li>
               <p className='text-xs lg:text-sm'>{skills[0].name}</p>
               <img

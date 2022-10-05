@@ -56,13 +56,13 @@ export default function Nav() {
         <a
           onClick={(e) => (item.disabled ? e.preventDefault() : '')}
           className={`
-                    py-3 px-5 sm:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md
+                    py-3 px-5 sm:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md font-bold ar:font-semibold
                     ${
                       router.pathname == item.URL
                         ? ' border-b-2 border-primary-400 text-primary-400 dark:text-primary-white rounded-none cursor-default'
                         : item.disabled
                         ? 'cursor-default text-gray-400 line-through'
-                        : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-400 en:hover:shadow-left  ar:hover:shadow-right dark:hover:shadow-primary-400 transition-all'
+                        : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-400 en:hover:shadow-left ar:hover:shadow-right dark:hover:shadow-primary-400 transition-all'
                     }
                   `}
           title={t(item.translate)}
@@ -78,7 +78,7 @@ export default function Nav() {
     <header>
       <nav
         aria-label={locale === 'ar' ? language.ar.label : language.en.label}
-        className='w-full fixed top-0 z-50 font-bold bg-primary-white dark:bg-slate-900'
+        className='w-full fixed top-0 z-50 bg-primary-white dark:bg-slate-900'
       >
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/50 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>
@@ -102,7 +102,7 @@ export default function Nav() {
 
         {/* Mobile Navigation */}
         <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-400/10 py-5 px-10  relative z-20 bg-primary-white dark:bg-slate-900 transition-colors'>
-          <li className='font-pattaya font-normal first-letter:text-primary-400 first-letter:text-2xl hover:text-primary-400 transition-colors duration-300 ar:font-bold'>
+          <li className='font-pattaya font-normal ar:font-bold first-letter:text-primary-400 first-letter:text-2xl hover:text-primary-400 transition-colors duration-300'>
             <Link href='/' title={t('name')}>
               {t('name')}
             </Link>

@@ -23,9 +23,7 @@ export default function Skills() {
           </h2>
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
-          <h3 className='text-xl first-letter:text-secondary-400  leading-8'>
-            {t('subText')}
-          </h3>
+          <h3 className='text-xl leading-8'>{t('subText')}</h3>
           <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw] child:font-bold'>
             <li className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white en:shadow-[#007ACC]/60 ar:shadow-[#007ACC]/60'>
               <span className='text-lg md:text-xl text-[#007ACC]'>

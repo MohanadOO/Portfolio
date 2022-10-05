@@ -9,6 +9,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/aref-ruqaa": "^4.5.10",
+    "@fontsource/cairo": "^4.5.11",
+    "@fontsource/lato": "^4.5.10",
+    "@fontsource/pattaya": "^4.5.10",
     "framer-motion": "^7.2.1",
     "next": "^12.3.1",
     "next-themes": "^0.2.1",

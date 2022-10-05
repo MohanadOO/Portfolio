@@ -20,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         lato: ['Lato', 'Cairo', 'sans-serif'],
+        cairo: ['Cairo', 'lato', 'sans-serif'],
         pattaya: ['Pattaya', 'Aref Ruqaa', 'sans-serif'],
       },
       boxShadow: {

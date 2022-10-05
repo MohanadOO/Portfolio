@@ -18,7 +18,7 @@ export default function AboutMe({ locale }) {
     <section
       id='about-me'
       aria-label={t('sectionHeader')}
-      className='flex flex-col gap-10 lg:gap-20 my-12 scroll-mt-28'
+      className='flex flex-col gap-10 lg:gap-10 my-12 scroll-mt-28'
     >
       <div className='flex items-center mx-auto mb-10 md:mx-0 '>
         <h2 className='section_header'>{t('sectionHeader')}</h2>
@@ -29,12 +29,12 @@ export default function AboutMe({ locale }) {
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
-        className='flex flex-col-reverse md:flex-row items-center md:items-start lg:items-center gap-10 lg:gap-20 pb-12'
+        className='flex flex-col-reverse md:flex-row items-center md:items-start xl:items-center gap-10 lg:gap-20 pb-12 font-cairo'
       >
         <motion.div variants={fadeInLeft}>
           <motion.h3
             variants={fadeInRightText}
-            className='font-bold font-pattaya text-base lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
+            className='font-semibold font-pattaya text-base lg:text-lg xl:text-xl text-center max-w-sm w-full mb-4'
           >
             {t('aboutMe')}
           </motion.h3>
@@ -48,7 +48,7 @@ export default function AboutMe({ locale }) {
                 stiffness: 400,
                 damping: 10,
               }}
-              className='aspect-square md:aspect-[3/4] max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 border-primary-black dark:border-white cursor-pointer'
+              className='aspect-square max-w-[15rem] lg:max-w-xs xl:max-w-sm rounded-md object-cover object-center ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 border-primary-black dark:border-white cursor-pointer'
               src='/images/MyPicture.png'
               alt={locale === 'ar' ? 'صورتي الشخصية' : 'A Photo of Me'}
             />
@@ -63,13 +63,13 @@ export default function AboutMe({ locale }) {
         >
           <motion.p
             variants={fadeInRightText}
-            className='first-letter:text-primary-400 first-letter:font-bold text-center en:md:text-left ar:md:text-right max-w-md 2xl:max-w-2xl text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
+            className='text-center en:md:text-left ar:md:text-right max-w-md md:max-w-4xl text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP1')}
           </motion.p>
           <motion.p
             variants={fadeInRightText}
-            className='first-letter:text-primary-400 first-letter:font-bold text-center en:md:text-left ar:md:text-right max-w-md 2xl:max-w-2xl text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
+            className='text-center en:md:text-left ar:md:text-right max-w-md md:max-w-4xl text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP2')}
           </motion.p>

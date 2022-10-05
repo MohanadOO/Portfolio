@@ -11,7 +11,7 @@ export default function LanguageBtn({ locale, language }) {
       aria-label={locale === 'ar' ? language.en.change : language.ar.change}
     >
       <a
-        className='flex items-center gap-1'
+        className='flex items-center gap-1 font-bold'
         title={locale === 'ar' ? language.en.title : language.ar.title}
       >
         <HiGlobeAlt className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary-400 dark:fill-primary-white' />

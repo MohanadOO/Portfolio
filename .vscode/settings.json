@@ -1,4 +1,11 @@
 {
-  "cSpell.words": ["Aref", "lato", "pattaya", "Ruqaa", "Tailwindcss"],
+  "cSpell.words": [
+    "Aref",
+    "fontsource",
+    "lato",
+    "pattaya",
+    "Ruqaa",
+    "Tailwindcss"
+  ],
   "editor.acceptSuggestionOnEnter": "on"
 }
