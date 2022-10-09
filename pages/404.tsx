@@ -7,7 +7,7 @@ export default function ErrorPage() {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}
-      className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-red-500'
+      className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-red-400'
       aria-labelledby='error-page'
     >
       <div className='flex flex-col items-center gap-5 xl:gap-10 max-w-sm xl:max-w-md'>
@@ -18,15 +18,17 @@ export default function ErrorPage() {
           404 Page Not Found
         </h1>
         <Link
-          className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-red-500 text-red-500 hover:bg-red-500 hover:text-primary-white transition-colors xl:text-lg font-pattaya'
+          className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-red-400 text-red-400 hover:bg-red-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'
           href='/'
         >
-          Back to Home Page
+          <a className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-red-400 text-red-400 hover:bg-red-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
+            Back to Home Page
+          </a>
         </Link>
       </div>
       <div>
         <img
-          className='max-w-xs xl:max-w-sm -red-500'
+          className='max-w-xs xl:max-w-sm -red-400'
           src='/images/404.png'
           alt='Not Found Illustration'
         />
