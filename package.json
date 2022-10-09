@@ -15,6 +15,7 @@
     "@fontsource/pattaya": "^4.5.10",
     "framer-motion": "^7.2.1",
     "next": "^12.3.1",
+    "next-sanity": "^0.8.4",
     "next-themes": "^0.2.1",
     "ni18n": "^1.0.5",
     "react": "^18.0.0",

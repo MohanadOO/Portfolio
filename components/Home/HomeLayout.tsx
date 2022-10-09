@@ -5,7 +5,7 @@ import Projects from './Projects'
 
 import { useRouter } from 'next/router'
 
-export default function HomeLayout() {
+export default function HomeLayout({projects}) {
   const router = useRouter()
   const locale = router.locale
   return (
@@ -15,7 +15,7 @@ export default function HomeLayout() {
         <AboutMe locale={locale} />
         <Skills />
       </div>
-      <Projects locale={locale} />
+      <Projects locale={locale} projects={projects} />
     </main>
   )
 }

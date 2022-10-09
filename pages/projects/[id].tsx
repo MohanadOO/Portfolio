@@ -4,25 +4,24 @@ import { HiExternalLink } from 'react-icons/hi'
 import { useRouter } from 'next/router'
 
 import { motion } from 'framer-motion'
-import { getAllProjectsIds, getProjectData } from '../../utils/projectsUtils'
+import { getAllProjectsIds } from '../../utils/projectsUtils'
+import { getProjectData } from '../../sanity/queries/projects'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../../ni18n.config'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 
-type SkillType = {
-  name: string
-  icon: string
-}
+import { client } from '../../sanity/client'
 
 export default function ProjectDetails({ projectDetails }) {
+  const project: ProjectDetailsType = projectDetails
+  const { t } = useTranslation(['common'])
   const router = useRouter()
-  const id = router.query.id
-  const { t } = useTranslation(['projects', 'common'])
-  const title = t(`${id}.title`)
-  const desc = t(`${id}.desc`)
+  const locale = router.locale
 
-  const { mainImgURL, images, skills, github, preview } = projectDetails
+  const { mainImage, images, skills, github, preview } = project
+  const title = locale === 'ar' ? project.title.ar : project.title.en
+  const body = locale === 'ar' ? project.body.ar : project.body.en
 
   const allSkills = skills.map((skill: SkillType) => {
     return (
@@ -37,7 +36,7 @@ export default function ProjectDetails({ projectDetails }) {
         <Image
           width={18}
           height={18}
-          src={skill.icon}
+          src={skill.icon.asset.url}
           alt={`${skill.name}_icon`}
           aria-hidden='true'
         />
@@ -60,14 +59,14 @@ export default function ProjectDetails({ projectDetails }) {
             <Image
               layout='fill'
               objectFit='cover'
-              src={`${mainImgURL}.png`}
-              alt={`${title}_Image`}
+              src={`${mainImage.asset.url}`}
+              alt={`${mainImage.alt}`}
               aria-hidden='true'
               priority
             />
           </div>
           <div className='flex justify-between mt-5 gap-3'>
-            {images.map((image: string, index: number) => {
+            {images.map((image: ImageType, index: number) => {
               return (
                 <div
                   key={index}
@@ -77,7 +76,7 @@ export default function ProjectDetails({ projectDetails }) {
                     layout='fill'
                     objectFit='cover'
                     alt={index.toString()}
-                    src={`${image}.png`}
+                    src={image.asset.url}
                     aria-hidden='true'
                     priority
                   />
@@ -94,7 +93,7 @@ export default function ProjectDetails({ projectDetails }) {
             {allSkills}
           </ul>
           <p className='text-sm leading-loose sm:text-base sm:leading-loose md:text-lg md:leading-loose xl:text-lg xl:leading-loose lg:max-h-[150px] 2xl:max-h-[200px] overflow-y-auto xl:my-5'>
-            {desc}
+            {body}
           </p>
           <div className='flex mb-32 lg:mb-0 gap-5'>
             <a
@@ -102,7 +101,7 @@ export default function ProjectDetails({ projectDetails }) {
               href={github}
               target='_blank'
             >
-              <span>{t('common:github')}</span>
+              <span>{t('github')}</span>
               <AiFillGithub className='w-5 h-5' />
             </a>
             <a
@@ -110,7 +109,7 @@ export default function ProjectDetails({ projectDetails }) {
               href={preview}
               target='_blank'
             >
-              <span>{t('common:preview')}</span>
+              <span>{t('preview')}</span>
               <HiExternalLink className='w-5 h-5' />
             </a>
           </div>
@@ -122,10 +121,12 @@ export default function ProjectDetails({ projectDetails }) {
 
 export const getStaticProps = async ({ params, locale }) => {
   const id = params.id
-  const projectDetails = getProjectData(id)
+  const projectDetails: ProjectDetailsType = await client.fetch(
+    getProjectData(id)
+  )
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['projects', 'common'])),
+      ...(await loadTranslations(ni18nConfig, locale, ['common'])),
       projectDetails,
       id,
     },
@@ -133,7 +134,10 @@ export const getStaticProps = async ({ params, locale }) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = await getAllProjectsIds()
+  const projectsSlug = await client.fetch(
+    `*[_type == 'project']{slug{current}}`
+  )
+  const paths = getAllProjectsIds(projectsSlug)
   return {
     paths: paths,
     fallback: false,

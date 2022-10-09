@@ -4,9 +4,8 @@ import ProjectCard from './ProjectCard'
 import { motion } from 'framer-motion'
 import { projectsContainer } from '../../public/variants/MotionVariants'
 
-export default function Projects({ locale }) {
+export default function Projects({ locale, projects }) {
   const { t } = useTranslation('home', { keyPrefix: 'projects' })
-
   return (
     <section
       id='projects'
@@ -26,11 +25,13 @@ export default function Projects({ locale }) {
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-12 md:mx-20 lg:mx-40 gap-10'
           >
-            <ProjectCard locale={locale} link={'chat-application'} />
-            <ProjectCard locale={locale} link={'half-life-2-home'} />
-            <ProjectCard locale={locale} link={'manage-landing-page'} />
-            <ProjectCard locale={locale} link={'bookmark-landing-page'} />
-            <ProjectCard locale={locale} link={'room-home-page'} />
+            {projects.map((project) => (
+              <ProjectCard
+                key={project._id}
+                locale={locale}
+                project={project}
+              />
+            ))}
           </motion.div>
         </div>
       </div>

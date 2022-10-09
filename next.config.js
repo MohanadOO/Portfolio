@@ -3,4 +3,12 @@ module.exports = {
     locales: ['en', 'ar'],
     defaultLocale: 'en',
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
+  },
 }

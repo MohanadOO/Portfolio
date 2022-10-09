@@ -2,10 +2,11 @@ import ProjectCard from '../components/Home/ProjectCard'
 import { motion } from 'framer-motion'
 import { IoTimerOutline } from 'react-icons/io5'
 import Link from 'next/link'
-import { getAllProjects } from '../utils/projectsUtils'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
 import { useTranslation } from 'react-i18next'
+import { client } from '../sanity/client'
+import { ALL_PROJECTS_QUERY } from '../sanity/queries/projects'
 
 type ProjectType = {
   title: { en: string; ar: string }
@@ -34,11 +35,10 @@ export default function Projects({ projects }) {
         >
           Page is not available yet <IoTimerOutline className='inline' />
         </h1>
-        <Link
-          className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'
-          href='/'
-        >
-          Back to Home Page
+        <Link href='/'>
+          <a className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
+            Back to Home Page
+          </a>
         </Link>
       </div>
       <div>
@@ -76,7 +76,7 @@ const allProjectsVariant = {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const projects = getAllProjects()
+  const projects = await client.fetch(ALL_PROJECTS_QUERY)
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['projects'])),

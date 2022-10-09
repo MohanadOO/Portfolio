@@ -1,26 +1,23 @@
 import Link from 'next/link'
+import Image from 'next/image'
+
 import { AiFillGithub } from 'react-icons/ai'
 import { HiEye } from 'react-icons/hi'
 
 import { useTranslation } from 'react-i18next'
 
 import { motion } from 'framer-motion'
-import { getProjectData } from '../../utils/projectsUtils'
-import Image from 'next/image'
 
-type ProjectCardType = {
-  link: string
-  locale: string
-}
-
-export default function ProjectCard({ link, locale }: ProjectCardType) {
-  const { t } = useTranslation(['projects', 'common'])
-  const { mainImgURL, skills, preview, github } = getProjectData(link)
+export default function ProjectCard({ project, locale }: ProjectCardType) {
+  const { t } = useTranslation(['common'])
+  const { slug, mainImage, skills, github, preview } = project
+  const title = locale === 'ar' ? project.title.ar : project.title.en
+  const body = locale === 'ar' ? project.body.ar : project.body.en
 
   return (
     <motion.div
       className='text-start max-w-sm mx-auto'
-      aria-label={t(`${link}.title`)}
+      aria-label={title}
       variants={cardVariant}
     >
       <motion.div
@@ -33,8 +30,8 @@ export default function ProjectCard({ link, locale }: ProjectCardType) {
             <Image
               layout='fill'
               objectFit='contain'
-              src={`${mainImgURL}.png`}
-              alt={t('title')}
+              src={mainImage.asset.url}
+              alt={mainImage.alt}
             />
           </div>
           <a
@@ -59,46 +56,26 @@ export default function ProjectCard({ link, locale }: ProjectCardType) {
         </div>
         <div className='p-5 h-full'>
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold'>
-            <li>
-              <p className='text-xs lg:text-sm'>{skills[0].name}</p>
-              <Image
-                width={18}
-                height={18}
-                src={skills[0].icon}
-                alt={`${skills[0].name}_icon`}
-                aria-hidden='true'
-              />
-            </li>
-            {skills[1] !== undefined && (
-              <li>
-                <p className='text-xs lg:text-sm'>{skills[1].name}</p>
-                <img
-                  className='w-4 h-4 bg-transparent'
-                  src={skills[1].icon}
-                  alt={`${skills[1].name}_icon`}
+            {skills.map((skill) => (
+              <li key={skill.name}>
+                <p className='text-xs lg:text-sm'>{skill.name}</p>
+                <Image
+                  width={18}
+                  height={18}
+                  src={skill.icon.asset.url}
+                  alt={`${skill.name}`}
                   aria-hidden='true'
                 />
               </li>
-            )}
-            {skills[2] !== undefined && (
-              <li>
-                <p className='text-xs lg:text-sm'>{skills[2].name}</p>
-                <img
-                  className='w-4 h-4 bg-transparent'
-                  src={skills[2].icon}
-                  alt={`${skills[2].name}_icon`}
-                  aria-hidden='true'
-                />
-              </li>
-            )}
+            ))}
           </ul>
           <h1 className='font-pattaya text-4xl mt-4 text-primary-400'>
-            {t(`${link}.title`)}
+            {title}
           </h1>
           <p className='max-w-xs w-full text-sm leading-6 mt-3 text-primary-black dark:text-primary-white my-10 h-24  overflow-hidden'>
-            {t(`${link}.desc`)}
+            {body}
           </p>
-          <Link href={`projects/${link}`}>
+          <Link href={`projects/${slug.current}`}>
             <a className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'>
               {t('common:checkBtn')}
             </a>
