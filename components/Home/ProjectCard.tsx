@@ -23,9 +23,9 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
       <motion.div
         variants={cardVariant}
         whileHover='hover'
-        className='bg-white dark:bg-slate-900  shadow-[7px_7px_0px_black] mx-auto pb-5 h-full flex flex-col'
+        className='bg-white dark:bg-slate-900 shadow-[7px_7px_0px_black] mx-auto pb-5 flex flex-col overflow-hidden border-2 border-black dark:border-primary-400 rounded-md'
       >
-        <div className='overflow-hidden relative [&_a]:hover:opacity-100 h-full group'>
+        <div className='relative [&_a]:hover:opacity-100 border-b-2 border-black group'>
           <div className='relative aspect-[16/12] saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
             <Image
               layout='fill'
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             />
           </a>
         </div>
-        <div className='p-5 h-full'>
+        <div className='p-5 flex h-full flex-col items-start'>
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:flex child:gap-2 child:py-1 child:px-3  child:items-center child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold'>
             {skills.map((skill) => (
               <li key={skill.name}>
@@ -72,11 +72,11 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           <h1 className='font-pattaya text-4xl mt-4 text-primary-400'>
             {title}
           </h1>
-          <p className='max-w-xs w-full text-sm leading-6 mt-3 text-primary-black dark:text-primary-white my-10 h-24  overflow-hidden'>
+          <p className='max-w-xs w-full text-sm leading-7 mt-3 text-primary-black dark:text-primary-white my-10 line-clamp-3'>
             {body}
           </p>
           <Link href={`projects/${slug.current}`}>
-            <a className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] active:-translate-x-4 active:translate-y-4'>
+            <a className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] mt-auto'>
               {t('common:checkBtn')}
             </a>
           </Link>

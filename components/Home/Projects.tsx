@@ -25,7 +25,7 @@ export default function Projects({ locale, projects }) {
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-12 md:mx-20 lg:mx-40 gap-10'
           >
-            {projects.map((project) => (
+            {projects.map((project: ProjectType) => (
               <ProjectCard
                 key={project._id}
                 locale={locale}

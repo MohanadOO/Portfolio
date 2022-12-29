@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const locale = router.locale
 
-  const dir = locale === 'ar' ? 'rtl' : 'ltl'
+  const dir = locale === 'ar' ? 'rtl' : 'ltr'
   useEffect(() => {
     document.documentElement.dir = dir
   }, [dir])

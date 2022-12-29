@@ -13,6 +13,7 @@
     "@fontsource/cairo": "^4.5.11",
     "@fontsource/lato": "^4.5.10",
     "@fontsource/pattaya": "^4.5.10",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "framer-motion": "^7.2.1",
     "next": "^12.3.1",
     "next-sanity": "^0.8.4",
