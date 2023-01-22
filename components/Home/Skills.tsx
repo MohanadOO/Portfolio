@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { useTranslation } from 'react-i18next'
 
 export default function Skills() {

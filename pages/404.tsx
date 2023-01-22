@@ -21,9 +21,7 @@ export default function ErrorPage() {
           className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-red-400 text-red-400 hover:bg-red-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'
           href='/'
         >
-          <a className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-red-400 text-red-400 hover:bg-red-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
-            Back to Home Page
-          </a>
+          Back to Home Page
         </Link>
       </div>
       <div>

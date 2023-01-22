@@ -75,10 +75,11 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           <p className='max-w-xs w-full text-sm leading-7 mt-3 text-primary-black dark:text-primary-white my-10 line-clamp-3'>
             {body}
           </p>
-          <Link href={`projects/${slug.current}`}>
-            <a className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] mt-auto'>
-              {t('common:checkBtn')}
-            </a>
+          <Link
+            href={`projects/${slug.current}`}
+            className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] ar:hover:shadow-[4px_4px_0_black] mt-auto'
+          >
+            {t('common:checkBtn')}
           </Link>
         </div>
       </motion.div>

@@ -52,10 +52,11 @@ export default function Nav() {
 
   const navigationItems = navigation.map((item) => (
     <li key={item.title}>
-      <Link href={item.URL} aria-disabled={item.disabled}>
-        <a
-          onClick={(e) => (item.disabled ? e.preventDefault() : '')}
-          className={`
+      <Link
+        href={item.URL}
+        aria-disabled={item.disabled}
+        onClick={(e) => (item.disabled ? e.preventDefault() : '')}
+        className={`
                     py-3 px-5 sm:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md font-bold ar:font-semibold
                     ${
                       router.pathname == item.URL
@@ -65,11 +66,10 @@ export default function Nav() {
                         : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-400 en:hover:shadow-left ar:hover:shadow-right dark:hover:shadow-primary-400 transition-all'
                     }
                   `}
-          title={t(item.translate)}
-          target={item.title === 'Resume' ? '_blank' : '_parent'}
-        >
-          {t(item.translate)} {item.disabled ? '...' : ''}
-        </a>
+        title={t(item.translate)}
+        target={item.title === 'Resume' ? '_blank' : '_parent'}
+      >
+        {t(item.translate)} {item.disabled ? '...' : ''}
       </Link>
     </li>
   ))
