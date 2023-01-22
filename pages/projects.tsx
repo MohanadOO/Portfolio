@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
 import { useTranslation } from 'react-i18next'
-import { client } from '../sanity/client'
+import { client } from '../sanity/sanity.client'
 import { ALL_PROJECTS_QUERY } from '../sanity/queries/projects'
 
 type ProjectType = {

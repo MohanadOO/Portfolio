@@ -5,6 +5,7 @@ import { ni18nConfig } from '../ni18n.config'
 import '../styles/globals.css'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import '@fontsource/pattaya'
@@ -18,9 +19,13 @@ import '@fontsource/cairo/700.css'
 import '@fontsource/aref-ruqaa'
 import '@fontsource/aref-ruqaa/700.css'
 
-function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-  const locale = router.locale
+function MyApp({ Component, pageProps, router }: AppProps) {
+  const studioRoute = router.route.startsWith('/studio')
+  const locale = useRouter().locale
+
+  if (studioRoute) {
+    return <Component {...pageProps} />
+  }
 
   const dir = locale === 'ar' ? 'rtl' : 'ltr'
   useEffect(() => {

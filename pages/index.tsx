@@ -2,7 +2,7 @@ import { loadTranslations } from 'ni18n'
 import HomeLayout from '../components/Home/HomeLayout'
 import { ni18nConfig } from '../ni18n.config'
 
-import { client } from '../sanity/client'
+import { client } from '../sanity/sanity.client'
 import { PROJECTS_QUERY } from '../sanity/queries/projects'
 
 export default function Home({ projects }) {

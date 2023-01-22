@@ -11,7 +11,7 @@ import { ni18nConfig } from '../../ni18n.config'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 
-import { client } from '../../sanity/client'
+import { client } from '../../sanity/sanity.client'
 import { useState } from 'react'
 import Head from 'next/head'
 
