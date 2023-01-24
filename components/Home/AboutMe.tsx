@@ -38,8 +38,8 @@ export default function AboutMe({ locale }) {
         >
           <Image
             src='/images/MyPicture.png'
-            layout='fill'
-            objectFit='cover'
+            fill
+            style={{ objectFit: 'cover' }}
             alt={locale === 'ar' ? 'صورتي الشخصية' : 'A Photo of Me'}
           />
         </motion.div>

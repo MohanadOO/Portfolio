@@ -26,10 +26,10 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
         className='bg-white dark:bg-slate-900 shadow-[7px_7px_0px_black] mx-auto pb-5 flex flex-col overflow-hidden border-2 border-black dark:border-primary-400 rounded-md'
       >
         <div className='relative [&_a]:hover:opacity-100 border-b-2 border-black group'>
-          <div className='relative aspect-[16/12] saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
+          <div className='relative aspect-[16/12] max-w-sm saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
             <Image
-              layout='fill'
-              objectFit='contain'
+              fill
+              style={{ objectFit: 'contain' }}
               src={mainImage.asset.url}
               alt={mainImage.alt}
             />

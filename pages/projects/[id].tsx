@@ -91,8 +91,9 @@ export default function ProjectDetails({ projectDetails }) {
               </div>
               <Image
                 className='group-hover:brightness-75 transition-all select-none'
-                layout='fill'
-                objectFit='cover'
+                fill
+                property='true'
+                style={{ objectFit: 'cover' }}
                 src={`${mainPic.asset.url}`}
                 alt={`${mainPic.alt}`}
                 aria-hidden='true'
@@ -108,7 +109,7 @@ export default function ProjectDetails({ projectDetails }) {
                       setMainPic(image)
                     }}
                     key={index}
-                    className='relative w-full aspect-[2/1] rounded-sm object-cover object-top ring-2 ring-primary-400/40 cursor-pointer'
+                    className='relative w-full aspect-[2/1] rounded-sm object-cover object-top ring-2 ring-primary-400/40 cursor-pointer max-w-xs'
                   >
                     <Image
                       className={`transition-all ${
@@ -116,8 +117,8 @@ export default function ProjectDetails({ projectDetails }) {
                           ? 'brightness-50'
                           : 'hover:brightness-75 hover:scale-105'
                       }`}
-                      layout='fill'
-                      objectFit='cover'
+                      fill
+                      style={{ objectFit: 'cover' }}
                       alt={index.toString()}
                       src={image.asset.url}
                       aria-hidden='true'
