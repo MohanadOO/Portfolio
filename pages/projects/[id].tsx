@@ -175,6 +175,7 @@ export const getStaticProps = async ({ params, locale }) => {
       projectDetails,
       id,
     },
+    revalidate: 600,
   }
 }
 
