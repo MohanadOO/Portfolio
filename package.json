@@ -16,7 +16,7 @@
     "@portabletext/react": "^2.0.0",
     "@sanity/code-input": "^4.0.0",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.2.4",
+    "@sanity/vision": "^3.2.5",
     "@tailwindcss/line-clamp": "^0.4.2",
     "framer-motion": "^7.2.1",
     "next": "^13.1.4",

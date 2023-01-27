@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import urlFor from '../../utils/urlFor'
+import Refractor from 'react-refractor'
 
 export const RichTextComponents = {
   types: {
@@ -23,8 +24,13 @@ export const RichTextComponents = {
       ) : (
         <div className='callToAction'>{value.text}</div>
       ),
-    code: ({ children }: any) => <h1>{children}</h1>,
+
+    code: ({ value: { code, language } }: any) => {
+      Refractor.registerLanguage(require(`refractor/lang/${language}`))
+      return <Refractor language={language} value={code} />
+    },
   },
+
   list: {
     bullet: ({ children }: any) => (
       <ul className='ml-10 py-5 list-disc space-y-5'>{children}</ul>
