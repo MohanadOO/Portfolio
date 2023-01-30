@@ -17,8 +17,8 @@ export const myTheme = buildLegacyTheme({
   '--gray': '#666',
   '--gray-base': '#666',
 
-  '--component-bg': props['--my-black'],
-  '--component-text-color': props['--my-white'],
+  '--component-bg': props['--my-white'],
+  '--component-text-color': props['--my-black'],
 
   /* Brand */
   '--brand-primary': props['--my-purple'],
@@ -37,7 +37,7 @@ export const myTheme = buildLegacyTheme({
   '--state-danger-color': props['--my-red'],
 
   /* Navbar */
-  '--main-navigation-color': props['--my-black'],
+  '--main-navigation-color': props['--my-white'],
   '--main-navigation-color--inverted': props['--my-purple'],
 
   '--focus-color': props['--my-purple'],

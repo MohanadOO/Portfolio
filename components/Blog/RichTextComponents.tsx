@@ -33,27 +33,32 @@ export const RichTextComponents = {
 
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-10 py-5 list-disc space-y-5'>{children}</ul>
+      <ul className='ml-5 md:ml-10 py-3 list-disc marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+        {children}
+      </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='mt-10 list-decimal'>{children}</ol>
+      <ol className='ml-5 md:ml-10 py-3 list-decimal marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+        {children}
+      </ol>
     ),
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className='text-5xl py-10 font-bold'>{children}</h1>
+      <h1 className='text-5xl md:text-6xl pt-10 pb-5 font-bold'>{children}</h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className='text-4xl py-8 font-bold'>{children}</h2>
+      <h2 className='text-4xl md:text-5xl pt-10 pb-5 font-bold'>{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className='text-3xl py-6 font-bold'>{children}</h3>
+      <h3 className='text-2xl md:text-3xl pt-10 pb-5'>{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className='text-2xl py-4 font-bold'>{children}</h4>
+      <h4 className='text-xl md:text-2xl pt-10 pb-5'>{children}</h4>
     ),
+    normal: ({ children }: any) => <p className='md:text-lg'>{children}</p>,
     blockquote: ({ children }: any) => (
-      <blockquote className='border-l-purple-500 border-l-4 pl-5 py-5 my-5'>
+      <blockquote className='border-l-purple-500 text-lg border-l-4 pl-5 py-5 my-5'>
         {children}
       </blockquote>
     ),
@@ -67,16 +72,20 @@ export const RichTextComponents = {
         <Link
           href={value.href}
           rel={rel}
-          className='underline decoration-purple-700 hover:decoration-black'
+          className='underline decoration-purple-700 hover:decoration-black line-clamp-2'
         >
           {children}
         </Link>
       )
     },
     em: ({ children }: any) => <em className='italic'>{children}</em>,
-    strong: ({ children }: any) => <strong className='bold'>{children}</strong>,
+    strong: ({ children }: any) => (
+      <strong className='font-bold'>{children}</strong>
+    ),
     code: ({ children }: any) => (
-      <code className='bg-gray-300 p-1  rounded-md'>{children}</code>
+      <code className='bg-gray-300 dark:bg-gray-800 text-primary-400 px-1 py-0.5 rounded-sm'>
+        {children}
+      </code>
     ),
     strike: ({ children }: any) => <del className='text-white'>{children}</del>,
   },

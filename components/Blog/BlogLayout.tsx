@@ -11,7 +11,7 @@ function BlogLayout({ children }) {
   }
   return (
     <section
-      className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 min-h-screen py-24'
+      className='sm:px-5 md:px-10 lg:px-24 xl:px-32 2xl:px-44 min-h-screen py-24'
       id='blog'
     >
       <Head>
