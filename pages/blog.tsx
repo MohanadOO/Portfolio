@@ -5,19 +5,33 @@ import { client } from '../sanity/sanity.client'
 import { PreviewSuspense } from 'next-sanity/preview'
 import BlogLayout from '../components/Blog/BlogLayout'
 import { getPostsInfo } from '../sanity/queries/blog'
+import { loadTranslations } from 'ni18n'
+import { ni18nConfig } from '../ni18n.config'
 
 type Props = {
   preview: boolean
   posts: Post[]
 }
 
-export const getStaticProps = async ({ preview = false }) => {
+export const getStaticProps = async ({ preview = false, locale }) => {
   if (preview) {
-    return { props: { preview } }
+    return {
+      props: {
+        ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+        preview,
+      },
+    }
   }
 
   const posts = await client.fetch(getPostsInfo)
-  return { props: { preview, posts }, revalidate: 600 }
+  return {
+    props: {
+      ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+      preview,
+      posts,
+    },
+    revalidate: 600,
+  }
 }
 
 const PreviewBlogList = lazy(() => import('../components/Blog/PreviewBlogList'))

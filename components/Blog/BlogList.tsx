@@ -2,12 +2,16 @@ import Image from 'next/image'
 import { HiOutlineChevronRight } from 'react-icons/hi'
 import urlFor from '../../utils/urlFor'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 
 export function BlogList({ posts }: { posts: Post[] }) {
+  const { t } = useTranslation('blog')
+  const locale = useRouter().locale
   return (
-    <div>
+    <>
       <hr className='border-primary-400 mb-10' />
-      <div className='grid grid-cols md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24'>
+      <div className='grid grid-cols md:grid-cols-2 px-5 md:px-10 gap-10 gap-y-16 pb-24'>
         {posts.map((post) => (
           <Link key={post._id} href={`/blog/${post.slug.current}`}>
             <div className='group cursor-pointer flex flex-col'>
@@ -50,13 +54,15 @@ export function BlogList({ posts }: { posts: Post[] }) {
               </div>
 
               <p className='flex gap-2 items-center mt-5 group-hover:underline'>
-                Read Post
-                <HiOutlineChevronRight />
+                {t('readPost')}
+                <HiOutlineChevronRight
+                  className={`${locale === 'ar' ? 'rotate-180' : ''}`}
+                />
               </p>
             </div>
           </Link>
         ))}
       </div>
-    </div>
+    </>
   )
 }
