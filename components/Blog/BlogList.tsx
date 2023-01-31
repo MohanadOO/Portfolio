@@ -38,10 +38,10 @@ export function BlogList({ posts }: { posts: Post[] }) {
                       })}
                     </p>
                   </div>
-                  <div className='flex flex-col md:flex-row gap-y-2 md:gab-x-2 items-center'>
+                  <div className='flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center'>
                     {post.categories &&
                       post.categories.map((category) => (
-                        <div className='bg-primary-400 text-center text-white px-3 py-1 rounded-full text-sm font-semibold'>
+                        <div className='bg-primary-400 text-center px-2 py-1 rounded-full text-xs font-semibold'>
                           {category.title}
                         </div>
                       ))}
