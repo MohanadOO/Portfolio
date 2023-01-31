@@ -30,7 +30,8 @@
     "react-icons": "^4.4.0",
     "react-refractor": "^2.1.7",
     "sanity": "^3.2.4",
-    "sanity-plugin-iframe-pane": "^2.1.1"
+    "sanity-plugin-iframe-pane": "^2.1.1",
+    "sanity-plugin-vercel-deploy": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "18.7.18",
