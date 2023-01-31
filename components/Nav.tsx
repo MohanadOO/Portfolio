@@ -80,7 +80,7 @@ export default function Nav() {
     <header>
       <nav
         aria-label={locale === 'ar' ? language.ar.label : language.en.label}
-        className='w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-slate-900'
+        className='w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark'
       >
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/50 py-6 px-10 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 lg:text-lg'>

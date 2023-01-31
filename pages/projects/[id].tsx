@@ -82,11 +82,11 @@ export default function ProjectDetails({ projectDetails }) {
               <div className='absolute top-[50%] translate-y-[-50%] flex justify-between w-full p-5 z-10'>
                 <HiChevronRight
                   onClick={() => handleSwitchImages(-1)}
-                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 cursor-pointer'
+                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 dark:text-primary-400 cursor-pointer'
                 />
                 <HiChevronLeft
                   onClick={() => handleSwitchImages(1)}
-                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 cursor-pointer'
+                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 dark:text-primary-400 cursor-pointer'
                 />
               </div>
               <Image
@@ -130,7 +130,7 @@ export default function ProjectDetails({ projectDetails }) {
             </div>
           </div>
           <div className='flex flex-col gap-5'>
-            <h1 className='font-pattaya text-4xl lg:text-5xl xl:text-6xl text-primary-400 mt-10 lg:mt-0'>
+            <h1 className='font-pattaya text-4xl lg:text-5xl xl:text-6xl text-primary-400 dark:text-primary-400 mt-10 lg:mt-0'>
               {title}
             </h1>
             <ul className='w-full mb-2 flex flex-wrap gap-2 child:flex child:gap-2 child:py-2 child:px-5 child:items-center child:rounded-md child:bg-primary-black/10 child:dark:bg-primary-white/10 child:text-primary-white lg:max-h-32 lg:overflow-y-auto'>

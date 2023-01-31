@@ -11,7 +11,11 @@ module.exports = {
         primary: {
           white: '#F4FCFF',
           black: '#042A44',
-          gray: '#777777',
+          dark: '#121212',
+          gray: {
+            500: '#777777',
+            300: '#D6D6D6',
+          },
           400: '#7257D1',
         },
         secondary: {

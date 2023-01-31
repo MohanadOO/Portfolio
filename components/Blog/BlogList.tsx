@@ -27,7 +27,9 @@ export function BlogList({ posts }: { posts: Post[] }) {
                 />
                 <div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-primary-white p-5 flex justify-between'>
                   <div>
-                    <p className='font-bold'>{post.title.en}</p>
+                    <p className='underline underline-offset-4 decoration-primary-400 text-lg font-bold mb-1'>
+                      {post.title.en}
+                    </p>
                     <p>
                       {new Date(post._updatedAt).toLocaleDateString('en-US', {
                         day: 'numeric',
@@ -47,8 +49,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                 </div>
               </div>
               <div className='mt-5 flex-1'>
-                <p className='underline text-lg font-bold'>{post.title.en}</p>
-                <p className='text-primary-gray line-clamp-2'>
+                <p className='text-primary-gray-500 dark:text-primary-gray-300 line-clamp-2'>
                   {post.description && post.description.en}
                 </p>
               </div>

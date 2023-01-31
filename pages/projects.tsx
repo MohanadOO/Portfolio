@@ -31,12 +31,12 @@ export default function Projects({ projects }) {
       <div className='flex flex-col items-center gap-5 xl:gap-10 max-w-xs xl:max-w-md'>
         <h1
           id='not-found'
-          className='text-4xl lg:text-5xl xl:text-6xl text-center md:text-left text-primary-400'
+          className='text-4xl lg:text-5xl xl:text-6xl text-center md:text-left text-primary-400 dark:text-primary-400'
         >
           Page is not available yet <IoTimerOutline className='inline' />
         </h1>
         <Link href='/'>
-          <a className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
+          <a className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 dark:text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg font-pattaya'>
             Back to Home Page
           </a>
         </Link>
