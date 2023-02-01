@@ -10,7 +10,8 @@
   "github": "Repository",
   "preview": "Preview",
   "footer": {
-    "text": "Made With Care By",
-    "name": "Mohanad Alrwaihy"
+    "text": "Made by",
+    "name": "Mohanad Alrwaihy",
+    "copyRight": "All Right Reserved"
   }
 }

@@ -50,15 +50,13 @@ export default function Nav() {
     { title: 'Blog', translate: 'blog', URL: '/blog', disabled: false },
   ]
 
-  const navigationItems = navigation
-    .sort((a, b) => (b.disabled === true ? -1 : 1))
-    .map((item) => (
-      <li key={item.title}>
-        <Link
-          href={item.URL}
-          aria-disabled={item.disabled}
-          onClick={(e) => (item.disabled ? e.preventDefault() : '')}
-          className={`
+  const navigationItems = navigation.map((item) => (
+    <li key={item.title}>
+      <Link
+        href={item.URL}
+        aria-disabled={item.disabled}
+        onClick={(e) => (item.disabled ? e.preventDefault() : '')}
+        className={`
                     py-3 px-5 sm:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md font-bold ar:font-semibold
                     ${
                       router.pathname == item.URL
@@ -68,13 +66,13 @@ export default function Nav() {
                         : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-400 en:hover:shadow-left ar:hover:shadow-right dark:hover:shadow-primary-400 transition-all'
                     }
                   `}
-          title={t(item.translate)}
-          target={item.title === 'Resume' ? '_blank' : '_parent'}
-        >
-          {t(item.translate)} {item.disabled ? '...' : ''}
-        </Link>
-      </li>
-    ))
+        title={t(item.translate)}
+        target={item.title === 'Resume' ? '_blank' : '_parent'}
+      >
+        {t(item.translate)} {item.disabled ? '...' : ''}
+      </Link>
+    </li>
+  ))
 
   return (
     <header>
@@ -103,7 +101,7 @@ export default function Nav() {
         </ul>
 
         {/* Mobile Navigation */}
-        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-400/10 py-5 px-10  relative z-20 bg-primary-white dark:bg-slate-900 transition-colors'>
+        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-400/10 py-5 px-10  relative z-20 bg-primary-white dark:bg-primary-dark transition-colors'>
           <li className='font-pattaya font-normal ar:font-bold first-letter:text-primary-400 hover:text-primary-400 transition-colors duration-300'>
             <Link href='/' title={t('name')}>
               {t('name')}
@@ -130,7 +128,7 @@ export default function Nav() {
           )}
 
           {openMenu && (
-            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-primary-white dark:bg-slate-900 shadow-md z-20 transition-colors border-t border-primary-400/50'>
+            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-primary-white dark:bg-primary-dark shadow-md z-20 transition-colors border-t border-primary-400/50'>
               {navigationItems}
               <ul className='flex justify-center items-center gap-5 border-t border-primary-gray pt-5'>
                 <li>

@@ -114,7 +114,7 @@ export default function AboutMe({ locale }) {
             <motion.li variants={fadeInRightIcons}>
               <a
                 aria-label='Whatsapp'
-                href='https://wa.me/966532407160'
+                href='https://wa.me/966595219450'
                 target='_blank'
               >
                 <BsWhatsapp

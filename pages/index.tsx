@@ -13,11 +13,7 @@ export const getStaticProps = async ({ locale }) => {
   const projects = await client.fetch(PROJECTS_QUERY)
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale, [
-        'home',
-        'projects',
-        'common',
-      ])),
+      ...(await loadTranslations(ni18nConfig, locale, ['home', 'common'])),
       projects,
     },
   }

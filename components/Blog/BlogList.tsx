@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { HiOutlineChevronRight } from 'react-icons/hi'
 import urlFor from '../../utils/urlFor'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +14,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
         {posts.map((post) => (
           <Link key={post._id} href={`/blog/${post.slug.current}`}>
             <div className='group cursor-pointer flex flex-col'>
-              <div className='relative w-full h-80 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out'>
+              <div className='relative w-full h-80 shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out'>
                 <Image
                   className='object-cover object-left lg:object-center aspect-video'
                   src={
@@ -24,13 +23,17 @@ export function BlogList({ posts }: { posts: Post[] }) {
                   }
                   alt={post.author && post.author.name}
                   fill
+                  style={{ objectFit: 'cover' }}
                 />
-                <div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-primary-white p-5 flex justify-between'>
+                <div className='absolute bottom-0 w-full bg-primary-white/90 dark:bg-primary-dark/90 text-primary-black dark:text-primary-white p-5 flex justify-between'>
                   <div>
-                    <p className='underline underline-offset-4 decoration-primary-400 text-lg font-bold mb-1'>
+                    <p
+                      title={post.title.en}
+                      className='underline underline-offset-4 decoration-primary-400 text-lg font-bold mb-1 line-clamp-1 max-w-xs'
+                    >
                       {post.title.en}
                     </p>
-                    <p>
+                    <p className='text-xs'>
                       {new Date(post._updatedAt).toLocaleDateString('en-US', {
                         day: 'numeric',
                         month: 'long',
@@ -53,13 +56,6 @@ export function BlogList({ posts }: { posts: Post[] }) {
                   {post.description && post.description.en}
                 </p>
               </div>
-
-              <p className='flex gap-2 items-center mt-5 group-hover:underline'>
-                {t('readPost')}
-                <HiOutlineChevronRight
-                  className={`${locale === 'ar' ? 'rotate-180' : ''}`}
-                />
-              </p>
             </div>
           </Link>
         ))}
