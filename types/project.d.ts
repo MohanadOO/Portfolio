@@ -54,6 +54,7 @@ interface Post extends Base {
   categories: Category[]
   mainImage: Image
   slug: Slug
+  publishedAt: string
   title: { ar: string; en: string }
   description: { ar: string; en: string }
 }

@@ -38,13 +38,19 @@ export const getStaticProps = async ({ preview = false, params, locale }) => {
   const slug = params.slug
 
   if (preview) {
-    return { props: { preview, slug } }
+    return {
+      props: {
+        ...(await loadTranslations(ni18nConfig, locale)),
+        preview,
+        slug,
+      },
+    }
   }
 
   const post: Post = await client.fetch(getPostData(slug), { slug })
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale)),
+      ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
       post,
       slug,
     },

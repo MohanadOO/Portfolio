@@ -27,18 +27,22 @@ export const RichTextComponents = {
 
     code: ({ value: { code, language } }: any) => {
       Refractor.registerLanguage(require(`refractor/lang/${language}`))
-      return <Refractor language={language} value={code} />
+      return (
+        <div dir='ltr' className='text-xs sm:text-sm md:text-base'>
+          <Refractor language={language} value={code} />
+        </div>
+      )
     },
   },
 
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 py-3 list-disc marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 text-lg space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 py-3 list-decimal marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 text-lg space-y-3'>
         {children}
       </ol>
     ),
@@ -58,7 +62,7 @@ export const RichTextComponents = {
     ),
     normal: ({ children }: any) => <p className='md:text-lg'>{children}</p>,
     blockquote: ({ children }: any) => (
-      <blockquote className='border-l-purple-500 text-lg border-l-4 pl-5 py-5 my-5'>
+      <blockquote className='ltr:border-l-purple-500 rtl:border-r-purple-500 text-lg ltr:border-l-4 rtl:border-r-4 ltr:pl-5 rtl:pr-5 py-5 my-5'>
         {children}
       </blockquote>
     ),

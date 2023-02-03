@@ -5,8 +5,20 @@ import urlFor from '../../utils/urlFor'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from './RichTextComponents'
 
+import { useState, useEffect } from 'react'
+import { AiOutlineWarning } from 'react-icons/ai'
+
 export function PostLayout({ post }) {
-  const locale = useRouter().locale
+  let locale = useRouter().locale
+  const [language, setLanguage] = useState<string>(locale)
+
+  useEffect(() => {
+    if (post.body.ar === undefined) {
+      setLanguage('en')
+    } else {
+      setLanguage(locale)
+    }
+  }, [locale])
 
   return (
     <>
@@ -28,7 +40,7 @@ export function PostLayout({ post }) {
       </Head>
       <article
         className='py-24 mx-auto min-h-screen'
-        dir={`${post.body.ar === undefined ? 'ltr' : 'rtl'}`}
+        dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
         <section className='space-y-2 border border-primary-400 text-primary-white mb-10'>
           <div className='relative flex flex-col md:flex-row justify-between'>
@@ -42,9 +54,19 @@ export function PostLayout({ post }) {
             </div>
             <section className='py-8 px-5 md:px-10 bg-primary-400 w-full h-full'>
               <div className='max-w-5xl mx-auto md:px-10'>
+                {locale === 'ar' && language !== 'ar' ? (
+                  <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
+                    <AiOutlineWarning className='w-5 h-5' />
+                    <span>الترجمة العربية غير متوفرة</span>
+                  </div>
+                ) : (
+                  ''
+                )}
                 <div className='flex flex-col md:flex-row justify-between gap-y-5 '>
                   <div>
-                    <h1 className='text-4xl font-extrabold'>{post.title.en}</h1>
+                    <h1 className='text-4xl font-extrabold'>
+                      {post.title[language]}
+                    </h1>
                     {post.categories &&
                       post.categories.map((category) => (
                         <div
@@ -58,7 +80,7 @@ export function PostLayout({ post }) {
                       ))}
                   </div>
                   <p>
-                    {new Date(post._createdAt).toLocaleDateString('en-US', {
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
                       day: 'numeric',
                       month: 'long',
                       year: 'numeric',
@@ -67,7 +89,7 @@ export function PostLayout({ post }) {
                 </div>
                 <div>
                   <h2 className='italic py-5 max-w-lg'>
-                    {post.description && post.description.en}
+                    {post.description && post.description[language]}
                   </h2>
                   <div className='max-w-md'>
                     <div className='flex items-center space-x-2'>
@@ -93,7 +115,10 @@ export function PostLayout({ post }) {
           </div>
         </section>
         <div className='mx-auto px-5 md:px-10 max-w-5xl selection:bg-primary-400/70 selection:text-white'>
-          <PortableText value={post.body.en} components={RichTextComponents} />
+          <PortableText
+            value={post.body[language]}
+            components={RichTextComponents}
+          />
         </div>
       </article>
     </>
