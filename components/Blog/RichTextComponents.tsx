@@ -28,7 +28,7 @@ export const RichTextComponents = {
     code: ({ value: { code, language } }: any) => {
       Refractor.registerLanguage(require(`refractor/lang/${language}`))
       return (
-        <div dir='ltr' className='text-xs sm:text-sm md:text-base'>
+        <div dir='ltr' className='text-xs sm:text-sm md:text-base py-5'>
           <Refractor language={language} value={code} />
         </div>
       )
@@ -60,7 +60,9 @@ export const RichTextComponents = {
     h4: ({ children }: any) => (
       <h4 className='text-xl md:text-2xl pt-10 pb-5'>{children}</h4>
     ),
-    normal: ({ children }: any) => <p className='md:text-lg'>{children}</p>,
+    normal: ({ children }: any) => (
+      <p className='md:text-lg py-2'>{children}</p>
+    ),
     blockquote: ({ children }: any) => (
       <blockquote className='ltr:border-l-purple-500 rtl:border-r-purple-500 text-lg ltr:border-l-4 rtl:border-r-4 ltr:pl-5 rtl:pr-5 py-5 my-5'>
         {children}

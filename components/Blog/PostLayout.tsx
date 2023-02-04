@@ -25,17 +25,17 @@ export function PostLayout({ post }) {
       <Head>
         <title>
           {locale === 'ar'
-            ? `مهند الرويحي | ${post.title.ar || post.title.en}`
-            : `Mohanad Alrwaihy | ${post.title.en}`}
+            ? `مهند الرويحي | ${post.title[language]}`
+            : `Mohanad Alrwaihy | ${post.title[language]}`}
         </title>
         <meta
           name='description'
-          content={
-            locale === 'ar'
-              ? post.description.ar || post.description.en
-              : post.description.en
-          }
+          content={post.description[language]}
           key='desc'
+        />
+        <meta
+          name='og:image'
+          content={`https://mohanad.in/api/postOG?title=${post.title[language]}`}
         />
       </Head>
       <article
@@ -68,7 +68,7 @@ export function PostLayout({ post }) {
                       {post.title[language]}
                     </h1>
                     {post.categories &&
-                      post.categories.map((category) => (
+                      post.categories.map((category: Category) => (
                         <div
                           key={category._id}
                           className='flex items-center mt-auto space-x-2'
