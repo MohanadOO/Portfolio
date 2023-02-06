@@ -11,7 +11,7 @@ export default function getPageOG(
   publishedAt: string,
   alt: string
 ) {
-  const pathName = process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'
+  let pathName = process.env.NEXT_PUBLIC_BASE_URL
   return {
     url,
     type,
