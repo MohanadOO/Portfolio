@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
+import getPageOG from '../../utils/getPageOG'
 
 export function PostLayout({ post }: { post: Post }) {
   const { locale, pathName } = pageSEO(post.slug.current)
@@ -26,22 +27,17 @@ export function PostLayout({ post }: { post: Post }) {
       <NextSeo
         title={post.title[language]}
         description={post.description[language]}
-      <Head>
-        <title>
-          {locale === 'ar'
-            ? `مهند الرويحي | ${post.title[language]}`
-            : `Mohanad Alrwaihy | ${post.title[language]}`}
-        </title>
-        <meta
-          name='description'
-          content={post.description[language]}
-          key='desc'
-        />
-        <meta
-          name='og:image'
-          content={`https://mohanad.in/api/postOG?title=${post.title[language]}`}
-        />
-      </Head>
+        openGraph={getPageOG(
+          pathName,
+          'article',
+          post.title.en,
+          post.description.en,
+          post.mainImage,
+          post.author.name,
+          post.author.image,
+          post.publishedAt,
+          post.title[language]
+        )}
       />
       <article
         className='py-24 mx-auto min-h-screen'
