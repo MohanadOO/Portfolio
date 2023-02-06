@@ -1,25 +1,26 @@
 import React from 'react'
 import Banner from './Banner'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+
+import { NextSeo } from 'next-seo'
+import pageSEO from '../../utils/pageSEO'
 
 function BlogLayout({ children }) {
-  const locale = useRouter().locale
-  const title = {
-    ar: 'مهند الرويحي | المدونة',
-    en: 'Mohanad Alrwaihy | Blog',
-  }
+  const { locale, pathName } = pageSEO('blog')
+
   return (
-    <section
-      className='sm:px-5 md:px-10 lg:px-24 xl:px-32 2xl:px-44 min-h-screen py-24'
-      id='blog'
-    >
-      <Head>
-        <title>{locale === 'ar' ? title.ar : title.en}</title>
-      </Head>
-      <Banner />
-      {children}
-    </section>
+    <>
+      <NextSeo
+        title={locale === 'ar' ? 'المدونة' : 'Blog'}
+        openGraph={{ url: pathName }}
+      />
+      <section
+        className='sm:px-5 md:px-10 lg:px-24 xl:px-32 2xl:px-44 min-h-screen py-24'
+        id='blog'
+      >
+        <Banner />
+        {children}
+      </section>
+    </>
   )
 }
 

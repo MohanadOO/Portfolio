@@ -1,8 +1,6 @@
 import { AiFillGithub } from 'react-icons/ai'
 import { HiChevronLeft, HiChevronRight, HiExternalLink } from 'react-icons/hi'
 
-import { useRouter } from 'next/router'
-
 import { motion } from 'framer-motion'
 import { getAllProjectsIds } from '../../utils/projectsUtils'
 import { getProjectData } from '../../sanity/queries/projects'
@@ -14,12 +12,12 @@ import Image from 'next/image'
 import { client } from '../../sanity/sanity.client'
 import { useState } from 'react'
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import pageSEO from '../../utils/pageSEO'
 
-export default function ProjectDetails({ projectDetails }) {
+export default function ProjectDetails({ projectDetails, id }) {
   const project: ProjectDetailsType = projectDetails
   const { t } = useTranslation(['common'])
-  const router = useRouter()
-  const locale = router.locale
 
   const { mainImage, images, skills, github, preview } = project
 
@@ -38,6 +36,7 @@ export default function ProjectDetails({ projectDetails }) {
     setMainPic(pics[index])
   }
 
+  const { locale, pathName } = pageSEO(id)
   const title = locale === 'ar' ? project.title.ar : project.title.en
   const body = locale === 'ar' ? project.body.ar : project.body.en
 
@@ -61,13 +60,7 @@ export default function ProjectDetails({ projectDetails }) {
 
   return (
     <>
-      <Head>
-        <title>
-          {locale === 'ar'
-            ? `مهند الرويحي | ${title}`
-            : `Mohanad Alrwaihy | ${title}`}
-        </title>
-      </Head>
+      <NextSeo title={title} description={body} openGraph={{ url: pathName }} />
       <motion.section
         variants={sectionVariant}
         initial='initial'

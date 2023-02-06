@@ -61,7 +61,10 @@ export function BlogList({ posts }: { posts: Post[] }) {
                     <div className='flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center'>
                       {post.categories &&
                         post.categories.map((category) => (
-                          <div className='bg-primary-400 text-center px-2 py-1 rounded-full text-xs font-semibold'>
+                          <div
+                            key={category.title}
+                            className='bg-primary-400 text-center px-2 py-1 rounded-full text-xs font-semibold'
+                          >
                             {category.title}
                           </div>
                         ))}

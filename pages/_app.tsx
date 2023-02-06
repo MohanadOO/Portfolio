@@ -7,7 +7,6 @@ import '../styles/prism.css'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { AppProps } from 'next/app'
-import Head from 'next/head'
 
 import '@fontsource/pattaya'
 import '@fontsource/lato'
@@ -19,6 +18,9 @@ import '@fontsource/cairo/700.css'
 
 import '@fontsource/aref-ruqaa'
 import '@fontsource/aref-ruqaa/700.css'
+
+import SEO from '../next-seo.config'
+import { DefaultSeo } from 'next-seo'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const studioRoute = router.route.startsWith('/studio')
@@ -33,46 +35,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     document.documentElement.dir = dir
   }, [dir])
 
-  const title = {
-    ar: 'مهند الرويحي | الرئيسية',
-    en: 'Mohanad Alrwaihy | Home',
-  }
-
-  const desc = {
-    ar: 'أنا مهند الرويحي خريج هندسة إلكترونيات ومطور ويب, احاول مواكبة التقنية وأستخدم في أعمالي : React, Next JS, TailwindCSS والعديد من الأدوات 👋',
-    en: "I'm Mohanad Alrwaihy an Electronics Engineer graduate and Web Developer, I try to adapt to the newest technologies and I use these tools: React, Next JS, TailwindCSS and many more tools .👋",
-  }
-
   return (
     <ThemeProvider attribute='class' enableSystem={false}>
-      <Head>
-        <meta charSet='UTF-8' />
-        <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/favicon/apple-touch-icon.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/favicon/favicon-32x32.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/favicon/favicon-16x16.png'
-        />
-        <link rel='manifest' href='/site.webmanifest' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>{locale === 'ar' ? title.ar : title.en}</title>
-        <meta
-          name='description'
-          content={locale === 'ar' ? desc.ar : desc.en}
-          key='desc'
-        />
-      </Head>
+      <DefaultSeo {...SEO()} />
       <Layout>
         <Component {...pageProps} />
       </Layout>

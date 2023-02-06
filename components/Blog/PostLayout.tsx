@@ -1,15 +1,16 @@
-import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import urlFor from '../../utils/urlFor'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from './RichTextComponents'
 
 import { useState, useEffect } from 'react'
 import { AiOutlineWarning } from 'react-icons/ai'
+import { NextSeo } from 'next-seo'
+import pageSEO from '../../utils/pageSEO'
 
-export function PostLayout({ post }) {
-  let locale = useRouter().locale
+export function PostLayout({ post }: { post: Post }) {
+  const { locale, pathName } = pageSEO(post.slug.current)
+
   const [language, setLanguage] = useState<string>(locale)
 
   useEffect(() => {
@@ -22,6 +23,9 @@ export function PostLayout({ post }) {
 
   return (
     <>
+      <NextSeo
+        title={post.title[language]}
+        description={post.description[language]}
       <Head>
         <title>
           {locale === 'ar'
@@ -38,6 +42,7 @@ export function PostLayout({ post }) {
           content={`https://mohanad.in/api/postOG?title=${post.title[language]}`}
         />
       </Head>
+      />
       <article
         className='py-24 mx-auto min-h-screen'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
