@@ -45,13 +45,15 @@ const OgImageHandler = async (req: NextRequest) => {
           >
             {title}
           </h1>
-          <p tw='text-gray-300 font-light text-sm pb-2'>
-            {new Date(date).toLocaleDateString('en-US', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
-          </p>
+          {date && (
+            <p tw='text-gray-300 font-light text-sm pb-2'>
+              {new Date(date).toLocaleDateString('en-US', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </p>
+          )}
           <p tw='text-2xl text-white max-w-4xl'>{desc}</p>
         </div>
       ),
