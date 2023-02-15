@@ -72,6 +72,10 @@ export default defineType({
     {
       type: 'code',
       title: 'Code Block',
+      options: {
+        language: 'JavaScript',
+        withFilename: true,
+      },
     },
   ],
 })

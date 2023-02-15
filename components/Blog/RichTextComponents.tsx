@@ -6,8 +6,15 @@ import Refractor from 'react-refractor'
 export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
+      const imageSize = value.asset._ref.split('-')[2].split('x')
+      const width = imageSize[0]
+      const height = imageSize[1]
+      const aspectRatio = width / height
       return (
-        <div className='relative w-full h-96 my-10'>
+        <div
+          className='relative w-full object-contain my-10'
+          style={{ aspectRatio }}
+        >
           <Image
             src={urlFor(value).url()}
             alt='Blog Post Image'
@@ -26,6 +33,11 @@ export const RichTextComponents = {
       ),
 
     code: ({ value: { code, language } }: any) => {
+      switch (language) {
+        case 'sh':
+          language = 'powershell'
+          break
+      }
       Refractor.registerLanguage(require(`refractor/lang/${language}`))
       return (
         <div dir='ltr' className='text-xs sm:text-sm md:text-base py-5'>
@@ -78,7 +90,7 @@ export const RichTextComponents = {
         <Link
           href={value.href}
           rel={rel}
-          className='underline decoration-purple-700 hover:decoration-black line-clamp-2'
+          className='underline decoration-purple-700 hover:decoration-black'
         >
           {children}
         </Link>

@@ -115,7 +115,7 @@ export function PostLayout({ post }: { post: Post }) {
             </section>
           </div>
         </section>
-        <div className='mx-auto px-5 md:px-10 max-w-5xl selection:bg-primary-400/70 selection:text-white'>
+        <div className='mx-auto px-5 md:px-10 max-w-5xl selection:bg-primary-400/70 selection:text-white break-words'>
           <PortableText
             value={post.body[language]}
             components={RichTextComponents}
