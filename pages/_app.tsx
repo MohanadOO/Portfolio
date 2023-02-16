@@ -21,6 +21,7 @@ import '@fontsource/aref-ruqaa/700.css'
 
 import SEO from '../next-seo.config'
 import { DefaultSeo } from 'next-seo'
+import { MotionConfig } from 'framer-motion'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const studioRoute = router.route.startsWith('/studio')
@@ -38,9 +39,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider attribute='class' enableSystem={false}>
       <DefaultSeo {...SEO()} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <MotionConfig reducedMotion='user'>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </MotionConfig>
     </ThemeProvider>
   )
 }

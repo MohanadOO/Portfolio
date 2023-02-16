@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import {
   fadeInContainer,
   fadeInLeft,
@@ -13,6 +13,7 @@ import { BsWhatsapp } from 'react-icons/bs'
 import Image from 'next/image'
 
 export default function AboutMe({ locale }) {
+  const reduce = useReducedMotion()
   const { t } = useTranslation('home', { keyPrefix: 'aboutMe' })
 
   return (
@@ -26,14 +27,14 @@ export default function AboutMe({ locale }) {
       </div>
 
       <motion.div
-        variants={fadeInContainer}
+        variants={fadeInContainer(reduce)}
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
         className='flex flex-col-reverse md:flex-row items-center md:items-start gap-10 lg:gap-20 pb-12 my-12 font-cairo overflow-hidden lg:overflow-visible'
       >
         <motion.div
-          variants={fadeInLeft}
+          variants={fadeInLeft(reduce)}
           className='relative aspect-square max-w-sm w-full rounded-sm ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 border-primary-black dark:border-white flex-1'
         >
           <Image
@@ -44,38 +45,38 @@ export default function AboutMe({ locale }) {
           />
         </motion.div>
         <motion.div
-          variants={fadeInContainer}
+          variants={fadeInContainer(reduce)}
           initial='initial'
           whileInView='animate'
           viewport={{ once: true }}
           className='about-me flex flex-1 flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden max-w-md md:max-w-4xl text-center en:md:text-left ar:md:text-right'
         >
           <motion.h3
-            variants={fadeInRightText}
+            variants={fadeInRightText(reduce)}
             className='font-semibold font-pattaya text-base lg:text-lg xl:text-xl max-w-sm w-full'
           >
             {t('aboutMe')}
           </motion.h3>
           <motion.p
-            variants={fadeInRightText}
+            variants={fadeInRightText(reduce)}
             className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP1')}
           </motion.p>
           <motion.p
-            variants={fadeInRightText}
+            variants={fadeInRightText(reduce)}
             className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
           >
             {t('descP2')}
           </motion.p>
           <motion.ul
-            variants={fadeInContainer}
+            variants={fadeInContainer(reduce)}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
             className='flex items-center gap-4 mt-auto child-hover:scale-110'
           >
-            <motion.li variants={fadeInRightIcons}>
+            <motion.li variants={fadeInRightIcons(reduce)}>
               <a
                 aria-label='GitHub'
                 href='https://github.com/MohanadOO'
@@ -87,7 +88,7 @@ export default function AboutMe({ locale }) {
                 />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRightIcons}>
+            <motion.li variants={fadeInRightIcons(reduce)}>
               <a
                 aria-label='Twitter'
                 href='https://twitter.com/MohanadOO_'
@@ -99,7 +100,7 @@ export default function AboutMe({ locale }) {
                 />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRightIcons}>
+            <motion.li variants={fadeInRightIcons(reduce)}>
               <a
                 aria-label='Linkedin'
                 href='https://www.linkedin.com/in/mohanad-alrwahiy-176aa719b/'
@@ -111,7 +112,7 @@ export default function AboutMe({ locale }) {
                 />
               </a>
             </motion.li>
-            <motion.li variants={fadeInRightIcons}>
+            <motion.li variants={fadeInRightIcons(reduce)}>
               <a
                 aria-label='Whatsapp'
                 href='https://wa.me/966595219450'

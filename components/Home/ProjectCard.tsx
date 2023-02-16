@@ -6,9 +6,11 @@ import { HiEye } from 'react-icons/hi'
 
 import { useTranslation } from 'react-i18next'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { cardVariant } from '../../public/variants/MotionVariants'
 
 export default function ProjectCard({ project, locale }: ProjectCardType) {
+  const reduce = useReducedMotion()
   const { t } = useTranslation(['common'])
   const { slug, mainImage, skills, github, preview } = project
   const title = locale === 'ar' ? project.title.ar : project.title.en
@@ -18,10 +20,10 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
     <motion.div
       className='text-start max-w-sm mx-auto'
       aria-label={title}
-      variants={cardVariant}
+      variants={cardVariant(reduce)}
     >
       <motion.div
-        variants={cardVariant}
+        variants={cardVariant(reduce)}
         whileHover='hover'
         className='bg-white dark:bg-slate-900 shadow-[7px_7px_0px_black] mx-auto pb-5 flex flex-col overflow-hidden border-2 border-black dark:border-primary-400 rounded-md'
       >
@@ -85,22 +87,4 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
       </motion.div>
     </motion.div>
   )
-}
-
-const cardVariant = {
-  initial: {
-    scale: 0,
-    x: '100%',
-  },
-  animate: {
-    scale: 1,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      type: 'spring',
-    },
-  },
-  hover: {
-    scale: 1.1,
-  },
 }

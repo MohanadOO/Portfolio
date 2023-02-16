@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import ProjectCard from './ProjectCard'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { projectsContainer } from '../../public/variants/MotionVariants'
 
 export default function Projects({ locale, projects }) {
+  const reduce = useReducedMotion()
   const { t } = useTranslation('home', { keyPrefix: 'projects' })
   return (
     <section
@@ -19,7 +20,7 @@ export default function Projects({ locale, projects }) {
 
         <div className='bg-gradient-to-b from-primary-400/20 to-primary-400/70 dark:to-primary-dark pt-10 pb-32 flex flex-col gap-20 shadow-lg'>
           <motion.div
-            variants={projectsContainer}
+            variants={projectsContainer(reduce)}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}

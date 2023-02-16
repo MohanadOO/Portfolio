@@ -1,7 +1,7 @@
 import { AiFillGithub } from 'react-icons/ai'
 import { HiChevronLeft, HiChevronRight, HiExternalLink } from 'react-icons/hi'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { getAllProjectsIds } from '../../utils/projectsUtils'
 import { getProjectData } from '../../sanity/queries/projects'
 import { loadTranslations } from 'ni18n'
@@ -11,11 +11,14 @@ import Image from 'next/image'
 
 import { client } from '../../sanity/sanity.client'
 import { useState } from 'react'
-import Head from 'next/head'
+
 import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
+import { sectionVariant } from '../../public/variants/MotionVariants'
 
 export default function ProjectDetails({ projectDetails, id }) {
+  const reduce = useReducedMotion()
+
   const project: ProjectDetailsType = projectDetails
   const { t } = useTranslation(['common'])
 
@@ -62,7 +65,7 @@ export default function ProjectDetails({ projectDetails, id }) {
     <>
       <NextSeo title={title} description={body} openGraph={{ url: pathName }} />
       <motion.section
-        variants={sectionVariant}
+        variants={sectionVariant(reduce)}
         initial='initial'
         animate='animate'
         id='project'
@@ -181,15 +184,4 @@ export const getStaticPaths = async () => {
     paths: paths,
     fallback: false,
   }
-}
-
-const sectionVariant = {
-  initial: {
-    scale: 0.5,
-    opacity: 0,
-  },
-  animate: {
-    scale: 1,
-    opacity: 1,
-  },
 }
