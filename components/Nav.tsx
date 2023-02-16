@@ -10,8 +10,6 @@ import { useTranslation } from 'react-i18next'
 import LanguageBtn from './LanguageBtn'
 import ThemeBtn from './ThemeBtn'
 
-import { loadTranslations } from 'ni18n'
-import { ni18nConfig } from '../ni18n.config'
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false)
@@ -150,12 +148,4 @@ export default function Nav() {
       )}
     </header>
   )
-}
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['common'])),
-    },
-  }
 }

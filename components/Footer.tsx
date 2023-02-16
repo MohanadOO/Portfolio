@@ -1,6 +1,4 @@
-import { loadTranslations } from 'ni18n'
 import { useTranslation } from 'react-i18next'
-import { ni18nConfig } from '../ni18n.config'
 
 import {
   AiFillGithub,
@@ -47,12 +45,4 @@ export default function Footer() {
       </ul>
     </footer>
   )
-}
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['common'])),
-    },
-  }
 }
