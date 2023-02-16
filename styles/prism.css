@@ -4,12 +4,20 @@
  * @author Lea Verou
  */
 
+:root {
+  --pink: hsl(338, 70%, 55%);
+  --teal: hsl(183, 70%, 62%);
+  --white: hsl(334, 7%, 95%);
+  --black: hsl(222, 45%, 7%);
+  --purple: #7257d1;
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
-  color: #d19a66;
+  color: var(--pink);
   background: none;
-  text-shadow: 0.1px 0.1px;
-  border-radius: 3px;
+  text-shadow: 0 0 0.2em currentColor;
+  border-radius: 0.3rem;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
@@ -33,7 +41,7 @@ pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-shadow: none;
-  background: white;
+  background-color: var(--purple);
 }
 
 pre[class*='language-']::selection,
@@ -41,7 +49,7 @@ pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
   text-shadow: none;
-  background: #7257d1;
+  background-color: var(--purple);
 }
 
 @media print {
@@ -60,20 +68,14 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  border: 1px solid black;
-  background: #191919;
-  box-shadow: -5px 5px 0 black;
-}
-
-:not(pre) > html.dark code[class*='language-'],
-html.dark pre[class*='language-'] {
-  border: 1px solid white;
-  box-shadow: -5px 5px 0 #f4fcff;
+  background-color: var(--black);
+  border: 2px solid var(--purple);
 }
 
 :not(pre) > code[class*='language-'],
-pre[class*='language-']:lang(ar) {
-  box-shadow: 5px 5px 0 black;
+html.dark pre[class*='language-'] {
+  background-color: var(--black);
+  border: 2px solid var(--purple);
 }
 
 /* Inline code */
@@ -91,7 +93,7 @@ pre[class*='language-']:lang(ar) {
 }
 
 .token.punctuation {
-  color: #777777;
+  color: var(--white);
 }
 
 .namespace {
@@ -105,7 +107,7 @@ pre[class*='language-']:lang(ar) {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #7257d1;
+  color: var(--teal);
 }
 
 .token.selector,
@@ -114,7 +116,7 @@ pre[class*='language-']:lang(ar) {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #98c379;
+  color: var(--pink);
 }
 
 .token.operator,
@@ -122,25 +124,24 @@ pre[class*='language-']:lang(ar) {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #9a6e3a;
-  /* background-color: white; */
+  color: var(--white);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #07a;
+  color: var(--teal);
 }
 
 .token.function,
 .token.class-name {
-  color: #dd4a68;
+  color: var(--pink);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #e90;
+  color: var(--teal);
 }
 
 .token.important,

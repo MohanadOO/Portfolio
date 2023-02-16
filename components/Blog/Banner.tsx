@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 export default function Banner() {
   const { t } = useTranslation('blog', { keyPrefix: 'banner' })
   return (
-    <div className='flex flex-col lg:flex-row lg:space-x-5 justify-between px-10 py-5 mb-5'>
+    <div className='flex flex-col lg:flex-row lg:space-x-5 justify-between px-10 py-5 mb-5 max-w-7xl mx-auto'>
       <div>
         <h1 className='text-primary-400 text-xl'>{t('title')}</h1>
         <h2 className='text-3xl'>{t('welcome')}</h2>
