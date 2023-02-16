@@ -98,10 +98,10 @@ export const RichTextComponents = {
         <Link
           href={value.href}
           rel={rel}
-          className='group inline-flex items-center gap-1 underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 text-black dark:text-white hover:dark:text-purple-700 font-bold'
+          className='group inline underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 text-black dark:text-white hover:dark:text-purple-700 font-bold'
         >
           {children}
-          <HiExternalLink className='text-purple-700 rtl:-rotate-90' />
+          <HiExternalLink className='text-purple-700 rtl:-rotate-90 inline ml-1 rtl:mr-1' />
         </Link>
       )
     },
