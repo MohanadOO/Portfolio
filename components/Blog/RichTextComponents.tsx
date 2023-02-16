@@ -41,11 +41,7 @@ export const RichTextComponents = {
           break
       }
       Refractor.registerLanguage(require(`refractor/lang/${language}`))
-      return (
-        <div dir='ltr' className='text-xs sm:text-sm md:text-base py-5'>
-          <Refractor language={language} value={code} />
-        </div>
-      )
+      return <CodeInputLayout language={language} code={code} />
     },
   },
 
