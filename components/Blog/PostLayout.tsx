@@ -9,7 +9,11 @@ import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
+import { motion, useScroll } from 'framer-motion'
+
 export function PostLayout({ post }: { post: Post }) {
+  const { scrollYProgress } = useScroll()
+
   const { locale, pathName } = pageSEO(post.slug.current)
 
   const [language, setLanguage] = useState<string>(locale)
@@ -116,6 +120,10 @@ export function PostLayout({ post }: { post: Post }) {
           </div>
         </section>
         <div className='mx-auto px-5 md:px-10 max-w-5xl selection:bg-primary-400/70 selection:text-white break-words'>
+          <motion.div
+            style={{ scaleX: scrollYProgress }}
+            className='fixed top-16 sm:top-[4.5rem] left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 z-50 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40'
+          ></motion.div>
           <PortableText
             value={post.body[language]}
             components={RichTextComponents}
