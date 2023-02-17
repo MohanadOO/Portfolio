@@ -21,7 +21,7 @@ export default function ErrorPage() {
           Server Error
         </h1>
         <Link
-          className='md:self-start md:ar:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg'
+          className='md:self-start md:rtl:self-end py-2 px-5 rounded-md border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors xl:text-lg'
           href='/'
         >
           Home Page

@@ -24,7 +24,7 @@ export default function Projects({ locale, projects }) {
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-12 md:mx-20 lg:mx-40 gap-10'
+            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-5 sm:mx-10 md:mx-20 lg:mx-40 gap-10'
           >
             {projects.map((project: ProjectType) => (
               <ProjectCard

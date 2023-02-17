@@ -35,7 +35,7 @@ export default function AboutMe({ locale }) {
       >
         <motion.div
           variants={fadeInLeft(reduce)}
-          className='relative aspect-square max-w-sm w-full rounded-sm ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border-2 border-primary-black dark:border-white flex-1'
+          className='relative aspect-square max-w-sm w-full rounded-sm shadow-left-lg rtl:shadow-right-lg dark:shadow-white border-2 border-primary-black dark:border-white flex-1'
         >
           <Image
             src='/images/MyPicture.png'
@@ -49,7 +49,7 @@ export default function AboutMe({ locale }) {
           initial='initial'
           whileInView='animate'
           viewport={{ once: true }}
-          className='about-me flex flex-1 flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden max-w-md md:max-w-4xl text-center en:md:text-left ar:md:text-right'
+          className='about-me flex flex-1 flex-col gap-5 items-center md:items-start justify-evenly overflow-hidden max-w-md md:max-w-4xl text-center en:md:text-left rtl:md:text-right'
         >
           <motion.h3
             variants={fadeInRightText(reduce)}

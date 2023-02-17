@@ -4,7 +4,7 @@
 
 @layer components {
   .section_header {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-400 z-10 uppercase first-letter:py-5 first-letter:text-primary-white en:first-letter:pl-16 ar:first-letter:pr-16  first-letter:bg-primary-400 first-letter:rounded-md  en:first-letter:shadow-left-lg ar:first-letter:shadow-right-lg dark:first-letter:shadow-primary-white;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-400 z-10 uppercase first-letter:py-5 first-letter:text-primary-white en:first-letter:pl-16 rtl:first-letter:pr-16  first-letter:bg-primary-400 first-letter:rounded-md  en:first-letter:shadow-left-lg rtl:first-letter:shadow-right-lg dark:first-letter:shadow-primary-white;
   }
   .about-me p,
   .skills-desc {

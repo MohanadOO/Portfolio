@@ -41,17 +41,13 @@ export default function Skills() {
           </h2>
         </div>
         <div className='lg:child:ml-[4.7rem] text-center md:text-left'>
-          <h3 className='text-xl leading-8'>{t('subText')}</h3>
           <ul className='mt-10 flex items-center justify-center md:justify-start gap-5 md:gap-12 child:flex child:flex-col child:items-center child:gap-4 child:py-1 child:px-2 md:child:py-5 md:child:px-6 child:rounded-md flex-wrap md:w-[80vw]'>
             {mySkills.map((skill) => {
               return (
                 <li
                   key={skill.name}
-                  className='ar:shadow-[7px_7px_0_black] en:shadow-[-7px_7px_0_black] border border-primary-black/20 dark:border-primary-white child:w-28 child:text-center'
+                  className='border border-gray-400 dark:border-gray-600 child:w-28 child:text-center'
                 >
-                  <span className='text-lg font-pattaya md:text-xl'>
-                    {skill.name}
-                  </span>
                   <Image
                     width={32}
                     height={32}
@@ -59,6 +55,7 @@ export default function Skills() {
                     alt={`${skill.name}_icon`}
                     aria-hidden='true'
                   />
+                  <span className='text-lg md:text-xl'>{skill.name}</span>
                 </li>
               )
             })}
