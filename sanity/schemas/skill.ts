@@ -1,7 +1,9 @@
+import { HiCode } from 'react-icons/hi'
 export default {
   name: 'skill',
-  title: 'Skill',
+  title: 'Project Skills',
   type: 'document',
+  icon: HiCode,
   fields: [
     {
       title: 'Name',

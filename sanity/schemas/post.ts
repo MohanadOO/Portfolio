@@ -1,9 +1,11 @@
+import { HiPencilAlt } from 'react-icons/hi'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  icon: HiPencilAlt,
   fields: [
     defineField({
       name: 'title',

@@ -1,5 +1,6 @@
 import project from './project'
 import skill from './skill'
+import mySkill from './mySkill'
 import blockContent from './blockContent'
 import category from './category'
 import post from './post'
@@ -11,6 +12,7 @@ import localeBlockContent from './locale/localeBlockContent'
 export const schemaTypes = [
   project,
   skill,
+  mySkill,
   post,
   author,
   category,

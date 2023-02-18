@@ -15,6 +15,7 @@
     "@fontsource/pattaya": "^4.5.10",
     "@portabletext/react": "^2.0.0",
     "@sanity/code-input": "^4.0.0",
+    "@sanity/color-input": "^3.0.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.2.5",
     "@tailwindcss/line-clamp": "^0.4.2",

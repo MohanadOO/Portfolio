@@ -1,9 +1,11 @@
-import {defineField, defineType} from 'sanity'
+import { HiUser } from 'react-icons/hi'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: HiUser,
   fields: [
     defineField({
       name: 'name',
@@ -35,7 +37,7 @@ export default defineType({
         {
           title: 'Block',
           type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
+          styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
         },
       ],

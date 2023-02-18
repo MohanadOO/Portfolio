@@ -1,9 +1,11 @@
-import {defineField, defineType} from 'sanity'
+import { HiCollection } from 'react-icons/hi'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'category',
-  title: 'Category',
+  title: 'Categories',
   type: 'document',
+  icon: HiCollection,
   fields: [
     defineField({
       name: 'title',

@@ -1,7 +1,10 @@
+import { HiBriefcase } from 'react-icons/hi'
+
 export default {
   name: 'project',
-  title: 'Project',
+  title: 'Projects',
   type: 'document',
+  icon: HiBriefcase,
   preview: {
     select: {
       title: 'title.en',
