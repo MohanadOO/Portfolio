@@ -20,7 +20,7 @@ export default function AboutMe({ locale }) {
     <section
       id='about-me'
       aria-label={t('sectionHeader')}
-      className='flex flex-col gap-10 lg:gap-10 my-48 scroll-mt-32'
+      className='flex flex-col gap-10 lg:gap-10 my-32 scroll-mt-32'
     >
       <div className='flex items-center mx-auto md:mx-0'>
         <h2 className='section_header'>{t('sectionHeader')}</h2>
@@ -31,7 +31,7 @@ export default function AboutMe({ locale }) {
         initial='initial'
         whileInView='animate'
         viewport={{ once: true }}
-        className='flex flex-col-reverse md:flex-row items-center md:items-start gap-10 lg:gap-20 pb-12 my-12 font-cairo overflow-hidden lg:overflow-visible'
+        className='flex flex-col-reverse md:flex-row items-center md:items-start gap-10 lg:gap-20 pb-12 mt-12 font-cairo overflow-hidden lg:overflow-visible'
       >
         <motion.div
           variants={fadeInLeft(reduce)}

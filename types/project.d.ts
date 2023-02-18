@@ -19,6 +19,19 @@ type SkillType = {
   icon: { asset: { url: string } }
 }
 
+type Skill = {
+  name: string
+  icon: {
+    asset: {
+      url: string
+    }
+    alt: string
+  }
+  color: {
+    hex: string
+  }
+}
+
 type ImageType = {
   alt: string
   asset: { url: string }
