@@ -1,5 +1,11 @@
 export const getPostsInfo = `*[_type=='post']{
-  ...,
+  title,
+  description,
+  _createdAt,
+  _updatedAt,
+  publishedAt,
+  slug,
+  mainImage,
   author->,
   categories[]->
 } | order(_createdAt desc)`

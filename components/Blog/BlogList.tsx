@@ -24,7 +24,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                   <Image
                     className='object-cover object-center aspect-video rounded-lg'
                     src={
-                      post.mainImage &&
+                      post.mainImage !== null &&
                       urlFor(post.mainImage).auto('format').url()
                     }
                     alt={post.author && post.author.name}
