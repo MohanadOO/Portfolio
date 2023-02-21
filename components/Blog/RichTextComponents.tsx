@@ -35,11 +35,6 @@ export const RichTextComponents = {
       ),
 
     code: ({ value: { code, language } }: any) => {
-      switch (language) {
-        case 'sh':
-          language = 'powershell'
-          break
-      }
       Refractor.registerLanguage(require(`refractor/lang/${language}`))
       return <CodeInputLayout language={language} code={code} />
     },

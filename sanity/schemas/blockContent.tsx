@@ -10,6 +10,19 @@ import { defineType, defineArrayMember } from 'sanity'
  *    type: 'blockContent'
  *  }
  */
+
+const CodeDecorator = (props) => (
+  <span
+    className='text-purple-900'
+    style={{
+      fontFamily: 'monospace',
+      backgroundColor: 'rgb(88 28 135)',
+    }}
+  >
+    {props.children}
+  </span>
+)
+
 export default defineType({
   title: 'Block Content',
   name: 'blockContent',
@@ -41,7 +54,7 @@ export default defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Code', value: 'code' },
+          { title: 'Code', value: 'code', component: CodeDecorator },
           { title: 'Underline', value: 'underline' },
           { title: 'Strike', value: 'strike-through' },
         ],
@@ -73,7 +86,22 @@ export default defineType({
       type: 'code',
       title: 'Code Block',
       options: {
-        language: 'JavaScript',
+        languageAlternatives: [
+          { title: 'HTML', value: 'cshtml', mode: 'html' },
+          { title: 'CSS', value: 'css' },
+          { title: 'SCSS', value: 'scss' },
+          { title: 'SASS', value: 'sass' },
+          { title: 'JavaScript', value: 'javascript' },
+          { title: 'TypeScript', value: 'typescript' },
+          { title: 'JSON', value: 'json' },
+          { title: 'JSX', value: 'jsx' },
+          { title: 'TSX', value: 'tsx' },
+          { title: 'Python', value: 'python' },
+          { title: 'Groq', value: 'javascript' },
+          { title: 'SQL', value: 'sql' },
+          { title: 'Markdown', value: 'markdown' },
+          { title: 'Shell', value: 'powershell', mode: 'sh' },
+        ],
         withFilename: true,
       },
     },
