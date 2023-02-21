@@ -5,7 +5,6 @@ export default function getPageOG(
   type: string,
   title: string,
   desc: string,
-  imageURL: Image,
   authorName: string,
   authorProfile: string,
   publishedAt: string,
@@ -17,12 +16,7 @@ export default function getPageOG(
     type,
     images: [
       {
-        url: `${pathName}/api/postOG?title=${title}&desc=${desc}&image=${urlFor(
-          imageURL
-        )
-          .width(1200)
-          .height(600)
-          .url()}&date=${publishedAt}&name=${authorName}&authorPic=${urlFor(
+        url: `${pathName}/api/postOG?title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${urlFor(
           authorProfile
         )
           .width(150)
@@ -31,7 +25,7 @@ export default function getPageOG(
         width: 800,
         height: 600,
         alt,
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   }

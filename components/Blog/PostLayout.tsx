@@ -36,7 +36,6 @@ export function PostLayout({ post }: { post: Post }) {
           'article',
           post.title.en,
           post.description.en,
-          post.mainImage,
           post.author.name,
           post.author.image,
           post.publishedAt,
