@@ -48,6 +48,12 @@ export const getStaticProps = async ({ preview = false, params, locale }) => {
   }
 
   const post: Post = await client.fetch(getPostData(slug), { slug })
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
@@ -68,6 +74,6 @@ export const getStaticPaths = async () => {
 
   return {
     paths: slugsRoutes,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
