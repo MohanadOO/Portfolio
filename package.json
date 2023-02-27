@@ -29,6 +29,7 @@
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
     "ni18n": "^1.0.5",
+    "nprogress": "^0.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-i18next": "^11.18.6",

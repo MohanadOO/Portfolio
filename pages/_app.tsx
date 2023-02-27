@@ -4,6 +4,7 @@ import { appWithI18Next } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
 import '../styles/globals.css'
 import '../styles/prism.css'
+import '../styles/nprogress.css'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { AppProps } from 'next/app'
@@ -22,6 +23,13 @@ import '@fontsource/aref-ruqaa/700.css'
 import SEO from '../next-seo.config'
 import { DefaultSeo } from 'next-seo'
 import { MotionConfig } from 'framer-motion'
+
+import NProgress from 'nprogress'
+import Router from 'next/router'
+
+Router.events.on('routeChangeStart', NProgress.start)
+Router.events.on('routeChangeError', NProgress.done)
+Router.events.on('routeChangeComplete', NProgress.done)
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const studioRoute = router.route.startsWith('/studio')
