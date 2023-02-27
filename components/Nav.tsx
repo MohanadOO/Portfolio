@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi'
+import { HiOutlineMenu, HiOutlineX, HiRss } from 'react-icons/hi'
 
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -54,7 +54,7 @@ export default function Nav() {
         aria-disabled={item.disabled}
         onClick={(e) => (item.disabled ? e.preventDefault() : '')}
         className={`
-                    py-3 px-5 sm:px-2 lg:px-5 xl:px-6 text-sm md:text-base rounded-md font-bold rtl:font-semibold
+                    py-3 px-5 sm:px-1 lg:px-5 xl:px-6 text-sm md:text-base rounded-md font-bold rtl:font-semibold
                     ${
                       router.pathname == item.URL
                         ? ' border-b-2 border-primary-400 text-primary-400 dark:text-primary-white rounded-none cursor-default'
@@ -87,12 +87,22 @@ export default function Nav() {
           <ul className='flex items-center gap-3 xl:gap-6'>
             {navigationItems}
           </ul>
-          <ul className='flex items-center gap-5'>
+          <ul className='flex items-center gap-4'>
             <li>
               <LanguageBtn locale={locale} language={language} />
             </li>
             <li>
               <ThemeBtn locale={locale} />
+            </li>
+            <li className='opacity-70 hover:opacity-100 transition-opacity'>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss/rss.xml`}
+                rel='noreferrer'
+                target='_blank'
+                aria-label='RSS Feed'
+              >
+                <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary-400 dark:fill-primary-white' />
+              </a>
             </li>
           </ul>
         </ul>
@@ -133,6 +143,16 @@ export default function Nav() {
                 </li>
                 <li>
                   <ThemeBtn locale={locale} />
+                </li>
+                <li className='opacity-70 hover:opacity-100 transition-opacity'>
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss/rss.xml`}
+                    rel='noreferrer'
+                    target='_blank'
+                    aria-label='RSS Feed'
+                  >
+                    <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary-400 dark:fill-primary-white' />
+                  </a>
                 </li>
               </ul>
             </ul>

@@ -7,6 +7,7 @@ import BlogLayout from '../components/Blog/BlogLayout'
 import { getPostsInfo } from '../sanity/queries/blog'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
+import generateRssFeed from '../utils/generateRSSFees'
 
 type Props = {
   preview: boolean
@@ -24,6 +25,7 @@ export const getStaticProps = async ({ preview = false, locale }) => {
   }
 
   const posts = await client.fetch(getPostsInfo)
+  await generateRssFeed(posts)
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['blog'])),

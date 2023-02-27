@@ -16,6 +16,7 @@ specifiers:
   '@types/react': 18.0.20
   '@vercel/og': ^0.0.27
   autoprefixer: ^10.4.7
+  feed: ^4.2.2
   framer-motion: ^7.2.1
   i18next: ^22.4.9
   i18next-chained-backend: ^4.2.0
@@ -54,6 +55,7 @@ dependencies:
   '@sanity/vision': 3.5.0_d6d87b24edc9536a8dbf72fbc56bd973
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.7
   '@vercel/og': 0.0.27
+  feed: 4.2.2
   framer-motion: 7.10.3_react-dom@18.2.0+react@18.2.0
   i18next: 22.4.10
   i18next-chained-backend: 4.2.0
@@ -2703,6 +2705,13 @@ packages:
     dependencies:
       reusify: 1.0.4
 
+  /feed/4.2.2:
+    resolution: {integrity: sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: 1.6.11
+    dev: false
+
   /fflate/0.7.4:
     resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
     dev: false
@@ -4736,6 +4745,10 @@ packages:
       yoga-wasm-web: 0.3.0
     dev: false
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
   /saxes/6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
@@ -5478,6 +5491,13 @@ packages:
   /xdg-basedir/4.0.0:
     resolution: {integrity: sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==}
     engines: {node: '>=8'}
+    dev: false
+
+  /xml-js/1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
     dev: false
 
   /xml-name-validator/4.0.0:
