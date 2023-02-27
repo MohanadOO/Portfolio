@@ -139,12 +139,6 @@ export default function Nav() {
           )}
         </ul>
       </nav>
-      {openMenu && (
-        <div
-          onClick={() => setOpenMenu(false)}
-          className='fixed sm:hidden inset-0 bg-black opacity-50 z-30'
-        />
-      )}
     </header>
   )
 }

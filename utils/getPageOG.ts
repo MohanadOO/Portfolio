@@ -22,7 +22,7 @@ export default function getPageOG(
           .width(150)
           .height(150)
           .url()}`,
-        width: 800,
+        width: 1200,
         height: 600,
         alt,
         type: 'image/png',
