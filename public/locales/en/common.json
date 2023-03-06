@@ -4,7 +4,9 @@
     "home": "Home",
     "projects": "Projects",
     "blog": "Blog",
-    "resume": "Resume"
+    "skills": "Skills",
+    "about": "About Me",
+    "certification": "Certification"
   },
   "checkBtn": "Check Project",
   "github": "Repository",

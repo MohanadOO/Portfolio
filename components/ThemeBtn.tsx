@@ -19,47 +19,37 @@ export default function ThemeBtn({ locale }) {
 
   let currentTheme = {
     dark: {
-      title: 'Dark Mood',
-      titleAR: 'الوضع الليلي',
+      title: 'Dark',
+      titleAR: 'وضع الليل',
     },
     light: {
-      title: 'Light Mood',
+      title: 'Light',
       titleAR: 'وضع النهار',
     },
   }
 
+  const title =
+    locale === 'ar'
+      ? theme === 'dark'
+        ? currentTheme.light.titleAR
+        : currentTheme.dark.titleAR
+      : theme === 'dark'
+      ? currentTheme.light.title
+      : currentTheme.dark.title
+
   return (
     <button
       onClick={changeTheme}
-      title={
-        locale === 'ar'
-          ? theme === 'dark'
-            ? currentTheme.light.titleAR
-            : currentTheme.dark.titleAR
-          : theme === 'dark'
-          ? currentTheme.light.title
-          : currentTheme.dark.title
-      }
-      aria-label={
-        locale === 'ar'
-          ? `${
-              theme === 'dark'
-                ? currentTheme.light.titleAR
-                : currentTheme.dark.titleAR
-            }`
-          : `${
-              theme === 'dark'
-                ? currentTheme.light.title
-                : currentTheme.dark.title
-            }`
-      }
-      className='flex items-center'
+      title={title}
+      aria-label={title}
+      className='flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group'
     >
       {theme === 'dark' ? (
-        <HiOutlineSun className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 stroke-primary-400 hover:fill-primary-400 dark:stroke-primary-white dark:fill-primary-white' />
+        <HiOutlineSun className='w-4 h-4 md:w-5 md:h-5 stroke-primary-400 group-hover:fill-primary-400' />
       ) : (
-        <HiOutlineMoon className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 stroke-primary-400 hover:fill-primary-400 dark:stroke-primary-white dark:fill-primary-white' />
+        <HiOutlineMoon className='w-4 h-4 md:w-5 md:h-5 stroke-primary-400 group-hover:fill-primary-400' />
       )}
+      <span>{title}</span>
     </button>
   )
 }

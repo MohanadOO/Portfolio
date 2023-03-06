@@ -5,6 +5,7 @@ specifiers:
   '@fontsource/cairo': ^4.5.11
   '@fontsource/lato': ^4.5.10
   '@fontsource/pattaya': ^4.5.10
+  '@headlessui/react': ^1.7.13
   '@next/env': ^13.1.6
   '@portabletext/react': ^2.0.0
   '@sanity/code-input': ^4.0.0
@@ -47,6 +48,7 @@ dependencies:
   '@fontsource/cairo': 4.5.13
   '@fontsource/lato': 4.5.10
   '@fontsource/pattaya': 4.5.10
+  '@headlessui/react': 1.7.13_react-dom@18.2.0+react@18.2.0
   '@next/env': 13.1.6
   '@portabletext/react': 2.0.1_react@18.2.0
   '@sanity/code-input': 4.0.0_2882bbbc7eb4fa7db9077d6a64073f0f
@@ -817,6 +819,18 @@ packages:
 
   /@fontsource/pattaya/4.5.10:
     resolution: {integrity: sha512-ZReieBSPrrqddeaUGxW0g7Dfjtghv63hDZnwIffwHWcqAxnPs4IAMgW4liJMWcsk2OIiVxl86cYw1iIziCkzNQ==}
+    dev: false
+
+  /@headlessui/react/1.7.13_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-9n+EQKRtD9266xIHXdY5MfiXPDfYwl7zBM7KOx2Ae3Gdgxy8QML1FkCMjq6AsOf0l6N9uvI4HcFtuFlenaldKg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@icons/material/0.2.4_react@18.2.0:
