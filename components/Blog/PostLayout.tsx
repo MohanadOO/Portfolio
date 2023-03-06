@@ -43,85 +43,61 @@ export function PostLayout({ post }: { post: Post }) {
         )}
       />
       <article
-        className='py-24 mx-auto min-h-screen'
+        className='mx-auto min-h-screen'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
-        <section className='space-y-2 border border-primary-400 text-primary-white mb-10'>
-          <div className='relative flex flex-col md:flex-row justify-between'>
-            <div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
-              <Image
-                className='object-cover object-center mx-auto'
-                src={post.mainImage && urlFor(post.mainImage).url()}
-                alt={post.author && post.author.name}
-                fill
-              />
-            </div>
-            <section className='py-8 px-5 md:px-10 bg-primary-400 w-full h-full'>
-              <div className='max-w-5xl mx-auto md:px-10'>
-                {locale === 'ar' && language !== 'ar' ? (
-                  <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
-                    <AiOutlineWarning className='w-5 h-5' />
-                    <span>الترجمة العربية غير متوفرة</span>
-                  </div>
-                ) : (
-                  ''
-                )}
-                <div className='flex flex-col md:flex-row justify-between gap-y-5 '>
-                  <div>
-                    <h1 className='text-4xl font-extrabold'>
-                      {post.title[language]}
-                    </h1>
-                    {post.categories &&
-                      post.categories.map((category: Category) => (
-                        <div
-                          key={category._id}
-                          className='flex items-center mt-auto space-x-2'
-                        >
-                          <p className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold mt-4'>
-                            {category.title}
-                          </p>
-                        </div>
-                      ))}
-                  </div>
-                  <p>
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric',
-                    })}
-                  </p>
+        <section className='space-y-2 mb-5 border-y-2 border-primary-400'>
+          <section className='py-8 inset-0 w-full h-full'>
+            <div className='max-w-5xl mx-auto'>
+              {locale === 'ar' && language !== 'ar' ? (
+                <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
+                  <AiOutlineWarning className='w-5 h-5' />
+                  <span>الترجمة العربية غير متوفرة</span>
                 </div>
-                <div>
-                  <h2 className='italic py-5 max-w-lg'>
-                    {post.description && post.description[language]}
-                  </h2>
-                  <div className='max-w-md'>
-                    <div className='flex items-center space-x-2'>
-                      {post.author && (
-                        <>
-                          <Image
-                            className='rounded-full'
-                            src={urlFor(post.author.image).url()}
-                            alt={post.author.name}
-                            width={35}
-                            height={35}
-                          />
-                          <h3 className='font-semibold'>{post.author.name}</h3>
-                        </>
-                      )}
-                      {/* TODO: Add Author Bio */}
-                      {/* <div>{post.author.bio}</div> */}
-                    </div>
+              ) : (
+                ''
+              )}
+              <div className='flex flex-col gap-2'>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl text-primary-400 font-extrabold'>
+                  {post.title[language]}
+                </h1>
+                <div className='max-w-md opacity-60 mt-1'>
+                  <div className='flex flex-wrap items-center gap-4 text-xs sm:text-sm md:text-base'>
+                    {post.author && <h3>{post.author.name}</h3>}
+                    <div className='w-0.5 h-5 bg-primary-400' />
+                    <p>
+                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </p>
                   </div>
+                </div>
+                <h2 className='italic py-5 max-w-lg md:text-lg'>
+                  {post.description && post.description[language]}
+                </h2>
+                <div className='flex flex-wrap gap-3'>
+                  {post.categories &&
+                    post.categories.map((category: Category) => (
+                      <div
+                        key={category._id}
+                        className='flex justify-center items-center mt-auto space-x-2'
+                      >
+                        <p className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold'>
+                          {category.title}
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </section>
-        <div className='mx-auto px-5 md:px-10 max-w-5xl selection:bg-primary-400/70 selection:text-white break-words'>
+        <div className='mx-auto max-w-5xl selection:bg-primary-400/70 selection:text-white break-words'>
           <motion.div
             style={{ scaleX: scrollYProgress }}
-            className='fixed top-16 sm:top-[4.5rem] left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 z-50 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40'
+            className='fixed top-16 sm:top-[4.5rem] left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 z-50 rounded-sm '
           ></motion.div>
           <PortableText
             value={post.body[language]}

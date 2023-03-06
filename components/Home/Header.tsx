@@ -7,17 +7,18 @@ import {
   fadeTop,
   shapesContainerVariant,
 } from '../../public/variants/MotionVariants'
-import { HiArrowCircleDown } from 'react-icons/hi'
+import { HiArrowCircleDown, HiDownload } from 'react-icons/hi'
 
 export default function Header() {
   const reduce = useReducedMotion()
+
   const { t } = useTranslation('home', { keyPrefix: 'header' })
 
   return (
     <section
       id='header'
       aria-label={t('sectionHeader')}
-      className='self-center text-center flex justify-center items-center w-full h-screen relative overflow-hidden'
+      className='self-center text-center flex justify-center items-center pb-28 w-full h-screen relative overflow-hidden'
     >
       <motion.div
         variants={fadeInContainer(reduce)}
@@ -44,14 +45,24 @@ export default function Header() {
         >
           {t('subText')}
         </motion.p>
-        <motion.a
-          variants={fadeInLeft(reduce)}
-          href='#about-me'
-          className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left-lg rtl:shadow-right-lg dark:shadow-primary-white'
-        >
-          <span>{t('about')}</span>
-          <HiArrowCircleDown className='w-6 h-6' />
-        </motion.a>
+        <div className='flex flex-wrap justify-center gap-5'>
+          <motion.a
+            variants={fadeInLeft(reduce)}
+            href='#about-me'
+            className='flex items-center gap-3 self-center py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+          >
+            <span>{t('about')}</span>
+            <HiArrowCircleDown className='w-6 h-6' />
+          </motion.a>
+          <motion.a
+            variants={fadeInLeft(reduce)}
+            href='https://www.cakeresume.com/s--xFe5zn7_6pbOn71eYKrAOw--/mohanad-alrwaihy'
+            className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+          >
+            <span>{t('resume')}</span>
+            <HiDownload className='w-6 h-6' />
+          </motion.a>
+        </div>
       </motion.div>
 
       <motion.svg

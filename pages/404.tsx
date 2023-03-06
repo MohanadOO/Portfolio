@@ -19,7 +19,7 @@ export default function ErrorPage() {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}
-      className='md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-primary-400'
+      className=' px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-primary-400'
       aria-labelledby='error-page'
     >
       <div className='flex flex-col items-center gap-5 xl:gap-10 max-w-sm xl:max-w-md'>

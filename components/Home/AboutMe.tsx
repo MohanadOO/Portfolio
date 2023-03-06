@@ -20,7 +20,7 @@ export default function AboutMe({ locale }) {
     <section
       id='about-me'
       aria-label={t('sectionHeader')}
-      className='flex flex-col gap-10 lg:gap-10 my-32 scroll-mt-32'
+      className='flex flex-col gap-10 lg:gap-10 mt-16 mb-32 scroll-mt-32'
     >
       <div className='flex items-center mx-auto md:mx-0'>
         <h2 className='section_header'>{t('sectionHeader')}</h2>
