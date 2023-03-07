@@ -57,6 +57,7 @@ export default function Header() {
           <motion.a
             variants={fadeInLeft(reduce)}
             href='https://www.cakeresume.com/s--xFe5zn7_6pbOn71eYKrAOw--/mohanad-alrwaihy'
+            target='_blank'
             className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
           >
             <span>{t('resume')}</span>

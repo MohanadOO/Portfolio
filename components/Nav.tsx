@@ -68,7 +68,6 @@ export default function Nav() {
                     }
                   `}
         title={t(item.translate)}
-        target={item.title === 'Resume' ? '_blank' : '_parent'}
       >
         {t(item.translate)} {item.disabled ? '...' : ''}
       </Link>
