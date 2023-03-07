@@ -21,6 +21,8 @@ type SkillType = {
 
 type Skill = {
   name: string
+  topSkill: boolean
+  type: { en: string; ar: string }
   icon: {
     asset: {
       url: string
@@ -30,6 +32,7 @@ type Skill = {
   color: {
     hex: string
   }
+  link: string
 }
 
 type ImageType = {

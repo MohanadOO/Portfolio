@@ -11,7 +11,7 @@ const isBrowser = typeof window !== 'undefined'
 
 export const ni18nConfig: Ni18nOptions = {
   supportedLngs: i18n?.locales,
-  ns: ['home', 'projects', 'blog', 'common', 'error'],
+    'skills',
   use: isBrowser ? [ChainedBackend] : undefined,
   backend: isBrowser
     ? {
