@@ -69,10 +69,10 @@ export default function ProjectDetails({ projectDetails, id }) {
         initial='initial'
         animate='animate'
         id='project'
-        className='min-h-screen flex'
+        className='my-14'
         aria-label={title}
       >
-        <div className='flex flex-col lg:flex-row-reverse md:gap-10 lg:gap-20 mx-auto px-5 md:px-12 lg:px-24 xl:px-36 2xl:px-44 lg:items-center lg:justify-between w-full mt-28 lg:mt-0 child:flex-1'>
+        <div className='flex flex-col lg:flex-row-reverse md:gap-10 lg:gap-20 mx-auto lg:items-center lg:justify-between w-full child:flex-1'>
           <div>
             <div className='relative max-w-4xl aspect-video rounded-sm ring ring-primary-400 shadow-lg group hover:bg-black/30 transition-all'>
               <div className='absolute top-[50%] translate-y-[-50%] flex justify-between w-full p-5 z-10'>

@@ -65,13 +65,15 @@ export default function Certification({
             <div>
               <a
                 href={item.courseUrl ? item.courseUrl : '#'}
-                className={`flex items-center gap-1 text-lg font-bold transition-colors ${
+                target='_blank'
+                title={item.title}
+                className={`flex items-center justify-center gap-1 text-lg font-bold transition-colors ${
                   item.courseUrl ? 'hover:text-primary-400' : 'cursor-default'
                 }`}
               >
-                {item.title}{' '}
+                <span className='line-clamp-1'>{item.title}</span>
                 {item.courseUrl && (
-                  <HiExternalLink className='w-3 h-3 rtl:-rotate-90' />
+                  <HiExternalLink className='rtl:-rotate-90' />
                 )}
               </a>
               <p className='opacity-80 text-sm'>
