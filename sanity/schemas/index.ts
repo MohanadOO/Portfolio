@@ -8,6 +8,8 @@ import author from './author'
 import localeString from './locale/localeString'
 import localeText from './locale/localeText'
 import localeBlockContent from './locale/localeBlockContent'
+import certificate from './certificate'
+import provider from './provider'
 import about from './about'
 
 export const schemaTypes = [
@@ -15,6 +17,8 @@ export const schemaTypes = [
   skill,
   mySkill,
   about,
+  certificate,
+  provider,
   post,
   author,
   category,

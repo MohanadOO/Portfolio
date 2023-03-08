@@ -126,3 +126,20 @@ interface Title {
   _type: 'string'
   current: string
 }
+
+type Certificate = {
+  title: string
+  courseUrl: string | null
+  date: string
+  link: string | null
+  provider: {
+    provider: string
+    providerIcon: {
+      asset: {
+        _ref: string
+        _type: string
+      }
+      _type: string
+    }
+  }
+}
