@@ -9,7 +9,8 @@ export const TOP_SKILLS = `*[_type == 'mySkill' && topSkill == true]{
   },
   color {
     hex
-  }
+  },
+  link
 }`
 
 export const ALL_SKILLS = `*[_type == 'mySkill']{

@@ -10,10 +10,10 @@
     "sectionHeader": "About",
     "aboutMe": "Electronics Engineer ⚡ | Web Developer 💻",
     "descP1": "My name is Mohanad Alrwaihy I have a Bachelor degree in Electronics Engineering from MMU University (MMU) In Malaysia.",
-    "descP2": "In June 2021 In a Trimester break I wanted to learn something new and because of my experience in my field I knew that I love anything related to coding and after doing some research I discovered freeCodeCamp and start learning more and more about Web Development Since then."
+    "descP2": "During a trimester break in June 2021, I was eager to expand my knowledge and explore new skills. Given my passion for coding, I researched various resources and stumbled upon freeCodeCamp. I immediately began learning more about web development, particularly NextJS, TailwindCSS, and TypeScript. These languages have captured my interest, and I have been actively building my skills in them ever since."
   },
   "skills": {
-    "sectionHeader": "Skills"
+    "sectionHeader": "Top Skills"
   },
   "projects": {
     "sectionHeader": "My Work",

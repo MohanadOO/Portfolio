@@ -4,7 +4,7 @@ import { ni18nConfig } from '../ni18n.config'
 
 import { client } from '../sanity/sanity.client'
 import { PROJECTS_QUERY } from '../sanity/queries/projects'
-import { ALL_SKILLS } from '../sanity/queries/mySkill'
+import { TOP_SKILLS } from '../sanity/queries/skills'
 import { NextSeo } from 'next-seo'
 
 export default function Home({ projects, skills, locale }) {
@@ -18,7 +18,7 @@ export default function Home({ projects, skills, locale }) {
 
 export const getStaticProps = async ({ locale }) => {
   const projects = await client.fetch(PROJECTS_QUERY)
-  const skills = await client.fetch(ALL_SKILLS)
+  const skills = await client.fetch(TOP_SKILLS)
 
   return {
     props: {

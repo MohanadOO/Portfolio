@@ -15,18 +15,17 @@ export default function Skills({ skills }) {
           {t('sectionHeader')}
         </h2>
       </div>
-      <ul className='max-w-5xl mt-10 flex items-center justify-center md:justify-start gap-x-5 gap-y-5 child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-2 md:child:py-3 md:child:px-4 child:rounded-md flex-wrap'>
-        {skills.map((skill: Skill) => {
-          return (
-            <li
-              key={skill.name}
-              title={skill.name}
-              style={{
-                borderColor: skill.color.hex,
-                boxShadow: `0px 0px 10px ${skill.color.hex}`,
-              }}
-              className='border-2 child:w-28 child:text-center'
-            >
+      <ul className='max-w-7xl mt-10 flex items-center justify-center md:justify-start gap-x-5 gap-y-5 child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-2 md:child:py-1 md:child:px-2 child:rounded-md flex-wrap'>
+        {skills.map((skill: Skill) => (
+          <li
+            key={skill.name}
+            title={skill.name}
+            style={{
+              boxShadow: `0px 0px 5px ${skill.color.hex}`,
+            }}
+            className='max-w-7xl border dark:border-primary-black child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
+          >
+            <a href={skill.link} target='_blank'>
               <Image
                 width={32}
                 height={32}
@@ -34,10 +33,12 @@ export default function Skills({ skills }) {
                 alt={skill.icon.alt}
                 aria-hidden='true'
               />
-              <span className='text-lg font-semibold'>{skill.name}</span>
-            </li>
-          )
-        })}
+              <span className='text-sm font-semibold opacity-80 line-clamp-1'>
+                {skill.name}
+              </span>
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
   )
