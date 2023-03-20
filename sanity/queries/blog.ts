@@ -7,13 +7,21 @@ export const getPostsInfo = `*[_type=='post']{
   slug,
   mainImage,
   author->,
-  categories[]->
+  categories[]->,
+  "totalCharactersEN": length(pt::text(body.en)),
+  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body.ar)),
+  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
 } | order(_createdAt desc)`
 
 export const getPostData = (slug: string) => {
   return `*[_type=='post' && slug.current == '${slug}'][0]{
       ...,
       author->,
-      categories[]->
+      categories[]->,
+      "totalCharactersEN": length(pt::text(body.en)),
+      "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
+      "totalCharactersAR": length(pt::text(body.ar)),
+      "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
     }`
 }

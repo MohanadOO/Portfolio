@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import urlFor from '../../utils/urlFor'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from './RichTextComponents'
 
@@ -10,6 +8,7 @@ import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
 import { motion, useScroll } from 'framer-motion'
+import { HiOutlineBookOpen } from 'react-icons/hi'
 
 export function PostLayout({ post }: { post: Post }) {
   const { scrollYProgress } = useScroll()
@@ -25,6 +24,9 @@ export function PostLayout({ post }: { post: Post }) {
       setLanguage(locale)
     }
   }, [locale])
+
+  const readingTime =
+    language === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
   return (
     <>
@@ -77,6 +79,15 @@ export function PostLayout({ post }: { post: Post }) {
                 <h2 className='italic py-5 max-w-lg md:text-lg'>
                   {post.description && post.description[language]}
                 </h2>
+                {readingTime > 0 && (
+                  <p className='flex items-center gap-2 md:text-lg pb-5 text-primary-400'>
+                    <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
+                    <span>
+                      {readingTime}{' '}
+                      {language === 'ar' ? 'دقائق للقراءة' : 'min read'}
+                    </span>
+                  </p>
+                )}
                 <div className='flex flex-wrap gap-3'>
                   {post.categories &&
                     post.categories.map((category: Category) => (

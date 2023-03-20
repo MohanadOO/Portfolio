@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { AiOutlineWarning } from 'react-icons/ai'
+import { HiOutlineBookOpen } from 'react-icons/hi'
 
 export function BlogList({ posts }: { posts: Post[] }) {
   const { t } = useTranslation('blog')
@@ -17,6 +18,9 @@ export function BlogList({ posts }: { posts: Post[] }) {
           const language = post.title.ar === undefined ? 'en' : locale
           const title = post.title[language]
           const desc = post.description[language]
+          const readingTime =
+            locale === 'ar' ? post.readingTimeAR : post.readingTimeEN
+
           return (
             <Link key={post._id} href={`/blog/${post.slug.current}`}>
               <div className='group cursor-pointer flex'>
@@ -47,6 +51,15 @@ export function BlogList({ posts }: { posts: Post[] }) {
                       >
                         {title}
                       </p>
+                      {readingTime > 0 && (
+                        <p className='flex items-center gap-2 text-xs md:text-sm opacity-60'>
+                          <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
+                          <span>
+                            {readingTime}{' '}
+                            {locale === 'ar' ? 'دقائق للقراءة' : 'min read'}
+                          </span>
+                        </p>
+                      )}
 
                       <div className='mt-3 flex-1'>
                         <p className='text-primary-gray-500 text-xs sm:text-sm dark:text-primary-gray-300 line-clamp-2'>

@@ -73,6 +73,10 @@ interface Post extends Base {
   publishedAt: string
   title: { ar: string; en: string }
   description: { ar: string; en: string }
+  readingTimeAR: number
+  readingTimeEN: number
+  totalCharactersEN: number
+  totalCharactersAR: number
 }
 
 interface Author extends Base {
