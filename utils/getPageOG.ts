@@ -11,6 +11,7 @@ export default function getPageOG(
   alt: string
 ) {
   let pathName = process.env.NEXT_PUBLIC_BASE_URL
+  if (!authorName && !authorProfile) return undefined
   return {
     url,
     type,

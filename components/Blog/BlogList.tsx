@@ -11,11 +11,14 @@ export function BlogList({ posts }: { posts: Post[] }) {
   const locale = useRouter().locale
 
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-[90rem] mx-auto'>
       <hr className='border-primary-400 mb-10' />
-      <div className='grid grid-cols sm:grid-cols-2 xl:grid-cols-3 px-5 md:px-0 gap-5 gap-y-16 pb-24 '>
+      <div className='grid grid-cols sm:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-16 pb-24 '>
         {posts.map((post) => {
-          const language = post.title.ar === undefined ? 'en' : locale
+          const language =
+            post.title.ar === undefined || post.description.ar === undefined
+              ? 'en'
+              : locale
           const title = post.title[language]
           const desc = post.description[language]
           const readingTime =
@@ -35,24 +38,30 @@ export function BlogList({ posts }: { posts: Post[] }) {
                     fill
                     style={{ objectFit: 'cover' }}
                   />
-                  <div className='absolute bottom-0 w-full h-full bg-primary-white/90 dark:bg-primary-dark/90 text-primary-black dark:text-primary-white p-5 flex justify-between items-center'>
+                  <div className='absolute bottom-0 w-full h-full bg-primary-white/90 dark:bg-primary-dark/90 text-primary-black dark:text-primary-white p-5 flex justify-between items-center isolate'>
                     <div>
                       {locale === 'ar' && language !== 'ar' ? (
-                        <div className='absolute top-0  bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm'>
+                        <div className='absolute top-0 bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm'>
                           <span>الترجمة العربية غير متوفرة</span>
                           <AiOutlineWarning className='w-5 h-5' />
                         </div>
                       ) : (
                         ''
                       )}
-                      <p
-                        title={title}
-                        className='text-primary-400 text-sm sm:text-base md:text-lg font-bold mb-1 line-clamp-2'
-                      >
-                        {title}
-                      </p>
+                      {post.title[language] ? (
+                        <p
+                          title={title}
+                          className='text-primary-400 text-sm sm:text-base md:text-lg font-bold mb-1 line-clamp-2'
+                        >
+                          {title}
+                        </p>
+                      ) : (
+                        <p className='text-red-400 text-sm sm:text-base md:text-lg font-bold mb-1 line-clamp-2 uppercase'>
+                          Title not found
+                        </p>
+                      )}
                       {readingTime > 0 && (
-                        <p className='flex items-center gap-2 text-xs md:text-sm opacity-60'>
+                        <p className='flex items-center gap-2 text-xs md:text-sm font-bold opacity-90'>
                           <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
                           <span>
                             {readingTime}{' '}
@@ -62,24 +71,32 @@ export function BlogList({ posts }: { posts: Post[] }) {
                       )}
 
                       <div className='mt-3 flex-1'>
-                        <p className='text-primary-gray-500 text-xs sm:text-sm dark:text-primary-gray-300 line-clamp-2'>
-                          {post.description && desc}
-                        </p>
+                        {post.description[language] ? (
+                          <p className='opacity-90 text-xs sm:text-sm font-bold line-clamp-2'>
+                            {post.description && desc}
+                          </p>
+                        ) : (
+                          <p className='text-red-400 text-xs sm:text-sm line-clamp-2 uppercase'>
+                            Description not found
+                          </p>
+                        )}
                       </div>
                       <div className='mt-2 gap-2'>
-                        <p className='text-xs border-black'>
-                          {new Date(post.publishedAt).toLocaleDateString(
-                            'en-US',
-                            {
-                              day: 'numeric',
-                              month: 'long',
-                              year: 'numeric',
-                            }
-                          )}
-                        </p>
-                        <div className='flex mt-2 gap-2'>
-                          {post.categories &&
-                            post.categories.map((category) => (
+                        {post.publishedAt && (
+                          <p className='text-xs border-black'>
+                            {new Date(post.publishedAt).toLocaleDateString(
+                              'en-US',
+                              {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric',
+                              }
+                            )}
+                          </p>
+                        )}
+                        {post.categories && (
+                          <div className='flex mt-2 gap-2'>
+                            {post.categories.map((category) => (
                               <div
                                 key={category.title}
                                 className='bg-primary-400 text-center px-1 rounded-full text-[0.7rem] text-white'
@@ -87,7 +104,8 @@ export function BlogList({ posts }: { posts: Post[] }) {
                                 {category.title}
                               </div>
                             ))}
-                        </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
