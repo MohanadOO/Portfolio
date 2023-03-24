@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ni18nConfig } from '../ni18n.config'
 import { client } from '../sanity/sanity.client'
 import { ALL_SKILLS } from '../sanity/queries/skills'
-import Image from 'next/legacy/image'
+import CustomImage from '../components/CustomImage'
 
 export async function getStaticProps({ locale }) {
   const skills = await client.fetch(ALL_SKILLS)
@@ -63,7 +63,7 @@ export default function Skills({
                 className='border dark:border-primary-black child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
               >
                 <a href={skill.link} target='_blank'>
-                  <Image
+                  <CustomImage
                     width={32}
                     height={32}
                     src={skill.icon.asset.url}

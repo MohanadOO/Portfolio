@@ -10,5 +10,6 @@ module.exports = {
         hostname: 'cdn.sanity.io',
       },
     ],
+    domains: ['bit.ly'],
   },
 }

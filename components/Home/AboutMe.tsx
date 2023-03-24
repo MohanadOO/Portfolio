@@ -10,7 +10,7 @@ import {
 
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai'
 import { BsWhatsapp } from 'react-icons/bs'
-import Image from 'next/image'
+import CustomImage from '../CustomImage'
 
 export default function AboutMe({ locale }) {
   const reduce = useReducedMotion()
@@ -35,13 +35,13 @@ export default function AboutMe({ locale }) {
       >
         <motion.div
           variants={fadeInLeft(reduce)}
-          className='relative aspect-square max-w-sm w-full rounded-sm shadow-left-lg rtl:shadow-right-lg dark:shadow-white border-2 border-primary-black dark:border-white flex-1'
+          className='group relative aspect-square max-w-sm w-full rounded-sm shadow-left-lg rtl:shadow-right-lg dark:shadow-white border-2 border-primary-black dark:border-white flex-1'
         >
-          <Image
+          <CustomImage
             src='/images/MyPicture.png'
-            fill
             style={{ objectFit: 'cover' }}
             alt={locale === 'ar' ? 'صورتي الشخصية' : 'A Photo of Me'}
+            fill
           />
         </motion.div>
         <motion.div

@@ -7,7 +7,6 @@ import { getProjectData } from '../../sanity/queries/projects'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../../ni18n.config'
 import { useTranslation } from 'react-i18next'
-import Image from 'next/image'
 
 import { client } from '../../sanity/sanity.client'
 import { useState } from 'react'
@@ -15,6 +14,7 @@ import { useState } from 'react'
 import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
 import { sectionVariant } from '../../public/variants/MotionVariants'
+import CustomImage from '../../components/CustomImage'
 
 export default function ProjectDetails({ projectDetails, id }) {
   const reduce = useReducedMotion()
@@ -50,7 +50,7 @@ export default function ProjectDetails({ projectDetails, id }) {
         title={skill.name}
         key={`${skill.name}_key`}
       >
-        <Image
+        <CustomImage
           width={18}
           height={18}
           src={skill.icon.asset.url}
@@ -74,7 +74,7 @@ export default function ProjectDetails({ projectDetails, id }) {
       >
         <div className='flex flex-col lg:flex-row-reverse md:gap-10 lg:gap-20 mx-auto lg:items-center lg:justify-between w-full child:flex-1'>
           <div>
-            <div className='relative max-w-4xl aspect-video rounded-sm ring ring-primary-400 shadow-lg group hover:bg-black/30 transition-all'>
+            <div className='relative max-w-4xl aspect-video rounded-sm ring ring-primary-400 shadow-lg group hover:bg-black/30 transition-all overflow-hidden'>
               <div className='absolute top-[50%] translate-y-[-50%] flex justify-between w-full p-5 z-10'>
                 <HiChevronRight
                   onClick={() => handleSwitchImages(-1)}
@@ -85,7 +85,7 @@ export default function ProjectDetails({ projectDetails, id }) {
                   className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 dark:text-primary-400 cursor-pointer'
                 />
               </div>
-              <Image
+              <CustomImage
                 className='group-hover:brightness-75 transition-all select-none'
                 fill
                 property='true'
@@ -105,9 +105,9 @@ export default function ProjectDetails({ projectDetails, id }) {
                       setMainPic(image)
                     }}
                     key={index}
-                    className='relative w-full aspect-[2/1] rounded-sm object-cover object-top ring-2 ring-primary-400/40 cursor-pointer max-w-xs'
+                    className='relative w-full aspect-[2/1] rounded-sm object-cover object-top ring-2 ring-primary-400/40 cursor-pointer max-w-xs overflow-hidden'
                   >
-                    <Image
+                    <CustomImage
                       className={`transition-all ${
                         index === active
                           ? 'brightness-50'

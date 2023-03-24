@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 import { AiFillGithub } from 'react-icons/ai'
 import { HiEye } from 'react-icons/hi'
@@ -8,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 import { motion, useReducedMotion } from 'framer-motion'
 import { cardVariant } from '../../public/variants/MotionVariants'
+import CustomImage from '../CustomImage'
 
 export default function ProjectCard({ project, locale }: ProjectCardType) {
   const reduce = useReducedMotion()
@@ -29,7 +29,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
       >
         <div className='relative [&_a]:hover:opacity-100 border-b-2 border-black group overflow-hidden'>
           <div className='relative aspect-[16/12] max-w-sm saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
-            <Image
+            <CustomImage
               fill
               style={{ objectFit: 'contain' }}
               src={mainImage.asset.url}
@@ -63,7 +63,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
                 <p className='hidden sm:block text-xs lg:text-sm sm:line-clamp-1'>
                   {skill.name}
                 </p>
-                <Image
+                <CustomImage
                   width={18}
                   height={18}
                   src={skill.icon.asset.url}

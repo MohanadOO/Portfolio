@@ -1,10 +1,10 @@
-import Image from 'next/image'
 import urlFor from '../../utils/urlFor'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { HiOutlineBookOpen } from 'react-icons/hi'
+import CustomImage from '../CustomImage'
 
 export function BlogList({ posts }: { posts: Post[] }) {
   const { t } = useTranslation('blog')
@@ -27,8 +27,8 @@ export function BlogList({ posts }: { posts: Post[] }) {
           return (
             <Link key={post._id} href={`/blog/${post.slug.current}`}>
               <div className='group cursor-pointer flex'>
-                <div className='relative w-full aspect-video shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out motion-reduce:duration-75'>
-                  <Image
+                <div className='relative w-full aspect-video shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out motion-reduce:duration-75 overflow-hidden'>
+                  <CustomImage
                     className='object-cover object-center aspect-video rounded-lg'
                     src={
                       post.mainImage !== null &&

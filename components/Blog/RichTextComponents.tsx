@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import urlFor from '../../utils/urlFor'
 import Refractor from 'react-refractor'
 import { HiExternalLink } from 'react-icons/hi'
 import CodeInputLayout from '../CodeInputLayout'
+import CustomImage from '../CustomImage'
 
 export const RichTextComponents = {
   types: {
@@ -14,14 +14,18 @@ export const RichTextComponents = {
       const aspectRatio = width / height
       return (
         <div
-          className='relative w-full object-contain my-5 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:-top-1 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:-bottom-0.5'
+          className='relative w-full object-contain my-5 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:top-0 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:bottom-0 overflow-hidden isolate before:z-10'
           style={{ aspectRatio }}
         >
-          <Image
+          <CustomImage
             src={urlFor(value).url()}
             alt='Blog Post Image'
             fill
-            style={{ objectFit: 'contain', borderRadius: '0.1rem' }}
+            style={{
+              objectFit: 'contain',
+              borderRadius: '0.1rem',
+              zOrder: -1,
+            }}
             aria-hidden='true'
           />
         </div>
