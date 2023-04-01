@@ -9,7 +9,7 @@ import getPageOG from '../../utils/getPageOG'
 
 import { motion, useScroll } from 'framer-motion'
 import { HiOutlineBookOpen } from 'react-icons/hi'
-
+import TableOfContent from '../TableOfContent'
 export function PostLayout({ post }: { post: Post }) {
   const { scrollYProgress } = useScroll()
 
@@ -137,6 +137,7 @@ export function PostLayout({ post }: { post: Post }) {
             style={{ scaleX: scrollYProgress }}
             className='fixed top-16 sm:top-[4.5rem] left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 z-50 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40'
           ></motion.div>
+          <TableOfContent locale={language} />
           {post.body && (
             <PortableText
               value={post.body[language]}

@@ -14,16 +14,23 @@ export const RichTextComponents = {
       const aspectRatio = width / height
       return (
         <div
-          className='relative w-full object-contain my-5 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:top-0 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:bottom-0 overflow-hidden isolate before:z-10'
-          style={{ aspectRatio }}
+          style={{
+            maxWidth: `${width}px`,
+            maxHeight: '1000px',
+          }}
+          className='relative mx-auto object-contain my-7 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:top-0 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:bottom-0 overflow-hidden isolate before:z-10'
         >
           <CustomImage
             src={urlFor(value).url()}
             alt='Blog Post Image'
-            fill
+            width={width}
+            height={height}
             style={{
               objectFit: 'contain',
               borderRadius: '0.1rem',
+              maxWidth: '100%',
+              maxHeight: '1000px',
+              aspectRatio: `${aspectRatio}`,
               zOrder: -1,
             }}
             aria-hidden='true'
@@ -58,22 +65,34 @@ export const RichTextComponents = {
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className='text-5xl md:text-6xl pt-10 pb-5 font-bold text-primary-400'>
+      <h1
+        id={children}
+        className='text-5xl md:text-6xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20'
+      >
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className='text-4xl md:text-5xl pt-10 pb-5 font-bold text-primary-400'>
+      <h2
+        id={children}
+        className='text-4xl md:text-5xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20'
+      >
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className='text-2xl md:text-3xl pt-10 pb-5 font-bold text-primary-400'>
+      <h3
+        id={children}
+        className='text-2xl md:text-3xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20'
+      >
         {children}
       </h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className='text-xl md:text-2xl pt-10 pb-5 font-bold text-primary-400'>
+      <h4
+        id={children}
+        className='text-xl md:text-2xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20'
+      >
         {children}
       </h4>
     ),
