@@ -60,7 +60,7 @@ export const getStaticProps = async ({ preview = false, params, locale }) => {
       post,
       slug,
     },
-    revalidate: 600,
+    revalidate: 300,
   }
 }
 

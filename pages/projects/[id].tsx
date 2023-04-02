@@ -165,13 +165,20 @@ export const getStaticProps = async ({ params, locale }) => {
   const projectDetails: ProjectDetailsType = await client.fetch(
     getProjectData(id)
   )
+  
+  if (!projectDetails) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['common'])),
       projectDetails,
       id,
     },
-    revalidate: 600,
+    revalidate: 300,
   }
 }
 
@@ -182,6 +189,6 @@ export const getStaticPaths = async () => {
   const paths = getAllProjectsIds(projectsSlug)
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
