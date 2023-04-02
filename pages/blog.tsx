@@ -25,7 +25,10 @@ export const getStaticProps = async ({ preview = false, locale }) => {
   }
 
   const posts = await client.fetch(getPostsInfo)
-  await generateRssFeed(posts)
+  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rss`, {
+    method: 'PUT',
+    body: JSON.stringify(posts),
+  })
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['blog'])),

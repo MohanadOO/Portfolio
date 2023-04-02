@@ -45,7 +45,5 @@ export default async function generateRssFeed(allPosts: Post[]) {
     })
   })
 
-  fs.mkdirSync('./public/rss', { recursive: true })
-  fs.writeFileSync('./public/rss/rss.xml', feed.rss2())
-  fs.writeFileSync('./public/rss/rss.json', feed.json1())
+  return [feed.rss2(), feed.json1()]
 }

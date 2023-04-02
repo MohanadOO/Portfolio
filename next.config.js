@@ -12,4 +12,10 @@ module.exports = {
     ],
     domains: ['bit.ly'],
   },
+  rewrites: async () => [
+    {
+      source: '/rss.xml',
+      destination: '/api/rss',
+    },
+  ],
 }

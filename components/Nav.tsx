@@ -123,7 +123,7 @@ export default function Nav() {
                     className='opacity-70 hover:opacity-100 transition-opacity'
                   >
                     <a
-                      href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss/rss.xml`}
+                      href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml`}
                       rel='noreferrer'
                       target='_blank'
                       aria-label='RSS Feed'
@@ -178,7 +178,7 @@ export default function Nav() {
                 </li>
                 <li className='opacity-70 hover:opacity-100 transition-opacity'>
                   <a
-                    href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss/rss.xml`}
+                    href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml`}
                     rel='noreferrer'
                     target='_blank'
                     className='flex gap-2 items-center'
