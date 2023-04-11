@@ -9,12 +9,12 @@ import { ni18nConfig } from '../../ni18n.config'
 import { useTranslation } from 'react-i18next'
 
 import { client } from '../../sanity/sanity.client'
-import { useState } from 'react'
 
 import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
 import { sectionVariant } from '../../public/variants/MotionVariants'
 import CustomImage from '../../components/CustomImage'
+import Swiper from '../../components/Swiper'
 
 export default function ProjectDetails({ projectDetails, id }) {
   const reduce = useReducedMotion()
@@ -23,20 +23,9 @@ export default function ProjectDetails({ projectDetails, id }) {
   const { t } = useTranslation(['common'])
 
   const { mainImage, images, skills, github, preview } = project
-
-  const [mainPic, setMainPic] = useState(mainImage)
-  const [pics, setPics] = useState([mainImage, ...images])
-  const [active, setActive] = useState(0)
-
-  function handleSwitchImages(dir: number) {
-    if (dir === -1 && active === 0) {
-      setActive(pics.length - 1)
-      setMainPic(pics[pics.length - 1])
-      return
-    }
-    const index = (dir + active) % pics.length
-    setActive(index)
-    setMainPic(pics[index])
+  const swiperImages = [mainImage]
+  if (images && images.length > 0) {
+    swiperImages.push(...images)
   }
 
   const { locale, pathName } = pageSEO(id)
@@ -74,56 +63,7 @@ export default function ProjectDetails({ projectDetails, id }) {
       >
         <div className='flex flex-col lg:flex-row-reverse md:gap-10 lg:gap-20 mx-auto lg:items-center lg:justify-between w-full child:flex-1'>
           <div>
-            <div className='relative max-w-4xl aspect-video rounded-sm ring ring-primary-400 shadow-lg group hover:bg-black/30 transition-all overflow-hidden'>
-              <div className='absolute top-[50%] translate-y-[-50%] flex justify-between w-full p-5 z-10'>
-                <HiChevronRight
-                  onClick={() => handleSwitchImages(-1)}
-                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 dark:text-primary-400 cursor-pointer'
-                />
-                <HiChevronLeft
-                  onClick={() => handleSwitchImages(1)}
-                  className='w-10 h-10 text-transparent ltr:rotate-180 group-hover:text-primary-400 dark:text-primary-400 cursor-pointer'
-                />
-              </div>
-              <CustomImage
-                className='group-hover:brightness-75 transition-all select-none'
-                fill
-                property='true'
-                style={{ objectFit: 'cover' }}
-                src={`${mainPic.asset.url}`}
-                alt={`${mainPic.alt}`}
-                aria-hidden='true'
-                priority
-              />
-            </div>
-            <div className='flex justify-between mt-5 gap-3'>
-              {pics.map((image: ImageType, index: number) => {
-                return (
-                  <div
-                    onClick={() => {
-                      setActive(index)
-                      setMainPic(image)
-                    }}
-                    key={index}
-                    className='relative w-full aspect-[2/1] rounded-sm object-cover object-top ring-2 ring-primary-400/40 cursor-pointer max-w-xs overflow-hidden'
-                  >
-                    <CustomImage
-                      className={`transition-all ${
-                        index === active
-                          ? 'brightness-50'
-                          : 'hover:brightness-75 hover:scale-105'
-                      }`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      alt={index.toString()}
-                      src={image.asset.url}
-                      aria-hidden='true'
-                      priority
-                    />
-                  </div>
-                )
-              })}
-            </div>
+            <Swiper images={swiperImages} />
           </div>
           <div className='flex flex-col gap-5'>
             <h1 className='font-pattaya text-4xl lg:text-5xl xl:text-6xl text-primary-400 dark:text-primary-400 mt-10 lg:mt-0'>
@@ -165,7 +105,7 @@ export const getStaticProps = async ({ params, locale }) => {
   const projectDetails: ProjectDetailsType = await client.fetch(
     getProjectData(id)
   )
-  
+
   if (!projectDetails) {
     return {
       notFound: true,

@@ -18,17 +18,17 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
 
   return (
     <motion.div
-      className='text-start max-w-sm mx-auto'
+      className='text-start w-full max-w-md mx-auto'
       aria-label={title}
       variants={cardVariant(reduce)}
     >
       <motion.div
         variants={cardVariant(reduce)}
         whileHover='hover'
-        className='bg-white dark:bg-primary-dark shadow-left-lg ar:shadow-right-lg dark:shadow-white mx-auto pb-5 flex flex-col overflow-hidden border-2 border-black dark:border-white rounded-md'
+        className='bg-white dark:bg-primary-dark shadow-left-lg ar:shadow-right-lg dark:shadow-white/20 mx-auto pb-5 flex flex-col overflow-hidden border-2 border-black dark:border-white/20 rounded-md'
       >
         <div className='relative [&_a]:hover:opacity-100 border-b-2 border-black group overflow-hidden'>
-          <div className='relative aspect-[16/12] max-w-sm saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
+          <div className='relative aspect-[16/12] max-w-md saturate-[1.3] group-hover:scale-110 group-hover:brightness-75 transition-transform duration-300'>
             <CustomImage
               fill
               style={{ objectFit: 'contain' }}
@@ -79,7 +79,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           >
             {title}
           </h1>
-          <p className='max-w-xs w-full text-xs sm:text-sm leading-7 pt-3 mb-5 text-primary-black dark:text-primary-white line-clamp-3'>
+          <p className='max-w-lg w-full text-xs sm:text-sm leading-7 pt-3 mb-5 text-primary-black dark:text-primary-white line-clamp-3'>
             {body}
           </p>
           <Link

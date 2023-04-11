@@ -64,7 +64,7 @@ export default function Certification({
                 style={{ borderRadius: '50%' }}
                 alt={item.title}
               />
-              <div>
+              <div className='flex flex-col items-center md:items-start'>
                 <a
                   href={item.courseUrl ? item.courseUrl : '#'}
                   className={`flex items-center gap-1 text-lg font-bold transition-colors ${

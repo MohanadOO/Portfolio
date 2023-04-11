@@ -67,7 +67,7 @@ export default function Skills({
                     width={32}
                     height={32}
                     src={skill.icon.asset.url}
-                    alt={skill.icon.alt}
+                    alt={skill.icon.alt || `${skill.name} Icon`}
                     aria-hidden='true'
                   />
                   <span className='text-sm font-semibold opacity-80 line-clamp-1'>

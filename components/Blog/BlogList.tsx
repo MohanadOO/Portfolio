@@ -19,26 +19,34 @@ export function BlogList({ posts }: { posts: Post[] }) {
             post.title.ar === undefined || post.description.ar === undefined
               ? 'en'
               : locale
-          const title = post.title[language]
-          const desc = post.description[language]
+          const title =
+            post.title && post.title[language] ? post.title[language] : ''
+          const desc =
+            post.description && post.description[language]
+              ? post.description[language]
+              : ''
           const readingTime =
             locale === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
           return (
             <Link key={post._id} href={`/blog/${post.slug.current}`}>
-              <div className='group cursor-pointer flex'>
+              <div className='group cursor-pointer flex rounded-lg'>
                 <div className='relative w-full aspect-video shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out motion-reduce:duration-75 overflow-hidden'>
                   <CustomImage
-                    className='object-cover object-center aspect-video rounded-lg'
+                    className='rounded-lg scale-[0.994]'
                     src={
                       post.mainImage !== null &&
                       urlFor(post.mainImage).auto('format').url()
                     }
-                    alt={post.author && post.author.name}
+                    alt={
+                      post.author && post.author.name
+                        ? post.author.name
+                        : 'Anonymous'
+                    }
                     fill
                     style={{ objectFit: 'cover' }}
                   />
-                  <div className='absolute bottom-0 w-full h-full bg-primary-white/90 dark:bg-primary-dark/90 text-primary-black dark:text-primary-white p-5 flex justify-between items-center isolate'>
+                  <div className='absolute inset-0 bg-primary-white/90 dark:bg-primary-dark/90 text-primary-black dark:text-primary-white p-5 flex justify-between items-center isolate rounded-lg'>
                     <div>
                       {locale === 'ar' && language !== 'ar' ? (
                         <div className='absolute top-0 bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm'>
@@ -48,7 +56,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                       ) : (
                         ''
                       )}
-                      {post.title[language] ? (
+                      {title ? (
                         <p
                           title={title}
                           className='text-primary-400 text-sm sm:text-base md:text-lg font-bold mb-1 line-clamp-2'
@@ -71,7 +79,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                       )}
 
                       <div className='mt-3 flex-1'>
-                        {post.description[language] ? (
+                        {desc ? (
                           <p className='opacity-90 text-xs sm:text-sm font-bold line-clamp-2'>
                             {post.description && desc}
                           </p>

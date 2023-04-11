@@ -9,8 +9,8 @@ export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
       const imageSize = value.asset._ref.split('-')[2].split('x')
-      const width = imageSize[0]
-      const height = imageSize[1]
+      const width = imageSize ? imageSize[0] : '1280'
+      const height = imageSize ? imageSize[1] : '720'
       const aspectRatio = width / height
       return (
         <div
@@ -53,12 +53,12 @@ export const RichTextComponents = {
 
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 md:text-lg space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 text-lg space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 md:text-lg space-y-3'>
         {children}
       </ol>
     ),

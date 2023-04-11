@@ -37,6 +37,7 @@ const projects = [
 const certificate = [
   { typeName: 'certificate', title: 'Certificate' },
   { typeName: 'provider', title: 'Provider' },
+  { typeName: 'mySkill', title: 'My Skills' },
 ]
 
 const blog = [

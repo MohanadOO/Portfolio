@@ -39,6 +39,7 @@ export default function AboutMe({ locale }) {
         >
           <CustomImage
             src='/images/MyPicture.png'
+            priority
             style={{ objectFit: 'cover' }}
             alt={locale === 'ar' ? 'صورتي الشخصية' : 'A Photo of Me'}
             fill
