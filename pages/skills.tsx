@@ -42,7 +42,7 @@ export default function Skills({
     <section
       id='mySkill'
       aria-label={t('sectionHeader')}
-      className='my-10 max-w-4xl mx-auto'
+      className='my-10 max-w-4xl mx-auto py-20'
     >
       <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
       <p className='text-xl opacity-70 mb-24'>{t('description')}</p>

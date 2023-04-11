@@ -13,7 +13,7 @@ function BlogLayout({ children }) {
         title={locale === 'ar' ? 'المدونة' : 'Blog'}
         openGraph={{ url: pathName }}
       />
-      <section className='min-h-screen' id='blog'>
+      <section className='min-h-screen py-20' id='blog'>
         <Banner />
         {children}
       </section>

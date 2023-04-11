@@ -24,7 +24,7 @@ export default function About({ about, locale }) {
     <section
       id='aboutMe'
       aria-label={t('sectionHeader')}
-      className='my-10 max-w-4xl mx-auto'
+      className='my-10 max-w-4xl mx-auto py-20'
     >
       <h1 className='text-5xl font-bold my-10'>{t('sectionHeader')}</h1>
 

@@ -9,11 +9,11 @@ export default function HomeLayout({ projects, skills }) {
   const router = useRouter()
   const locale = router.locale
   return (
-    <main>
+    <main className='py-20'>
       <Header />
       <AboutMe locale={locale} />
       <Skills skills={skills} />
-      <Projects locale={locale} projects={projects} />
+      <Projects locale={locale} projects={projects} viewBtn={true} />
     </main>
   )
 }

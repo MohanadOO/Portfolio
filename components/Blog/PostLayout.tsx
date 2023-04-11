@@ -47,7 +47,7 @@ export function PostLayout({ post }: { post: Post }) {
         )}
       />
       <article
-        className='mx-auto min-h-screen'
+        className='mx-auto min-h-screen py-24'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
         <section className='space-y-2 mb-5 border-y-2 border-primary-400'>

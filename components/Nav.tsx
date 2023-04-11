@@ -39,7 +39,7 @@ export default function Nav() {
       title: 'Projects',
       translate: 'projects',
       URL: '/projects',
-      disabled: true,
+      disabled: false,
     },
     { title: 'About', translate: 'about', URL: '/about', disabled: false },
     { title: 'Skills', translate: 'skills', URL: '/skills', disabled: false },

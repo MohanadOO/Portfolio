@@ -13,8 +13,8 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
   const reduce = useReducedMotion()
   const { t } = useTranslation(['common'])
   const { slug, mainImage, skills, github, preview } = project
-  const title = locale === 'ar' ? project.title.ar : project.title.en
-  const body = locale === 'ar' ? project.body.ar : project.body.en
+  const title = locale === 'ar' ? project.title?.ar : project.title?.en
+  const body = locale === 'ar' ? project.body?.ar : project.body?.en
 
   return (
     <motion.div
@@ -32,8 +32,8 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             <CustomImage
               fill
               style={{ objectFit: 'contain' }}
-              src={mainImage.asset.url}
-              alt={mainImage.alt}
+              src={mainImage?.asset.url}
+              alt={mainImage?.alt ?? 'Cover Image'}
             />
           </div>
           <a
@@ -58,7 +58,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
         </div>
         <div className='p-5 flex w-full h-full flex-col items-start'>
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:gap-2 child:py-1 child:px-3 child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold child:h-7 child:flex child:items-center child:justify-center child:sm:flex-1 child:flex-[0.2_1_0%] rtl:sm:flex-row-reverse'>
-            {skills.map((skill) => (
+            {skills?.map((skill) => (
               <li key={skill.name} title={skill.name} dir='ltr'>
                 <p className='hidden sm:block text-xs lg:text-sm sm:line-clamp-1'>
                   {skill.name}
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             {body}
           </p>
           <Link
-            href={`projects/${slug.current}`}
+            href={`projects/${slug?.current}`}
             className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] rtl:hover:shadow-[4px_4px_0_black] mt-auto'
           >
             {t('checkBtn')}

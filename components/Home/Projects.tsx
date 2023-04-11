@@ -3,28 +3,30 @@ import ProjectCard from './ProjectCard'
 
 import { motion, useReducedMotion } from 'framer-motion'
 import { projectsContainer } from '../../public/variants/MotionVariants'
+import Link from 'next/link'
+import { HiOutlineLink } from 'react-icons/hi'
 
-export default function Projects({ locale, projects }) {
+export default function Projects({ locale, projects, viewBtn = false }) {
   const reduce = useReducedMotion()
   const { t } = useTranslation('home', { keyPrefix: 'projects' })
   return (
     <section
       id='projects'
       aria-label={t('sectionHeader')}
-      className='flex items-center scroll-mt-28'
+      className='flex items-center scroll-mt-28 mb-20'
     >
       <div className='flex flex-col gap-5 w-full'>
         <div className='flex items-center mb-10 mx-auto md:mx-0'>
           <h2 className='section_header'>{t('sectionHeader')}</h2>
         </div>
 
-        <div className='pt-10 pb-32 flex flex-col gap-20 w-full shadow-lg'>
+        <div className='pt-10 pb-20 flex flex-col gap-20 w-full rounded-lg shadow-lg dark:shadow-primary-white/20'>
           <motion.div
             variants={projectsContainer(reduce)}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mx-5 gap-10'
+            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 px-5 items-center'
           >
             {projects.map((project: ProjectType) => (
               <ProjectCard
@@ -34,6 +36,14 @@ export default function Projects({ locale, projects }) {
               />
             ))}
           </motion.div>
+          {viewBtn && (
+            <Link
+              href='/projects'
+              className='flex items-center rounded-lg mx-auto py-2 px-8 gap-2 bg-primary-400/80 hover:bg-primary-400 shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
+            >
+              {t('viewAll')} <HiOutlineLink className='w-5 h-5' />
+            </Link>
+          )}
         </div>
       </div>
     </section>

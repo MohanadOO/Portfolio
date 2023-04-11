@@ -44,7 +44,7 @@ export default function Certification({
     <section
       id='certificate'
       aria-label={t('sectionHeader')}
-      className='my-10 max-w-4xl mx-auto'
+      className='my-10 max-w-4xl mx-auto py-20'
     >
       <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
       <h2 className='text-xl opacity-70 mb-10'>{t('description')}</h2>
