@@ -109,12 +109,12 @@ export const RichTextComponents = {
   },
   marks: {
     link: ({ children, value }: any) => {
-      const rel = !value.href.startsWith('/')
+      const rel = !value.href?.startsWith('/')
         ? 'noreferrer noopener'
         : undefined
       return (
         <Link
-          href={value.href}
+          href={value.href || ''}
           rel={rel}
           className='group inline underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 text-black dark:text-white hover:dark:text-purple-700 font-bold'
         >

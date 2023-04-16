@@ -60,7 +60,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           <ul className='w-full flex flex-wrap mb-7 gap-3 child:gap-2 child:py-1 child:px-3 child:rounded-md child:bg-primary-black child:dark:bg-primary-white child:text-primary-white child:dark:text-primary-black child:font-bold child:h-7 child:flex child:items-center child:justify-center child:sm:flex-1 child:flex-[0.2_1_0%] rtl:sm:flex-row-reverse'>
             {skills?.map((skill) => (
               <li key={skill.name} title={skill.name} dir='ltr'>
-                <p className='hidden sm:block text-xs lg:text-sm sm:line-clamp-1'>
+                <p className='hidden text-xs lg:text-sm sm:line-clamp-1'>
                   {skill.name}
                 </p>
                 <CustomImage

@@ -29,7 +29,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
             locale === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
           return (
-            <Link key={post._id} href={`/blog/${post.slug.current}`}>
+            <Link key={post._id} href={`/blog/${post?.slug?.current}`}>
               <div className='group cursor-pointer flex rounded-lg'>
                 <div className='relative w-full aspect-video shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out motion-reduce:duration-75 overflow-hidden'>
                   <CustomImage

@@ -19,7 +19,7 @@ export function PostLayout({ post }: { post: Post }) {
 
   useEffect(() => {
     if (post.body) {
-      if (post.body.ar === undefined) {
+      if (post.body?.ar === undefined) {
         setLanguage('en')
       } else {
         setLanguage(locale)
@@ -30,20 +30,23 @@ export function PostLayout({ post }: { post: Post }) {
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
+  const title = post.title ? post.title[language] : ''
+  const desc = post.description ? post.description[language] : ''
+
   return (
     <>
       <NextSeo
-        title={post.title[language]}
-        description={post.description[language]}
+        title={title}
+        description={desc}
         openGraph={getPageOG(
           pathName,
           'article',
-          post.title.en,
-          post.description.en,
+          post.title?.en,
+          post.description?.en,
           post.author?.name,
           post.author?.image,
           post.publishedAt,
-          post.title[language]
+          title
         )}
       />
       <article
@@ -62,9 +65,9 @@ export function PostLayout({ post }: { post: Post }) {
                 ''
               )}
               <div className='flex flex-col gap-2'>
-                {post.title[language] ? (
+                {title ? (
                   <h1 className='text-4xl md:text-5xl lg:text-6xl text-primary-400 font-extrabold'>
-                    {post.title[language]}
+                    {title}
                   </h1>
                 ) : (
                   <h1 className='text-4xl md:text-5xl lg:text-6xl text-red-400 font-extrabold uppercase'>
@@ -97,9 +100,9 @@ export function PostLayout({ post }: { post: Post }) {
                     )}
                   </div>
                 </div>
-                {post.description[language] ? (
+                {desc ? (
                   <h2 className='italic max-w-lg pt-5 pb-1 md:text-lg'>
-                    {post.description[language]}
+                    {desc}
                   </h2>
                 ) : (
                   <h2 className='max-w-lg pt-5 md:text-lg text-red-400 uppercase'>
