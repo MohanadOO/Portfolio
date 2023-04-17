@@ -27,7 +27,6 @@ export function BlogList({ posts }: { posts: Post[] }) {
               : ''
           const readingTime =
             locale === 'ar' ? post.readingTimeAR : post.readingTimeEN
-
           return (
             <Link key={post._id} href={`/blog/${post?.slug?.current}`}>
               <div className='group cursor-pointer flex rounded-lg'>
@@ -36,7 +35,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                     className='rounded-lg scale-[0.994]'
                     src={
                       post.mainImage !== null &&
-                      urlFor(post.mainImage).auto('format').url()
+                      urlFor(post.mainImage).fit('max').url()
                     }
                     alt={
                       post.author && post.author.name

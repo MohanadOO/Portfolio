@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, useReducedMotion } from 'framer-motion'
 import { cardVariant } from '../../public/variants/MotionVariants'
 import CustomImage from '../CustomImage'
+import urlFor from '../../utils/urlFor'
 
 export default function ProjectCard({ project, locale }: ProjectCardType) {
   const reduce = useReducedMotion()
@@ -32,7 +33,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             <CustomImage
               fill
               style={{ objectFit: 'contain' }}
-              src={mainImage?.asset.url}
+              src={mainImage ? urlFor(mainImage).fit('max').url() : ''}
               alt={mainImage?.alt ?? 'Cover Image'}
             />
           </div>

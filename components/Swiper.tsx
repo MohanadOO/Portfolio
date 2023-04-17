@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { HiOutlineChevronRight } from 'react-icons/hi'
 import CustomImage from './CustomImage'
+import urlFor from '../utils/urlFor'
 
 type PropsType = {
   images: ImageType[]
@@ -21,7 +22,7 @@ export default function Swiper({ images }: PropsType) {
   return (
     <div className='relative aspect-video max-w-full rounded-lg shadow-lg w-full ring ring-primary-400 overflow-hidden'>
       <CustomImage
-        src={images[cover]?.asset?.url || ''}
+        src={images[cover] ? urlFor(images[cover]).fit('max').url() : ''}
         alt={images[cover]?.alt || 'Cover Image'}
         fill
         style={{ objectFit: 'contain' }}

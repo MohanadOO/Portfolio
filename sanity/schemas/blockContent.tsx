@@ -86,6 +86,7 @@ export default defineType({
       type: 'code',
       title: 'Code Block',
       options: {
+        language: 'cshtml',
         languageAlternatives: [
           { title: 'HTML', value: 'cshtml', mode: 'html' },
           { title: 'CSS', value: 'css' },

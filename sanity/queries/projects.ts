@@ -6,8 +6,9 @@ export const ALL_PROJECTS_QUERY = `*[_type == 'project']{
   mainImage{
     alt,
     asset->{
-      url
-    }
+      url,
+    },
+    ...
   },
   skills[0...3]->{name, icon{asset->{url}}},
   github,
@@ -22,8 +23,9 @@ export const PROJECTS_QUERY = `*[_type == 'project'][0...5]{
   mainImage{
     alt,
     asset->{
-      url
-    }
+      url,
+    },
+    ...
   },
   skills[0...3]->{name, icon{asset->{url}}},
   github,
@@ -37,8 +39,9 @@ export const getProjectData = (slug: string) => {
   mainImage{
     alt,
     asset->{
-      url
-    }
+      url,
+    },
+    ...
   },
   images[]{
     alt,

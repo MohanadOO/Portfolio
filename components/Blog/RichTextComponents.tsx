@@ -8,7 +8,7 @@ import CustomImage from '../CustomImage'
 export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
-      const imageSize = value.asset._ref.split('-')[2].split('x')
+      const imageSize = value.asset?._ref?.split('-')[2].split('x')
       const width = imageSize ? imageSize[0] : '1280'
       const height = imageSize ? imageSize[1] : '720'
       const aspectRatio = width / height
@@ -21,7 +21,7 @@ export const RichTextComponents = {
           className='relative mx-auto object-contain my-7 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:top-0 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:bottom-0 overflow-hidden isolate before:z-10'
         >
           <CustomImage
-            src={urlFor(value).url()}
+            src={imageSize && urlFor(value).url()}
             alt='Blog Post Image'
             width={width}
             height={height}
@@ -46,8 +46,15 @@ export const RichTextComponents = {
       ),
 
     code: ({ value: { code, language } }: any) => {
-      Refractor.registerLanguage(require(`refractor/lang/${language}`))
-      return <CodeInputLayout language={language} code={code} />
+      Refractor.registerLanguage(
+        require(`refractor/lang/${language ? language : 'cshtml'}`)
+      )
+      return (
+        <CodeInputLayout
+          language={language ? language : 'cshtml'}
+          code={code || ''}
+        />
+      )
     },
   },
 

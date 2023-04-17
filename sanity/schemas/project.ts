@@ -46,9 +46,6 @@ export default {
           title: 'Alternate Text',
           name: 'alt',
           type: 'string',
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
     },
@@ -65,9 +62,6 @@ export default {
               title: 'Alternate Text',
               name: 'alt',
               type: 'string',
-              options: {
-                isHighlighted: true,
-              },
             },
           ],
         },
