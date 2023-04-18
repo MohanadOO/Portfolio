@@ -41,6 +41,7 @@ specifiers:
   sanity: ^3.8.3
   sanity-plugin-iframe-pane: ^2.3.0
   sanity-plugin-vercel-deploy: ^3.3.3
+  slugify: ^1.6.6
   styled-components: ^5.3.9
   tailwindcss: ^3.3.1
   typescript: ^4.9.5
@@ -82,6 +83,7 @@ dependencies:
   sanity: 3.8.3_29f2922d2d5ed2708cd28e0859a44046
   sanity-plugin-iframe-pane: 2.3.0_7ed3eee7f779697a411a8e3645f8d1d9
   sanity-plugin-vercel-deploy: 3.3.3_7ed3eee7f779697a411a8e3645f8d1d9
+  slugify: 1.6.6
   styled-components: 5.3.9_fa3acc110621e003f368ed3f60914608
 
 devDependencies:
@@ -5017,6 +5019,11 @@ packages:
       immer: 9.0.21
       is-plain-object: 5.0.0
       tiny-warning: 1.0.3
+    dev: false
+
+  /slugify/1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
     dev: false
 
   /source-map-js/1.0.2:
