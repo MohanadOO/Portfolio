@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from './RichTextComponents'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
@@ -12,6 +12,8 @@ import { HiOutlineBookOpen } from 'react-icons/hi'
 import TableOfContent from '../TableOfContent'
 export function PostLayout({ post }: { post: Post }) {
   const { scrollYProgress } = useScroll()
+  const [progressBar, setProgressBar] = useState(false)
+  const lastScrollY = useRef(0)
 
   const { locale, pathName } = pageSEO(post.slug.current)
 
@@ -26,6 +28,24 @@ export function PostLayout({ post }: { post: Post }) {
       }
     }
   }, [locale])
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [lastScrollY])
+
+  function handleScroll() {
+    if (typeof window !== undefined) {
+      if (window.scrollY > lastScrollY.current) {
+        setProgressBar(false)
+      } else {
+        setProgressBar(true)
+      }
+      lastScrollY.current = window.scrollY
+    }
+  }
 
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
@@ -135,10 +155,18 @@ export function PostLayout({ post }: { post: Post }) {
             </div>
           </section>
         </section>
-        <div className='mx-auto max-w-5xl selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
+        <div
+          className={`${
+            progressBar
+              ? 'top-16 sm:top-[4.5rem]'
+              : 'top-0 bg-neutral-300 dark:bg-neutral-800'
+          } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 h-2 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 z-40 origin-left rtl:origin-right rounded-sm`}
+        >
           <motion.div
             style={{ scaleX: scrollYProgress }}
-            className='fixed top-16 sm:top-[4.5rem] left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 z-50 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40'
+            className={`${
+              progressBar ? 'top-16 sm:top-[4.5rem]' : 'top-0'
+            } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40`}
           ></motion.div>
           <TableOfContent locale={language} />
           {post.body && (

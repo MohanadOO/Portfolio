@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { HiCog, HiOutlineMenu, HiOutlineX, HiRss } from 'react-icons/hi'
 
@@ -14,10 +14,34 @@ import { Menu, Transition } from '@headlessui/react'
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false)
+  const [showNav, setShowNav] = useState(true)
+  const lastScrollY = useRef(0)
 
   const router = useRouter()
   const locale = router.locale
   const { t } = useTranslation('common', { keyPrefix: 'navigation' })
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [lastScrollY])
+
+  function handleScroll() {
+    if (typeof window !== undefined) {
+      if (window.scrollY > lastScrollY.current) {
+        setShowNav(false)
+      } else {
+        setShowNav(true)
+      }
+      lastScrollY.current = window.scrollY
+    }
+
+    if (window.scrollY !== 0) {
+      setOpenMenu(false)
+    }
+  }
 
   let language = {
     ar: {
@@ -79,13 +103,14 @@ export default function Nav() {
   ))
 
   return (
-    <header>
-      <nav
-        aria-label={locale === 'ar' ? language.ar.label : language.en.label}
-        className='w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark md:px-10 lg:px-20 xl:px-32 2xl:px-40'
-      >
+    <header
+      className={`${
+        showNav ? 'translate-y-0' : 'translate-y-[-100px]'
+      } w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark md:px-10 lg:px-20 xl:px-32 2xl:px-40 transition-transform duration-500 ease-out`}
+    >
+      <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
         {/* Desktop Navigation */}
-        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/50 py-6 px-8  transition-colors text-primary-dark dark:text-primary-white'>
+        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white'>
           <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold'>
             <Link title={t('name')} href='/'>
               {t('name')}
@@ -95,47 +120,51 @@ export default function Nav() {
             {navigationItems}
           </ul>
           <ul className='flex items-center gap-4 relative'>
-            <Menu>
-              <Menu.Button>
-                <HiCog className='w-5 h-5 hover:rotate-45 transition-transform' />
-              </Menu.Button>
-              <Transition
-                className='absolute'
-                enter='transition duration-100 ease-out'
-                enterFrom='transform scale-95 opacity-0'
-                enterTo='transform scale-100 opacity-100'
-                leave='transition duration-75 ease-out'
-                leaveFrom='transform scale-100 opacity-100'
-                leaveTo='transform scale-95 opacity-0'
-              >
-                <Menu.Items
-                  as='ul'
-                  className='flex flex-col gap-4 absolute top-8 ltr:-right-10 rtl:-left-10 bg-primary-white dark:text-primary-dark shadow-lg border border-primary text-sm font-bold rounded-lg py-5 px-2 w-28'
+            {showNav ? (
+              <Menu>
+                <Menu.Button>
+                  <HiCog className='w-5 h-5 hover:rotate-45 transition-transform' />
+                </Menu.Button>
+                <Transition
+                  className='absolute'
+                  enter='transition duration-100 ease-out'
+                  enterFrom='transform scale-95 opacity-0'
+                  enterTo='transform scale-100 opacity-100'
+                  leave='transition duration-75 ease-out'
+                  leaveFrom='transform scale-100 opacity-100'
+                  leaveTo='transform scale-95 opacity-0'
                 >
-                  <Menu.Item as='li'>
-                    <LanguageBtn locale={locale} language={language} />
-                  </Menu.Item>
-                  <Menu.Item as='li'>
-                    <ThemeBtn locale={locale} />
-                  </Menu.Item>
-                  <Menu.Item
-                    as='li'
-                    className='opacity-70 hover:opacity-100 transition-opacity'
+                  <Menu.Items
+                    as='ul'
+                    className='flex flex-col gap-4 absolute top-8 ltr:-right-10 rtl:-left-10 bg-primary-white dark:text-primary-dark shadow-lg border border-primary text-sm font-bold rounded-lg py-5 px-2 w-28'
                   >
-                    <a
-                      href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml`}
-                      rel='noreferrer'
-                      target='_blank'
-                      aria-label='RSS Feed'
-                      className='flex gap-2'
+                    <Menu.Item as='li'>
+                      <LanguageBtn locale={locale} language={language} />
+                    </Menu.Item>
+                    <Menu.Item as='li'>
+                      <ThemeBtn locale={locale} />
+                    </Menu.Item>
+                    <Menu.Item
+                      as='li'
+                      className='opacity-70 hover:opacity-100 transition-opacity'
                     >
-                      <HiRss className='w-4 h-4 md:w-5 md:h-5 fill-primary-400' />
-                      <span>RSS</span>
-                    </a>
-                  </Menu.Item>
-                </Menu.Items>
-              </Transition>
-            </Menu>
+                      <a
+                        href={`${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml`}
+                        rel='noreferrer'
+                        target='_blank'
+                        aria-label='RSS Feed'
+                        className='flex gap-2'
+                      >
+                        <HiRss className='w-4 h-4 md:w-5 md:h-5 fill-primary-400' />
+                        <span>RSS</span>
+                      </a>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            ) : (
+              <div className='w-5 h-5'></div>
+            )}
           </ul>
         </ul>
 
