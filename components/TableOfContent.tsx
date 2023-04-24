@@ -27,7 +27,9 @@ export default function TableOfContent({ locale }) {
       }
     })
 
-    setHeadings(() => elements.filter((el) => el !== '').slice(1))
+    setHeadings(() =>
+      elements.filter((el) => el !== '' && el.id !== 'table-of-content')
+    )
   }, [locale])
 
   if (headings.length < 2) return <div></div>

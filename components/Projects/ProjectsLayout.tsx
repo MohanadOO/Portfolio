@@ -11,8 +11,10 @@ export default function ProjectsLayout({ projects }) {
   return (
     <>
       <NextSeo
-        title='Projects'
-        description='List of all my projects'
+        title={locale === 'ar' ? 'كل المشاريع' : 'Projects'}
+        description={
+          locale === 'ar' ? 'قائمة بجميع المشاريع' : 'List of all my projects'
+        }
         openGraph={{ url: pathName }}
       />
       <motion.section
