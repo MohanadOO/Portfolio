@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import urlFor from '../../utils/urlFor'
 import Refractor from 'react-refractor'
-import { HiExternalLink, HiLink } from 'react-icons/hi'
+import { HiExternalLink } from 'react-icons/hi'
 import CodeInputLayout from '../CodeInputLayout'
 import CustomImage from '../CustomImage'
 import slugify from 'slugify'
@@ -83,12 +83,6 @@ export const RichTextComponents = {
           id={id}
           className='text-5xl md:text-6xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
         >
-          <a
-            href={`#${id}`}
-            className='opacity-0 group-hover:opacity-100 hidden md:block absolute ltr:-translate-x-14 rtl:translate-x-14 hover:cursor-pointer  scale-75 transition-opacity '
-          >
-            <HiLink />
-          </a>
           {children}
         </h1>
       )
@@ -100,12 +94,6 @@ export const RichTextComponents = {
           id={id}
           className='text-4xl md:text-5xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
         >
-          <a
-            href={`#${id}`}
-            className='opacity-0 group-hover:opacity-100 hidden md:block absolute ltr:-translate-x-12 rtl:translate-x-12 hover:cursor-pointer  scale-75 transition-opacity '
-          >
-            <HiLink />
-          </a>
           {children}
         </h2>
       )
@@ -117,12 +105,6 @@ export const RichTextComponents = {
           id={id}
           className='text-2xl md:text-3xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
         >
-          <a
-            href={`#${id}`}
-            className='opacity-0 group-hover:opacity-100 hidden md:block absolute ltr:-translate-x-10 rtl:translate-x-10 hover:cursor-pointer  scale-90 transition-opacity '
-          >
-            <HiLink />
-          </a>
           {children}
         </h3>
       )
@@ -134,12 +116,6 @@ export const RichTextComponents = {
           id={id}
           className='text-xl md:text-2xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
         >
-          <a
-            href={`#${id}`}
-            className='opacity-0 group-hover:opacity-100 hidden md:block absolute ltr:-translate-x-7 translate-y-1 rtl:translate-x-7 hover:cursor-pointer  scale-90 transition-opacity '
-          >
-            <HiLink />
-          </a>
           {children}
         </h4>
       )

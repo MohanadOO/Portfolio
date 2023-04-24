@@ -75,7 +75,7 @@ export function PostLayout({ post }: { post: Post }) {
       >
         <section className='space-y-2 mb-5 border-y-2 border-primary-400'>
           <section className='py-8 inset-0 w-full h-full'>
-            <div className='max-w-5xl mx-auto'>
+            <div className='max-w-6xl mx-auto'>
               {locale === 'ar' && language !== 'ar' ? (
                 <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
                   <AiOutlineWarning className='w-5 h-5' />
@@ -168,13 +168,17 @@ export function PostLayout({ post }: { post: Post }) {
               progressBar ? 'top-16 sm:top-[4.5rem]' : 'top-0'
             } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40`}
           ></motion.div>
-          <TableOfContent locale={language} />
+        </div>
+        <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
           {post.body && (
-            <PortableText
-              value={post.body[language]}
-              components={RichTextComponents}
-            />
+            <div className='w-full overflow-hidden'>
+              <PortableText
+                value={post.body[language]}
+                components={RichTextComponents}
+              />
+            </div>
           )}
+          <TableOfContent locale={language} scroll={progressBar} />
         </div>
       </article>
     </>
