@@ -36,6 +36,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('tailwind-scrollbar'),
     function ({ addVariant }) {
       addVariant('child', '& > *')
       addVariant('child-hover', '& > *:hover')

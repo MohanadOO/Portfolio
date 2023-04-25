@@ -160,13 +160,13 @@ export function PostLayout({ post }: { post: Post }) {
             progressBar
               ? 'top-16 sm:top-[4.5rem]'
               : 'top-0 bg-neutral-300 dark:bg-neutral-800'
-          } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 h-2 md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 z-40 origin-left rtl:origin-right rounded-sm`}
+          } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 h-2 z-40 origin-left rtl:origin-right rounded-sm`}
         >
           <motion.div
             style={{ scaleX: scrollYProgress }}
             className={`${
               progressBar ? 'top-16 sm:top-[4.5rem]' : 'top-0'
-            } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 rounded-sm md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40`}
+            } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 rounded-sm`}
           ></motion.div>
         </div>
         <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>

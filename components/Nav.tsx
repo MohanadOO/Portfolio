@@ -106,17 +106,17 @@ export default function Nav() {
     <header
       className={`${
         showNav ? 'translate-y-0' : 'translate-y-[-100px]'
-      } w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark md:px-10 lg:px-20 xl:px-32 2xl:px-40 transition-transform duration-500 ease-out`}
+      } w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark transition-transform duration-500 ease-out`}
     >
       <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
         {/* Desktop Navigation */}
-        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md rounded-md shadow-primary-400/10 dark:shadow-primary-400/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white'>
+        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md shadow-primary-400/10 dark:shadow-primary-400/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white md:px-10 lg:px-20 xl:px-32 2xl:px-40'>
           <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold'>
             <Link title={t('name')} href='/'>
               {t('name')}
             </Link>
           </li>
-          <ul className='flex items-center gap-3 xl:gap-5'>
+          <ul className='flex items-center justify-center w-full gap-3 xl:gap-5 absolute left-[50%] translate-x-[-50%]'>
             {navigationItems}
           </ul>
           <ul className='flex items-center gap-4 relative'>

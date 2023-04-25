@@ -43,6 +43,7 @@ specifiers:
   sanity-plugin-vercel-deploy: ^3.3.3
   slugify: ^1.6.6
   styled-components: ^5.3.9
+  tailwind-scrollbar: ^3.0.0
   tailwindcss: ^3.3.1
   typescript: ^4.9.5
 
@@ -85,6 +86,7 @@ dependencies:
   sanity-plugin-vercel-deploy: 3.3.3_7ed3eee7f779697a411a8e3645f8d1d9
   slugify: 1.6.6
   styled-components: 5.3.9_fa3acc110621e003f368ed3f60914608
+  tailwind-scrollbar: 3.0.0_tailwindcss@3.3.1
 
 devDependencies:
   '@types/node': 18.7.18
@@ -5246,6 +5248,15 @@ packages:
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
+    dev: false
+
+  /tailwind-scrollbar/3.0.0_tailwindcss@3.3.1:
+    resolution: {integrity: sha512-OkVRX9Q1T769vk979UZ519jhj/j/zNBHql7zPLI+tlhX+ahksYO4ZryWD29lOETDx9Wj1sw+K1OeW7W3+ECQOA==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: 3.x
+    dependencies:
+      tailwindcss: 3.3.1
     dev: false
 
   /tailwindcss/3.3.1:
