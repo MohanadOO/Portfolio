@@ -1,8 +1,11 @@
 import Nav from './Nav'
 import Footer from './Footer'
-import { HiChevronUp } from 'react-icons/hi'
+import { HiChevronUp, HiOutlineEye } from 'react-icons/hi'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export default function Layout({ children }) {
+  const isPreview = useRouter().isPreview
   return (
     <div className='min-h-screen relative flex flex-col'>
       <Nav />
@@ -16,6 +19,15 @@ export default function Layout({ children }) {
         {children}
       </div>
       <Footer />
+      {isPreview && (
+        <Link
+          className='bg-red-600 hover:bg-red-700 text-white text-center py-4 px-4 fixed bottom-0 left-0 z-50 flex items-center justify-center gap-2 font-sriracha'
+          href='/api/exit-preview'
+        >
+          <HiOutlineEye className='w-5 h-5' />
+          Exit Preview
+        </Link>
+      )}
     </div>
   )
 }
