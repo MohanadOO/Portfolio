@@ -111,7 +111,7 @@ export default function Nav() {
       <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md shadow-primary-400/10 dark:shadow-primary-400/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white md:px-10 lg:px-20 xl:px-32 2xl:px-40'>
-          <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold'>
+          <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold z-10'>
             <Link title={t('name')} href='/'>
               {t('name')}
             </Link>
