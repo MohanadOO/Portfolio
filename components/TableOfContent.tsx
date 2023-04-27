@@ -52,13 +52,13 @@ export default function TableOfContent({ locale, scroll }) {
   function getClass(type: number): string {
     switch (type) {
       case 1:
-        return `my-3 ltr:ml-2 sm:ltr:ml-1 rtl:mr-2 sm:rtl:mr-1 list-disc text-lg`
+        return `my-2 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-primary-400`
       case 2:
-        return `my-2 ltr:ml-2 sm:ltr:ml-2 rtl:mr-2 sm:rtl:mr-2 list-disc text-lg`
+        return `my-1 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-teal-600 marker:dark:text-teal-500`
       case 3:
-        return `my-1 ltr:ml-8 sm:ltr:ml-4 rtl:mr-4 sm:rtl:mr-4 list-[circle]`
+        return `my-0.5 ltr:ml-2 sm:ltr:ml-2 rtl:mr-2 sm:rtl:mr-2 list-disc marker:text-sky-600 marker:dark:text-sky-500`
       case 4:
-        return `my-1 ltr:ml-8 sm:ltr:ml-8 rtl:mr-8 sm:rtl:mr-8 list-[square] italic`
+        return `my-0.5 ltr:ml-2 sm:ltr:ml-4 rtl:mr-4 sm:rtl:mr-4 italic list-disc marker:text-amber-600 marker:dark:text-amber-500`
     }
   }
 
@@ -72,7 +72,7 @@ export default function TableOfContent({ locale, scroll }) {
     <>
       <button
         onClick={() => setShowTable((prev) => !prev)}
-        className='fixed xl:hidden ltr:left-10 rtl:right-10 bottom-12 w-10 h-10 text-black dark:text-white bg-neutral-200 dark:bg-neutral-800 border border-black/30 dark:border-white/30 shadow-lg rounded-full group z-50'
+        className='fixed xl:hidden ltr:right-10 rtl:left-10 bottom-28 w-10 h-10 text-black dark:text-white bg-neutral-200 dark:bg-neutral-800 border border-black/30 dark:border-white/30 shadow-lg rounded-full group z-50'
       >
         {showTable ? (
           <HiX className='mx-auto w-4 h-4 md:w-6 md:h-6 group-hover:scale-110 transition-transform' />
@@ -86,7 +86,7 @@ export default function TableOfContent({ locale, scroll }) {
           showTable
             ? 'translate-x-0'
             : 'en:translate-x-[-100vh] ar:translate-x-[100vh]'
-        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0 xl:p-0 xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-primary-white dark:bg-primary-dark xl:bg-transparent z-30 scrollbar-thin scrollbar-track-primary-400/40 dark:scrollbar-track-primary-400/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-400`}
+        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0  xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-primary-white dark:bg-primary-dark xl:bg-transparent z-30 scrollbar-thin scrollbar-track-primary-400/40 dark:scrollbar-track-primary-400/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-400 ltr:border-l rtl:border-r dark:border-white/10`}
       >
         <h1
           id='table-of-content'
@@ -104,16 +104,16 @@ export default function TableOfContent({ locale, scroll }) {
               className={`${getClass(
                 type
               )} text-primary-dark dark:text-primary-white cursor-pointer ${
-                activeId === id ? 'marker:text-primary-400' : 'opacity-70'
+                activeId === id ? '' : 'opacity-80 hover:opacity-100'
               }`}
             >
               <a
                 href={`#${id}`}
                 className={`${
                   activeId === id
-                    ? ' marker:text-primary-400 font-extrabold'
+                    ? ' marker:text-primary-400 font-extrabold cursor-default'
                     : ''
-                } block py-0.5 px-1 lg:px-2 hover:outline hover:outline-2 hover:shadow-lg hover:dark:shadow-white/10 rounded-lg`}
+                } block py-0.5 px-0.5 text-sm`}
               >
                 {text}
               </a>

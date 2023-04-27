@@ -65,12 +65,12 @@ export const RichTextComponents = {
 
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 md:text-lg space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 md:text-lg space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
         {children}
       </ol>
     ),
@@ -81,7 +81,7 @@ export const RichTextComponents = {
       return (
         <h1
           id={id}
-          className='text-5xl md:text-6xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
+          className='text-5xl md:text-6xl pt-10 pb-5 font-black text-primary-400  scroll-m-20 relative group'
         >
           {children}
         </h1>
@@ -92,7 +92,7 @@ export const RichTextComponents = {
       return (
         <h2
           id={id}
-          className='text-4xl md:text-5xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
+          className='text-4xl md:text-5xl pt-10 mb-5 pb-1 inline-block font-extrabold text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
         >
           {children}
         </h2>
@@ -103,7 +103,7 @@ export const RichTextComponents = {
       return (
         <h3
           id={id}
-          className='text-2xl md:text-3xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
+          className='text-2xl md:text-3xl pt-10 pb-5 font-black text-sky-600 dark:text-sky-500 scroll-m-20 relative group'
         >
           {children}
         </h3>
@@ -114,19 +114,19 @@ export const RichTextComponents = {
       return (
         <h4
           id={id}
-          className='text-xl md:text-2xl pt-10 pb-5 font-bold text-primary-400 scroll-m-20 relative group'
+          className='text-xl md:text-2xl pt-10 pb-5 font-black text-amber-600 dark:text-amber-500 scroll-m-20 relative group'
         >
           {children}
         </h4>
       )
     },
     normal: ({ children }: any) => (
-      <p className='md:text-lg py-2 text-gray-600 dark:text-gray-300'>
+      <p className='leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9 py-2'>
         {children}
       </p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className='ltr:border-l-purple-500 rtl:border-r-purple-500 text-lg ltr:border-l-4 rtl:border-r-4 ltr:pl-5 rtl:pr-5 py-5 my-5 text-gray-600 dark:text-gray-300'>
+      <blockquote className='ltr:border-l-purple-500 rtl:border-r-purple-500 text-lg ltr:border-l-4 rtl:border-r-4 ltr:pl-5 rtl:pr-5 py-5 my-5 sm:text-lg md:text-xl'>
         {children}
       </blockquote>
     ),
@@ -140,7 +140,7 @@ export const RichTextComponents = {
         <Link
           href={value.href || ''}
           rel={rel}
-          className='group inline underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 text-black dark:text-white hover:dark:text-purple-700 font-bold'
+          className='group inline underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 hover:dark:text-purple-700 font-bold text-black dark:text-white'
         >
           {children}
           <HiExternalLink className='text-purple-700 rtl:-rotate-90 inline ml-1 rtl:mr-1' />
@@ -149,15 +149,13 @@ export const RichTextComponents = {
     },
     em: ({ children }: any) => <em className='italic'>{children}</em>,
     strong: ({ children }: any) => (
-      <strong className='font-bold'>{children}</strong>
+      <strong className='font-black'>{children}</strong>
     ),
     code: ({ children }: any) => (
-      <code className='font-light from-purple-600 to-pink-600 bg-gradient-to-r text-white px-0.5 rounded-sm'>
+      <code className='font-light text-white from-purple-600 to-pink-600 bg-gradient-to-r p-0.5 rounded-sm'>
         {children}
       </code>
     ),
-    strike: ({ children }: any) => (
-      <del className='text-black dark:text-white'>{children}</del>
-    ),
+    strike: ({ children }: any) => <del>{children}</del>,
   },
 }

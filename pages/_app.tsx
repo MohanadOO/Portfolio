@@ -12,10 +12,12 @@ import { AppProps } from 'next/app'
 import '@fontsource/pattaya'
 import '@fontsource/lato'
 import '@fontsource/lato/700.css'
+import '@fontsource/lato/900.css'
 
 import '@fontsource/cairo'
 import '@fontsource/cairo/600.css'
 import '@fontsource/cairo/700.css'
+import '@fontsource/cairo/900.css'
 
 import '@fontsource/aref-ruqaa'
 import '@fontsource/aref-ruqaa/700.css'

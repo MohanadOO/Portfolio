@@ -70,12 +70,12 @@ export function PostLayout({ post }: { post: Post }) {
         )}
       />
       <article
-        className='mx-auto min-h-screen py-24'
+        className='mx-auto min-h-screen py-24 max-w-7xl'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
-        <section className='space-y-2 mb-5 border-y-2 border-primary-400'>
+        <section className='space-y-2 mb-5 border-y-2 border-primary-400/20'>
           <section className='py-8 inset-0 w-full h-full'>
-            <div className='max-w-6xl mx-auto'>
+            <div className='mx-auto'>
               {locale === 'ar' && language !== 'ar' ? (
                 <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
                   <AiOutlineWarning className='w-5 h-5' />
@@ -171,7 +171,7 @@ export function PostLayout({ post }: { post: Post }) {
         </div>
         <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
           {post.body && (
-            <div className='w-full overflow-hidden'>
+            <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300'>
               <PortableText
                 value={post.body[language]}
                 components={RichTextComponents}
