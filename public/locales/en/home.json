@@ -16,8 +16,9 @@
     "sectionHeader": "Top Skills"
   },
   "projects": {
-    "sectionHeader": "My Work",
-    "checkProject": "Read More",
-    "viewAll": "View All"
+    "sectionHeader": "My Work"
+  },
+  "blog": {
+    "sectionHeader": "Latest Posts"
   }
 }

@@ -21,7 +21,7 @@ export default function Layout({ children }) {
       <Footer />
       {isPreview && (
         <Link
-          className='bg-red-600 hover:bg-red-700 text-white text-center py-4 px-4 fixed bottom-0 left-0 z-50 flex items-center justify-center gap-2 font-sriracha'
+          className='bg-red-600 hover:bg-red-700 text-white text-center py-4 px-4 fixed bottom-0 left-0 z-50 flex items-center justify-center gap-2 font-lato'
           href='/api/exit-preview'
         >
           <HiOutlineEye className='w-5 h-5' />

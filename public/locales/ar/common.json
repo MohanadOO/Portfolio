@@ -9,8 +9,14 @@
     "certification": "الشهادات"
   },
   "checkBtn": "اقرأ اكثر",
+  "viewAll": "كل المشاريع",
+  "allPosts": "كل المنشورات",
   "github": "المستودع",
   "preview": "عرض الصفحة",
+  "headers": {
+    "projects": "جميع المشاريع",
+    "blog": "جميع المنشورات"
+  },
   "footer": {
     "text": "صمم بواسطة",
     "name": "مهند الرويحي",

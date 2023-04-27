@@ -15,7 +15,7 @@ export const ALL_PROJECTS_QUERY = `*[_type == 'project']{
   preview
 }`
 
-export const PROJECTS_QUERY = `*[_type == 'project'][0...5]{
+export const PROJECTS_QUERY = `*[_type == 'project'][0...6]{
   slug{current},
   _id,
   title,

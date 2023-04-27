@@ -7,7 +7,6 @@ import BlogLayout from '../components/Blog/BlogLayout'
 import { getPostsInfo } from '../sanity/queries/blog'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
-import generateRssFeed from '../utils/generateRSSFees'
 
 type Props = {
   preview: boolean
@@ -18,7 +17,7 @@ export const getStaticProps = async ({ preview = false, locale }) => {
   if (preview) {
     return {
       props: {
-        ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+        ...(await loadTranslations(ni18nConfig, locale, ['blog', 'common'])),
         preview,
       },
     }
@@ -31,7 +30,7 @@ export const getStaticProps = async ({ preview = false, locale }) => {
   })
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+      ...(await loadTranslations(ni18nConfig, locale, ['blog', 'common'])),
       preview,
       posts,
     },

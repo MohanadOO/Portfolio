@@ -16,8 +16,9 @@
     "sectionHeader": "أهم الأدوات"
   },
   "projects": {
-    "sectionHeader": "مشاريعي",
-    "checkProject": "اقرأ اكثر",
-    "viewAll": "كل المشاريع"
+    "sectionHeader": "مشاريعي"
+  },
+  "blog": {
+    "sectionHeader": "المدونة"
   }
 }

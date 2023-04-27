@@ -21,10 +21,13 @@ export default function ProjectsLayout({ projects }) {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.3 }}
-        className='min-h-full flex flex-col md:flex-row mt-10 text-primary-400 w-full py-20'
+        className='min-h-full flex flex-col mt-10 text-primary-400 w-full py-20'
         aria-label='projects'
       >
-        <Projects locale={locale} projects={projects} />
+        <div className='flex items-center mb-10 mx-auto md:mx-0'>
+          <h2 className='section_header'>{t('sectionHeader')}</h2>
+        </div>
+        <Projects projects={projects} />
       </motion.section>
     </>
   )

@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useTranslation('common', { keyPrefix: 'footer' })
   return (
     <footer className='absolute mt-auto bottom-0 bg-primary-white dark:bg-primary-dark w-full'>
-      <ul className='shadow-[0px_-5px_15px_transparent] shadow-primary-400/10 dark:shadow-primary-400/50 inset-0 p-4 flex justify-evenly items-center'>
+      <ul className='shadow-[0px_-5px_15px_transparent] shadow-primary-400/10 dark:shadow-primary-400/20 inset-0 p-4 flex justify-evenly items-center'>
         <div>
           <li className='text-xs sm:text-sm md:text-base'>
             {t('text')}

@@ -11,21 +11,20 @@ import {
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai'
 import { BsWhatsapp } from 'react-icons/bs'
 import CustomImage from '../CustomImage'
+import { useRouter } from 'next/router'
 
-export default function AboutMe({ locale }) {
+export default function AboutMe() {
   const reduce = useReducedMotion()
+  const locale = useRouter().locale
+
   const { t } = useTranslation('home', { keyPrefix: 'aboutMe' })
 
   return (
     <section
       id='about-me'
       aria-label={t('sectionHeader')}
-      className='flex flex-col gap-10 lg:gap-10 mt-16 mb-32 scroll-mt-32'
+      className='flex flex-col gap-10 lg:gap-10 mb-32 scroll-mt-32'
     >
-      <div className='flex items-center mx-auto md:mx-0'>
-        <h2 className='section_header'>{t('sectionHeader')}</h2>
-      </div>
-
       <motion.div
         variants={fadeInContainer(reduce)}
         initial='initial'

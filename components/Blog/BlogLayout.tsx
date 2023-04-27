@@ -15,6 +15,7 @@ function BlogLayout({ children }) {
       />
       <section className='min-h-screen py-20' id='blog'>
         <Banner />
+        <hr className='border-primary-400' />
         {children}
       </section>
     </>

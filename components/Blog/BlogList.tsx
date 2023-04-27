@@ -3,16 +3,21 @@ import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { AiOutlineWarning } from 'react-icons/ai'
-import { HiOutlineBookOpen } from 'react-icons/hi'
+import { HiOutlineBookOpen, HiOutlineLink } from 'react-icons/hi'
 import CustomImage from '../CustomImage'
 
-export function BlogList({ posts }: { posts: Post[] }) {
-  const { t } = useTranslation('blog')
+export function BlogList({
+  posts,
+  viewBtn = false,
+}: {
+  posts: Post[]
+  viewBtn?: boolean
+}) {
+  const { t } = useTranslation(['blog', 'common'])
   const locale = useRouter().locale
 
   return (
-    <div className='max-w-[90rem] mx-auto'>
-      <hr className='border-primary-400 mb-10' />
+    <div className='max-w-[90rem] mx-auto my-16'>
       <div className='grid grid-cols sm:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-16 pb-24 '>
         {posts.map((post) => {
           const language =
@@ -122,6 +127,15 @@ export function BlogList({ posts }: { posts: Post[] }) {
           )
         })}
       </div>
+      {viewBtn && (
+        <Link
+          href='/blog'
+          className='flex mb-12 items-center justify-center rounded-lg w-56 mx-auto py-2 px-8 gap-2 bg-primary-400/80 hover:bg-primary-400 shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
+        >
+          {t('allPosts', { ns: 'common' })}
+          <HiOutlineLink className='w-5 h-5' />
+        </Link>
+      )}
     </div>
   )
 }

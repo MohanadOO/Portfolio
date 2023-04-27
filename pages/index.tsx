@@ -6,12 +6,13 @@ import { client } from '../sanity/sanity.client'
 import { PROJECTS_QUERY } from '../sanity/queries/projects'
 import { TOP_SKILLS } from '../sanity/queries/skills'
 import { NextSeo } from 'next-seo'
+import { getPostsInfoHome } from '../sanity/queries/blog'
 
-export default function Home({ projects, skills, locale }) {
+export default function Home({ projects, skills, locale, posts }) {
   return (
     <>
       <NextSeo title={locale === 'ar' ? 'الرئيسية' : 'Home'} />
-      <HomeLayout projects={projects} skills={skills} />
+      <HomeLayout projects={projects} skills={skills} posts={posts} />
     </>
   )
 }
@@ -19,6 +20,7 @@ export default function Home({ projects, skills, locale }) {
 export const getStaticProps = async ({ locale }) => {
   const projects = await client.fetch(PROJECTS_QUERY)
   const skills = await client.fetch(TOP_SKILLS)
+  const posts = await client.fetch(getPostsInfoHome)
 
   return {
     props: {
@@ -26,6 +28,7 @@ export const getStaticProps = async ({ locale }) => {
       projects,
       skills,
       locale,
+      posts,
     },
   }
 }

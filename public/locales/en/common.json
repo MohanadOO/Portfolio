@@ -9,8 +9,14 @@
     "certification": "Certification"
   },
   "checkBtn": "Check Project",
+  "viewAll": "View All",
+  "allPosts": "All Posts",
   "github": "Repository",
   "preview": "Preview",
+  "headers": {
+    "projects": "Projects List",
+    "blog": "Blog Posts"
+  },
   "footer": {
     "text": "Made by",
     "name": "Mohanad Alrwaihy",
