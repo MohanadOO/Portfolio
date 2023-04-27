@@ -50,7 +50,7 @@ export const RichTextComponents = {
         <div className='callToAction'>{value.text}</div>
       ),
 
-    code: ({ value: { code, language } }: any) => {
+    code: ({ value: { code, language, highlightedLines, filename } }: any) => {
       Refractor.registerLanguage(
         require(`refractor/lang/${language ? language : 'cshtml'}`)
       )
@@ -58,6 +58,8 @@ export const RichTextComponents = {
         <CodeInputLayout
           language={language ? language : 'cshtml'}
           code={code || ''}
+          highlightedLines={highlightedLines}
+          filename={filename}
         />
       )
     },

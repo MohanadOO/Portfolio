@@ -7,17 +7,29 @@
 :root {
   --pink: hsl(338, 70%, 55%);
   --teal: hsl(183, 70%, 62%);
-  --white: hsl(334, 7%, 95%);
-  --black: hsl(222, 45%, 7%);
+  --white: rgb(248, 250, 252);
+  --black: hsl(222, 25%, 7%);
   --purple: #7257d1;
+
+  --marker: hsl(222, 25%, 12%);
+
+  --teal-dark: hsl(183, 55%, 32%);
+  --pink-dark: hsl(338, 70%, 45%);
 }
 
-code[class*='language-'],
+html:not(.dark) {
+  --pink: var(--pink-dark);
+  --teal: var(--purple);
+  --white: hsl(222, 25%, 7%);
+  --black: rgb(248, 250, 252);
+  --marker: rgb(241, 245, 249);
+}
+s code[class*='language-'],
 pre[class*='language-'] {
   color: var(--pink);
   background: none;
-  text-shadow: 0 0 0.2em currentColor;
-  border-radius: 0.3rem;
+  text-shadow: 0 0 0.01em currentColor;
+  border-radius: 0rem;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
@@ -34,6 +46,11 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+html.dark code[class*='language-'],
+html.dark pre[class*='language-'] {
+  text-shadow: 0 0 0.2em currentColor;
 }
 
 pre[class*='language-']::-moz-selection,
@@ -69,13 +86,7 @@ pre[class*='language-'] {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   background-color: var(--black);
-  border: 2px solid var(--purple);
-}
-
-:not(pre) > code[class*='language-'],
-html.dark pre[class*='language-'] {
-  background-color: var(--black);
-  border: 2px solid var(--purple);
+  border: 1px solid var(--pink);
 }
 
 /* Inline code */
@@ -154,4 +165,9 @@ html.dark pre[class*='language-'] {
 
 .token.entity {
   cursor: help;
+}
+
+.refractor-marker {
+  background-color: var(--marker);
+  border-left: 4px solid var(--purple);
 }
