@@ -18,6 +18,8 @@ export default function Nav() {
   const lastScrollY = useRef(0)
 
   const router = useRouter()
+  const pathname = router.pathname
+
   const locale = router.locale
   const { t } = useTranslation('common', { keyPrefix: 'navigation' })
 
@@ -81,14 +83,14 @@ export default function Nav() {
         href={item.URL}
         aria-disabled={item.disabled}
         onClick={(e) =>
-          item.disabled || router.pathname == item.URL
+          item.disabled || pathname === item.URL
             ? e.preventDefault()
             : setOpenMenu(false)
         }
         className={`
                     py-3 px-2 sm:px-1 lg:px-3 xl:px-2 text-xs md:text-sm lg:text-base font-bold rtl:font-semibold
                     ${
-                      router.pathname == item.URL
+                      pathname === item.URL
                         ? ' border-b-2 border-primary-400 text-primary-400 dark:text-primary-white rounded-none cursor-default'
                         : item.disabled
                         ? 'cursor-default text-gray-400 line-through'

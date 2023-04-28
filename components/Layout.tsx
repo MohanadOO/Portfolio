@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       <Nav />
       <button
         onClick={() => window.scrollTo(0, 0)}
-        className='fixed ltr:right-10 rtl:left-10 bottom-12 w-10 h-10 text-black dark:text-white bg-neutral-200 dark:bg-neutral-800 border border-black/30 dark:border-white/30 shadow-lg rounded-full group z-50'
+        className='fixed ltr:right-[5%] rtl:left-[5%] bottom-12 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border dark:border-white/10 shadow-lg rounded-full group z-50'
       >
         <HiChevronUp className='mx-auto w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform' />
       </button>

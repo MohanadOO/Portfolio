@@ -72,7 +72,7 @@ export default function TableOfContent({ locale, scroll }) {
     <>
       <button
         onClick={() => setShowTable((prev) => !prev)}
-        className='fixed xl:hidden ltr:right-10 rtl:left-10 bottom-28 w-10 h-10 text-black dark:text-white bg-neutral-200 dark:bg-neutral-800 border border-black/30 dark:border-white/30 shadow-lg rounded-full group z-50'
+        className='fixed xl:hidden ltr:right-[5%] rtl:left-[5%] bottom-24 md:bottom-28  w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border  dark:border-white/10 shadow-lg rounded-full group z-50'
       >
         {showTable ? (
           <HiX className='mx-auto w-4 h-4 md:w-6 md:h-6 group-hover:scale-110 transition-transform' />

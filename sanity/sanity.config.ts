@@ -42,7 +42,7 @@ const certificate = [
 
 const blog = [
   { typeName: 'post', title: 'post' },
-  { typeName: 'author', title: 'Author' },
+  { typeName: 'author', title: 'Author', hidden: true },
   { typeName: 'category', title: 'Category' },
 ]
 
@@ -67,7 +67,9 @@ export default defineConfig({
             S.divider(),
             ...certificate.map((type) => S.documentTypeListItem(type.typeName)),
             S.divider(),
-            ...blog.map((type) => S.documentTypeListItem(type.typeName)),
+            ...blog
+              .filter((item) => item.hidden !== true)
+              .map((type) => S.documentTypeListItem(type.typeName)),
             S.divider(),
             ...pages.map((page) =>
               singletonListItem(S, page.typeName, page.title)
