@@ -57,6 +57,20 @@ export default defineType({
       title: 'Body',
       type: 'localeBlockContent',
     }),
+    defineField({
+      name: 'viewCount',
+      title: 'View Count',
+      type: 'number',
+      initialValue: 0,
+      hidden: true,
+    }),
+    defineField({
+      name: 'likeCount',
+      title: 'Like Count',
+      type: 'number',
+      initialValue: 0,
+      hidden: true,
+    }),
   ],
 
   preview: {

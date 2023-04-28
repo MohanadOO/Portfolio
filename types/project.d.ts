@@ -77,6 +77,8 @@ interface Post extends Base {
   readingTimeEN: number
   totalCharactersEN: number
   totalCharactersAR: number
+  likeCount: number
+  viewCount: number
 }
 
 interface Author extends Base {

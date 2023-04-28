@@ -8,9 +8,16 @@ import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
 import { motion, useScroll } from 'framer-motion'
-import { HiOutlineBookOpen } from 'react-icons/hi'
+import { HiEye, HiOutlineBookOpen, HiOutlineHeart } from 'react-icons/hi'
 import TableOfContent from '../TableOfContent'
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+
 export function PostLayout({ post }: { post: Post }) {
+  const [isLike, setIsLike] = useState<boolean | string>('loading')
+  const [likeCount, setLikeCount] = useState(post.likeCount || 0)
+  const [viewCount, setViewCount] = useState(post.viewCount || 0)
+
   const { scrollYProgress } = useScroll()
   const [progressBar, setProgressBar] = useState(false)
   const lastScrollY = useRef(0)
@@ -46,6 +53,37 @@ export function PostLayout({ post }: { post: Post }) {
       lastScrollY.current = window.scrollY
     }
   }
+
+  async function increaseLikeCount() {
+    if (isLike) return
+    setLikeCount((count) => count + 1)
+    setIsLike(true)
+    const like = await fetch(
+      `${BASE_URL}/api/count?postID=${post._id}&type=like`,
+      {
+        method: 'POST',
+      }
+    )
+    if (like.ok) {
+      const getItem = JSON.parse(localStorage.getItem('like')) || []
+      localStorage.setItem('like', JSON.stringify([...getItem, post._id]))
+    }
+  }
+
+  useEffect(() => {
+    async function increaseViewCount() {
+      await fetch(`${BASE_URL}/api/count?postID=${post._id}&type=view`, {
+        method: 'POST',
+      })
+    }
+    if (process.env.NODE_ENV === 'production') {
+      setViewCount((count) => count + 1)
+      increaseViewCount()
+    }
+    const getItem = JSON.parse(localStorage.getItem('like')) || []
+    setIsLike(getItem.includes(post._id))
+  }, [])
+  console.log(isLike)
 
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
@@ -120,6 +158,15 @@ export function PostLayout({ post }: { post: Post }) {
                     )}
                   </div>
                 </div>
+                <div className='flex gap-5 mt-3'>
+                  <p className='flex items-center gap-2 font-bold'>
+                    <HiEye className='w-5 h-5 text-primary-400' /> {viewCount}
+                  </p>
+                  <p className='flex items-center gap-2 font-bold'>
+                    <HiOutlineHeart className='w-5 h-5 fill-primary-400 text-primary-400 dark:text-black' />{' '}
+                    {likeCount}
+                  </p>
+                </div>
                 {desc ? (
                   <h2 className='italic max-w-lg pt-5 pb-1 md:text-lg'>
                     {desc}
@@ -155,6 +202,25 @@ export function PostLayout({ post }: { post: Post }) {
             </div>
           </section>
         </section>
+        {isLike === 'loading' ? (
+          ''
+        ) : (
+          <button
+            title='Like Post'
+            onClick={increaseLikeCount}
+            className={`fixed ltr:right-[5%] rtl:left-[5%] bottom-36 md:bottom-44 xl:bottom-28 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white border dark:border-white/10 shadow-lg rounded-full group z-50 ${
+              isLike
+                ? 'bg-pink-600 cursor-default transition-colors'
+                : 'bg-neutral-100 dark:bg-neutral-800'
+            }`}
+          >
+            <HiOutlineHeart
+              className={`w-4 h-4 md:w-6 md:h-6  mx-auto transition-all ${
+                isLike ? 'text-white' : 'group-hover:scale-110 text-pink-700'
+              }`}
+            />{' '}
+          </button>
+        )}
         <div
           className={`${
             progressBar
