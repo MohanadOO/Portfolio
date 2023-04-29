@@ -4,6 +4,8 @@ import { HiChevronUp, HiOutlineEye } from 'react-icons/hi'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Aref_Ruqaa, Cairo, Lato, Pattaya } from '@next/font/google'
+import { useEffect, useState } from 'react'
+import { useHandleScroll } from '../hooks/useHandleScroll'
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -35,7 +37,13 @@ const arefRuqaa = Aref_Ruqaa({
 export default function Layout({ children }) {
   const router = useRouter()
   const isPreview = router.isPreview
-  const locale = router.locale
+
+  const { up } = useHandleScroll()
+  const [scrollPosition, setScrollPosition] = useState('')
+  useEffect(() => {
+    const article = document.getElementById('article_post').dir
+    setScrollPosition(article === 'rtl' ? 'rtl' : 'ltr')
+  }, [])
 
   return (
     <main
@@ -44,7 +52,9 @@ export default function Layout({ children }) {
       <Nav />
       <button
         onClick={() => window.scrollTo(0, 0)}
-        className='fixed ltr:right-[5%] rtl:left-[5%] bottom-12 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border dark:border-white/10 shadow-lg rounded-full group z-50'
+        className={`${up || scrollPosition === '' ? 'fixed' : 'hidden'} ${
+          scrollPosition === 'rtl' ? 'left-[5%]' : 'right-[5%]'
+        }   bottom-12 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border dark:border-white/10 shadow-lg rounded-full group z-50`}
       >
         <HiChevronUp className='mx-auto w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform' />
       </button>

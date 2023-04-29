@@ -47,6 +47,14 @@ export default function TableOfContent({ locale, scroll }) {
     )
   }, [locale])
 
+  useEffect(() => {
+    if (showTable === true) {
+      document.documentElement.classList.add('stop-scrolling')
+    } else {
+      document.documentElement.classList.remove('stop-scrolling')
+    }
+  }, [showTable])
+
   if (headings.length < 2) return <div className='absolute'></div>
 
   function getClass(type: number): string {
@@ -82,7 +90,7 @@ export default function TableOfContent({ locale, scroll }) {
       </button>
       <nav
         ref={scrollRef}
-        className={` ${scroll ? 'top-20 xl:top-28' : 'top-2 xl:top-10'} ${
+        className={` ${scroll ? 'top-16 xl:top-28' : 'top-2 xl:top-10'} ${
           showTable
             ? 'translate-x-0'
             : 'en:translate-x-[-100vh] ar:translate-x-[100vh]'
@@ -111,9 +119,9 @@ export default function TableOfContent({ locale, scroll }) {
                 href={`#${id}`}
                 className={`${
                   activeId === id
-                    ? ' marker:text-primary-400 font-extrabold cursor-default'
-                    : ''
-                } block py-0.5 px-0.5 text-sm`}
+                    ? ' marker:text-primary-400 font-extrabold cursor-default underline underline-offset-4 text-base'
+                    : 'text-sm'
+                } block py-0.5 px-0.5 `}
               >
                 {text}
               </a>

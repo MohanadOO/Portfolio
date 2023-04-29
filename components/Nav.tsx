@@ -11,39 +11,16 @@ import LanguageBtn from './LanguageBtn'
 import ThemeBtn from './ThemeBtn'
 
 import { Menu, Transition } from '@headlessui/react'
+import { useHandleScroll } from '../hooks/useHandleScroll'
 
 export default function Nav() {
-  const [openMenu, setOpenMenu] = useState(false)
-  const [showNav, setShowNav] = useState(true)
-  const lastScrollY = useRef(0)
+  const { openMenu, setOpenMenu, isScrollDown } = useHandleScroll()
 
   const router = useRouter()
   const pathname = router.pathname
 
   const locale = router.locale
   const { t } = useTranslation('common', { keyPrefix: 'navigation' })
-
-  useEffect(() => {
-    document.addEventListener('scroll', handleScroll)
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [lastScrollY])
-
-  function handleScroll() {
-    if (typeof window !== undefined) {
-      if (window.scrollY > lastScrollY.current) {
-        setShowNav(false)
-      } else {
-        setShowNav(true)
-      }
-      lastScrollY.current = window.scrollY
-    }
-
-    if (window.scrollY !== 0) {
-      setOpenMenu(false)
-    }
-  }
 
   let language = {
     ar: {
@@ -107,7 +84,7 @@ export default function Nav() {
   return (
     <header
       className={`${
-        showNav ? 'translate-y-0' : 'translate-y-[-100px]'
+        isScrollDown ? 'translate-y-0' : 'translate-y-[-100px]'
       } w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark transition-transform duration-500 ease-out`}
     >
       <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
@@ -122,7 +99,7 @@ export default function Nav() {
             {navigationItems}
           </ul>
           <ul className='flex items-center gap-4 relative'>
-            {showNav ? (
+            {isScrollDown ? (
               <Menu>
                 <Menu.Button>
                   <HiCog className='w-5 h-5 hover:rotate-45 transition-transform' />

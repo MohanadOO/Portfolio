@@ -21,9 +21,7 @@ export default function CodeInputLayout({
   return (
     <div
       dir='ltr'
-      className={`text-xs sm:text-sm md:text-base py-5 relative group ${
-        filename && 'mt-14'
-      }`}
+      className={`text-xs sm:text-sm md:text-base py-5 relative group mt-6`}
     >
       {filename && (
         <code
@@ -40,17 +38,17 @@ export default function CodeInputLayout({
         {language.toUpperCase()}
       </code>
       <Refractor language={language} value={code} markers={highlightedLines} />
-      <div className='absolute text-white p-5 top-6 right-4 sm:hidden group-hover:block'>
+      <div className='absolute p-5 top-5 right-0 sm:right-4 sm:hidden group-hover:block h-full'>
         {!isCopied ? (
           <HiOutlineClipboardCopy
             onClick={() => copyToClipBoard(code)}
-            className='w-6 h-6 cursor-pointer hover:text-primary-400 active:scale-110 transition-opacity'
+            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer hover:text-primary-400 active:scale-110 transition-opacity'
             title={locale === 'ar' ? 'نسخ الكود' : 'Copy Code'}
           />
         ) : (
           <HiOutlineCheckCircle
             onClick={() => copyToClipBoard(code)}
-            className='w-6 h-6 cursor-pointer text-green-400 active:scale-110 transition-opacity'
+            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer text-green-600 dark:text-green-400 active:scale-110 transition-opacity'
             title={locale === 'ar' ? 'أنسخ مرة اخرى' : 'Copy Again'}
           />
         )}

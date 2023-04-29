@@ -10,6 +10,7 @@ import getPageOG from '../../utils/getPageOG'
 import { motion, useScroll } from 'framer-motion'
 import { HiEye, HiOutlineBookOpen, HiOutlineHeart } from 'react-icons/hi'
 import TableOfContent from '../TableOfContent'
+import { useHandleScroll } from '../../hooks/useHandleScroll'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -19,40 +20,8 @@ export function PostLayout({ post }: { post: Post }) {
   const [viewCount, setViewCount] = useState(post.viewCount || 0)
 
   const { scrollYProgress } = useScroll()
-  const [progressBar, setProgressBar] = useState(false)
-  const lastScrollY = useRef(0)
-
   const { locale, pathName } = pageSEO(post.slug.current)
-
-  const [language, setLanguage] = useState<string>(locale)
-
-  useEffect(() => {
-    if (post.body) {
-      if (post.body?.ar === undefined) {
-        setLanguage('en')
-      } else {
-        setLanguage(locale)
-      }
-    }
-  }, [locale])
-
-  useEffect(() => {
-    document.addEventListener('scroll', handleScroll)
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [lastScrollY])
-
-  function handleScroll() {
-    if (typeof window !== undefined) {
-      if (window.scrollY > lastScrollY.current) {
-        setProgressBar(false)
-      } else {
-        setProgressBar(true)
-      }
-      lastScrollY.current = window.scrollY
-    }
-  }
+  const { isScrollDown } = useHandleScroll()
 
   async function increaseLikeCount() {
     if (isLike) return
@@ -83,8 +52,8 @@ export function PostLayout({ post }: { post: Post }) {
     const getItem = JSON.parse(localStorage.getItem('like')) || []
     setIsLike(getItem.includes(post._id))
   }, [])
-  console.log(isLike)
 
+  const language = typeof post.body?.ar === 'undefined' ? 'en' : locale
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
@@ -109,6 +78,7 @@ export function PostLayout({ post }: { post: Post }) {
       />
       <article
         className='mx-auto min-h-screen py-24 max-w-7xl'
+        id='article_post'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
         <section className='space-y-2 mb-5 border-y-2 border-primary-400/20'>
@@ -124,7 +94,7 @@ export function PostLayout({ post }: { post: Post }) {
               )}
               <div className='flex flex-col gap-2'>
                 {title ? (
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl text-primary-400 font-extrabold'>
+                  <h1 className='text-4xl md:text-5xl lg:text-6xl max-w-4xl text-primary-400 font-extrabold'>
                     {title}
                   </h1>
                 ) : (
@@ -223,15 +193,13 @@ export function PostLayout({ post }: { post: Post }) {
         )}
         <div
           className={`${
-            progressBar
-              ? 'top-16 sm:top-[4.5rem]'
-              : 'top-0 bg-neutral-300 dark:bg-neutral-800'
-          } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 h-2 z-40 origin-left rtl:origin-right rounded-sm`}
+            isScrollDown ? 'top-16 sm:top-[4.5rem]' : 'top-0'
+          } transition-[top] bg-neutral-200 dark:bg-neutral-800 duration-500 ease-out fixed top-0 left-0 right-0 h-2 z-40 origin-left rtl:origin-right rounded-sm`}
         >
           <motion.div
             style={{ scaleX: scrollYProgress }}
             className={`${
-              progressBar ? 'top-16 sm:top-[4.5rem]' : 'top-0'
+              isScrollDown ? 'top-16 sm:top-[4.5rem]' : 'top-0'
             } transition-[top] duration-500 ease-out fixed top-0 left-0 right-0 origin-left rtl:origin-right h-2 bg-gradient-to-r from-green-300 to-green-500 rounded-sm`}
           ></motion.div>
         </div>
@@ -244,7 +212,7 @@ export function PostLayout({ post }: { post: Post }) {
               />
             </div>
           )}
-          <TableOfContent locale={language} scroll={progressBar} />
+          <TableOfContent locale={language} scroll={isScrollDown} />
         </div>
       </article>
     </>
