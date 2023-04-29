@@ -38,12 +38,7 @@ export default function Layout({ children }) {
   const router = useRouter()
   const isPreview = router.isPreview
 
-  const { up } = useHandleScroll()
-  const [scrollPosition, setScrollPosition] = useState('')
-  useEffect(() => {
-    const article = document.getElementById('article_post').dir
-    setScrollPosition(article === 'rtl' ? 'rtl' : 'ltr')
-  }, [])
+  const { up, scrollPosition } = useHandleScroll()
 
   return (
     <main

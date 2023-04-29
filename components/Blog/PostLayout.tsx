@@ -67,7 +67,7 @@ export function PostLayout({ post }: { post: Post }) {
     setIsLike(getItem.includes(post._id))
   }, [])
 
-  const language = typeof post.body?.ar === 'undefined' ? 'en' : locale
+  const language = post.body?.ar ? locale : 'en'
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
 
