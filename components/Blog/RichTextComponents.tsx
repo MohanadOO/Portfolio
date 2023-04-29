@@ -67,12 +67,12 @@ export const RichTextComponents = {
 
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-disc marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 rtl:mr-5 md:mr-5 py-3 list-decimal marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-decimal marker:font-bold marker:text-primary-400 sm:text-lg md:text-xl space-y-3'>
         {children}
       </ol>
     ),
@@ -142,7 +142,7 @@ export const RichTextComponents = {
         <Link
           href={value.href || ''}
           rel={rel}
-          className='group inline underline-offset-2 hover:decoration-black border-b border-purple-700 hover:text-purple-700 hover:dark:text-purple-700 font-bold text-black dark:text-white'
+          className='group inline hover:decoration-black border-b border-purple-700 hover:text-purple-700 hover:dark:text-purple-700 font-bold text-black dark:text-white underline-offset-2 ar:leading-loose'
         >
           {children}
           <HiExternalLink className='text-purple-700 rtl:-rotate-90 inline ml-1 rtl:mr-1' />

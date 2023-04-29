@@ -108,7 +108,7 @@ export function PostLayout({ post }: { post: Post }) {
               )}
               <div className='flex flex-col gap-2'>
                 {title ? (
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl max-w-4xl text-primary-400 font-extrabold'>
+                  <h1 className='text-4xl ar:leading-snug md:text-5xl md:ar:leading-snug lg:text-6xl lg:ar:leading-snug max-w-4xl text-primary-400 font-extrabold'>
                     {title}
                   </h1>
                 ) : (
