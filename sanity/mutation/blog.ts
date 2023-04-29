@@ -16,7 +16,7 @@ export const INC_VIEW_COUNT = (_id: string) => {
   return mutations
 }
 
-export const INC_LIKE_COUNT = (_id: string) => {
+export const INC_LIKE_COUNT = (_id: string, val: number) => {
   const mutations = [
     {
       patch: {
@@ -25,7 +25,7 @@ export const INC_LIKE_COUNT = (_id: string) => {
           likeCount: 0,
         },
         inc: {
-          likeCount: 1,
+          likeCount: val,
         },
       },
     },

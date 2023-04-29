@@ -52,7 +52,7 @@ export default function Layout({ children }) {
       <Nav />
       <button
         onClick={() => window.scrollTo(0, 0)}
-        className={`${up || scrollPosition === '' ? 'fixed' : 'hidden'} ${
+        className={`${up ? 'fixed' : 'hidden'} ${
           scrollPosition === 'rtl' ? 'left-[5%]' : 'right-[5%]'
         }   bottom-12 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border dark:border-white/10 shadow-lg rounded-full group z-50`}
       >

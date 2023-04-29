@@ -23,19 +23,33 @@ export function PostLayout({ post }: { post: Post }) {
   const { locale, pathName } = pageSEO(post.slug.current)
   const { isScrollDown } = useHandleScroll()
 
-  async function increaseLikeCount() {
-    if (isLike) return
-    setLikeCount((count) => count + 1)
-    setIsLike(true)
+  async function handleLikeCount() {
+    setLikeCount((count) => count + (!isLike ? 1 : -1))
+    setIsLike((prev) => !prev)
+
     const like = await fetch(
-      `${BASE_URL}/api/count?postID=${post._id}&type=like`,
+      `${BASE_URL}/api/count?postID=${post._id}&type=like&val=${
+        !isLike ? 1 : -1
+      }`,
       {
         method: 'POST',
       }
     )
+
     if (like.ok) {
       const getItem = JSON.parse(localStorage.getItem('like')) || []
-      localStorage.setItem('like', JSON.stringify([...getItem, post._id]))
+      if (!isLike) {
+        localStorage.setItem('like', JSON.stringify([...getItem, post._id]))
+      } else {
+        const index = getItem.indexOf(post._id)
+        localStorage.setItem(
+          'like',
+          JSON.stringify([
+            ...getItem.slice(0, index),
+            ...getItem.slice(index + 1),
+          ])
+        )
+      }
     }
   }
 
@@ -176,17 +190,17 @@ export function PostLayout({ post }: { post: Post }) {
           ''
         ) : (
           <button
-            title='Like Post'
-            onClick={increaseLikeCount}
+            title={isLike ? 'Unlike Post' : 'Like Post'}
+            onClick={handleLikeCount}
             className={`fixed ltr:right-[5%] rtl:left-[5%] bottom-36 md:bottom-44 xl:bottom-28 w-8 h-8 md:w-10 md:h-10 text-black dark:text-white border dark:border-white/10 shadow-lg rounded-full group z-50 ${
               isLike
-                ? 'bg-pink-600 cursor-default transition-colors'
+                ? 'bg-pink-600 transition-colors'
                 : 'bg-neutral-100 dark:bg-neutral-800'
             }`}
           >
             <HiOutlineHeart
-              className={`w-4 h-4 md:w-6 md:h-6  mx-auto transition-all ${
-                isLike ? 'text-white' : 'group-hover:scale-110 text-pink-700'
+              className={`w-4 h-4 md:w-6 md:h-6  mx-auto group-hover:scale-110 transition-all ${
+                isLike ? 'text-white' : 'text-pink-700'
               }`}
             />{' '}
           </button>
