@@ -5,7 +5,7 @@ import Projects from './Projects'
 
 import { useRouter } from 'next/router'
 import { BlogList } from '../Blog/BlogList'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 export default function HomeLayout({ projects, skills, posts }) {
   const { t } = useTranslation('home')
@@ -31,7 +31,7 @@ export default function HomeLayout({ projects, skills, posts }) {
           {item.header && (
             <div className='flex justify-center items-center my-24 md:justify-start w-full'>
               <h2 className='section_header'>
-                {t(`${item.header}.sectionHeader`)}
+                {t(`${item.header}.sectionHeader`, '')}
               </h2>
             </div>
           )}

@@ -1,5 +1,5 @@
 import { useReducedMotion, motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiExternalLink } from 'react-icons/hi'
 import pageSEO from '../../utils/pageSEO'

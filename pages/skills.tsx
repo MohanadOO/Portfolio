@@ -1,6 +1,6 @@
 import { loadTranslations } from 'ni18n'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { ni18nConfig } from '../ni18n.config'
 import { client } from '../sanity/sanity.client'
 import { ALL_SKILLS } from '../sanity/queries/skills'

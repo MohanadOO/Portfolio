@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo'
 import { motion } from 'framer-motion'
 import Projects from '../Home/Projects'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import pageSEO from '../../utils/pageSEO'
 
 export default function ProjectsLayout({ projects }) {

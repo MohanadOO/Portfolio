@@ -1,6 +1,6 @@
 import urlFor from '../../utils/urlFor'
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { HiOutlineBookOpen, HiOutlineLink } from 'react-icons/hi'

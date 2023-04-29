@@ -1,6 +1,6 @@
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { client } from '../sanity/sanity.client'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../components/Blog/RichTextComponents'

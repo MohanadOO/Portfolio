@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 export default function Banner() {
   const { t } = useTranslation('blog', { keyPrefix: 'banner' })

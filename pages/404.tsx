@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 export const getStaticProps = async ({ locale }) => {
   return {

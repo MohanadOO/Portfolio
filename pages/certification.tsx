@@ -1,7 +1,7 @@
 import { loadTranslations } from 'ni18n'
 import React from 'react'
 import { ni18nConfig } from '../ni18n.config'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { client } from '../sanity/sanity.client'
 import urlFor from '../utils/urlFor'
 import { HiExternalLink } from 'react-icons/hi'

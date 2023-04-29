@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiEye } from 'react-icons/hi'
 
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 import { motion, useReducedMotion } from 'framer-motion'
 import { cardVariant } from '../../public/variants/MotionVariants'
