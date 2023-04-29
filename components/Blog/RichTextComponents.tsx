@@ -94,7 +94,7 @@ export const RichTextComponents = {
       return (
         <h2
           id={id}
-          className='text-4xl md:text-5xl pt-10 mb-5 pb-1 inline-block font-extrabold text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
+          className='text-4xl md:text-5xl pt-10 mb-5 pb-1 font-black text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
         >
           {children}
         </h2>

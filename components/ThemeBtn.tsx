@@ -13,6 +13,10 @@ export default function ThemeBtn({ locale }) {
 
   useEffect(() => {
     setMounted(true)
+    if (theme === 'system') {
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      setTheme(dark ? 'dark' : 'light')
+    }
   }, [])
 
   if (!mounted) return null

@@ -14,7 +14,9 @@ export default function Footer() {
         <div>
           <li className='text-xs sm:text-sm md:text-base'>
             {t('text')}
-            <span className='font-bold font-pattaya mx-1'>{t('name')}</span>
+            <span className='font-bold font-pattaya ar:font-arefRuqaa mx-1'>
+              {t('name')}
+            </span>
           </li>
           <li>
             <p className='flex flex-row items-center gap-1 text-primary-400 font-light'>

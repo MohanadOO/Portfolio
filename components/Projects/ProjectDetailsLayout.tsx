@@ -58,7 +58,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
             <Swiper images={swiperImages} />
           </div>
           <div className='flex flex-col gap-5'>
-            <h1 className='font-pattaya text-4xl lg:text-5xl xl:text-6xl text-primary-400 dark:text-primary-400 mt-10 lg:mt-0'>
+            <h1 className='font-pattaya ar:font-arefRuqaa text-4xl lg:text-5xl xl:text-6xl text-primary-400 dark:text-primary-400 mt-10 lg:mt-0'>
               {title}
             </h1>
             <ul className='w-full mb-2 flex flex-wrap gap-2 child:flex child:gap-2 child:py-2 child:px-5 child:items-center child:rounded-md child:bg-primary-black/10 child:dark:bg-primary-white/10 child:text-primary-white lg:max-h-32 lg:overflow-y-auto'>

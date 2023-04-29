@@ -5,7 +5,7 @@ import { HiCog, HiOutlineMenu, HiOutlineX, HiRss } from 'react-icons/hi'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 import LanguageBtn from './LanguageBtn'
 import ThemeBtn from './ThemeBtn'
@@ -88,7 +88,7 @@ export default function Nav() {
             : setOpenMenu(false)
         }
         className={`
-                    py-3 px-2 sm:px-1 lg:px-3 xl:px-2 text-xs md:text-sm lg:text-base font-bold rtl:font-semibold
+                    py-3 px-2 sm:px-1 lg:px-3 xl:px-2 text-xs md:text-sm lg:text-base 
                     ${
                       pathname === item.URL
                         ? ' border-b-2 border-primary-400 text-primary-400 dark:text-primary-white rounded-none cursor-default'
@@ -97,9 +97,9 @@ export default function Nav() {
                         : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-400 en:hover:shadow-left rtl:hover:shadow-right dark:hover:shadow-primary-400 transition-all'
                     }
                   `}
-        title={t(item.translate)}
+        title={t(item.translate, '')}
       >
-        {t(item.translate)} {item.disabled ? '...' : ''}
+        {t(item.translate, '')} {item.disabled ? '...' : ''}
       </Link>
     </li>
   ))
@@ -113,9 +113,9 @@ export default function Nav() {
       <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
         {/* Desktop Navigation */}
         <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md shadow-primary-400/10 dark:shadow-primary-400/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white md:px-10 lg:px-20 xl:px-32 2xl:px-40'>
-          <li className='font-pattaya font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold z-10'>
-            <Link title={t('name')} href='/'>
-              {t('name')}
+          <li className='font-pattaya ar:font-arefRuqaa font-normal first-letter:text-primary-400 text-sm md:text-base hover:text-primary-400 transition-colors duration-100 rtl:font-bold z-10'>
+            <Link title={t('name', '')} href='/'>
+              {t('name', '')}
             </Link>
           </li>
           <ul className='flex items-center justify-center w-full gap-3 xl:gap-5 absolute left-[50%] translate-x-[-50%]'>
@@ -172,9 +172,9 @@ export default function Nav() {
 
         {/* Mobile Navigation */}
         <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-400/10 py-5 px-10 relative z-20 bg-primary-white dark:bg-primary-dark transition-colors'>
-          <li className='font-pattaya font-normal rtl:font-bold first-letter:text-primary-400 hover:text-primary-400 transition-colors duration-300'>
-            <Link href='/' title={t('name')}>
-              {t('name')}
+          <li className='font-pattaya ar:font-arefRuqaa font-normal rtl:font-bold first-letter:text-primary-400 hover:text-primary-400 transition-colors duration-300'>
+            <Link href='/' title={t('name', '')}>
+              {t('name', '')}
             </Link>
           </li>
           {!openMenu ? (

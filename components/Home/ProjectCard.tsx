@@ -76,7 +76,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           </ul>
           <h1
             title={title}
-            className='font-pattaya text-3xl sm:text-4xl  text-primary-400 line-clamp-1 pt-2'
+            className='font-pattaya ar:font-arefRuqaa text-3xl leading-loose sm:text-4xl sm:leading-loose text-primary-400 line-clamp-1 '
           >
             {title}
           </h1>

@@ -53,7 +53,7 @@ export default function AboutMe() {
         >
           <motion.h3
             variants={fadeInRightText(reduce)}
-            className='font-semibold font-pattaya text-base lg:text-lg xl:text-xl max-w-sm w-full'
+            className='font-semibold font-pattaya ar:font-arefRuqaa text-base lg:text-lg xl:text-xl max-w-sm w-full'
           >
             {t('aboutMe')}
           </motion.h3>

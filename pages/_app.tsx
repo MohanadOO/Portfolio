@@ -9,19 +9,6 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { AppProps } from 'next/app'
 
-import '@fontsource/pattaya'
-import '@fontsource/lato'
-import '@fontsource/lato/700.css'
-import '@fontsource/lato/900.css'
-
-import '@fontsource/cairo'
-import '@fontsource/cairo/600.css'
-import '@fontsource/cairo/700.css'
-import '@fontsource/cairo/900.css'
-
-import '@fontsource/aref-ruqaa'
-import '@fontsource/aref-ruqaa/700.css'
-
 import SEO from '../next-seo.config'
 import { DefaultSeo } from 'next-seo'
 import { MotionConfig } from 'framer-motion'
@@ -47,7 +34,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [dir])
 
   return (
-    <ThemeProvider attribute='class' enableSystem={false}>
+    <ThemeProvider attribute='class'>
       <DefaultSeo {...SEO()} />
       <MotionConfig reducedMotion='user'>
         <Layout>
