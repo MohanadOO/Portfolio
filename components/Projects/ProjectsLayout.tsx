@@ -6,15 +6,13 @@ import pageSEO from '../../utils/pageSEO'
 
 export default function ProjectsLayout({ projects }) {
   const { t } = useTranslation('projects')
-  const { locale, pathName } = pageSEO('projects')
+  const { pathName } = pageSEO('projects')
 
   return (
     <>
       <NextSeo
-        title={locale === 'ar' ? 'كل المشاريع' : 'Projects'}
-        description={
-          locale === 'ar' ? 'قائمة بجميع المشاريع' : 'List of all my projects'
-        }
+        title={t('title')}
+        description={t('description')}
         openGraph={{ url: pathName }}
       />
       <motion.section

@@ -219,7 +219,7 @@ export function PostLayout({ post }: { post: Post }) {
         </div>
         <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
           {post.body && (
-            <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300'>
+            <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300 leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9'>
               <PortableText
                 value={post.body[language]}
                 components={RichTextComponents}

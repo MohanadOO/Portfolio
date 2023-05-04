@@ -28,11 +28,11 @@ export default function SEO() {
       siteName: 'Mohanad Portfolio',
       images: [
         {
-          url: 'https://www.example.ie/og-image-01.jpg',
-          width: 800,
+          url: 'https://www.mohanad.in/images/MyPicture.png',
+          width: 600,
           height: 600,
-          alt: 'Og Image Alt',
-          type: 'image/jpeg',
+          alt: 'Mohanad Alrwaihy Picture',
+          type: 'image/png',
         },
       ],
     },

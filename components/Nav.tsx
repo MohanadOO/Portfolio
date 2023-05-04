@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
-
 import { HiCog, HiOutlineMenu, HiOutlineX, HiRss } from 'react-icons/hi'
 
 import Link from 'next/link'

@@ -5,6 +5,7 @@ import { ni18nConfig } from '../ni18n.config'
 import { client } from '../sanity/sanity.client'
 import { ALL_SKILLS } from '../sanity/queries/skills'
 import CustomImage from '../components/CustomImage'
+import { NextSeo } from 'next-seo'
 
 export async function getStaticProps({ locale }) {
   const skills = await client.fetch(ALL_SKILLS)
@@ -39,46 +40,49 @@ export default function Skills({
   })
 
   return (
-    <section
-      id='mySkill'
-      aria-label={t('sectionHeader')}
-      className='my-10 max-w-4xl mx-auto py-20'
-    >
-      <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
-      <p className='text-xl opacity-70 mb-24'>{t('description')}</p>
+    <>
+      <NextSeo title={t('title')} description={t('description')} />
+      <section
+        id='mySkill'
+        aria-label={t('sectionHeader')}
+        className='my-10 max-w-4xl mx-auto py-20'
+      >
+        <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
+        <p className='text-xl opacity-70 mb-24'>{t('description')}</p>
 
-      {filterSkills.map((skills: Skill[]) => (
-        <div key={skills[0].type.en}>
-          <h2 className='text-4xl text-center md:text-start font-bold text-primary-400 pb-5 mt-12 border-b-2'>
-            {skills[0].type[locale]}
-          </h2>
-          <ul className='flex my-8 items-center justify-center md:justify-start gap-x-5 gap-y-5 flex-wrap'>
-            {skills.map((skill: Skill) => (
-              <li
-                key={skill.name}
-                title={skill.name}
-                style={{
-                  boxShadow: `0px 0px 5px ${skill.color.hex}`,
-                }}
-                className='border dark:border-primary-black child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
-              >
-                <a href={skill.link} target='_blank'>
-                  <CustomImage
-                    width={32}
-                    height={32}
-                    src={skill.icon.asset.url}
-                    alt={skill.icon.alt || `${skill.name} Icon`}
-                    aria-hidden='true'
-                  />
-                  <span className='text-sm font-semibold opacity-80 line-clamp-1'>
-                    {skill.name}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </section>
+        {filterSkills.map((skills: Skill[]) => (
+          <div key={skills[0].type.en}>
+            <h2 className='text-4xl text-center md:text-start font-bold text-primary-400 pb-5 mt-12 border-b-2'>
+              {skills[0].type[locale]}
+            </h2>
+            <ul className='flex my-8 items-center justify-center md:justify-start gap-x-5 gap-y-5 flex-wrap'>
+              {skills.map((skill: Skill) => (
+                <li
+                  key={skill.name}
+                  title={skill.name}
+                  style={{
+                    boxShadow: `0px 0px 5px ${skill.color.hex}`,
+                  }}
+                  className='border dark:border-primary-black child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
+                >
+                  <a href={skill.link} target='_blank'>
+                    <CustomImage
+                      width={32}
+                      height={32}
+                      src={skill.icon.asset.url}
+                      alt={skill.icon.alt || `${skill.name} Icon`}
+                      aria-hidden='true'
+                    />
+                    <span className='text-sm font-semibold opacity-80 line-clamp-1'>
+                      {skill.name}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    </>
   )
 }

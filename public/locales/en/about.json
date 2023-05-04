@@ -1,4 +1,5 @@
 {
-  "sectionHeader": "About Me",
-  "description": "General Information"
+  "title": "About",
+  "description": "Hello! I am Mohanad Alrwaihy, Electronics Engineering graduate passionate about web development, specializing in NextJS, TypeScript, and TailwindCSS. I am experienced in developing interactive, dynamic user interfaces and websites with a deep understanding of JavaScript, HTML5, and CSS3. I seek an opportunity as a Frontend Developer to make meaningful contributions using my skills and knowledge.",
+  "sectionHeader": "About Me"
 }

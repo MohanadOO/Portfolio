@@ -7,11 +7,13 @@ import { PROJECTS_QUERY } from '../sanity/queries/projects'
 import { TOP_SKILLS } from '../sanity/queries/skills'
 import { NextSeo } from 'next-seo'
 import { getPostsInfoHome } from '../sanity/queries/blog'
+import { useTranslation } from 'next-i18next'
 
 export default function Home({ projects, skills, locale, posts }) {
+  const { t } = useTranslation('home')
   return (
     <>
-      <NextSeo title={locale === 'ar' ? 'الرئيسية' : 'Home'} />
+      <NextSeo title={t('title')} />
       <HomeLayout projects={projects} skills={skills} posts={posts} />
     </>
   )

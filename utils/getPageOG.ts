@@ -10,23 +10,28 @@ export default function getPageOG(
   publishedAt: string,
   alt: string
 ) {
-  let pathName = process.env.NEXT_PUBLIC_BASE_URL
+  const vercelUrl = process.env.VERCEL_URL
+  let pathName = process.env.NEXT_PUBLIC_BASE_URL || `https://${vercelUrl}`
+
+  const urlParams = `title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${urlFor(
+    authorProfile
+  )
+    .width(60)
+    .height(60)
+    .url()}`
+
+  const urlEncode = `${pathName}/api/postOG?` + encodeURI(urlParams)
+
   if (!authorName && !authorProfile) return undefined
   return {
     url,
     type,
     images: [
       {
-        url: `${pathName}/api/postOG?title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${urlFor(
-          authorProfile
-        )
-          .width(150)
-          .height(150)
-          .url()}`,
+        url: urlEncode,
         width: 1200,
         height: 600,
         alt,
-        type: 'image/png',
       },
     ],
   }

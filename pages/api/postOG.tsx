@@ -18,7 +18,6 @@ const OgImageHandler = async (req: NextRequest) => {
     const desc = searchParams.get('desc') || ''
     const date = searchParams.get('date') || ''
     const authorPic = searchParams.get('authorPic') || ''
-
     return new ImageResponse(
       (
         <div
@@ -28,15 +27,9 @@ const OgImageHandler = async (req: NextRequest) => {
               'linear-gradient(63.22deg, #1A152B 14.65%, #0E0D11 81.11%)',
           }}
         >
-          {authorPic && (
-            <img
-              src={authorPic}
-              alt='Author Profile'
-              tw='rounded-full w-[75px] h-[75px] border-2 border-white'
-            />
-          )}
-          <h1
-            tw='text-6xl max-w-3xl'
+          <h1 tw='uppercase text-2xl text-purple-400'>Blog Post</h1>
+          <h2
+            tw='text-5xl max-w-3xl py-1'
             style={{
               background: 'linear-gradient(180deg, #FFFFFF 0%, #AB98F0 100%)',
               color: 'transparent',
@@ -44,9 +37,9 @@ const OgImageHandler = async (req: NextRequest) => {
             }}
           >
             {title}
-          </h1>
+          </h2>
           {date && (
-            <p tw='text-gray-300 font-light text-sm pb-2'>
+            <p tw='text-gray-200 font-light text-sm'>
               {new Date(date).toLocaleDateString('en-US', {
                 day: 'numeric',
                 month: 'long',
@@ -54,7 +47,19 @@ const OgImageHandler = async (req: NextRequest) => {
               })}
             </p>
           )}
-          <p tw='text-2xl text-white max-w-4xl'>{desc}</p>
+          <p tw='text-xl text-white max-w-4xl'>{desc}</p>
+          {authorPic && (
+            <div tw='my-5 flex items-center'>
+              <img
+                src={authorPic}
+                alt='Author Profile'
+                tw='rounded-full w-[60px] h-[60px] border-2 border-white mr-3'
+              />
+              <p tw='text-gray-200 text-xl'>
+                by <span tw='font-bold ml-1'> Mohanad Alrwaihy</span>
+              </p>
+            </div>
+          )}
         </div>
       ),
       {
