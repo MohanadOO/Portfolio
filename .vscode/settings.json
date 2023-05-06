@@ -9,5 +9,6 @@
     "Ruqaa",
     "Tailwindcss"
   ],
-  "editor.acceptSuggestionOnEnter": "on"
+  "editor.acceptSuggestionOnEnter": "on",
+  "conventionalCommits.scopes": ["sanity"]
 }

@@ -37,6 +37,8 @@ const arefRuqaa = Aref_Ruqaa({
 export default function Layout({ children }) {
   const router = useRouter()
   const isPreview = router.isPreview
+  const asPath = router.asPath
+  const showPreview = router.query?.show === 'false'
 
   const { up, scrollPosition } = useHandleScroll()
 
@@ -57,10 +59,10 @@ export default function Layout({ children }) {
         {children}
       </div>
       <Footer />
-      {isPreview && (
+      {isPreview && !showPreview && (
         <Link
           className='bg-red-600 hover:bg-red-700 text-white text-center py-4 px-4 fixed bottom-0 left-0 z-50 flex items-center justify-center gap-2'
-          href='/api/exit-preview'
+          href={`/api/exit-preview?callback=${asPath}`}
         >
           <HiOutlineEye className='w-5 h-5' />
           Exit Preview
