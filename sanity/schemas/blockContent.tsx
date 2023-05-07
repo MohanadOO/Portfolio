@@ -106,5 +106,9 @@ export default defineType({
         withFilename: true,
       },
     },
+    {
+      type: 'customNote',
+      title: 'Callout',
+    },
   ],
 })

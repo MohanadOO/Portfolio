@@ -11,6 +11,7 @@ import localeBlockContent from './locale/localeBlockContent'
 import certificate from './certificate'
 import provider from './provider'
 import about from './about'
+import customNote from './customNote'
 
 export const schemaTypes = [
   project,
@@ -26,4 +27,5 @@ export const schemaTypes = [
   localeString,
   localeText,
   localeBlockContent,
+  customNote,
 ]

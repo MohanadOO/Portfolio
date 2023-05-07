@@ -5,6 +5,10 @@ import { HiExternalLink } from 'react-icons/hi'
 import CodeInputLayout from '../CodeInputLayout'
 import CustomImage from '../CustomImage'
 import slugify from 'slugify'
+import { getNoteIcon } from '../../utils/getNoteIcon'
+import { PortableText } from '@portabletext/react'
+import { noteStyle, noteTextStyle } from '../../utils/getNoteStyles'
+import { useTranslation } from 'next-i18next'
 
 function getText(text: any): string {
   return typeof text[0] === 'string' ? text[0] : text[0]?.props?.text
@@ -61,6 +65,29 @@ export const RichTextComponents = {
           highlightedLines={highlightedLines}
           filename={filename}
         />
+      )
+    },
+
+    customNote: ({ value: { type, message } }: any) => {
+      const { t } = useTranslation('blog')
+      return (
+        <div
+          className={`flex flex-col gap-2 pb-5 my-10 en:border-l-8 ar:border-r-8 shadow-md rounded-lg ${
+            noteStyle[type] || ''
+          }`}
+        >
+          <p
+            className={`capitalize text-xl md:text-2xl font-black flex gap-2 items-center py-4 border-b-2 border-black/30 dark:border-white/30 px-5 ${
+              noteTextStyle[type] || ''
+            }`}
+          >
+            <span>{getNoteIcon(type)}</span>
+            <span>{t(`post.note.${type}`)}</span>
+          </p>
+          <div className='px-5'>
+            <PortableText value={message} components={RichTextComponents} />
+          </div>
+        </div>
       )
     },
   },

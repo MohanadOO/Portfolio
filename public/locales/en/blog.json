@@ -6,5 +6,11 @@
     "welcome": "Welcome to my Blog",
     "desc": "Sharing My Journey in Web Development | Interesting Tools and Methods | And more..."
   },
-  "readPost": "Read Post"
+  "readPost": "Read Post",
+  "post": {
+    "note": {
+      "warning": "Warning",
+      "tip": "Tip"
+    }
+  }
 }
