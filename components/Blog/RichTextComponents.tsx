@@ -9,6 +9,7 @@ import { getNoteIcon } from '../../utils/getNoteIcon'
 import { PortableText } from '@portabletext/react'
 import { noteStyle, noteTextStyle } from '../../utils/getNoteStyles'
 import { useTranslation } from 'next-i18next'
+import { usePostImages } from '../../hooks/usePostImages'
 
 function getText(text: any): string {
   return typeof text[0] === 'string' ? text[0] : text[0]?.props?.text
@@ -16,7 +17,9 @@ function getText(text: any): string {
 
 export const RichTextComponents = {
   types: {
-    image: ({ value }: any) => {
+    image: ({ value, index }: any) => {
+      const { handleShowImage } = usePostImages()
+
       const imageSize = value.asset?._ref?.split('-')[2].split('x')
       const width = imageSize ? imageSize[0] : '1280'
       const height = imageSize ? imageSize[1] : '720'
@@ -27,26 +30,33 @@ export const RichTextComponents = {
             maxWidth: `${width}px`,
             maxHeight: '1000px',
           }}
-          className='relative mx-auto object-contain my-7 before:absolute before:w-full before:from-purple-600 before:to-pink-600 before:bg-gradient-to-r before:h-1 before:top-0 after:absolute after:w-full after:from-purple-600 after:to-pink-600 after:bg-gradient-to-r after:h-1 after:bottom-0 overflow-hidden isolate before:z-10'
+          className='relative group mx-auto object-contain my-7 overflow-hidden group cursor-zoom-in'
+          onClick={() => handleShowImage(index)}
         >
-          <CustomImage
-            src={imageSize && urlFor(value).url()}
-            alt='Blog Post Image'
-            width={width}
-            height={height}
-            style={{
-              objectFit: 'contain',
-              borderRadius: '0.1rem',
-              maxWidth: '100%',
-              maxHeight: '1000px',
-              aspectRatio: `${aspectRatio}`,
-              zOrder: -1,
-            }}
-            aria-hidden='true'
-          />
+          <div className='relative group-hover:opacity-60 dark:group-hover:opacity-40 transition-opacity duration-300'>
+            <CustomImage
+              src={imageSize && urlFor(value).url()}
+              alt='Blog Post Image'
+              id='post-image'
+              data-index={index}
+              data-src={imageSize && urlFor(value).url()}
+              width={width}
+              height={height}
+              style={{
+                objectFit: 'contain',
+                borderRadius: '0.1rem',
+                maxWidth: '100%',
+                maxHeight: '1000px',
+                aspectRatio: `${aspectRatio}`,
+                zOrder: -1,
+              }}
+              aria-hidden='true'
+            />
+          </div>
         </div>
       )
     },
+
     callToAction: ({ value, isInline }: any) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
