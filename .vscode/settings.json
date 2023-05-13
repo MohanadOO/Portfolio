@@ -10,5 +10,5 @@
     "Tailwindcss"
   ],
   "editor.acceptSuggestionOnEnter": "on",
-  "conventionalCommits.scopes": ["sanity"]
+  "conventionalCommits.scopes": ["sanity", "blog"]
 }

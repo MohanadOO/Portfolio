@@ -2,18 +2,23 @@ import React, { useState } from 'react'
 import { HiOutlineChevronRight } from 'react-icons/hi'
 import CustomImage from './CustomImage'
 import urlFor from '../utils/urlFor'
+import { useRouter } from 'next/router'
 
 type PropsType = {
   images: ImageType[]
 }
 
 export default function Swiper({ images }: PropsType) {
+  const locale = useRouter().locale
+  const localeVal = locale === 'ar' ? -1 : 1
+
   const [cover, setCover] = useState(0)
   const [total, setTotal] = useState(
     new Array(images.length).fill(0).map((_, index) => index)
   )
 
   function handleCover(val: number) {
+    val = val * localeVal
     if (cover + val >= total.length) return setCover(0)
     else if (cover + val < 0) return setCover(total.length - 1)
     return setCover((cover) => cover + val)

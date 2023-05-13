@@ -10,19 +10,19 @@ export default function ImageView() {
   const localeVal = locale === 'ar' ? -1 : 1
   const { cover, showViewer, handleCover, handleShowImage } = usePostImages()
 
-  useEffect(() => {
-    function handleKeys(e: KeyboardEvent) {
-      if (e.key === 'Escape') return handleShowImage('', false)
-      if (e.key === 'ArrowRight') return handleCover(1 * localeVal)
-      if (e.key === 'ArrowLeft') return handleCover(-1 * localeVal)
-      return
-    }
+  function handleKeys(e: KeyboardEvent) {
+    if (e.key === 'Escape') return handleShowImage('', false)
+    if (e.key === 'ArrowRight') return handleCover(1 * localeVal)
+    if (e.key === 'ArrowLeft') return handleCover(-1 * localeVal)
+    return
+  }
 
+  useEffect(() => {
     window.addEventListener('keydown', handleKeys)
     return () => {
       window.removeEventListener('keydown', handleKeys)
     }
-  }, [])
+  })
 
   return (
     <>

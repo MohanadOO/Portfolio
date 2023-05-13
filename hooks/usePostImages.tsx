@@ -33,6 +33,7 @@ export const usePostImages = () => {
 
 export function ImagesProvider({ children }: { children: React.ReactNode }) {
   const locale = useRouter().locale
+  const localeVal = locale === 'ar' ? -1 : 1
 
   const [images, setImages] = useState<ImagesType>()
   const [cover, setCover] = useState<HTMLImageElement>()
@@ -52,7 +53,10 @@ export function ImagesProvider({ children }: { children: React.ReactNode }) {
   }
 
   function handleCover(val: number) {
+    console.log(val)
+    console.log(imageIndexArr)
     if (imageIndexArr.length === 0) return
+    if (!showViewer) return
 
     const currPosIndex = imageIndexArr.findIndex(
       (el: string) => el === position.toString()
