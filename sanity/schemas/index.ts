@@ -13,6 +13,7 @@ import provider from './provider'
 import about from './about'
 import customNote from './customNote'
 import video from './video'
+import imageType from './imageType'
 
 export const schemaTypes = [
   project,
@@ -30,4 +31,5 @@ export const schemaTypes = [
   localeBlockContent,
   customNote,
   video,
+  imageType,
 ]
