@@ -1,14 +1,15 @@
 import { HiOutlineChevronRight, HiX } from 'react-icons/hi'
-import ImageSlider from './ImageSlider'
-import { usePostImages } from '../hooks/usePostImages'
-import Image from 'next/image'
+import { useAssetViewer } from '../../hooks/useAssetViewer'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-export default function ImageView() {
+import AssetCover from './AssetCover'
+import AssetSlider from './AssetSlider'
+
+export default function AssetView() {
   const locale = useRouter().locale
   const localeVal = locale === 'ar' ? -1 : 1
-  const { cover, showViewer, handleCover, handleShowImage } = usePostImages()
+  const { showViewer, handleCover, handleShowImage } = useAssetViewer()
 
   function handleKeys(e: KeyboardEvent) {
     if (e.key === 'Escape') return handleShowImage('', false)
@@ -41,39 +42,14 @@ export default function ImageView() {
             >
               <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 group-hover:scale-125 transition-transform' />
             </button>
-            <div
-              className='relative flex flex-col mx-auto h-full w-full overflow-hidden '
-              style={{
-                maxWidth: `${cover?.width}px`,
-                maxHeight: '1000px',
-                aspectRatio: cover?.width / cover?.height,
-              }}
-            >
-              <Image
-                src={cover?.dataset?.src}
-                alt='Blog Post Image'
-                width={cover?.width}
-                height={cover?.height}
-                aria-hidden='true'
-                style={{
-                  borderRadius: '0.1rem',
-                  maxWidth: '100%',
-                  maxHeight: '1000px',
-                  width: 'auto',
-                  marginBlock: 'auto',
-                }}
-              />
-            </div>
-            <figcaption className='text-center text-lg text-gray-300 p-2'>
-              {/* Add Image Alt Text */}
-            </figcaption>
+            <AssetCover />
             <button
               onClick={() => handleCover(-1 * localeVal)}
               className='absolute top-[50%] text-black dark:text-white bg-gray-300/60 dark:bg-gray-900/60 rounded-full left-6 sm:left-10 md:left-14 p-1 translate-y-[-50%] group z-[70]'
             >
               <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 group-hover:scale-125 transition-transform rotate-180' />
             </button>
-            <ImageSlider />
+            <AssetSlider />
           </div>
         </div>
       )}

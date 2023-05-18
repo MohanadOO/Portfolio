@@ -9,7 +9,7 @@ import { getNoteIcon } from '../../utils/getNoteIcon'
 import { PortableText } from '@portabletext/react'
 import { noteStyle, noteTextStyle } from '../../utils/getNoteStyles'
 import { useTranslation } from 'next-i18next'
-import { usePostImages } from '../../hooks/usePostImages'
+import { useAssetViewer } from '../../hooks/useAssetViewer'
 import { getUrlFromId } from '../../sanity/schemas/video'
 
 function getText(text: any): string {
@@ -19,8 +19,7 @@ function getText(text: any): string {
 export const RichTextComponents = {
   types: {
     image: ({ value, index }: any) => {
-      const { handleShowImage } = usePostImages()
-
+      const { handleShowImage } = useAssetViewer()
       const imageSize = value.asset?._ref?.split('-')[2].split('x')
       const width = imageSize ? imageSize[0] : '1280'
       const height = imageSize ? imageSize[1] : '720'
@@ -37,10 +36,12 @@ export const RichTextComponents = {
           <div className='relative group-hover:opacity-60 dark:group-hover:opacity-40 transition-opacity duration-300'>
             <CustomImage
               src={imageSize && urlFor(value).url()}
-              alt='Blog Post Image'
-              id='post-image'
+              alt={value?.alt || 'Blog post Image'}
+              id='post-asset'
               data-index={index}
               data-src={imageSize && urlFor(value).url()}
+              data-type='image'
+              data-alt={value?.alt || 'Blog post image'}
               width={width}
               height={height}
               style={{
@@ -58,7 +59,7 @@ export const RichTextComponents = {
       )
     },
 
-    video: ({ value }) => {
+    video: ({ value, index }) => {
       const poster = value.poster ? urlFor(value.poster).url() : ''
       const video = getUrlFromId(value.video?.asset?._ref)
       const autoplay = value.autoplay
@@ -68,6 +69,15 @@ export const RichTextComponents = {
         <video
           controls
           poster={poster}
+          id='post-asset'
+          data-index={index}
+          data-poster={poster}
+          data-src={video || ''}
+          data-alt={value?.title || 'Blog post video'}
+          data-type='video'
+          data-autoplay={autoplay}
+          data-loop={loop}
+          data-muted={muted}
           autoPlay={autoplay ? autoplay : false}
           loop={loop ? loop : false}
           muted={autoplay === true || muted ? true : false}

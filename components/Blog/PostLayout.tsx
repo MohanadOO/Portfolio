@@ -11,8 +11,8 @@ import { motion, useScroll } from 'framer-motion'
 import { HiEye, HiOutlineBookOpen, HiOutlineHeart } from 'react-icons/hi'
 import TableOfContent from '../TableOfContent'
 import { useHandleScroll } from '../../hooks/useHandleScroll'
-import ImageView from '../ImageView'
-import { ImagesProvider } from '../../hooks/usePostImages'
+import { AssetsProvider } from '../../hooks/useAssetViewer'
+import AssetView from '../AssetsViewer/AssetView'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -220,7 +220,7 @@ export function PostLayout({ post }: { post: Post }) {
           ></motion.div>
         </div>
         <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
-          <ImagesProvider>
+          <AssetsProvider>
             {post.body && (
               <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300 leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9'>
                 <PortableText
@@ -229,8 +229,8 @@ export function PostLayout({ post }: { post: Post }) {
                 />
               </div>
             )}
-            <ImageView />
-          </ImagesProvider>
+            <AssetView />
+          </AssetsProvider>
           <TableOfContent locale={language} scroll={isScrollDown} />
         </div>
       </article>
