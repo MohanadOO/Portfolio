@@ -10,6 +10,7 @@ import { PortableText } from '@portabletext/react'
 import { noteStyle, noteTextStyle } from '../../utils/getNoteStyles'
 import { useTranslation } from 'next-i18next'
 import { usePostImages } from '../../hooks/usePostImages'
+import { getUrlFromId } from '../../sanity/schemas/video'
 
 function getText(text: any): string {
   return typeof text[0] === 'string' ? text[0] : text[0]?.props?.text
@@ -54,6 +55,29 @@ export const RichTextComponents = {
             />
           </div>
         </div>
+      )
+    },
+
+    video: ({ value }) => {
+      const poster = value.poster ? urlFor(value.poster).url() : ''
+      const video = getUrlFromId(value.video?.asset?._ref)
+      const autoplay = value.autoplay
+      const loop = value.loop
+      const muted = value.muted
+      return (
+        <video
+          controls
+          poster={poster}
+          autoPlay={autoplay ? autoplay : false}
+          loop={loop ? loop : false}
+          muted={autoplay === true || muted ? true : false}
+          playsInline={autoplay ? true : false}
+          preload={autoplay ? 'auto' : 'metadata'}
+          className='w-full'
+        >
+          <source src={video} />
+          Browser don't support HTML5 Video.
+        </video>
       )
     },
 

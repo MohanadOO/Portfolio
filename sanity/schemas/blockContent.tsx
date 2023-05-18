@@ -1,3 +1,4 @@
+import { HiVideoCamera } from 'react-icons/hi'
 import { defineType, defineArrayMember } from 'sanity'
 
 /**
@@ -109,6 +110,12 @@ export default defineType({
     {
       type: 'customNote',
       title: 'Callout',
+    },
+    {
+      name: 'video',
+      type: 'video',
+      title: 'Video',
+      icon: HiVideoCamera,
     },
   ],
 })

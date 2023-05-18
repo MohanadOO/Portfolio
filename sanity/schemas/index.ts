@@ -12,6 +12,7 @@ import certificate from './certificate'
 import provider from './provider'
 import about from './about'
 import customNote from './customNote'
+import video from './video'
 
 export const schemaTypes = [
   project,
@@ -28,4 +29,5 @@ export const schemaTypes = [
   localeText,
   localeBlockContent,
   customNote,
+  video,
 ]
