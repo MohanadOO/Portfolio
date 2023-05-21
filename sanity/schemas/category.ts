@@ -17,5 +17,11 @@ export default defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField({
+      name: 'show',
+      type: 'boolean',
+      title: 'Show this category',
+      description: 'Show this category in Blog Page',
+    }),
   ],
 })

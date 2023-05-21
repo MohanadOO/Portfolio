@@ -4,16 +4,21 @@ import { client } from '../sanity/sanity.client'
 
 import { PreviewSuspense } from 'next-sanity/preview'
 import BlogLayout from '../components/Blog/BlogLayout'
-import { getPostsInfo } from '../sanity/queries/blog'
+import { getCategories, getPostsQuery } from '../sanity/queries/blog'
 import { loadTranslations } from 'ni18n'
 import { ni18nConfig } from '../ni18n.config'
 
 type Props = {
   preview: boolean
-  posts: Post[]
+  posts: { items: Post[]; total: number }
+  categories: Category[]
 }
 
-export const getStaticProps = async ({ preview = false, locale }) => {
+export const getServerSideProps = async ({
+  query,
+  preview = false,
+  locale,
+}) => {
   if (preview) {
     return {
       props: {
@@ -23,36 +28,37 @@ export const getStaticProps = async ({ preview = false, locale }) => {
     }
   }
 
-  const posts = await client.fetch(getPostsInfo)
-  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rss`, {
-    method: 'PUT',
-    body: JSON.stringify(posts),
-  })
+  const { page, category } = query
+  const posts: { items: Post[]; total: number } = await client.fetch(
+    getPostsQuery(category, page)
+  )
+  const categories: Category[] = await client.fetch(getCategories())
+
   return {
     props: {
       ...(await loadTranslations(ni18nConfig, locale, ['blog', 'common'])),
       preview,
       posts,
+      categories,
     },
-    revalidate: 300,
   }
 }
 
-const PreviewBlogList = lazy(() => import('../components/Blog/PreviewBlogList'))
+const PreviewBlogLayout = lazy(
+  () => import('../components/Blog/PreviewBlogLayout')
+)
 
-export default function Blog({ preview, posts }: Props) {
+export default function Blog({ preview, posts, categories }: Props) {
   if (preview) {
     return (
-      <BlogLayout>
-        <PreviewSuspense fallback='Loading...'>
-          <PreviewBlogList />
-        </PreviewSuspense>
-      </BlogLayout>
+      <PreviewSuspense fallback='Loading...'>
+        <PreviewBlogLayout />
+      </PreviewSuspense>
     )
   }
   return (
-    <BlogLayout>
-      <BlogList posts={posts} />
+    <BlogLayout categories={categories} count={posts.total}>
+      <BlogList posts={posts.items} />
     </BlogLayout>
   )
 }

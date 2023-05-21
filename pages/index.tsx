@@ -24,13 +24,22 @@ export const getStaticProps = async ({ locale }) => {
   const skills = await client.fetch(TOP_SKILLS)
   const posts = await client.fetch(getPostsInfoHome)
 
+  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rss`, {
+    method: 'PUT',
+    body: JSON.stringify(posts),
+  })
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['home', 'common'])),
+      ...(await loadTranslations(ni18nConfig, locale, [
+        'home',
+        'blog',
+        'common',
+      ])),
       projects,
       skills,
       locale,
       posts,
     },
+    revalidate: 300,
   }
 }

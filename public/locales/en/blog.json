@@ -6,11 +6,19 @@
     "welcome": "Welcome to my Blog",
     "desc": "Sharing My Journey in Web Development | Interesting Tools and Methods | And more..."
   },
+  "categories": {
+    "viewAll": "View All",
+    "mostViews": "Most Views",
+    "mostLiked": "Most Liked"
+  },
+  "next": "Next",
+  "previous": "Previous",
   "readPost": "Read Post",
   "post": {
     "note": {
       "warning": "Warning",
       "tip": "Tip"
     }
-  }
+  },
+  "noPost": "No Post Available"
 }
