@@ -29,7 +29,10 @@ export default function HomeLayout({ projects, skills, posts }) {
       {list.map((item) => (
         <>
           {item.header && (
-            <div className='flex justify-center items-center my-24 md:justify-start w-full'>
+            <div
+              key={item.header || ''}
+              className='flex justify-center items-center my-24 md:justify-start w-full'
+            >
               <h2 className='section_header'>
                 {t(`${item.header}.sectionHeader`, '')}
               </h2>

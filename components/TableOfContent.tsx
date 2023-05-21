@@ -94,7 +94,7 @@ export default function TableOfContent({ locale, scroll }) {
           showTable
             ? 'translate-x-0'
             : 'en:translate-x-[-150%] ar:translate-x-[150%]'
-        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0  xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-primary-white dark:bg-primary-dark xl:bg-transparent z-30 scrollbar-thin scrollbar-track-primary-400/40 dark:scrollbar-track-primary-400/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-400 ltr:border-l rtl:border-r dark:border-white/10`}
+        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0  xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-primary-white dark:bg-primary-dark xl:bg-transparent z-30 custom-thin-scrollbar ltr:border-l rtl:border-r dark:border-white/10`}
       >
         <h1
           id='table-of-content'
