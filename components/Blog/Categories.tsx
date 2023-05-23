@@ -34,6 +34,7 @@ export default function Categories({ categories }) {
   }
 
   useEffect(() => {
+    handleResize()
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
@@ -52,7 +53,7 @@ export default function Categories({ categories }) {
       )}
       <ul
         ref={ulRef}
-        className='flex py-5 mx-4 items-center overflow-x-hidden relative'
+        className='flex py-5 mx-4 items-center overflow-x-auto scrollbar-none relative'
       >
         {categories.map(({ _id, title }, index) => (
           <li key={_id}>

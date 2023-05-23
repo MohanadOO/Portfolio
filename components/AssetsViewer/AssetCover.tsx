@@ -12,10 +12,9 @@ export default function AssetCover() {
     return (
       <>
         <div
-          className='relative flex flex-col mx-auto h-full w-full overflow-hidden '
+          className='relative flex flex-col mx-auto h-full overflow-hidden'
           style={{
             maxWidth: `${width}px`,
-            maxHeight: '1000px',
             aspectRatio: width / height,
           }}
         >
@@ -25,13 +24,7 @@ export default function AssetCover() {
             width={width}
             height={height}
             aria-hidden='true'
-            style={{
-              borderRadius: '0.1rem',
-              maxWidth: '100%',
-              maxHeight: '1000px',
-              width: 'auto',
-              marginBlock: 'auto',
-            }}
+            className='m-auto'
           />
         </div>
         {alt !== 'Blog post image' && (
@@ -59,13 +52,7 @@ export default function AssetCover() {
           }
           playsInline={cover?.dataset.autoplay ? true : false}
           preload={cover?.dataset.autoplay ? 'auto' : 'metadata'}
-          className='w-full overflow-hidden'
-          style={{
-            borderRadius: '0.1rem',
-            maxWidth: '100%',
-            width: 'auto',
-            marginBlock: 'auto',
-          }}
+          className='m-auto max-h-[80vh]'
         >
           <source src={cover?.dataset.src} />
           Browser don't support HTML5 Video.

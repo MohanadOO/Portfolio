@@ -5,6 +5,6 @@ import { PostLayout } from './PostLayout'
 function PreviewPostLayout({ slug }) {
   const post = usePreview(null, getPostData(slug))
   console.log('Loading Post', post)
-  return <PostLayout post={post} />
+  return <PostLayout post={post} preview={true} />
 }
 export default PreviewPostLayout

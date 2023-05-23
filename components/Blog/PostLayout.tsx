@@ -16,7 +16,13 @@ import AssetView from '../AssetsViewer/AssetView'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
-export function PostLayout({ post }: { post: Post }) {
+export function PostLayout({
+  post,
+  preview = false,
+}: {
+  post: Post
+  preview?: boolean
+}) {
   const [isLike, setIsLike] = useState<boolean | string>('loading')
   const [likeCount, setLikeCount] = useState(post.likeCount || 0)
   const [viewCount, setViewCount] = useState(post.viewCount || 0)
@@ -61,7 +67,7 @@ export function PostLayout({ post }: { post: Post }) {
         method: 'POST',
       })
     }
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && preview === false) {
       setViewCount((count) => count + 1)
       increaseViewCount()
     }

@@ -144,10 +144,6 @@ export const getCategories = () => `*[_type=='category' && show == true]{
   "count": count(*[_type=='post' && references(^._id)])
 } | order(count desc) [0...${LIMIT_CATEGORIES}]`
 
-export const countPosts = `count(*[_type=='post'])`
-
-export const countCategories = `count(*[_type=='category'])`
-
 export const getPostsInfoHome = `*[_type=='post' && count(body.ar) > 0][0...6]{
   _id,
   title,

@@ -83,7 +83,7 @@ export const RichTextComponents = {
           muted={autoplay === true || muted ? true : false}
           playsInline={autoplay ? true : false}
           preload={autoplay ? 'auto' : 'metadata'}
-          className='w-full'
+          className='max-h-[750px] my-7 mx-auto'
         >
           <source src={video} />
           Browser don't support HTML5 Video.
