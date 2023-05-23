@@ -3,6 +3,7 @@ import { usePost } from '../../hooks/usePost'
 import pageSEO from '../../utils/pageSEO'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { HiEye, HiOutlineBookOpen, HiOutlineHeart } from 'react-icons/hi'
+import PostCategories from './PostCategories'
 
 type PropsType = {
   language: string
@@ -76,26 +77,14 @@ export default function PostHeader({ language, title, desc }: PropsType) {
             </h2>
           )}
           {readingTime > 0 && (
-            <p className='flex items-center gap-2 md:text-lg pb-5 text-primary-400'>
+            <p className='flex items-center gap-2 md:text-lg text-primary-400'>
               <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
               <span>
                 {readingTime} {language === 'ar' ? 'دقائق للقراءة' : 'min read'}
               </span>
             </p>
           )}
-          <div className='flex flex-wrap gap-3'>
-            {post.categories &&
-              post.categories.map((category: Category) => (
-                <div
-                  key={category._id}
-                  className='flex justify-center items-center mt-auto space-x-2'
-                >
-                  <p className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold'>
-                    {category.title}
-                  </p>
-                </div>
-              ))}
-          </div>
+          <PostCategories categories={post.categories} currCategory={'GIT'} />
         </div>
       </div>
     </section>

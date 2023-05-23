@@ -16,6 +16,7 @@ import {
   getReadingTime,
   getTitle,
 } from '../../utils/postUtils'
+import PostCategories from './PostCategories'
 
 export default function PostCard({ post }: { post: Post }) {
   const router = useRouter()
@@ -37,12 +38,12 @@ export default function PostCard({ post }: { post: Post }) {
   }).format(date)
 
   return (
-    <div>
+    <div className='flex flex-col justify-between'>
       <Link
         href={`/blog/${post?.slug?.current}`}
         className='group overflow-hidden'
       >
-        <div className='relative w-full aspect-video shadow-xl overflow-hidden'>
+        <div className='relative w-full aspect-video shadow-xl dark:shadow-white/5 overflow-hidden border border-black dark:border-white'>
           <CustomImage
             src={
               post.mainImage !== null && urlFor(post.mainImage).fit('max').url()
@@ -51,8 +52,8 @@ export default function PostCard({ post }: { post: Post }) {
               post.author && post.author.name ? post.author.name : 'Anonymous'
             }
             fill
-            style={{ objectFit: 'cover' }}
-            className='group-hover:scale-105 group-hover:contrast-150 transition-transform ease-out motion-reduce:duration-75 duration-200'
+            style={{ objectFit: 'contain' }}
+            className='group-hover:scale-105 group-hover:contrast-125 transition-transform ease-out motion-reduce:duration-75 duration-200'
           />{' '}
           {locale === 'ar' && language !== 'ar' ? (
             <div className='absolute top-0 bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm'>
@@ -109,23 +110,10 @@ export default function PostCard({ post }: { post: Post }) {
           </div>
         </div>
       </Link>
-      {post.categories && (
-        <div className='flex mt-5 gap-2 overflow-x-auto overflow-y-hidden'>
-          {post.categories.map((category) => (
-            <Link
-              href={`/blog?category=${category.title}`}
-              key={category.title}
-              className={`text-center px-2 text-sm rounded-full font-bold text-gray-600 dark:text-gray-500 border border-gray-600  ${
-                currCategory === category.title
-                  ? 'bg-gray-600 dark:bg-gray-200 dark:text-black text-white'
-                  : 'hover:bg-gray-600 hover:dark:bg-gray-200 hover:dark:text-black hover:text-white'
-              }`}
-            >
-              {category.title}
-            </Link>
-          ))}
-        </div>
-      )}
+      <PostCategories
+        categories={post.categories}
+        currCategory={currCategory}
+      />
     </div>
   )
 }
