@@ -8,6 +8,7 @@ import ProgressBar from '../ProgressBar'
 import LikeButton from './LikeButton'
 import { PostContextProvider, usePost } from '../../hooks/usePost'
 import PostHeader from './PostHeader'
+import PostRecommendations from './PostRecommendations'
 
 export function PostLayout({
   post,
@@ -43,13 +44,16 @@ export function PostLayout({
         id='article_post'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
-        <section className='space-y-2 mb-5 border-y-2 border-primary-400/20'>
+        <section className='space-y-2 mb-5 border-y-2 border-primary-400/40'>
           <PostHeader title={title} desc={desc} language={language} />
         </section>
 
         <LikeButton />
         <ProgressBar />
         <PostBody language={language} />
+        {post.recommend && post.recommend.length > 0 && (
+          <PostRecommendations items={post.recommend} />
+        )}
       </article>
     </PostContextProvider>
   )

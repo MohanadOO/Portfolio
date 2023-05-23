@@ -55,6 +55,14 @@ export default defineType({
       type: 'localeBlockContent',
     }),
     defineField({
+      name: 'recommend',
+      title: 'Recommendations',
+      description: 'Recommendations of other related posts.',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'post' } }],
+      validation: (Rule) => Rule.max(3),
+    }),
+    defineField({
       name: 'viewCount',
       title: 'View Count',
       type: 'number',

@@ -79,6 +79,7 @@ interface Post extends Base {
   totalCharactersAR: number
   likeCount: number
   viewCount: number
+  recommend: Post[]
 }
 
 interface Author extends Base {

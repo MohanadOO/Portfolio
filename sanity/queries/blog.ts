@@ -166,6 +166,24 @@ export const getPostsInfoHome = `*[_type=='post' && count(body.ar) > 0][0...6]{
 export const getPostData = (slug: string) => {
   return `*[_type=='post' && slug.current == '${slug}'][0]{
       ...,
+     recommend[]->{  
+        _id,
+        title,
+        description,
+        _createdAt,
+        _updatedAt,
+        publishedAt,
+        slug,
+        mainImage,
+        author->,
+        categories[]->,
+        likeCount,
+        viewCount,
+        "totalCharactersEN": length(pt::text(body.en)),
+        "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
+        "totalCharactersAR": length(pt::text(body.ar)),
+        "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+      },
       author->,
       categories[]->,
       "totalCharactersEN": length(pt::text(body.en)),
