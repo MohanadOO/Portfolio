@@ -3,8 +3,7 @@ import Footer from './Footer'
 import { HiChevronUp, HiOutlineEye } from 'react-icons/hi'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Aref_Ruqaa, Cairo, Lato, Pattaya } from '@next/font/google'
-import { useEffect, useState } from 'react'
+import { Aref_Ruqaa, Cairo, Lato, Pattaya } from 'next/font/google'
 import { useHandleScroll } from '../hooks/useHandleScroll'
 
 const cairo = Cairo({
