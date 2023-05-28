@@ -66,7 +66,8 @@ type Base = {
 
 interface Post extends Base {
   author: Author
-  body: { ar: Block[]; en: Block[] }
+  body_en: Block[]
+  body_ar: Block[]
   categories: Category[]
   mainImage: Image
   slug: Slug

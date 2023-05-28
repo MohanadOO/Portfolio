@@ -2,7 +2,7 @@ import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
-import { useHandleScroll } from '../../hooks/useHandleScroll'
+
 import PostBody from './PostBody'
 import ProgressBar from '../ProgressBar'
 import LikeButton from './LikeButton'
@@ -19,7 +19,7 @@ export function PostLayout({
 }) {
   const { locale, pathName } = pageSEO(post.slug.current)
 
-  const language = post.body?.ar ? locale : 'en'
+  const language = post.body_ar ? locale : 'en'
   const title = post.title ? post.title[language] : ''
   const desc = post.description ? post.description[language] : ''
 

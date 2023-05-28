@@ -46,10 +46,10 @@ export const getAllPosts = `*[_type=='post']{
   mainImage,
   author->,
   categories[]->,
-  "totalCharactersEN": length(pt::text(body.en)),
-  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body.ar)),
-  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+  "totalCharactersEN": length(pt::text(body_en)),
+  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body_ar)),
+  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(publishedAt desc)`
 
 export const getPostsInfo = (page: number) => {
@@ -67,10 +67,10 @@ export const getPostsInfo = (page: number) => {
   categories[]->,
   likeCount,
   viewCount,
-  "totalCharactersEN": length(pt::text(body.en)),
-  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body.ar)),
-  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+  "totalCharactersEN": length(pt::text(body_en)),
+  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body_ar)),
+  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}],
   "total": count(*[_type == 'post'])
 }`
@@ -91,10 +91,10 @@ export const getPostsByCategory = (page: number, category: string) => {
   categories[]->,
   likeCount,
   viewCount,
-  "totalCharactersEN": length(pt::text(body.en)),
-  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body.ar)),
-  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+  "totalCharactersEN": length(pt::text(body_en)),
+  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body_ar)),
+  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}], 
   'total': count(*[_type=='post' && '${category}' in categories[]->title])
 }`
@@ -128,10 +128,10 @@ export const getPostsBySpecialCategory = (page: number, category: string) => {
   categories[]->,
   "likeCount": coalesce(likeCount, 1),
   viewCount,
-  "totalCharactersEN": length(pt::text(body.en)),
-  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body.ar)),
-  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+  "totalCharactersEN": length(pt::text(body_en)),
+  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body_ar)),
+  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(${orderBy}) [${START_PAGE(page)}...${END_PAGE(page)}],
   'total': count(*[_type == 'post'])
 }`
@@ -144,7 +144,7 @@ export const getCategories = () => `*[_type=='category' && show == true]{
   "count": count(*[_type=='post' && references(^._id)])
 } | order(count desc) [0...${LIMIT_CATEGORIES}]`
 
-export const getPostsInfoHome = `*[_type=='post' && count(body.ar) > 0][0...6]{
+export const getPostsInfoHome = `*[_type=='post' && count(body_ar) > 0][0...6]{
   _id,
   title,
   description,
@@ -157,10 +157,10 @@ export const getPostsInfoHome = `*[_type=='post' && count(body.ar) > 0][0...6]{
   categories[]->,
   likeCount,
   viewCount,
-  "totalCharactersEN": length(pt::text(body.en)),
-  "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body.ar)),
-  "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+  "totalCharactersEN": length(pt::text(body_en)),
+  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+  "totalCharactersAR": length(pt::text(body_ar)),
+  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(publishedAt desc)`
 
 export const getPostData = (slug: string) => {
@@ -179,16 +179,16 @@ export const getPostData = (slug: string) => {
         categories[]->,
         likeCount,
         viewCount,
-        "totalCharactersEN": length(pt::text(body.en)),
-        "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-        "totalCharactersAR": length(pt::text(body.ar)),
-        "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+        "totalCharactersEN": length(pt::text(body_en)),
+        "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+        "totalCharactersAR": length(pt::text(body_ar)),
+        "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
       },
       author->,
       categories[]->,
-      "totalCharactersEN": length(pt::text(body.en)),
-      "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
-      "totalCharactersAR": length(pt::text(body.ar)),
-      "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
+      "totalCharactersEN": length(pt::text(body_en)),
+      "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
+      "totalCharactersAR": length(pt::text(body_ar)),
+      "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
     }`
 }

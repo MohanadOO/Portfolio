@@ -50,9 +50,14 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'localeBlockContent',
+      name: 'body_en',
+      title: 'English Body',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'body_ar',
+      title: 'Arabic Body',
+      type: 'blockContent',
     }),
     defineField({
       name: 'recommend',
