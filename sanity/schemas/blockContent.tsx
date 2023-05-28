@@ -15,7 +15,7 @@ import { defineType, defineArrayMember } from 'sanity'
 
 const CodeDecorator = (props) => (
   <span
-    className='text-purple-900'
+    className='text-white px-0.5'
     style={{
       fontFamily: 'monospace',
       backgroundColor: 'rgb(88 28 135)',

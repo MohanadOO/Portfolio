@@ -13,12 +13,9 @@ export default function getPageOG(
   const vercelUrl = process.env.VERCEL_URL
   let pathName = process.env.NEXT_PUBLIC_BASE_URL || `https://${vercelUrl}`
 
-  const urlParams = `title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${urlFor(
-    authorProfile
-  )
-    .width(60)
-    .height(60)
-    .url()}`
+  const urlParams = `title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${
+    authorProfile ? urlFor(authorProfile).width(60).height(60).url() : ''
+  }`
 
   const urlEncode = `${pathName}/api/postOG?` + encodeURI(urlParams)
 

@@ -43,8 +43,8 @@ export default function Pagination({ count }: { count: number }) {
             </li>
           )}
           <div className='absolute left-[50%] translate-x-[-50%] hidden sm:flex gap-2'>
-            {paginationRange.map((num) => (
-              <>
+            {paginationRange.map((num, index) => (
+              <div key={`${num}_${index}}`} className='flex'>
                 {getPage(page) === num ? (
                   <li className='rounded-md shadow-md py-2 px-4 bg-primary-400 text-white cursor-auto'>
                     {num}
@@ -61,7 +61,7 @@ export default function Pagination({ count }: { count: number }) {
                     {num}
                   </Link>
                 )}
-              </>
+              </div>
             ))}
           </div>
           {paginationRange.length > getPage(page) && (
