@@ -14,6 +14,7 @@ import about from './about'
 import customNote from './customNote'
 import video from './video'
 import imageType from './imageType'
+import codeEmbed from './codeEmbed'
 
 export const schemaTypes = [
   project,
@@ -32,4 +33,5 @@ export const schemaTypes = [
   customNote,
   video,
   imageType,
+  codeEmbed,
 ]

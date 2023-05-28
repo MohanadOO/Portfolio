@@ -1,4 +1,5 @@
 import { HiVideoCamera } from 'react-icons/hi'
+import { SiCodepen } from 'react-icons/si'
 import { defineType, defineArrayMember } from 'sanity'
 
 /**
@@ -127,6 +128,11 @@ export default defineType({
       type: 'video',
       title: 'Video',
       icon: HiVideoCamera,
+    },
+    {
+      type: 'codeEmbed',
+      title: 'Embed Code',
+      icon: SiCodepen,
     },
   ],
 })

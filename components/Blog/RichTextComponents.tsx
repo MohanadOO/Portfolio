@@ -134,6 +134,15 @@ export const RichTextComponents = {
         </div>
       )
     },
+
+    codeEmbed: ({ value }) => {
+      return (
+        <div
+          dangerouslySetInnerHTML={{ __html: value.code }}
+          className='my-12'
+        ></div>
+      )
+    },
   },
 
   list: {
