@@ -50,7 +50,7 @@ export const getAllPosts = `*[_type=='post']{
   "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body.ar)),
   "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
-} | order(_createdAt desc)`
+} | order(publishedAt desc)`
 
 export const getPostsInfo = (page: number) => {
   return `{
@@ -71,7 +71,7 @@ export const getPostsInfo = (page: number) => {
   "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body.ar)),
   "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
-} | order(_createdAt desc) [${START_PAGE(page)}...${END_PAGE(page)}],
+} | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}],
   "total": count(*[_type == 'post'])
 }`
 }
@@ -95,7 +95,7 @@ export const getPostsByCategory = (page: number, category: string) => {
   "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body.ar)),
   "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
-} | order(_createdAt desc) [${START_PAGE(page)}...${END_PAGE(page)}], 
+} | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}], 
   'total': count(*[_type=='post' && '${category}' in categories[]->title])
 }`
 }
@@ -161,7 +161,7 @@ export const getPostsInfoHome = `*[_type=='post' && count(body.ar) > 0][0...6]{
   "readingTimeEN": round(length(pt::text(body.en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body.ar)),
   "readingTimeAR": round(length(pt::text(body.ar)) / 5 / 180 )
-} | order(_createdAt desc)`
+} | order(publishedAt desc)`
 
 export const getPostData = (slug: string) => {
   return `*[_type=='post' && slug.current == '${slug}'][0]{
