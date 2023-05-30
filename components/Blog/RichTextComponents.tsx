@@ -5,21 +5,20 @@ import { HiExternalLink } from 'react-icons/hi'
 import CodeInputLayout from '../CodeInputLayout'
 import CustomImage from '../CustomImage'
 import slugify from 'slugify'
-import { getNoteIcon } from '../../utils/getNoteIcon'
 import { PortableText } from '@portabletext/react'
-import { noteStyle, noteTextStyle } from '../../utils/getNoteStyles'
-import { useTranslation } from 'next-i18next'
-import { useAssetViewer } from '../../hooks/useAssetViewer'
 import { getUrlFromId } from '../../sanity/schemas/video'
+import { usePost } from '../../hooks/usePost'
+import { useAssetViewer } from '../../hooks/useAssetViewer'
 
 function getText(text: any): string {
   return typeof text[0] === 'string' ? text[0] : text[0]?.props?.text
 }
 
-export const RichTextComponents = {
+const DEFAULT_ITEMS = {
   types: {
     image: ({ value, index }: any) => {
       const { handleShowImage } = useAssetViewer()
+
       const imageSize = value.asset?._ref?.split('-')[2].split('x')
       const width = imageSize ? imageSize[0] : '1280'
       const height = imageSize ? imageSize[1] : '720'
@@ -113,20 +112,63 @@ export const RichTextComponents = {
     },
 
     customNote: ({ value: { type, message } }: any) => {
-      const { t } = useTranslation('blog')
+      type ColorType = {
+        rgb: { r: string; g: string; b: string; a: string }
+      }
+
+      function getColor(color: ColorType | undefined, opacity?: string) {
+        if (!color) return `rgb(255 0 0 / ${opacity ? opacity : 1})`
+        const { rgb } = color
+        const { r, g, b, a } = rgb
+
+        return `rgb(${r} ${g} ${b} / ${opacity ? opacity : a})`
+      }
+
+      if (!type)
+        return (
+          <div
+            style={{
+              backgroundColor: getColor(undefined, '0.1'),
+              borderColor: getColor(undefined),
+              boxShadow: `0 4px 6px ${getColor(undefined, '0.2')}`,
+            }}
+            className='flex flex-col gap-2 pb-5 my-10 ltr:border-l-8 rtl:border-r-8 shadow-md rounded-lg'
+          >
+            <p
+              style={{ color: getColor(undefined) }}
+              className='capitalize text-xl md:text-2xl font-black flex gap-2 items-center py-4 border-b-2 border-black/30 dark:border-white/30 px-5'
+            ></p>
+          </div>
+        )
+
+      const { language } = usePost()
+      const { typeName, icon, color } = type
+      const title = language === 'ar' ? typeName?.ar : typeName?.en
+
       return (
         <div
-          className={`flex flex-col gap-2 pb-5 my-10 en:border-l-8 ar:border-r-8 shadow-md rounded-lg ${
-            noteStyle[type] || ''
-          }`}
+          style={{
+            backgroundColor: getColor(color, '0.1'),
+            borderColor: getColor(color),
+            boxShadow: `0 4px 6px ${getColor(color, '0.2')}`,
+          }}
+          className='flex flex-col gap-2 pb-5 my-10 ltr:border-l-8 rtl:border-r-8 shadow-md rounded-lg'
         >
           <p
-            className={`capitalize text-xl md:text-2xl font-black flex gap-2 items-center py-4 border-b-2 border-black/30 dark:border-white/30 px-5 ${
-              noteTextStyle[type] || ''
-            }`}
+            style={{ color: getColor(color) }}
+            className='capitalize text-xl md:text-2xl font-black flex gap-2 items-center py-4 border-b-2 border-black/30 dark:border-white/30 px-5'
           >
-            <span>{getNoteIcon(type)}</span>
-            <span>{t(`post.note.${type}`)}</span>
+            {icon && (
+              <img
+                src={urlFor(icon).width(60).height(60).url()}
+                style={{
+                  width: '30px',
+                  height: '30px',
+                }}
+                alt='Icon'
+              />
+            )}
+            <span>{title}</span>
           </p>
           <div className='px-5'>
             <PortableText value={message} components={RichTextComponents} />
@@ -144,7 +186,6 @@ export const RichTextComponents = {
       )
     },
   },
-
   list: {
     bullet: ({ children }: any) => (
       <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary-400 space-y-3'>
@@ -236,4 +277,79 @@ export const RichTextComponents = {
     ),
     strike: ({ children }: any) => <del>{children}</del>,
   },
+}
+
+const STUDIO_ITEMS = {
+  image: ({ value }) => {
+    const imageSize = value.asset?._ref?.split('-')[2].split('x')
+    const width = imageSize ? imageSize[0] : '1280'
+    const height = imageSize ? imageSize[1] : '720'
+    const aspectRatio = width / height
+    return (
+      <div
+        style={{
+          maxWidth: `${width}px`,
+          maxHeight: '1000px',
+        }}
+        className='relative group mx-auto object-contain my-7 overflow-hidden group cursor-zoom-in'
+      >
+        <div className='relative group-hover:opacity-60 dark:group-hover:opacity-40 transition-opacity duration-300'>
+          <CustomImage
+            src={imageSize && urlFor(value).url()}
+            alt={value?.alt || 'Blog post Image'}
+            id='post-asset'
+            width={width}
+            height={height}
+            style={{
+              objectFit: 'contain',
+              borderRadius: '0.1rem',
+              maxWidth: '100%',
+              maxHeight: '1000px',
+              aspectRatio: `${aspectRatio}`,
+              zOrder: -1,
+            }}
+            aria-hidden='true'
+          />
+        </div>
+      </div>
+    )
+  },
+  video: ({ value }) => {
+    const poster = value.poster ? urlFor(value.poster).url() : ''
+    const video = getUrlFromId(value.video?.asset?._ref)
+    const autoplay = value.autoplay
+    const loop = value.loop
+    const muted = value.muted
+    return (
+      <video
+        controls
+        poster={poster}
+        id='post-asset'
+        autoPlay={autoplay ? autoplay : false}
+        loop={loop ? loop : false}
+        muted={autoplay === true || muted ? true : false}
+        playsInline={autoplay ? true : false}
+        preload={autoplay ? 'auto' : 'metadata'}
+        className='max-h-[750px] my-7 mx-auto'
+      >
+        <source src={video} />
+        Browser don't support HTML5 Video.
+      </video>
+    )
+  },
+}
+
+const { types, list, block, marks } = DEFAULT_ITEMS
+export const RichTextComponents = {
+  types,
+  list,
+  block,
+  marks,
+}
+
+export const StudioRichTextComponents = {
+  types: { ...types, image: STUDIO_ITEMS.image, video: STUDIO_ITEMS.video },
+  list,
+  block,
+  marks,
 }

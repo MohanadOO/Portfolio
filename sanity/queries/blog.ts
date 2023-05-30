@@ -166,6 +166,8 @@ export const getPostsInfoHome = `*[_type=='post' && count(body_ar) > 0][0...6]{
 export const getPostData = (slug: string) => {
   return `*[_type=='post' && slug.current == '${slug}'][0]{
       ...,
+     body_en[]{..., type->},
+     body_ar[]{..., type->},
      recommend[]->{  
         _id,
         title,

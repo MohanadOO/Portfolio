@@ -2,7 +2,6 @@ import { NextSeo } from 'next-seo'
 import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
-
 import PostBody from './PostBody'
 import ProgressBar from '../ProgressBar'
 import LikeButton from './LikeButton'
@@ -24,7 +23,7 @@ export function PostLayout({
   const desc = post.description ? post.description[language] : ''
 
   return (
-    <PostContextProvider post={post} preview={preview}>
+    <PostContextProvider post={post} preview={preview} language={language}>
       <NextSeo
         title={title}
         description={desc}

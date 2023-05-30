@@ -44,6 +44,7 @@ const blog = [
   { typeName: 'post', title: 'post' },
   { typeName: 'author', title: 'Author', hidden: true },
   { typeName: 'category', title: 'Category' },
+  { typeName: 'customNoteType', title: 'Note Types' },
 ]
 
 const pages = [{ typeName: 'aboutPage', title: 'About Page' }]

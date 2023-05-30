@@ -12,10 +12,12 @@ type PostContextType = {
   viewCount: number
   setViewCount: any
   isScrollDown: boolean
+  language: string
 }
 type PostContextProviderType = {
   post: Post
   preview: boolean
+  language: string
   children: React.ReactNode
 }
 
@@ -28,6 +30,7 @@ export function usePost() {
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export function PostContextProvider({
   post,
+  language,
   preview,
   children,
 }: PostContextProviderType) {
@@ -91,6 +94,7 @@ export function PostContextProvider({
     preview,
     handleLikeCount,
     isScrollDown,
+    language,
   }
   return <PostContext.Provider value={values}>{children}</PostContext.Provider>
 }

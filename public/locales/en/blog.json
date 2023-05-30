@@ -14,12 +14,6 @@
   "next": "Next",
   "previous": "Previous",
   "readPost": "Read Post",
-  "post": {
-    "note": {
-      "warning": "Warning",
-      "tip": "Tip"
-    }
-  },
   "noPost": "No Post Available",
   "recommendation": "Recommended Posts"
 }

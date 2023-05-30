@@ -1,22 +1,46 @@
 import { PortableText } from '@portabletext/react'
 import { defineField, defineType } from 'sanity'
-import { RichTextComponents } from '../../components/Blog/RichTextComponents'
+import { StudioRichTextComponents } from '../../components/Blog/RichTextComponents'
 import { Card, Flex, Text } from '@sanity/ui'
-import { noteTone } from '../../utils/getNoteStyles'
-import { getNoteIcon } from '../../utils/getNoteIcon'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
+import { AiOutlineInfoCircle, AiOutlineWarning } from 'react-icons/ai'
+import urlFor from '../../utils/urlFor'
 
 function CustomNotePreview(props: any) {
-  const type = props?.type
+  const type = props?.type?.en
   const message = props?.message
+  const color = props?.color
+  const icon = props?.icon
+
+  const backgroundColor =
+    color?.rgb &&
+    `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a / 5})`
+
+  const textColor = color?.hex
 
   return (
-    <Card tone={noteTone[type]}>
+    <Card style={{ backgroundColor }}>
       <Flex direction={'column'}>
         <Flex align={'center'} margin={2} gap={2}>
-          {getNoteIcon(type)}
-          <Text size={2} muted={true} weight='bold' className='uppercase'>
-            {type}
+          {icon ? (
+            <img
+              src={urlFor(icon).width(20).height(20).url()}
+              style={{
+                width: '20px',
+                height: '20px',
+              }}
+              alt='Icon'
+            />
+          ) : (
+            <AiOutlineWarning />
+          )}
+          <Text
+            size={2}
+            muted={true}
+            weight='bold'
+            style={{ color: `${textColor || 'red'}` }}
+            className='uppercase'
+          >
+            {type || 'Choose Type'}
           </Text>
         </Flex>
         <Card
@@ -25,10 +49,13 @@ function CustomNotePreview(props: any) {
           padding={3}
           radius={2}
           shadow={1}
-          tone={noteTone[type]}
+          style={{ backgroundColor }}
         >
           <Text size={2}>
-            <PortableText value={message} components={RichTextComponents} />
+            <PortableText
+              value={message}
+              components={StudioRichTextComponents}
+            />
           </Text>
         </Card>
       </Flex>
@@ -44,17 +71,10 @@ export default defineType({
   fields: [
     defineField({
       title: 'Type',
+      description: 'Choose the callout type',
       name: 'type',
-      type: 'string',
-      description: 'Callout type name',
-      initialValue: 'warning',
-      options: {
-        list: [
-          { title: 'Warning', value: 'warning' },
-          { title: 'Tip', value: 'tip' },
-        ],
-        layout: 'radio',
-      },
+      type: 'reference',
+      to: { type: 'customNoteType' },
     }),
     defineField({
       title: 'Message',
@@ -65,12 +85,16 @@ export default defineType({
   ],
   preview: {
     select: {
-      type: 'type',
+      type: 'type.typeName',
+      color: 'type.color',
+      icon: 'type.icon',
       message: 'message' as any,
     },
-    prepare({ type, message }): any {
+    prepare({ type, message, color, icon }): any {
       return {
         type,
+        color,
+        icon,
         message,
       }
     },
