@@ -15,6 +15,7 @@ import { MotionConfig } from 'framer-motion'
 
 import NProgress from 'nprogress'
 import Router from 'next/router'
+import Script from 'next/script'
 
 Router.events.on('routeChangeStart', NProgress.start)
 Router.events.on('routeChangeError', NProgress.done)
@@ -22,7 +23,10 @@ Router.events.on('routeChangeComplete', NProgress.done)
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const studioRoute = router.route.startsWith('/studio')
-  const locale = useRouter().locale
+
+  const locale = router.locale
+  const isPreview = router.isPreview
+  const environment = process.env.NODE_ENV
 
   if (studioRoute) {
     return <Component {...pageProps} />
@@ -36,6 +40,31 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider attribute='class'>
       <DefaultSeo {...SEO()} />
+
+      {/* Google Analytics Scripts */}
+      <Script
+        strategy='lazyOnload'
+        src={`https://www.googletagmanager.com/gtag/js?id=${
+          environment !== 'development' && !isPreview
+            ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+            : ''
+        }`}
+      />
+      <Script strategy='lazyOnload'>
+        {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${
+                environment !== 'development' && !isPreview
+                  ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+                  : ''
+              }', {
+              page_path: window.location.pathname,
+              });
+          `}
+      </Script>
+
       <MotionConfig reducedMotion='user'>
         <Layout>
           <Component {...pageProps} />
