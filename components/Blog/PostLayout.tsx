@@ -34,8 +34,11 @@ export function PostLayout({
           post.description?.en,
           post.author?.name,
           post.author?.image,
+          post.mainImage,
           post.publishedAt,
-          title
+          post._updatedAt,
+          title,
+          post.categories
         )}
       />
       <article

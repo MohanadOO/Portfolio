@@ -7,8 +7,11 @@ export default function getPageOG(
   desc: string,
   authorName: string,
   authorProfile: string,
+  mainImage: Image,
   publishedAt: string,
-  alt: string
+  updatedAt: string,
+  alt: string,
+  categories: Category[]
 ) {
   const vercelUrl = process.env.VERCEL_URL
   let pathName = process.env.NEXT_PUBLIC_BASE_URL || `https://${vercelUrl}`
@@ -25,11 +28,23 @@ export default function getPageOG(
     type,
     images: [
       {
+        url: mainImage && urlFor(mainImage).url(),
+        width: 1200,
+        height: 600,
+        alt,
+      },
+      {
         url: urlEncode,
         width: 1200,
         height: 600,
         alt,
       },
     ],
+    article: {
+      publishedTime: publishedAt,
+      modifiedTime: updatedAt,
+      section: 'Technology',
+      tags: categories.map((category) => category.title),
+    },
   }
 }
