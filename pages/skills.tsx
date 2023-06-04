@@ -52,7 +52,7 @@ export default function Skills({
 
         {filterSkills.map((skills: Skill[]) => (
           <div key={skills[0].type.en}>
-            <h2 className='text-4xl text-center md:text-start font-bold text-primary-400 pb-5 mt-12 border-b-2'>
+            <h2 className='text-4xl text-center md:text-start font-bold text-primary-purple pb-5 mt-12 border-b-2'>
               {skills[0].type[locale]}
             </h2>
             <ul className='flex my-8 items-center justify-center md:justify-start gap-x-5 gap-y-5 flex-wrap'>

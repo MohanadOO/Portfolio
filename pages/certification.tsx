@@ -72,7 +72,7 @@ export default function Certification({
                     href={item.courseUrl ? item.courseUrl : '#'}
                     className={`flex items-center gap-1 text-lg font-bold transition-colors ${
                       item.courseUrl
-                        ? 'hover:text-primary-400'
+                        ? 'hover:text-primary-purple'
                         : 'cursor-default'
                     }`}
                   >
@@ -94,7 +94,7 @@ export default function Certification({
                 <a
                   href={item.link}
                   target='_blank'
-                  className='flex gap-2 items-center mx-auto md:mx-0 rounded-full py-2 px-3 text-sm font-bold bg-primary-400/60 hover:bg-primary-400 transition-colors text-primary-white'
+                  className='flex gap-2 items-center mx-auto md:mx-0 rounded-full py-2 px-3 text-sm font-bold bg-primary-purple hover:bg-primary-purple-600 transition-colors text-primary-white'
                 >
                   {t('credential')}
                   <HiExternalLink className='rtl:-rotate-90' />

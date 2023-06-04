@@ -81,7 +81,7 @@ export default function PostCard({ post }: { post: Post }) {
             title={title || 'Title Not found'}
             className={`${
               title
-                ? 'font-bold group-hover:text-primary-400'
+                ? 'font-bold group-hover:text-primary-purple'
                 : 'text-red-400 uppercase'
             } flex gap-3 justify-between items-center sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 line-clamp-2 py-2 `}
           >
@@ -100,11 +100,11 @@ export default function PostCard({ post }: { post: Post }) {
           </p>
           <div className='flex mt-3 gap-5 text-gray-600 dark:text-gray-300 text-xs md:text-sm'>
             <p className='flex items-center gap-1 font-bold'>
-              <HiEye className='w-4 h-4 text-primary-400' />{' '}
+              <HiEye className='w-4 h-4 text-primary-purple' />{' '}
               {post.viewCount || 0}
             </p>
             <p className='flex items-center gap-1 font-bold'>
-              <HiOutlineHeart className='w-4 h-4 fill-primary-400 text-primary-400 dark:text-black' />{' '}
+              <HiOutlineHeart className='w-4 h-4 fill-primary-purple text-primary-purple dark:text-black' />{' '}
               {post.likeCount || 0}
             </p>
           </div>

@@ -25,7 +25,7 @@ export default function HomeLayout({ projects, skills, posts }) {
   ]
 
   return (
-    <main className='py-20'>
+    <div className='py-20'>
       {list.map((item) => (
         <>
           {item.header && (
@@ -41,6 +41,6 @@ export default function HomeLayout({ projects, skills, posts }) {
           {item.component}
         </>
       ))}
-    </main>
+    </div>
   )
 }

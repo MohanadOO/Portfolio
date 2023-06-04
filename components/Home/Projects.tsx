@@ -38,7 +38,7 @@ export default function Projects({ projects, viewBtn = false }) {
           {viewBtn && (
             <Link
               href='/projects'
-              className='flex items-center rounded-lg mx-auto py-2 px-8 gap-2 bg-primary-400/80 hover:bg-primary-400 shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
+              className='flex items-center rounded-lg mx-auto py-2 px-8 gap-2 bg-primary-purple/90 hover:bg-primary-purple shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
             >
               {t('viewAll', { ns: 'common' })}{' '}
               <HiOutlineLink className='w-5 h-5' />

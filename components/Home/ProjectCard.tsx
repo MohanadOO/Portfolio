@@ -41,7 +41,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             href={preview}
             target='_blank'
             title={locale === 'ar' ? 'عرض الصفحة' : 'Project Preview'}
-            className='opacity-0 absolute top-[50%] translate-y-[-50%] left-[60%] translate-x-[-60%] z-20 bg-primary-400 p-2 rounded-full transition-opacity duration-200 cursor-pointer'
+            className='opacity-0 absolute top-[50%] translate-y-[-50%] left-[60%] translate-x-[-60%] z-20 bg-primary-purple p-2 rounded-full transition-opacity duration-200 cursor-pointer'
           >
             <HiEye aria-hidden='true' className='w-6 h-6 fill-primary-white' />
           </a>
@@ -49,7 +49,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
             href={github}
             target='_blank'
             title={locale === 'ar' ? 'ملفات المشروع' : 'GitHub Repo'}
-            className='opacity-0 absolute top-[50%] translate-y-[-50%] left-[40%] translate-x-[-40%] z-20 bg-primary-400 p-2 rounded-full transition-opacity duration-200 cursor-pointer'
+            className='opacity-0 absolute top-[50%] translate-y-[-50%] left-[40%] translate-x-[-40%] z-20 bg-primary-purple p-2 rounded-full transition-opacity duration-200 cursor-pointer'
           >
             <AiFillGithub
               aria-hidden='true'
@@ -76,7 +76,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           </ul>
           <h1
             title={title}
-            className='font-pattaya ar:font-arefRuqaa text-3xl leading-loose sm:text-4xl sm:leading-loose text-primary-400 line-clamp-1 '
+            className='font-pattaya ar:font-arefRuqaa text-3xl leading-loose sm:text-4xl sm:leading-loose text-primary-purple line-clamp-1 '
           >
             {title}
           </h1>
@@ -85,7 +85,7 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           </p>
           <Link
             href={`projects/${slug?.current}`}
-            className='py-3 px-6 text-primary-400 dark:text-primary-white rounded-md font-bold border border-primary-400 hover:bg-primary-400 hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] rtl:hover:shadow-[4px_4px_0_black] mt-auto'
+            className='py-3 px-6 text-primary-purple dark:text-primary-white rounded-md font-bold border border-primary-purple hover:bg-primary-purple hover:text-primary-white transition-colors en:hover:shadow-[-4px_4px_0_black] rtl:hover:shadow-[4px_4px_0_black] mt-auto'
           >
             {t('checkBtn')}
           </Link>

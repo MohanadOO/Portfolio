@@ -19,7 +19,7 @@ export default function ProjectsLayout({ projects }) {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.3 }}
-        className='min-h-full flex flex-col mt-10 text-primary-400 w-full py-20'
+        className='min-h-full flex flex-col mt-10 text-primary-purple w-full py-20'
         aria-label='projects'
       >
         <div className='flex items-center mb-10 mx-auto md:mx-0'>

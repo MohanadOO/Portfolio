@@ -47,6 +47,8 @@ export default function Layout({ children }) {
     >
       <Nav />
       <button
+        aria-label='Scroll to Top'
+        title='Scroll to Top'
         onClick={() => window.scrollTo(0, 0)}
         className={`${up ? 'fixed' : 'hidden'} ${
           scrollPosition === 'rtl' ? 'left-[5%]' : 'right-[5%]'

@@ -33,46 +33,52 @@ export default function Pagination({ count }: { count: number }) {
   return (
     <>
       {paginationRange.length > 1 && (
-        <ul className='flex flex-wrap items-center w-full font-bold text-lg relative'>
+        <div className='flex flex-wrap items-center w-full font-bold text-lg relative'>
           {getPage(page) > 1 && (
-            <li className='flex me-auto hover:text-primary-400'>
-              <Link className='flex items-center gap-2' href={getLink(-1)}>
-                <HiArrowLeft className='ar:rotate-180' />
-                {t('previous')}
-              </Link>
-            </li>
+            <Link
+              title='Previous Page'
+              className='flex items-center gap-2 hover:text-primary-purple'
+              href={getLink(-1)}
+            >
+              <HiArrowLeft className='ar:rotate-180' />
+              {t('previous')}
+            </Link>
           )}
           <div className='absolute left-[50%] translate-x-[-50%] hidden sm:flex gap-2'>
             {paginationRange.map((num, index) => (
-              <div key={`${num}_${index}}`} className='flex'>
+              <ul key={`${num}_${index}}`} className='flex'>
                 {getPage(page) === num ? (
-                  <li className='rounded-md shadow-md py-2 px-4 bg-primary-400 text-white cursor-auto'>
+                  <li className='rounded-md shadow-md py-2 px-4 bg-primary-purple text-white cursor-auto'>
                     {num}
                   </li>
                 ) : num === '...' ? (
-                  <li className='flex items-center rounded-md text-primary-400 text-center shadow-md py-2 px-4  cursor-auto'>
+                  <li className='flex items-center rounded-md text-primary-purple text-center shadow-md py-2 px-4  cursor-auto'>
                     <HiDotsHorizontal className='w-6 h-6' />
                   </li>
                 ) : (
-                  <Link
-                    href={getLink(Number(num) - getPage(page))}
-                    className='rounded-md shadow-md py-2 px-4 hover:bg-gray-200 hover:text-black'
-                  >
-                    {num}
-                  </Link>
+                  <li className='flex items-center'>
+                    <Link
+                      className='rounded-md shadow-md py-2 px-4 hover:bg-gray-200 hover:text-black'
+                      href={getLink(Number(num) - getPage(page))}
+                    >
+                      {num}
+                    </Link>
+                  </li>
                 )}
-              </div>
+              </ul>
             ))}
           </div>
           {paginationRange.length > getPage(page) && (
-            <li className='flex ms-auto hover:text-primary-400'>
-              <Link href={getLink(1)} className='flex items-center gap-2'>
-                {t('next')}
-                <HiArrowRight className='ar:rotate-180' />
-              </Link>
-            </li>
+            <Link
+              href={getLink(1)}
+              title='Next Page'
+              className='flex ms-auto items-center gap-2 hover:text-primary-purple'
+            >
+              {t('next')}
+              <HiArrowRight className='ar:rotate-180' />
+            </Link>
           )}
-        </ul>
+        </div>
       )}
     </>
   )

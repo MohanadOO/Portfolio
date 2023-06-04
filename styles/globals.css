@@ -4,7 +4,7 @@
 
 @layer components {
   .section_header {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-400 z-10 uppercase first-letter:py-5 ar:first-letter:py-2 first-letter:text-primary-white en:first-letter:pl-16 rtl:first-letter:pr-16  first-letter:bg-primary-400 first-letter:rounded-md  en:first-letter:shadow-left-lg rtl:first-letter:shadow-right-lg dark:first-letter:shadow-primary-white;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple z-10 uppercase first-letter:py-5 ar:first-letter:py-2 first-letter:text-primary-white en:first-letter:pl-16 rtl:first-letter:pr-16  first-letter:bg-primary-purple first-letter:rounded-md  en:first-letter:shadow-left-lg rtl:first-letter:shadow-right-lg dark:first-letter:shadow-primary-white;
   }
   .about-me p,
   .skills-desc {
@@ -16,6 +16,6 @@
   }
 
   .custom-thin-scrollbar {
-    @apply scrollbar-thin scrollbar-track-primary-400/40 dark:scrollbar-track-primary-400/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-400;
+    @apply scrollbar-thin scrollbar-track-primary-purple/40 dark:scrollbar-track-primary-purple/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-purple;
   }
 }

@@ -36,7 +36,7 @@ const DEFAULT_ITEMS = {
             <CustomImage
               src={imageSize && urlFor(value).url()}
               alt={value?.alt || 'Blog post Image'}
-              id='post-asset'
+              className='post-asset'
               data-index={index}
               data-src={imageSize && urlFor(value).url()}
               data-type='image'
@@ -68,7 +68,6 @@ const DEFAULT_ITEMS = {
         <video
           controls
           poster={poster}
-          id='post-asset'
           data-index={index}
           data-poster={poster}
           data-src={video || ''}
@@ -82,7 +81,7 @@ const DEFAULT_ITEMS = {
           muted={autoplay === true || muted ? true : false}
           playsInline={autoplay ? true : false}
           preload={autoplay ? 'auto' : 'metadata'}
-          className='max-h-[750px] my-7 mx-auto'
+          className='max-h-[750px] my-7 mx-auto post-asset'
         >
           <source src={video} />
           Browser don't support HTML5 Video.
@@ -188,12 +187,12 @@ const DEFAULT_ITEMS = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary-400 space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary-purple space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-decimal marker:font-bold marker:text-primary-400 space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-decimal marker:font-bold marker:text-primary-purple space-y-3'>
         {children}
       </ol>
     ),
@@ -204,7 +203,7 @@ const DEFAULT_ITEMS = {
       return (
         <h1
           id={id}
-          className='text-5xl md:text-6xl leading-tight md:leading-tight pt-10 pb-5 font-black text-primary-400 scroll-m-20 relative group'
+          className='text-5xl md:text-6xl leading-tight md:leading-tight pt-10 pb-5 font-black text-primary-purple scroll-m-20 relative group'
         >
           {children}
         </h1>
@@ -297,7 +296,7 @@ const STUDIO_ITEMS = {
           <CustomImage
             src={imageSize && urlFor(value).url()}
             alt={value?.alt || 'Blog post Image'}
-            id='post-asset'
+            className='post-asset'
             width={width}
             height={height}
             style={{
@@ -324,13 +323,12 @@ const STUDIO_ITEMS = {
       <video
         controls
         poster={poster}
-        id='post-asset'
         autoPlay={autoplay ? autoplay : false}
         loop={loop ? loop : false}
         muted={autoplay === true || muted ? true : false}
         playsInline={autoplay ? true : false}
         preload={autoplay ? 'auto' : 'metadata'}
-        className='max-h-[750px] my-7 mx-auto'
+        className='max-h-[750px] my-7 mx-auto post-asset'
       >
         <source src={video} />
         Browser don't support HTML5 Video.

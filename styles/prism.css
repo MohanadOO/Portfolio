@@ -9,6 +9,7 @@
   --teal: hsl(183, 70%, 62%);
   --white: rgb(248, 250, 252);
   --black: hsl(222, 25%, 7%);
+  --gray: #aeaeae;
   --purple: #7257d1;
 
   --marker: hsl(222, 25%, 12%);
@@ -22,6 +23,7 @@ html:not(.dark) {
   --teal: var(--purple);
   --white: hsl(222, 25%, 7%);
   --black: rgb(248, 250, 252);
+  --gray: #606060;
   --marker: rgb(241, 245, 249);
 }
 s code[class*='language-'],
@@ -100,7 +102,7 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #777777;
+  color: var(--gray);
 }
 
 .token.punctuation {

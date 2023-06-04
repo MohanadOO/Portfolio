@@ -68,7 +68,7 @@ export function AssetsProvider({ children }: { children: React.ReactNode }) {
     return handleShowImage(assetsArrIndex[currPosIndex + val], true)
   }
   useEffect(() => {
-    const assets = Array.from(document.querySelectorAll('#post-asset'))
+    const assets = Array.from(document.querySelectorAll('.post-asset'))
 
     const obj = {}
     assets.forEach((asset: HTMLImageElement | HTMLVideoElement) => {

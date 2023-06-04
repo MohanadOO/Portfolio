@@ -28,7 +28,7 @@ export default function Header() {
       >
         <motion.h1
           variants={fadeInLeft(reduce)}
-          className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-400 to-secondary-400 text-transparent bg-clip-text font-bold mx-auto py-7'
+          className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-purple-400 to-primary-purple-600 text-transparent bg-clip-text font-bold mx-auto py-7'
         >
           {t('hello')}
           <motion.div
@@ -49,7 +49,7 @@ export default function Header() {
           <motion.a
             variants={fadeInLeft(reduce)}
             href='#about-me'
-            className='flex items-center gap-3 self-center py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+            className='flex items-center gap-3 self-center py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-purple dark:text-primary-white shadow-primary-black hover:bg-primary-purple hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
           >
             <span>{t('about')}</span>
             <HiArrowCircleDown className='w-6 h-6' />
@@ -58,7 +58,7 @@ export default function Header() {
             variants={fadeInLeft(reduce)}
             href='https://www.cakeresume.com/s--xFe5zn7_6pbOn71eYKrAOw--/mohanad-alrwaihy'
             target='_blank'
-            className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-400 dark:text-primary-white shadow-primary-black hover:bg-primary-400 hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+            className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-purple dark:text-primary-white shadow-primary-black hover:bg-primary-purple hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
           >
             <span>{t('resume')}</span>
             <HiDownload className='w-6 h-6' />

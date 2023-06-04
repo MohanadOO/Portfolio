@@ -31,7 +31,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
         )}
         <div className='flex flex-col gap-2'>
           {title ? (
-            <h1 className='text-4xl ar:leading-snug md:text-5xl md:ar:leading-snug lg:text-6xl lg:ar:leading-snug max-w-4xl text-primary-400 font-extrabold'>
+            <h1 className='text-4xl ar:leading-snug md:text-5xl md:ar:leading-snug lg:text-6xl lg:ar:leading-snug max-w-4xl text-primary-purple font-extrabold'>
               {title}
             </h1>
           ) : (
@@ -42,11 +42,11 @@ export default function PostHeader({ language, title, desc }: PropsType) {
           <div className='max-w-md opacity-70 dark:opacity-60 mt-1'>
             <div className='flex flex-wrap items-center gap-4 text-xs sm:text-sm md:text-base'>
               {post.author ? (
-                <h3>{post.author.name}</h3>
+                <h2>{post.author.name}</h2>
               ) : (
-                <h3 className='text-red-400 uppercase'>Author Not Found</h3>
+                <h2 className='text-red-400 uppercase'>Author Not Found</h2>
               )}
-              <div className='w-0.5 h-5 bg-primary-400' />
+              <div className='w-0.5 h-5 bg-primary-purple' />
               {post.publishedAt ? (
                 <p>
                   {new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -62,10 +62,10 @@ export default function PostHeader({ language, title, desc }: PropsType) {
           </div>
           <div className='flex gap-5 mt-3'>
             <p className='flex items-center gap-2 font-bold'>
-              <HiEye className='w-5 h-5 text-primary-400' /> {viewCount}
+              <HiEye className='w-5 h-5 text-primary-purple' /> {viewCount}
             </p>
             <p className='flex items-center gap-2 font-bold'>
-              <HiOutlineHeart className='w-5 h-5 fill-primary-400 text-primary-400 dark:text-black' />{' '}
+              <HiOutlineHeart className='w-5 h-5 fill-primary-purple text-primary-purple dark:text-black' />{' '}
               {likeCount}
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
             </h2>
           )}
           {readingTime > 0 && (
-            <p className='flex items-center gap-2 md:text-lg text-primary-400'>
+            <p className='flex items-center gap-2 md:text-lg text-primary-purple dark:text-primary-purple-300'>
               <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
               <span>
                 {readingTime} {language === 'ar' ? 'دقائق للقراءة' : 'min read'}

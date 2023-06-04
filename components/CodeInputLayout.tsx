@@ -37,12 +37,18 @@ export default function CodeInputLayout({
       >
         {language.toUpperCase()}
       </code>
-      <Refractor language={language} value={code} markers={highlightedLines} />
+      <div tabIndex={-1}>
+        <Refractor
+          language={language}
+          value={code}
+          markers={highlightedLines}
+        />
+      </div>
       <div className='absolute p-5 top-5 right-0 sm:right-4 sm:hidden group-hover:block h-full'>
         {!isCopied ? (
           <HiOutlineClipboardCopy
             onClick={() => copyToClipBoard(code)}
-            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer hover:text-primary-400 active:scale-110 transition-opacity'
+            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer hover:text-primary-purple active:scale-110 transition-opacity'
             title={locale === 'ar' ? 'نسخ الكود' : 'Copy Code'}
           />
         ) : (

@@ -16,7 +16,7 @@ export default function PostBody({ language }: PropsType) {
   const body = language === 'ar' ? body_ar : body_en
 
   return (
-    <div className='flex justify-start items-start gap-10 selection:bg-primary-400/70 selection:text-white break-words pt-5 pb-10'>
+    <div className='flex justify-start items-start gap-10 selection:bg-primary-purple/70 selection:text-white break-words pt-5 pb-10'>
       <AssetsProvider>
         {body && (
           <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300 leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9'>

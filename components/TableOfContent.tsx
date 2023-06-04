@@ -60,7 +60,7 @@ export default function TableOfContent({ locale, scroll }) {
   function getClass(type: number): string {
     switch (type) {
       case 1:
-        return `my-2 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-primary-400`
+        return `my-2 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-primary-purple`
       case 2:
         return `my-1 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-teal-600 marker:dark:text-teal-500`
       case 3:
@@ -79,6 +79,8 @@ export default function TableOfContent({ locale, scroll }) {
   return (
     <>
       <button
+        aria-label='Table of contents'
+        title='Table of contents'
         onClick={() => setShowTable((prev) => !prev)}
         className='fixed xl:hidden ltr:right-[5%] rtl:left-[5%] bottom-24 md:bottom-28  w-8 h-8 md:w-10 md:h-10 text-black dark:text-white bg-neutral-100 dark:bg-neutral-800 border  dark:border-white/10 shadow-lg rounded-full group z-50'
       >
@@ -98,9 +100,9 @@ export default function TableOfContent({ locale, scroll }) {
       >
         <h1
           id='table-of-content'
-          className='flex items-center gap-2 font-bold text-lg border-b pb-4 text-primary-400 uppercase'
+          className='flex items-center gap-2 font-bold text-lg border-b pb-4 text-primary-purple uppercase'
         >
-          <CiViewList className='w-6 h-6 fill-primary-400' />{' '}
+          <CiViewList className='w-6 h-6 fill-primary-purple' />{' '}
           {locale === 'ar' ? 'جدول المحتويات' : 'Table of Contents'}
         </h1>
         <ul className='flex flex-col p-4'>
@@ -119,7 +121,7 @@ export default function TableOfContent({ locale, scroll }) {
                 href={`#${id}`}
                 className={`${
                   activeId === id
-                    ? ' marker:text-primary-400 font-extrabold cursor-default underline underline-offset-4 text-base'
+                    ? ' marker:text-primary-purple font-extrabold cursor-default underline underline-offset-4 text-base'
                     : 'text-sm'
                 } block py-0.5 px-0.5 `}
               >

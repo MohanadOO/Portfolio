@@ -59,13 +59,13 @@ export default function AboutMe() {
           </motion.h3>
           <motion.p
             variants={fadeInRightText(reduce)}
-            className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
+            className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-purple pb-5'
           >
             {t('descP1')}
           </motion.p>
           <motion.p
             variants={fadeInRightText(reduce)}
-            className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-400 pb-5'
+            className='text-primary-black dark:text-primary-white border-b border-dashed border-primary-purple pb-5'
           >
             {t('descP2')}
           </motion.p>
@@ -84,7 +84,7 @@ export default function AboutMe() {
               >
                 <AiFillGithub
                   aria-hidden='true'
-                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform'
+                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-purple cursor-pointer scale-75 hover:scale-100 transition-transform'
                 />
               </a>
             </motion.li>
@@ -96,7 +96,7 @@ export default function AboutMe() {
               >
                 <AiOutlineTwitter
                   aria-hidden='true'
-                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform'
+                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-purple cursor-pointer scale-75 hover:scale-100 transition-transform'
                 />
               </a>
             </motion.li>
@@ -108,7 +108,7 @@ export default function AboutMe() {
               >
                 <AiFillLinkedin
                   aria-hidden='true'
-                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform'
+                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-purple cursor-pointer scale-75 hover:scale-100 transition-transform'
                 />
               </a>
             </motion.li>
@@ -120,7 +120,7 @@ export default function AboutMe() {
               >
                 <BsWhatsapp
                   aria-hidden='true'
-                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-400 cursor-pointer scale-75 hover:scale-100 transition-transform'
+                  className='w-7 h-7 lg:w-10 lg:h-10 fill-primary-purple cursor-pointer scale-75 hover:scale-100 transition-transform'
                 />
               </a>
             </motion.li>

@@ -31,7 +31,7 @@ export function BlogList({
       {viewBtn && (
         <Link
           href='/blog'
-          className='flex mb-12 items-center justify-center rounded-lg w-56 mx-auto py-2 px-8 gap-2 bg-primary-400/80 hover:bg-primary-400 shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
+          className='flex mb-12 items-center justify-center rounded-lg w-56 mx-auto py-2 px-8 gap-2 bg-primary-purple/80 hover:bg-primary-purple shadow-lg dark:shadow-primary-white/10 text-primary-white font-bold text-lg transition-colors'
         >
           {t('allPosts', { ns: 'common' })}
           <HiOutlineLink className='w-5 h-5' />
