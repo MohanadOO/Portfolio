@@ -19,7 +19,7 @@ export default function Projects({ projects, viewBtn = false }) {
       className='flex items-center scroll-mt-28 mb-20'
     >
       <div className='flex flex-col gap-5 w-full'>
-        <div className='pt-10 pb-20 flex flex-col gap-20 w-full rounded-lg shadow-lg dark:shadow-primary-white/20'>
+        <div className='pt-10 pb-20 flex flex-col gap-20 w-full '>
           <motion.div
             variants={projectsContainer(reduce)}
             initial='initial'

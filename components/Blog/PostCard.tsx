@@ -17,8 +17,10 @@ import {
   getTitle,
 } from '../../utils/postUtils'
 import PostCategories from './PostCategories'
+import { useReducedMotion, motion } from 'framer-motion'
 
 export default function PostCard({ post }: { post: Post }) {
+  const reduce = useReducedMotion()
   const router = useRouter()
   const locale = router.locale
 
@@ -38,7 +40,10 @@ export default function PostCard({ post }: { post: Post }) {
   }).format(date)
 
   return (
-    <div className='flex flex-col justify-between'>
+    <motion.div
+      variants={child(reduce)}
+      className='flex flex-col justify-between'
+    >
       <Link
         href={`/blog/${post?.slug?.current}`}
         className='group overflow-hidden'
@@ -114,6 +119,11 @@ export default function PostCard({ post }: { post: Post }) {
         categories={post.categories}
         currCategory={currCategory}
       />
-    </div>
+    </motion.div>
   )
 }
+
+const child = (reduce: boolean) => ({
+  initial: { opacity: 0, y: '20%' },
+  animate: { opacity: 1, y: 0, transition: { type: 'spring' } },
+})

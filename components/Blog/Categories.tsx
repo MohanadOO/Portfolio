@@ -5,8 +5,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { BASE_CATEGORIES } from '../../sanity/queries/blog'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
 import { useTranslation } from 'react-i18next'
+import { useReducedMotion, motion } from 'framer-motion'
 
 export default function Categories({ categories }) {
+  const reduce = useReducedMotion()
   const [showArrows, setShowArrows] = useState(false)
   const { t } = useTranslation('blog', { keyPrefix: 'categories' })
 
@@ -52,12 +54,15 @@ export default function Categories({ categories }) {
           <HiArrowLeft className='md:w-5 md:h-5 fill-white' />
         </button>
       )}
-      <ul
+      <motion.ul
+        variants={variant(reduce)}
+        initial='initial'
+        animate='animate'
         ref={ulRef}
         className='flex py-5 mx-4 items-center overflow-x-auto scrollbar-none relative'
       >
         {categories.map(({ _id, title }, index) => (
-          <li key={_id}>
+          <motion.li variants={child(reduce)} key={_id}>
             <Link
               href={`/blog?category=${title}`}
               className={`${
@@ -68,9 +73,9 @@ export default function Categories({ categories }) {
             >
               {index < BASE_CATEGORIES.length ? t(_id) : title}
             </Link>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
       {showArrows && (
         <button
           title='Scroll Right'
@@ -83,3 +88,19 @@ export default function Categories({ categories }) {
     </nav>
   )
 }
+
+const variant = (reduce: boolean) => ({
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.2,
+    },
+  },
+})
+
+const child = (reduce: boolean) => ({
+  initial: { scale: 0, y: '50%' },
+  animate: { scale: 1, y: 0, transition: { type: 'spring' } },
+})
