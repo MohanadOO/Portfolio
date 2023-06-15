@@ -37,7 +37,7 @@ export default function CodeInputLayout({
       >
         {language.toUpperCase()}
       </code>
-      <div tabIndex={-1}>
+      <div aria-label='Code Block' tabIndex={0}>
         <Refractor
           language={language}
           value={code}

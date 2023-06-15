@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useHandleScroll } from './useHandleScroll'
+import { getURL } from '../utils/helpers'
 
 type PostContextType = {
   post: Post
@@ -27,7 +28,7 @@ export function usePost() {
   return useContext(PostContext)
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+
 export function PostContextProvider({
   post,
   language,
@@ -41,7 +42,7 @@ export function PostContextProvider({
 
   useEffect(() => {
     async function increaseViewCount() {
-      await fetch(`${BASE_URL}/api/count?postID=${post._id}&type=view`, {
+      await fetch(`${getURL()}api/count?postID=${post._id}&type=view`, {
         method: 'POST',
       })
     }
@@ -59,7 +60,7 @@ export function PostContextProvider({
     setIsLike((prev) => !prev)
 
     const like = await fetch(
-      `${BASE_URL}/api/count?postID=${post._id}&type=like&val=${
+      `${getURL()}api/count?postID=${post._id}&type=like&val=${
         !isLike ? 1 : -1
       }`,
       {

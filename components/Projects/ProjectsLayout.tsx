@@ -2,18 +2,17 @@ import { NextSeo } from 'next-seo'
 import { motion } from 'framer-motion'
 import Projects from '../Home/Projects'
 import { useTranslation } from 'next-i18next'
-import pageSEO from '../../utils/pageSEO'
+import { getURL } from '../../utils/helpers'
 
 export default function ProjectsLayout({ projects }) {
   const { t } = useTranslation('projects')
-  const { pathName } = pageSEO('projects')
 
   return (
     <>
       <NextSeo
         title={t('title')}
         description={t('description')}
-        openGraph={{ url: pathName }}
+        openGraph={{ url: `${getURL()}projects` }}
       />
       <motion.section
         initial={{ scale: 0 }}

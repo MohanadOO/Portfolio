@@ -48,12 +48,16 @@ export default function Swiper({ images }: PropsType) {
         ))}
       </div>
       <button
+        title='Swipe Right'
+        aria-label='Swipe Right'
         onClick={() => handleCover(1)}
         className='absolute top-[50%] bg-black/70 rounded-full right-6 p-1 translate-y-[-50%] group'
       >
         <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 text-primary-purple group-hover:scale-125 transition-transform' />
       </button>
       <button
+        title='Swipe Right'
+        aria-label='Swipe Right'
         onClick={() => handleCover(-1)}
         className='absolute top-[50%] bg-black/70 rounded-full left-6 p-1 translate-y-[-50%] group'
       >

@@ -5,7 +5,7 @@ import { client } from '../sanity/sanity.client'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../components/Blog/RichTextComponents'
 import { NextSeo } from 'next-seo'
-import pageSEO from '../utils/pageSEO'
+import { getURL } from '../utils/helpers'
 
 export async function getStaticProps({ locale }) {
   const about = await client.fetch(
@@ -21,14 +21,13 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function About({ about, locale }) {
-  const { pathName } = pageSEO('about')
   const { t } = useTranslation('about')
   return (
     <>
       <NextSeo
         title={t('title')}
         description={t('description')}
-        openGraph={{ url: pathName }}
+        openGraph={{ url: `${getURL()}about` }}
       />
       <section
         id='aboutMe'

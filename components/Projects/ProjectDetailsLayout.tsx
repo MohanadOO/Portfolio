@@ -2,11 +2,12 @@ import { useReducedMotion, motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 import { AiFillGithub } from 'react-icons/ai'
 import { HiExternalLink } from 'react-icons/hi'
-import pageSEO from '../../utils/pageSEO'
 import CustomImage from '../CustomImage'
 import { NextSeo } from 'next-seo'
 import { sectionVariant } from '../../public/variants/MotionVariants'
 import Swiper from '../Swiper'
+import { getURL } from '../../utils/helpers'
+import { useRouter } from 'next/router'
 
 export default function ProjectDetailsLayout({ projectDetails, id }) {
   const reduce = useReducedMotion()
@@ -20,7 +21,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
     swiperImages.push(...images)
   }
 
-  const { locale, pathName } = pageSEO(id)
+  const locale = useRouter().locale
   const title = locale === 'ar' ? project.title?.ar : project.title?.en
   const body = locale === 'ar' ? project.body?.ar : project.body?.en
 
@@ -44,7 +45,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
 
   return (
     <>
-      <NextSeo title={title} description={body} openGraph={{ url: pathName }} />
+      <NextSeo title={title} description={body} openGraph={{ url: `${getURL()}projects/${id}` }} />
       <motion.section
         variants={sectionVariant(reduce)}
         initial='initial'

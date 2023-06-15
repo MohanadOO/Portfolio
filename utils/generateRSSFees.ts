@@ -1,8 +1,7 @@
 import { Feed } from 'feed'
-import fs from 'fs'
+import { getURL } from './helpers'
 
 export default async function generateRssFeed(allPosts: Post[]) {
-  const site_url = process.env.NEXT_PUBLIC_BASE_URL
 
   const date = new Date()
   const author = {
@@ -15,16 +14,16 @@ export default async function generateRssFeed(allPosts: Post[]) {
     title: 'Mohanad Alrwaihy Blog',
     description:
       'Sharing My Journey in Web Development | Interesting Tools and Methods | And more...',
-    id: site_url,
-    link: site_url,
-    image: `${site_url}/favicon/android-chrome-512x512.png`,
-    favicon: `${site_url}/favicon/android-chrome-512x512.png`,
+    id: getURL(),
+    link: getURL(),
+    image: `${getURL()}favicon/android-chrome-512x512.png`,
+    favicon: `${getURL()}favicon/android-chrome-512x512.png`,
     copyright: `All rights reserved ${date.getFullYear()}, Mohanad`,
     updated: date,
     generator: 'Feed for Node.js',
     feedLinks: {
-      rss2: `${site_url}/rss.xml`,
-      json: `${site_url}/rss.json`,
+      rss2: `${getURL()}rss.xml`,
+      json: `${getURL()}rss.json`,
     },
     author,
   }
@@ -32,7 +31,7 @@ export default async function generateRssFeed(allPosts: Post[]) {
   const feed = new Feed(feedOptions)
 
   allPosts.map((post: Post) => {
-    const url = `${site_url}/blog/${post.slug.current}`
+    const url = `${getURL()}blog/${post.slug.current}`
     feed.addItem({
       title: post.title.en,
       id: url,

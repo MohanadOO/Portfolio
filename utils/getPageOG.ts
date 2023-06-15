@@ -1,3 +1,4 @@
+import { getURL } from './helpers'
 import urlFor from './urlFor'
 
 export default function getPageOG(
@@ -13,14 +14,12 @@ export default function getPageOG(
   alt: string,
   categories: Category[]
 ) {
-  const vercelUrl = process.env.VERCEL_URL
-  let pathName = process.env.NEXT_PUBLIC_BASE_URL || `https://${vercelUrl}`
 
   const urlParams = `title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${
     authorProfile ? urlFor(authorProfile).width(60).height(60).url() : ''
   }`
 
-  const urlEncode = `${pathName}/api/postOG?` + encodeURI(urlParams)
+  const urlEncode = `${getURL()}api/postOG?` + encodeURI(urlParams)
 
   if (!authorName && !authorProfile) return undefined
   return {

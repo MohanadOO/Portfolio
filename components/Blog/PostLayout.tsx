@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo'
-import pageSEO from '../../utils/pageSEO'
 import getPageOG from '../../utils/getPageOG'
 
 import PostBody from './PostBody'
@@ -8,6 +7,7 @@ import LikeButton from './LikeButton'
 import { PostContextProvider, usePost } from '../../hooks/usePost'
 import PostHeader from './PostHeader'
 import PostRecommendations from './PostRecommendations'
+import { useRouter } from 'next/router'
 
 export function PostLayout({
   post,
@@ -16,11 +16,23 @@ export function PostLayout({
   post: Post
   preview?: boolean
 }) {
-  const { locale, pathName } = pageSEO(post.slug.current)
-
-  const language = post.body_ar ? locale : 'en'
-  const title = post.title ? post.title[language] : ''
-  const desc = post.description ? post.description[language] : ''
+  const {
+    title: postTitle,
+    description,
+    slug,
+    author,
+    mainImage,
+    publishedAt,
+    _updatedAt,
+    categories,
+    body_ar,
+    recommend,
+  } = post
+  const locale = useRouter().locale
+  const language = body_ar ? locale : 'en'
+  
+  const title = postTitle ? postTitle[language] : ''
+  const desc = description ? description[language] : ''
 
   return (
     <PostContextProvider post={post} preview={preview} language={language}>
@@ -28,17 +40,17 @@ export function PostLayout({
         title={title}
         description={desc}
         openGraph={getPageOG(
-          pathName,
+          `blog/${slug.current}`,
           'article',
-          post.title?.en,
-          post.description?.en,
-          post.author?.name,
-          post.author?.image,
-          post.mainImage,
-          post.publishedAt,
-          post._updatedAt,
+          title?.en,
+          description?.en,
+          author?.name,
+          author?.image,
+          mainImage,
+          publishedAt,
+          _updatedAt,
           title,
-          post.categories
+          categories || []
         )}
       />
       <article
@@ -53,8 +65,8 @@ export function PostLayout({
         <LikeButton />
         <ProgressBar />
         <PostBody language={language} />
-        {post.recommend && post.recommend.length > 0 && (
-          <PostRecommendations items={post.recommend} />
+        {recommend && recommend.length > 0 && (
+          <PostRecommendations items={recommend} />
         )}
       </article>
     </PostContextProvider>

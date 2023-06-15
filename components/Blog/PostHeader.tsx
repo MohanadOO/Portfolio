@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
 import { usePost } from '../../hooks/usePost'
-import pageSEO from '../../utils/pageSEO'
 import { AiOutlineWarning } from 'react-icons/ai'
 import { HiEye, HiOutlineBookOpen, HiOutlineHeart } from 'react-icons/hi'
 import PostCategories from './PostCategories'
+import { useRouter } from 'next/router'
 
 type PropsType = {
   language: string
@@ -12,9 +11,9 @@ type PropsType = {
 }
 
 export default function PostHeader({ language, title, desc }: PropsType) {
+  const locale = useRouter().locale
   const { post, viewCount, likeCount } = usePost()
 
-  const { locale } = pageSEO(post.slug.current)
   const readingTime =
     language === 'ar' ? post.readingTimeAR : post.readingTimeEN
 

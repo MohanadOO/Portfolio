@@ -31,12 +31,16 @@ export default function AssetView() {
         <div className='fixed inset-0 bg-black/70 backdrop-blur-md z-[60] p-2 sm:p-5 items-center'>
           <div className='flex flex-col h-full m-auto'>
             <button
+              title='Close Viewer'
+              aria-label='Close Viewer'
               onClick={() => handleShowImage('', false)}
               className='absolute top-10 text-black dark:text-white bg-gray-300/60 dark:bg-gray-900/60 rounded-full right-[50%] translate-x-[50%] p-1 sm:p-2 group z-[70]'
             >
               <HiX className='w-6 h-6 group-hover:scale-125 transition-transform' />
             </button>
             <button
+              title='Swipe Right'
+              aria-label='Swipe Right'
               onClick={() => handleCover(1 * localeVal)}
               className='absolute top-[50%] text-black dark:text-white bg-gray-300/60 dark:bg-gray-900/60 rounded-full right-6 sm:right-10 md:right-14 p-1 translate-y-[-50%] group z-[70]'
             >
@@ -44,6 +48,8 @@ export default function AssetView() {
             </button>
             <AssetCover />
             <button
+              title='Swipe Right'
+              aria-label='Swipe Right'
               onClick={() => handleCover(-1 * localeVal)}
               className='absolute top-[50%] text-black dark:text-white bg-gray-300/60 dark:bg-gray-900/60 rounded-full left-6 sm:left-10 md:left-14 p-1 translate-y-[-50%] group z-[70]'
             >

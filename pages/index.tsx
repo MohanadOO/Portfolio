@@ -8,6 +8,7 @@ import { TOP_SKILLS } from '../sanity/queries/skills'
 import { NextSeo } from 'next-seo'
 import { getPostsInfoHome } from '../sanity/queries/blog'
 import { useTranslation } from 'next-i18next'
+import { getURL } from '../utils/helpers'
 
 export default function Home({ projects, skills, locale, posts }) {
   const { t } = useTranslation('home')
@@ -24,7 +25,7 @@ export const getStaticProps = async ({ locale }) => {
   const skills = await client.fetch(TOP_SKILLS)
   const posts = await client.fetch(getPostsInfoHome)
 
-  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/rss`, {
+  fetch(`${getURL()}api/rss`, {
     method: 'PUT',
     body: JSON.stringify(posts),
   })
