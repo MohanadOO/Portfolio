@@ -54,7 +54,7 @@ export function PostLayout({
         )}
       />
       <article
-        className='mx-auto min-h-screen py-24 max-w-7xl'
+        className='mx-auto min-h-screen py-24 max-w-7xl px-4 sm:px-10'
         id='article_post'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >

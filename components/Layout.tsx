@@ -43,7 +43,7 @@ export default function Layout({ children }) {
 
   return (
     <main
-      className={`min-h-screen relative flex flex-col ${lato.variable} ${cairo.variable} ${pattaya.variable} ${arefRuqaa.variable} en:font-lato ar:font-cairo overflow-hidden selection:bg-primary-purple  selection:text-white`}
+      className={`min-h-screen relative flex flex-col ${lato.variable} ${cairo.variable} ${pattaya.variable} ${arefRuqaa.variable} en:font-lato ar:font-cairo selection:bg-primary-purple  selection:text-white`}
     >
       <Nav />
       <button
@@ -56,9 +56,7 @@ export default function Layout({ children }) {
       >
         <HiChevronUp className='mx-auto w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform' />
       </button>
-      <div className=' md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40 px-4 sm:px-10'>
-        {children}
-      </div>
+      <div className=' md:mx-10 lg:mx-20 xl:mx-32 2xl:mx-40'>{children}</div>
       <Footer />
       {isPreview && !showPreview && (
         <Link

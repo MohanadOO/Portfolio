@@ -40,7 +40,7 @@ export const getStaticProps = async ({ preview = false, params, locale }) => {
   if (preview) {
     return {
       props: {
-        ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+        ...(await loadTranslations(ni18nConfig, locale, ['blog', 'common'])),
         preview,
         slug,
       },
@@ -56,7 +56,7 @@ export const getStaticProps = async ({ preview = false, params, locale }) => {
 
   return {
     props: {
-      ...(await loadTranslations(ni18nConfig, locale, ['blog'])),
+      ...(await loadTranslations(ni18nConfig, locale, ['blog', 'common'])),
       post,
       slug,
     },

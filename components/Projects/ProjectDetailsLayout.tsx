@@ -45,13 +45,17 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
 
   return (
     <>
-      <NextSeo title={title} description={body} openGraph={{ url: `${getURL()}projects/${id}` }} />
+      <NextSeo
+        title={title}
+        description={body}
+        openGraph={{ url: `${getURL()}projects/${id}` }}
+      />
       <motion.section
         variants={sectionVariant(reduce)}
         initial='initial'
         animate='animate'
         id='project'
-        className='flex flex-col'
+        className='flex flex-col px-4 sm:px-10'
         aria-label={title}
       >
         <div className='flex flex-col min-h-screen lg:flex-row-reverse my-auto md:gap-10 lg:gap-20 mx-auto lg:items-center lg:justify-between w-full child:flex-1'>

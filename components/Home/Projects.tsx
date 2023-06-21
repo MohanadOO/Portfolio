@@ -16,16 +16,16 @@ export default function Projects({ projects, viewBtn = false }) {
     <section
       id='projects'
       aria-label={t('headers.projects', { ns: 'common' })}
-      className='flex items-center scroll-mt-28 mb-20'
+      className='flex items-center mb-20'
     >
       <div className='flex flex-col gap-5 w-full'>
-        <div className='pt-10 pb-20 flex flex-col gap-20 w-full '>
+        <div className='pt-10 pb-20 flex flex-col gap-20 w-full'>
           <motion.div
             variants={projectsContainer(reduce)}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 px-5 items-center'
+            className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 items-center'
           >
             {projects.map((project: ProjectType) => (
               <ProjectCard

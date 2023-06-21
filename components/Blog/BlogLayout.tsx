@@ -18,7 +18,7 @@ function BlogLayout({ children, categories, count }) {
         openGraph={{ url: `${getURL()}blog` }}
       />
       <section
-        className='min-h-screen pt-24 pb-44 max-w-[90rem] mx-auto'
+        className='min-h-screen pt-24 pb-44 max-w-[90rem] mx-auto px-4 sm:px-10 overflow-hidden'
         id='blog'
       >
         <Banner />

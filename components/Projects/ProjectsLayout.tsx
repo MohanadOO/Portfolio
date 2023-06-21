@@ -14,18 +14,15 @@ export default function ProjectsLayout({ projects }) {
         description={t('description')}
         openGraph={{ url: `${getURL()}projects` }}
       />
-      <motion.section
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.3 }}
-        className='min-h-full flex flex-col mt-10 text-primary-purple w-full py-20'
+      <section
+        className='min-h-full flex flex-col mt-10 text-primary-purple w-full py-20 px-4 sm:px-10 overflow-hidden'
         aria-label='projects'
       >
-        <div className='flex items-center mb-10 mx-auto md:mx-0'>
+        <div className='flex items-center my-10 mx-auto md:mx-0'>
           <h2 className='section_header'>{t('sectionHeader')}</h2>
         </div>
         <Projects projects={projects} />
-      </motion.section>
+      </section>
     </>
   )
 }
