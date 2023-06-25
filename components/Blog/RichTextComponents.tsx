@@ -202,8 +202,9 @@ const DEFAULT_ITEMS = {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
         <h1
+          data-header='true'
           id={id}
-          className='text-5xl md:text-6xl leading-tight md:leading-tight pt-10 pb-5 font-black text-primary-purple scroll-m-20 relative group'
+          className='text-5xl md:text-6xl leading-tight md:leading-tight mt-10 mb-5 font-black text-primary-purple scroll-m-20 relative group'
         >
           {children}
         </h1>
@@ -213,8 +214,9 @@ const DEFAULT_ITEMS = {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
         <h2
+          data-header='true'
           id={id}
-          className='text-4xl md:text-5xl leading-tight md:leading-tight pt-10 mb-5 pb-1 font-black text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
+          className='text-4xl md:text-5xl leading-tight md:leading-tight mt-10 mb-5 font-black text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
         >
           {children}
         </h2>
@@ -224,8 +226,9 @@ const DEFAULT_ITEMS = {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
         <h3
+          data-header='true'
           id={id}
-          className='text-2xl md:text-3xl pt-10 pb-5 font-black text-sky-600 dark:text-sky-500 scroll-m-20 relative group'
+          className='text-2xl md:text-3xl mt-10 mb-5 font-black text-sky-600 dark:text-sky-500 scroll-m-20 relative group'
         >
           {children}
         </h3>
@@ -235,8 +238,9 @@ const DEFAULT_ITEMS = {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
         <h4
+          data-header='true'
           id={id}
-          className='text-xl md:text-2xl pt-10 pb-5 font-black text-amber-600 dark:text-amber-500 scroll-m-20 relative group'
+          className='text-xl md:text-2xl mt-10 mb-5 font-black text-amber-600 dark:text-amber-500 scroll-m-20 relative group'
         >
           {children}
         </h4>
@@ -258,10 +262,10 @@ const DEFAULT_ITEMS = {
         <Link
           href={value.href || ''}
           rel={rel}
-          className='group inline hover:decoration-black border-b border-purple-700 hover:text-purple-700 hover:dark:text-purple-700 font-bold text-black dark:text-white underline-offset-2 ar:leading-loose'
+          className='inline hover:decoration-black border-b border-purple-700 group-data-[header=true]:py-1  hover:text-purple-700 hover:dark:text-purple-700 font-bold underline-offset-2 ar:leading-loose text-black dark:text-white group-data-[header=true]:text-inherit group-data-[header=true]:hover:text-purple-700'
         >
           {children}
-          <HiExternalLink className='text-purple-700 rtl:-rotate-90 inline ml-1 rtl:mr-1' />
+          <HiExternalLink className='group-data-[header=true]:text-inherit text-purple-700 rtl:-rotate-90 inline ml-1 rtl:mr-1' />
         </Link>
       )
     },
