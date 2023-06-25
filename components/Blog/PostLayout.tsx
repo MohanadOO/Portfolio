@@ -42,8 +42,8 @@ export function PostLayout({
         openGraph={getPageOG(
           `blog/${slug.current}`,
           'article',
-          title?.en,
-          description?.en,
+          post.title?.en,
+          post.description?.en,
           author?.name,
           author?.image,
           mainImage,

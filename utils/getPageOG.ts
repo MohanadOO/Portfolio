@@ -15,7 +15,11 @@ export default function getPageOG(
   categories: Category[]
 ) {
 
-  const urlParams = `title=${title}&desc=${desc}&date=${publishedAt}&name=${authorName}&authorPic=${
+  const urlParams = `title=${encodeURIComponent(
+    title
+  )}&desc=${encodeURIComponent(
+    desc
+  )}&date=${publishedAt}&name=${authorName}&authorPic=${
     authorProfile ? urlFor(authorProfile).width(60).height(60).url() : ''
   }`
 
@@ -23,7 +27,7 @@ export default function getPageOG(
 
   if (!authorName && !authorProfile) return undefined
   return {
-    url,
+    url: `${getURL()}${url}`,
     type,
     images: [
       {

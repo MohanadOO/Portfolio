@@ -13,7 +13,7 @@ const font = fetch(
 const OgImageHandler = async (req: NextRequest) => {
   const fontData = await font
   try {
-    const { searchParams } = new URL(req.url)
+    const { searchParams } = new URL(decodeURIComponent(req.url))
     const title = searchParams.get('title') || ''
     const desc = searchParams.get('desc') || ''
     const date = searchParams.get('date') || ''
