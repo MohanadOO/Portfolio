@@ -48,8 +48,8 @@ export default function AssetView() {
             </button>
             <AssetCover />
             <button
-              title='Swipe Right'
-              aria-label='Swipe Right'
+              title='Swipe Left'
+              aria-label='Swipe Left'
               onClick={() => handleCover(-1 * localeVal)}
               className='absolute top-[50%] text-black dark:text-white bg-gray-300/60 dark:bg-gray-900/60 rounded-full left-6 sm:left-10 md:left-14 p-1 translate-y-[-50%] group z-[70]'
             >

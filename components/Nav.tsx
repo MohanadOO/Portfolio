@@ -75,7 +75,9 @@ export default function Nav() {
                   `}
         title={t(item.translate, '')}
       >
-        {t(item.translate, '')} {item.disabled ? '...' : ''}
+        <span>
+          {t(item.translate, '')} {item.disabled ? '...' : ''}
+        </span>
       </Link>
     </li>
   ))
