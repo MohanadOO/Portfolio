@@ -50,7 +50,8 @@ export function PostLayout({
           publishedAt,
           _updatedAt,
           title,
-          categories || []
+          categories || [],
+          language
         )}
       />
       <article

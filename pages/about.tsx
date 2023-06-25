@@ -27,7 +27,7 @@ export default function About({ about, locale }) {
       <NextSeo
         title={t('title')}
         description={t('description')}
-        openGraph={{ url: `${getURL()}about` }}
+        openGraph={{ url: `${getURL(locale)}about` }}
       />
       <section
         id='aboutMe'

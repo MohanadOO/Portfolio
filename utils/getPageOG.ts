@@ -12,9 +12,9 @@ export default function getPageOG(
   publishedAt: string,
   updatedAt: string,
   alt: string,
-  categories: Category[]
+  categories: Category[],
+  language: string
 ) {
-
   const urlParams = `title=${encodeURIComponent(
     title
   )}&desc=${encodeURIComponent(
@@ -27,7 +27,7 @@ export default function getPageOG(
 
   if (!authorName && !authorProfile) return undefined
   return {
-    url: `${getURL()}${url}`,
+    url: `${getURL(language)}${url}`,
     type,
     images: [
       {

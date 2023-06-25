@@ -3,8 +3,10 @@ import { motion } from 'framer-motion'
 import Projects from '../Home/Projects'
 import { useTranslation } from 'next-i18next'
 import { getURL } from '../../utils/helpers'
+import { useRouter } from 'next/router'
 
 export default function ProjectsLayout({ projects }) {
+  const locale = useRouter().locale
   const { t } = useTranslation('projects')
 
   return (
@@ -12,7 +14,7 @@ export default function ProjectsLayout({ projects }) {
       <NextSeo
         title={t('title')}
         description={t('description')}
-        openGraph={{ url: `${getURL()}projects` }}
+        openGraph={{ url: `${getURL(locale)}projects` }}
       />
       <section
         className='min-h-full flex flex-col mt-10 text-primary-purple w-full py-20 px-4 sm:px-10 overflow-hidden'

@@ -6,6 +6,7 @@ import { client } from '../sanity/sanity.client'
 import { ALL_SKILLS } from '../sanity/queries/skills'
 import CustomImage from '../components/CustomImage'
 import { NextSeo } from 'next-seo'
+import { getURL } from '../utils/helpers'
 
 export async function getStaticProps({ locale }) {
   const skills = await client.fetch(ALL_SKILLS)
@@ -41,7 +42,11 @@ export default function Skills({
 
   return (
     <>
-      <NextSeo title={t('title')} description={t('description')} />
+      <NextSeo
+        title={t('title')}
+        description={t('description')}
+        openGraph={{ url: `${getURL(locale)}skills` }}
+      />
       <section
         id='mySkill'
         aria-label={t('sectionHeader')}

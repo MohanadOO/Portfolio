@@ -6,8 +6,10 @@ import { useTranslation } from 'next-i18next'
 import Categories from './Categories'
 import Pagination from './Pagination'
 import { getURL } from '../../utils/helpers'
+import { useRouter } from 'next/router'
 
 function BlogLayout({ children, categories, count }) {
+  const locale = useRouter().locale
   const { t } = useTranslation('blog')
 
   return (
@@ -15,7 +17,7 @@ function BlogLayout({ children, categories, count }) {
       <NextSeo
         title={t('title')}
         description={t('description')}
-        openGraph={{ url: `${getURL()}blog` }}
+        openGraph={{ url: `${getURL(locale)}blog` }}
       />
       <section
         className='min-h-screen pt-24 pb-44 max-w-[90rem] mx-auto px-4 sm:px-10 overflow-hidden'

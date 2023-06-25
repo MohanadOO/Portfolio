@@ -22,7 +22,7 @@ export default function SEO() {
     defaultTitle: headTitle,
     description: headDesc,
     openGraph: {
-      url: 'https://www.mohanad.in',
+      url: `https://www.mohanad.in${locale === 'ar' ? '/ar' : ''}`,
       type: 'website',
       locale,
       siteName: 'Mohanad Portfolio',

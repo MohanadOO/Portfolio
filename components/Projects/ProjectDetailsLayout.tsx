@@ -8,6 +8,7 @@ import { sectionVariant } from '../../public/variants/MotionVariants'
 import Swiper from '../Swiper'
 import { getURL } from '../../utils/helpers'
 import { useRouter } from 'next/router'
+import urlFor from '../../utils/urlFor'
 
 export default function ProjectDetailsLayout({ projectDetails, id }) {
   const reduce = useReducedMotion()
@@ -48,7 +49,17 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
       <NextSeo
         title={title}
         description={body}
-        openGraph={{ url: `${getURL()}projects/${id}` }}
+        openGraph={{
+          url: `${getURL(locale)}projects/${id}`,
+          images: [
+            {
+              url: mainImage && urlFor(mainImage).url(),
+              width: 1200,
+              height: 600,
+              alt: title,
+            },
+          ],
+        }}
       />
       <motion.section
         variants={sectionVariant(reduce)}
