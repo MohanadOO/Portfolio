@@ -18,10 +18,10 @@ export default function PostCategories({
           href={`/blog?category=${category.title}`}
           key={category.title}
           title={category.title}
-          className={`text-center px-2 text-sm rounded-full font-bold text-gray-600 dark:text-gray-300 border border-gray-600 line-clamp-1  ${
+          className={`text-center px-2 text-sm rounded-full font-bold border border-gray-600 line-clamp-1  ${
             currCategory === category.title
               ? 'bg-gray-600 dark:bg-gray-200 dark:text-black text-white'
-              : 'hover:bg-gray-600 hover:dark:bg-gray-200 hover:dark:text-black hover:text-white'
+              : 'hover:bg-gray-600 hover:dark:bg-gray-200 hover:dark:text-black hover:text-white text-gray-600 dark:text-gray-300'
           }`}
         >
           {category.title}
