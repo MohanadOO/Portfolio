@@ -19,6 +19,7 @@
     "@sanity/types": "^3.11.3",
     "@sanity/ui": "^1.3.3",
     "@sanity/vision": "^3.11.3",
+    "@sanity/webhook": "^3.0.1",
     "@types/styled-components": "^5.1.26",
     "@vercel/og": "^0.0.27",
     "feed": "^4.2.2",
@@ -45,6 +46,7 @@
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "slugify": "^1.6.6",
     "styled-components": "^5.3.11",
+    "swr": "^2.2.0",
     "tailwind-scrollbar": "^3.0.4"
   },
   "devDependencies": {
