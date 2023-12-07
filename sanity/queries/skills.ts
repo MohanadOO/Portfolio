@@ -27,4 +27,4 @@ export const ALL_SKILLS = `*[_type == 'mySkill']{
     hex
   },
   link
-}`
+} | order(topSkill desc)`

@@ -33,10 +33,8 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Certification({
-  locale,
   certificates,
 }: {
-  locale: string
   certificates: Certificate[]
 }) {
   const { t } = useTranslation('certificate')
@@ -67,7 +65,7 @@ export default function Certification({
                   style={{ borderRadius: '50%' }}
                   alt={item.title}
                 />
-                <div className='flex flex-col items-center md:items-start'>
+                <div className='flex flex-col items-center md:items-start max-w-xl'>
                   <a
                     href={item.courseUrl ? item.courseUrl : '#'}
                     className={`flex items-center gap-1 text-lg font-bold transition-colors ${
@@ -77,9 +75,6 @@ export default function Certification({
                     }`}
                   >
                     {item.title}{' '}
-                    {item.courseUrl && (
-                      <HiExternalLink className='w-3 h-3 rtl:-rotate-90' />
-                    )}
                   </a>
                   <p className='opacity-80 text-sm'>
                     {item.provider.provider} -{' '}
