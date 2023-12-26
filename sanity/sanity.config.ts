@@ -49,6 +49,8 @@ const blog = [
 
 const pages = [{ typeName: 'aboutPage', title: 'About Page' }]
 
+const others = [{ typeName: 'assets', title: 'Assets' }]
+
 const documentCategories = [projects, certificate, blog]
 
 export default defineConfig({
@@ -75,6 +77,8 @@ export default defineConfig({
             ...pages.map((page) =>
               singletonListItem(S, page.typeName, page.title)
             ),
+            S.divider(),
+            ...others.map((type) => S.documentTypeListItem(type.typeName)),
           ])
       },
       defaultDocumentNode: getDefaultDocumentNode,

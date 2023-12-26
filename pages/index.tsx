@@ -9,13 +9,19 @@ import { NextSeo } from 'next-seo'
 import { getPostsInfoHome } from '../sanity/queries/blog'
 import { useTranslation } from 'next-i18next'
 import { getURL } from '../utils/helpers'
+import { getAsset } from '../sanity/queries/asset'
 
-export default function Home({ projects, skills, locale, posts }) {
+export default function Home({ projects, skills, posts, resume }) {
   const { t } = useTranslation('home')
   return (
     <>
       <NextSeo title={t('title')} />
-      <HomeLayout projects={projects} skills={skills} posts={posts} />
+      <HomeLayout
+        projects={projects}
+        skills={skills}
+        posts={posts}
+        resume={resume}
+      />
     </>
   )
 }
@@ -24,6 +30,9 @@ export const getStaticProps = async ({ locale }) => {
   const projects = await client.fetch(PROJECTS_QUERY)
   const skills = await client.fetch(TOP_SKILLS)
   const posts = await client.fetch(getPostsInfoHome)
+
+  const query = getAsset('Resume')
+  const resume = await client.fetch(query)
 
   fetch(`${getURL()}api/rss`, {
     method: 'PUT',
@@ -40,6 +49,7 @@ export const getStaticProps = async ({ locale }) => {
       skills,
       locale,
       posts,
+      resume,
     },
     revalidate: 300,
   }

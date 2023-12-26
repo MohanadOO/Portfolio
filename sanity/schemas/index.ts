@@ -15,6 +15,7 @@ import video from './video'
 import imageType from './imageType'
 import codeEmbed from './codeEmbed'
 import customNoteType from './customNoteType'
+import assets from './assets'
 
 export const schemaTypes = [
   project,
@@ -34,4 +35,5 @@ export const schemaTypes = [
   video,
   imageType,
   codeEmbed,
+  assets,
 ]

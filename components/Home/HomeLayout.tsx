@@ -8,11 +8,11 @@ import { BlogList } from '../Blog/BlogList'
 import { useTranslation } from 'next-i18next'
 import React from 'react'
 
-export default function HomeLayout({ projects, skills, posts }) {
+export default function HomeLayout({ projects, skills, posts, resume }) {
   const { t } = useTranslation('home')
 
   const list = [
-    { component: <Header />, header: '', id: 'header' },
+    { component: <Header resume={resume} />, header: '', id: 'header' },
     { component: <AboutMe />, header: 'aboutMe', id: 'aboutMe' },
     {
       component: <Skills skills={skills} />,

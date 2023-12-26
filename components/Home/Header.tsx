@@ -9,7 +9,7 @@ import {
 } from '../../public/variants/MotionVariants'
 import { HiArrowCircleDown, HiDownload } from 'react-icons/hi'
 
-export default function Header() {
+export default function Header({ resume }) {
   const reduce = useReducedMotion()
 
   const { t } = useTranslation('home', { keyPrefix: 'header' })
@@ -54,15 +54,20 @@ export default function Header() {
             <span>{t('about')}</span>
             <HiArrowCircleDown className='w-6 h-6' />
           </motion.a>
-          <motion.a
-            variants={fadeInLeft(reduce)}
-            href='https://www.cakeresume.com/s--xFe5zn7_6pbOn71eYKrAOw--/mohanad-alrwaihy'
-            target='_blank'
-            className='flex items-center gap-3 self-center  py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-purple dark:text-primary-white shadow-primary-black hover:bg-primary-purple hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
-          >
-            <span>{t('resume')}</span>
-            <HiDownload className='w-6 h-6' />
-          </motion.a>
+          {resume?.file?.asset?.url && (
+            <motion.div variants={fadeInLeft(reduce)}>
+              <a
+                href={resume.file?.asset?.url}
+                download={resume.downloadName}
+                title={resume.downloadName}
+                target='_blank'
+                className='flex items-center gap-3 self-center py-2 md:py-3 px-4 md:px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-orange dark:text-primary-white shadow-primary-black hover:bg-primary-orange hover:text-primary-white transition-colors  lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+              >
+                <span>{t('resume')}</span>
+                <HiDownload className='w-6 h-6' />
+              </a>
+            </motion.div>
+          )}
         </div>
       </motion.div>
 
