@@ -29,7 +29,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
   const allSkills = skills?.map((skill: SkillType) => {
     return (
       <li
-        className='cursor-pointer relative group flex gap-2 py-2 px-5 items-center rounded-md bg-black/20 text-background'
+        className='cursor-pointer relative group flex gap-2 py-2 px-5 items-center rounded-md bg-foreground/20 text-background'
         title={skill?.name}
         key={`${skill?.name}_key`}
       >
