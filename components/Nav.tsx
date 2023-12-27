@@ -155,7 +155,7 @@ export default function Nav() {
         </ul>
 
         {/* Mobile Navigation */}
-        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary/10 py-5 px-10 relative z-20 bg-background dark:bg-foreground transition-colors'>
+        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary/10 py-5 px-10 relative z-20 bg-background transition-colors'>
           <li className='font-pattaya ar:font-arefRuqaa font-normal rtl:font-bold first-letter:text-primary hover:text-primary transition-colors duration-300'>
             <Link href='/' title={t('name', '')}>
               {t('name', '')}
@@ -182,7 +182,7 @@ export default function Nav() {
           )}
 
           {openMenu && (
-            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-background dark:bg-foreground shadow-md z-20 transition-colors border-t border-primary/50'>
+            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-background shadow-md z-20 transition-colors border-t border-primary/50'>
               {navigationItems}
               <ul className='flex flex-wrap justify-center items-center font-bold gap-5 border-t border-border pt-5'>
                 <li>
@@ -199,7 +199,7 @@ export default function Nav() {
                     className='flex gap-2 items-center'
                     aria-label='RSS Feed'
                   >
-                    <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary dark:fill-background' />
+                    <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary' />
                     <span>RSS</span>
                   </a>
                 </li>
