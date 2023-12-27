@@ -3,7 +3,7 @@ import AboutMe from './AboutMe'
 import Skills from './Skills'
 import Projects from './Projects'
 
-import { useRouter } from 'next/router'
+
 import { BlogList } from '../Blog/BlogList'
 import { useTranslation } from 'next-i18next'
 import React from 'react'

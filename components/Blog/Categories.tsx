@@ -7,7 +7,12 @@ import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion, motion } from 'framer-motion'
 
-export default function Categories({ categories }) {
+export type Category = {
+  title: string
+  _id: string
+}
+
+export default function Categories({ categories }: { categories: Category[] }) {
   const reduce = useReducedMotion()
   const [showArrows, setShowArrows] = useState(false)
   const { t } = useTranslation('blog', { keyPrefix: 'categories' })
@@ -63,8 +68,15 @@ export default function Categories({ categories }) {
       >
         {categories.map(({ _id, title }, index) => (
           <motion.li variants={child(reduce)} key={_id}>
-            <Link
-              href={`/blog?category=${title}`}
+            <button
+              onClick={() => {
+                router.query.category = title
+                router.query.page = '1'
+                router.push(router, undefined, {
+                  shallow: true,
+                })
+              }}
+              // shallow={true}
               className={`${
                 category === title
                   ? 'border-b-black dark:border-b-white text-black dark:text-white cursor-auto'
@@ -72,7 +84,7 @@ export default function Categories({ categories }) {
               } whitespace-nowrap px-3 py-2 font-bold border-b-2`}
             >
               {index < BASE_CATEGORIES.length ? t(_id) : title}
-            </Link>
+            </button>
           </motion.li>
         ))}
       </motion.ul>

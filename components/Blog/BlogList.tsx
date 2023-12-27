@@ -3,36 +3,68 @@ import { useTranslation } from 'next-i18next'
 import { HiOutlineLink } from 'react-icons/hi'
 import PostCard from './PostCard'
 import { useReducedMotion, motion } from 'framer-motion'
+import Pagination from './Pagination'
+import { useRouter } from 'next/router'
+import { useQuery } from '@tanstack/react-query'
+import { getPostsQuery } from '../../sanity/queries/blog'
+import { client } from '../../sanity/sanity.client'
+import { useEffect, useState } from 'react'
+import { Spinner } from '../ui/Spinner'
+import ErrorMessage from '../ui/ErrorMessage'
 
 export function BlogList({
   viewBtn = false,
   posts,
+  preview = false,
 }: {
   viewBtn?: boolean
-  posts: Post[]
+  posts: { items: Post[]; total: number }
+  preview?: boolean
 }) {
+  const [initialRender, setInitialRender] = useState(false)
+
+  const router = useRouter()
   const reduce = useReducedMotion()
   const { t } = useTranslation(['blog', 'common'])
 
+  useEffect(() => {
+    setInitialRender(true)
+  }, [])
+
+  const { page, category, q } = router.query
+  const pathname = router.pathname
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['posts', page || '1', category || 'View All', q || '', pathname],
+    queryFn: () => client.fetch(getPostsQuery(category, page, q)),
+    initialData: !initialRender ? posts : undefined,
+    enabled: !preview,
+  })
+
+  if (isLoading) return <Spinner />
+  if (error) return <ErrorMessage message={t('noResult')} />
+
+  /* 
+     useQuery will not work in the preview since we are using the usePreview hook from Sanity.
+     So we get the data from it which is passed to this component
+  */
+  const items = preview ? posts.items : data.items
+  const total = preview ? posts.total : data.total
+
   return (
     <div className='mx-auto my-10'>
-      {posts.length > 0 ? (
+      {items.length > 0 ? (
         <motion.div
           variants={variant(reduce)}
           initial='initial'
           animate='animate'
           className='grid lg:grid-cols-2 2xl:grid-cols-3 gap-10 gap-y-16 pb-10'
         >
-          {posts.map((post: Post) => {
+          {items.map((post: Post) => {
             return <PostCard key={post._id} post={post} />
           })}
         </motion.div>
       ) : (
-        <div className='text-center my-10'>
-          <h1 className='font-bold text-red-600 dark:text-red-400 uppercase text-2xl'>
-            {t('noPost')}
-          </h1>
-        </div>
+        <ErrorMessage message={t('noResult')} />
       )}
 
       {viewBtn && (
@@ -44,6 +76,8 @@ export function BlogList({
           <HiOutlineLink className='w-5 h-5' />
         </Link>
       )}
+
+      {total ? <Pagination count={total} /> : ''}
     </div>
   )
 }

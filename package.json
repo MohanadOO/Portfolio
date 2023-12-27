@@ -20,6 +20,8 @@
     "@sanity/ui": "^1.3.3",
     "@sanity/vision": "^3.11.3",
     "@sanity/webhook": "^3.0.1",
+    "@tanstack/react-query": "^5.14.6",
+    "@tanstack/react-query-devtools": "^5.14.7",
     "@types/styled-components": "^5.1.26",
     "@vercel/og": "^0.0.27",
     "feed": "^4.2.2",

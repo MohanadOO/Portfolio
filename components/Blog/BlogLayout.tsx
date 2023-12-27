@@ -3,13 +3,28 @@ import Banner from './Banner'
 
 import { NextSeo } from 'next-seo'
 import { useTranslation } from 'next-i18next'
-import Categories from './Categories'
-import Pagination from './Pagination'
+import Categories, { Category } from './Categories'
 import { getURL } from '../../utils/helpers'
 import { useRouter } from 'next/router'
+import SearchBar from './SearchBar'
+import { BlogList } from './BlogList'
 
-function BlogLayout({ children, categories, count }) {
-  const locale = useRouter().locale
+type PropsType = {
+  children?: React.ReactNode
+  categories: Category[]
+  posts: { items: Post[]; total: number }
+  preview?: boolean
+}
+
+function BlogLayout({
+  children,
+  categories,
+  posts,
+  preview = false,
+}: PropsType) {
+  const router = useRouter()
+  const locale = router.locale
+
   const { t } = useTranslation('blog')
 
   return (
@@ -25,8 +40,9 @@ function BlogLayout({ children, categories, count }) {
       >
         <Banner />
         <Categories categories={categories} />
+        <SearchBar />
+        <BlogList posts={posts} preview={preview} />
         {children}
-        <Pagination count={count} />
       </section>
     </>
   )

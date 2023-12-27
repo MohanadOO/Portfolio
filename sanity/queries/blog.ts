@@ -1,3 +1,4 @@
+import { Category } from './../../components/Blog/Categories'
 export const POSTS_PER_PAGE = 6
 const START_PAGE = (page: number) => page * POSTS_PER_PAGE - POSTS_PER_PAGE
 const END_PAGE = (page: number) => page * POSTS_PER_PAGE
@@ -23,19 +24,21 @@ export function getPage(page: string | string[]): number {
 
 export function getPostsQuery(
   category: string | string[],
-  page: string | string[]
+  page: string | string[],
+  q?: string | string[]
 ): string {
-  if (category) {
-    if (category === 'View All') return getPostsInfo(getPage(page))
-    if (BASE_CATEGORIES.find((val) => val.title === category)) {
-      return getPostsBySpecialCategory(getPage(page), category as string)
-    }
-    return getPostsByCategory(getPage(page), category as string)
+  category = typeof category === 'string' ? category : ''
+  q = typeof q === 'string' ? q : ''
+
+  // Because there are no categories based from the BASE_CATEGORIES this is just for custom ordering
+  if (BASE_CATEGORIES.map((val) => val.title).includes(category)) {
+    category = ''
   }
-  return getPostsInfo(getPage(page))
+
+  return getPostsInfo(getPage(page), category, q)
 }
 
-export const getAllPosts = `*[_type=='post']{
+export const getAllPostsRSS = `*[_type=='post']{
   _id,
   title,
   description,
@@ -50,72 +53,34 @@ export const getAllPosts = `*[_type=='post']{
   "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body_ar)),
   "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
+  }
+  'total': count(*[_type == 'post'])
 } | order(publishedAt desc)`
 
-export const getPostsInfo = (page: number) => {
-  return `{
-  "items": *[_type=='post']{
-  _id,
-  title,
-  description,
-  _createdAt,
-  _updatedAt,
-  publishedAt,
-  slug,
-  mainImage,
-  author->,
-  categories[]->,
-  likeCount,
-  viewCount,
-  "totalCharactersEN": length(pt::text(body_en)),
-  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body_ar)),
-  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
-} | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}],
-  "total": count(*[_type == 'post'])
-}`
-}
-
-export const getPostsByCategory = (page: number, category: string) => {
-  return `{
-  "items": *[_type=='post' && '${category}' in categories[]->title]{
-  _id,
-  title,
-  description,
-  _createdAt,
-  _updatedAt,
-  publishedAt,
-  slug,
-  mainImage,
-  author->,
-  categories[]->,
-  likeCount,
-  viewCount,
-  "totalCharactersEN": length(pt::text(body_en)),
-  "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
-  "totalCharactersAR": length(pt::text(body_ar)),
-  "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
-} | order(publishedAt desc) [${START_PAGE(page)}...${END_PAGE(page)}], 
-  'total': count(*[_type=='post' && '${category}' in categories[]->title])
-}`
-}
-
-export const getPostsBySpecialCategory = (page: number, category: string) => {
-  function getOrder(category: string) {
-    switch (category) {
-      case 'Most Views':
-        return 'viewCount desc'
-      case 'Most Liked':
-        return 'likeCount desc'
-      default:
-        '_createdAT desc'
-    }
+function getOrder(category: string) {
+  switch (category) {
+    case 'Most Views':
+      return 'viewCount desc'
+    case 'Most Liked':
+      return 'likeCount desc'
+    default:
+      return 'publishedAt desc'
   }
+}
+
+export const getPostsInfo = (page: number, category = '', search = '') => {
+  const isCategory =
+    category !== '' ? `&& '${category}' in categories[]->title` : ''
+
+  const isSearch =
+    search !== ''
+      ? `&& ([title.en, title.ar] match "${search}*" || body_en[].children[].text match "${search}*" || body_ar[].children[].text match "${search}*")`
+      : ''
 
   const orderBy = getOrder(category)
 
   return `{
-  "items": *[_type=='post']{
+  "items": *[_type=='post' ${isCategory} ${isSearch}]{
   _id,
   title,
   description,
@@ -126,14 +91,14 @@ export const getPostsBySpecialCategory = (page: number, category: string) => {
   mainImage,
   author->,
   categories[]->,
-  "likeCount": coalesce(likeCount, 1),
+  likeCount,
   viewCount,
   "totalCharactersEN": length(pt::text(body_en)),
   "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body_ar)),
   "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
 } | order(${orderBy}) [${START_PAGE(page)}...${END_PAGE(page)}],
-  'total': count(*[_type == 'post'])
+  "total": count(*[_type == 'post' ${isCategory} ${isSearch}])
 }`
 }
 
@@ -142,9 +107,10 @@ export const getCategories = () => `*[_type=='category' && show == true]{
   _createdAt,
   title,
   "count": count(*[_type=='post' && references(^._id)])
-} | order(count desc) [0...${LIMIT_CATEGORIES}]`
+} | order(count desc)`
 
-export const getPostsInfoHome = `*[_type=='post' && count(body_ar) > 0][0...6]{
+export const getPostsInfoHome = `{
+  "items": *[_type=='post' && count(body_ar) > 0][0...6]{
   _id,
   title,
   description,
@@ -161,7 +127,8 @@ export const getPostsInfoHome = `*[_type=='post' && count(body_ar) > 0][0...6]{
   "readingTimeEN": round(length(pt::text(body_en)) / 5 / 180 ),
   "totalCharactersAR": length(pt::text(body_ar)),
   "readingTimeAR": round(length(pt::text(body_ar)) / 5 / 180 )
-} | order(publishedAt desc)`
+} | order(publishedAt desc)
+}`
 
 export const getPostData = (slug: string) => {
   return `*[_type=='post' && slug.current == '${slug}'][0]{

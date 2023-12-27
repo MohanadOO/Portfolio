@@ -5,8 +5,7 @@ import { ni18nConfig } from '../ni18n.config'
 import '../styles/globals.css'
 import '../styles/prism.css'
 import '../styles/nprogress.css'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { AppProps } from 'next/app'
 
 import SEO from '../next-seo.config'
@@ -16,12 +15,25 @@ import { MotionConfig } from 'framer-motion'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import Script from 'next/script'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 Router.events.on('routeChangeStart', NProgress.start)
 Router.events.on('routeChangeError', NProgress.done)
 Router.events.on('routeChangeComplete', NProgress.done)
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+            refetchOnWindowFocus: false,
+          },
+        },
+      })
+  )
   const studioRoute = router.route.startsWith('/studio')
 
   const locale = router.locale
@@ -39,19 +51,21 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <ThemeProvider attribute='class'>
-      <DefaultSeo {...SEO()} />
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <DefaultSeo {...SEO()} />
 
-      {/* Google Analytics Scripts */}
-      <Script
-        strategy='lazyOnload'
-        src={`https://www.googletagmanager.com/gtag/js?id=${
-          environment !== 'development' && !isPreview
-            ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
-            : ''
-        }`}
-      />
-      <Script strategy='lazyOnload'>
-        {`
+        {/* Google Analytics Scripts */}
+        <Script
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtag/js?id=${
+            environment !== 'development' && !isPreview
+              ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+              : ''
+          }`}
+        />
+        <Script strategy='lazyOnload'>
+          {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -63,13 +77,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               page_path: window.location.pathname,
               });
           `}
-      </Script>
+        </Script>
 
-      <MotionConfig reducedMotion='user'>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </MotionConfig>
+        <MotionConfig reducedMotion='user'>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </MotionConfig>
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }

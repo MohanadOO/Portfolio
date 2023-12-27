@@ -28,9 +28,9 @@ export const getServerSideProps = async ({
     }
   }
 
-  const { page, category } = query
+  const { page, category, q } = query
   const posts: { items: Post[]; total: number } = await client.fetch(
-    getPostsQuery(category, page)
+    getPostsQuery(category, page, q)
   )
   const categories: Category[] = await client.fetch(getCategories())
 
@@ -56,9 +56,5 @@ export default function Blog({ preview, posts, categories }: Props) {
       </PreviewSuspense>
     )
   }
-  return (
-    <BlogLayout categories={categories} count={posts.total}>
-      <BlogList posts={posts.items} />
-    </BlogLayout>
-  )
+  return <BlogLayout categories={categories} posts={posts} />
 }

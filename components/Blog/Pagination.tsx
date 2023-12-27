@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
 import { POSTS_PER_PAGE, getPage } from '../../sanity/queries/blog'
 import { HiArrowLeft, HiArrowRight, HiDotsHorizontal } from 'react-icons/hi'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +10,7 @@ export default function Pagination({ count }: { count: number }) {
 
   const router = useRouter()
   const query = router.query
-  const { page, category } = query
+  const { page, category, search } = query
 
   const totalCount = Math.ceil(count / POSTS_PER_PAGE)
 
@@ -25,9 +24,8 @@ export default function Pagination({ count }: { count: number }) {
   if (getPage(page) === 0 || paginationRange.length < 2) return null
 
   function getLink(num: number) {
-    return `/blog?page=${getPage(page) + num}${
-      category ? `&category=${category}` : ''
-    }`
+    router.query.page = (getPage(page) + num).toString()
+    router.push(router, null, { shallow: true })
   }
 
   return (
@@ -35,14 +33,14 @@ export default function Pagination({ count }: { count: number }) {
       {paginationRange.length > 1 && (
         <div className='flex flex-wrap items-center w-full font-bold text-lg relative'>
           {getPage(page) > 1 && (
-            <Link
+            <button
               title='Previous Page'
               className='flex items-center gap-2 hover:text-primary-purple'
-              href={getLink(-1)}
+              onClick={() => getLink(-1)}
             >
               <HiArrowLeft className='ar:rotate-180' />
               {t('previous')}
-            </Link>
+            </button>
           )}
           <div className='absolute left-[50%] translate-x-[-50%] hidden sm:flex gap-2'>
             {paginationRange.map((num, index) => (
@@ -57,26 +55,26 @@ export default function Pagination({ count }: { count: number }) {
                   </li>
                 ) : (
                   <li className='flex items-center'>
-                    <Link
+                    <button
                       className='rounded-md shadow-md py-2 px-4 hover:bg-gray-200 hover:text-black'
-                      href={getLink(Number(num) - getPage(page))}
+                      onClick={() => getLink(Number(num) - getPage(page))}
                     >
                       {num}
-                    </Link>
+                    </button>
                   </li>
                 )}
               </ul>
             ))}
           </div>
           {paginationRange.length > getPage(page) && (
-            <Link
-              href={getLink(1)}
+            <button
+              onClick={() => getLink(1)}
               title='Next Page'
               className='flex ms-auto items-center gap-2 hover:text-primary-purple'
             >
               {t('next')}
               <HiArrowRight className='ar:rotate-180' />
-            </Link>
+            </button>
           )}
         </div>
       )}
