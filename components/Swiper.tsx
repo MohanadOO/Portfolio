@@ -25,7 +25,7 @@ export default function Swiper({ images }: PropsType) {
   }
 
   return (
-    <div className='relative aspect-video max-w-full rounded-lg shadow-lg w-full ring ring-primary-purple overflow-hidden'>
+    <div className='relative aspect-video max-w-full rounded-lg shadow-lg w-full ring ring-primary overflow-hidden'>
       <CustomImage
         src={images[cover] ? urlFor(images[cover]).fit('max').url() : ''}
         alt={images[cover]?.alt || 'Cover Image'}
@@ -39,7 +39,7 @@ export default function Swiper({ images }: PropsType) {
           <div
             key={i}
             onClick={() => setCover(i)}
-            className={`rounded-full bg-primary-purple select-none cursor-pointer ${
+            className={`rounded-full bg-primary select-none cursor-pointer ${
               i === cover
                 ? 'w-7 h-4 sm:w-12 sm:h-5'
                 : 'w-4 h-4 sm:w-5 sm:h-5 opacity-70'
@@ -53,7 +53,7 @@ export default function Swiper({ images }: PropsType) {
         onClick={() => handleCover(1)}
         className='absolute top-[50%] bg-black/70 rounded-full right-6 p-1 translate-y-[-50%] group'
       >
-        <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 text-primary-purple group-hover:scale-125 transition-transform' />
+        <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 text-primary group-hover:scale-125 transition-transform' />
       </button>
       <button
         title='Swipe Right'
@@ -61,7 +61,7 @@ export default function Swiper({ images }: PropsType) {
         onClick={() => handleCover(-1)}
         className='absolute top-[50%] bg-black/70 rounded-full left-6 p-1 translate-y-[-50%] group'
       >
-        <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 text-primary-purple rotate-180 group-hover:scale-125 transition-transform' />
+        <HiOutlineChevronRight className='w-6 h-6 sm:w-9 md:h-9 text-primary rotate-180 group-hover:scale-125 transition-transform' />
       </button>
     </div>
   )

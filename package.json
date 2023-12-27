@@ -24,12 +24,15 @@
     "@tanstack/react-query-devtools": "^5.14.7",
     "@types/styled-components": "^5.1.26",
     "@vercel/og": "^0.0.27",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "feed": "^4.2.2",
     "framer-motion": "^7.10.3",
     "i18next": "^22.5.0",
     "i18next-chained-backend": "^4.2.0",
     "i18next-http-backend": "^2.2.1",
     "i18next-localstorage-backend": "^4.1.1",
+    "lucide-react": "^0.302.0",
     "next": "^13.4.4",
     "next-i18next": "^13.2.2",
     "next-sanity": "^4.3.3",
@@ -48,8 +51,9 @@
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "slugify": "^1.6.6",
     "styled-components": "^5.3.11",
-    "swr": "^2.2.0",
-    "tailwind-scrollbar": "^3.0.4"
+    "tailwind-merge": "^2.2.0",
+    "tailwind-scrollbar": "^3.0.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "18.7.18",

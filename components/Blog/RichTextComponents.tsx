@@ -187,12 +187,12 @@ const DEFAULT_ITEMS = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary-purple space-y-3'>
+      <ul className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-disc marker:font-bold marker:text-primary space-y-3'>
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-decimal marker:font-bold marker:text-primary-purple space-y-3'>
+      <ol className='ml-5 md:ml-10 rtl:mr-7 rtl:md:mr-10 py-3 list-decimal marker:font-bold marker:text-primary space-y-3'>
         {children}
       </ol>
     ),
@@ -204,7 +204,7 @@ const DEFAULT_ITEMS = {
         <h1
           data-header='true'
           id={id}
-          className='text-5xl md:text-6xl leading-tight md:leading-tight mt-10 mb-5 font-black text-primary-purple scroll-m-20 relative group'
+          className='text-5xl md:text-6xl leading-tight md:leading-tight mt-10 mb-5 font-black text-primary scroll-m-20 relative group'
         >
           {children}
         </h1>
@@ -255,12 +255,14 @@ const DEFAULT_ITEMS = {
   },
   marks: {
     link: ({ children, value }: any) => {
+      const target = value.external === false ? '_self' : '_blank'
       const rel = !value.href?.startsWith('/')
         ? 'noreferrer noopener'
         : undefined
       return (
         <Link
           href={value.href || ''}
+          target={target}
           rel={rel}
           className='inline hover:decoration-black border-b border-purple-700 group-data-[header=true]:py-1  hover:text-purple-700 hover:dark:text-purple-700 font-bold underline-offset-2 ar:leading-loose text-black dark:text-white group-data-[header=true]:text-inherit group-data-[header=true]:hover:text-purple-700'
         >

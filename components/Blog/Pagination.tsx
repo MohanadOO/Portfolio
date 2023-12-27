@@ -35,7 +35,7 @@ export default function Pagination({ count }: { count: number }) {
           {getPage(page) > 1 && (
             <button
               title='Previous Page'
-              className='flex items-center gap-2 hover:text-primary-purple'
+              className='flex items-center gap-2 hover:text-primary'
               onClick={() => getLink(-1)}
             >
               <HiArrowLeft className='ar:rotate-180' />
@@ -46,11 +46,11 @@ export default function Pagination({ count }: { count: number }) {
             {paginationRange.map((num, index) => (
               <ul key={`${num}_${index}}`} className='flex'>
                 {getPage(page) === num ? (
-                  <li className='rounded-md shadow-md py-2 px-4 bg-primary-purple text-white cursor-auto'>
+                  <li className='rounded-md shadow-md py-2 px-4 bg-primary text-white cursor-auto'>
                     {num}
                   </li>
                 ) : num === '...' ? (
-                  <li className='flex items-center rounded-md text-primary-purple text-center shadow-md py-2 px-4  cursor-auto'>
+                  <li className='flex items-center rounded-md text-primary text-center shadow-md py-2 px-4  cursor-auto'>
                     <HiDotsHorizontal className='w-6 h-6' />
                   </li>
                 ) : (
@@ -70,7 +70,7 @@ export default function Pagination({ count }: { count: number }) {
             <button
               onClick={() => getLink(1)}
               title='Next Page'
-              className='flex ms-auto items-center gap-2 hover:text-primary-purple'
+              className='flex ms-auto items-center gap-2 hover:text-primary'
             >
               {t('next')}
               <HiArrowRight className='ar:rotate-180' />

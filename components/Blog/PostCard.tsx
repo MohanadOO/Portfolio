@@ -61,7 +61,7 @@ export default function PostCard({ post }: { post: Post }) {
             className='group-hover:scale-105 group-hover:contrast-125 transition-transform ease-out motion-reduce:duration-75 duration-200'
           />{' '}
           {locale === 'ar' && language !== 'ar' ? (
-            <div className='absolute top-0 bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm'>
+            <div className='absolute top-0 bg-orange-600 dark:bg-orange-600 text-background p-2 flex justify-center items-center gap-2 text-sm'>
               <span>الترجمة العربية غير متوفرة</span>
               <AiOutlineWarning className='w-5 h-5' />
             </div>
@@ -86,7 +86,7 @@ export default function PostCard({ post }: { post: Post }) {
             title={title || 'Title Not found'}
             className={`${
               title
-                ? 'font-bold group-hover:text-primary-purple'
+                ? 'font-bold group-hover:text-primary'
                 : 'text-red-400 uppercase'
             } flex gap-3 justify-between items-center sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 line-clamp-2 py-2 `}
           >
@@ -105,11 +105,10 @@ export default function PostCard({ post }: { post: Post }) {
           </p>
           <div className='flex mt-3 gap-5 text-gray-600 dark:text-gray-300 text-xs md:text-sm'>
             <p className='flex items-center gap-1 font-bold'>
-              <HiEye className='w-4 h-4 text-primary-purple' />{' '}
-              {post.viewCount || 0}
+              <HiEye className='w-4 h-4 text-primary' /> {post.viewCount || 0}
             </p>
             <p className='flex items-center gap-1 font-bold'>
-              <HiOutlineHeart className='w-4 h-4 fill-primary-purple text-primary-purple dark:text-black' />{' '}
+              <HiOutlineHeart className='w-4 h-4 fill-primary text-primary dark:text-black' />{' '}
               {post.likeCount || 0}
             </p>
           </div>

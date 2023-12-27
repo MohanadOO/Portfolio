@@ -29,7 +29,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
   const allSkills = skills?.map((skill: SkillType) => {
     return (
       <li
-        className='cursor-pointer relative group'
+        className='cursor-pointer relative group flex gap-2 py-2 px-5 items-center rounded-md bg-black/20 text-background'
         title={skill?.name}
         key={`${skill?.name}_key`}
       >
@@ -74,10 +74,10 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
             <Swiper images={swiperImages} />
           </div>
           <div className='flex flex-col gap-5'>
-            <h1 className='font-pattaya ar:font-arefRuqaa text-4xl lg:text-5xl xl:text-6xl text-primary-purple dark:text-primary-purple mt-10 lg:mt-0'>
+            <h1 className='font-pattaya ar:font-arefRuqaa text-4xl lg:text-5xl xl:text-6xl text-primary dark:text-primary mt-10 lg:mt-0'>
               {title}
             </h1>
-            <ul className='w-full mb-2 flex flex-wrap gap-2 child:flex child:gap-2 child:py-2 child:px-5 child:items-center child:rounded-md child:bg-primary-black/10 child:dark:bg-primary-white/10 child:text-primary-white lg:max-h-32 lg:overflow-y-auto'>
+            <ul className='w-full mb-2 flex flex-wrap gap-2 lg:max-h-32 lg:overflow-y-auto'>
               {allSkills}
             </ul>
             <p className='text-sm leading-loose sm:text-base sm:leading-loose md:text-lg md:leading-loose xl:text-lg xl:leading-loose lg:max-h-[150px] 2xl:max-h-[200px] overflow-y-auto xl:my-5'>
@@ -85,7 +85,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
             </p>
             <div className='flex mb-32 lg:mb-0 gap-5'>
               <a
-                className='flex items-center gap-1 py-1 px-4 border-2 border-primary-black dark:border-primary-white rounded-md shadow-md text-sm'
+                className='flex items-center gap-1 py-1 px-4 border-2 border-foreground dark:border-background rounded-md shadow-md text-sm'
                 href={github}
                 target='_blank'
               >
@@ -93,7 +93,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
                 <AiFillGithub className='w-5 h-5' />
               </a>
               <a
-                className='flex items-center gap-1 py-1 px-4 bg-primary-purple text-primary-white rounded-md shadow-md text-sm'
+                className='flex items-center gap-1 py-1 px-4 bg-primary text-background rounded-md shadow-md text-sm'
                 href={preview}
                 target='_blank'
               >

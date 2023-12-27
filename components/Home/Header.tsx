@@ -28,20 +28,20 @@ export default function Header({ resume }) {
       >
         <motion.h1
           variants={fadeInLeft(reduce)}
-          className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary-purple-400 to-primary-purple-600 text-transparent bg-clip-text font-bold mx-auto py-7'
+          className='text-5xl md:text-6xl max-w-md xl:max-w-2xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-primary to-primary/60 text-transparent bg-clip-text font-bold mx-auto py-7'
         >
           {t('hello')}
           <motion.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
-            className='cursor-pointer inline-block text-primary-black'
+            className='cursor-pointer inline-block text-foreground'
           >
             👋
           </motion.div>
         </motion.h1>
         <motion.p
           variants={fadeInLeft(reduce)}
-          className='sm:text-lg md:text-xl lg:text-2xl text-primary-black/80 dark:text-primary-white/80 italic max-w-sm lg:max-w-md mx-auto'
+          className='sm:text-lg md:text-xl lg:text-2xl text-foreground/80 italic max-w-sm lg:max-w-md mx-auto'
         >
           {t('subText')}
         </motion.p>
@@ -49,7 +49,7 @@ export default function Header({ resume }) {
           <motion.a
             variants={fadeInLeft(reduce)}
             href='#about-me'
-            className='flex items-center gap-3 self-center py-3 px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-purple dark:text-primary-white shadow-primary-black hover:bg-primary-purple hover:text-primary-white transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+            className='flex items-center gap-3 self-center py-3 px-6 border-2 border-foreground rounded-md dark:text-foreground dark:bg-background shadow-foreground hover:bg-primary dark:hover:bg-primary hover:text-background transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-white'
           >
             <span>{t('about')}</span>
             <HiArrowCircleDown className='w-6 h-6' />
@@ -61,7 +61,7 @@ export default function Header({ resume }) {
                 download={resume.downloadName}
                 title={resume.downloadName}
                 target='_blank'
-                className='flex items-center gap-3 self-center py-2 md:py-3 px-4 md:px-6 border-2 border-primary-black dark:border-primary-white rounded-md text-primary-orange dark:text-primary-white shadow-primary-black hover:bg-primary-orange hover:text-primary-white transition-colors  lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-primary-white'
+                className='flex items-center gap-3 self-center py-3 px-6 border-2 border-foreground rounded-md dark:text-foreground dark:bg-background shadow-foreground hover:bg-primary dark:hover:bg-primary hover:text-background transition-colors lg:text-xl en:shadow-left rtl:shadow-right dark:shadow-white'
               >
                 <span>{t('resume')}</span>
                 <HiDownload className='w-6 h-6' />

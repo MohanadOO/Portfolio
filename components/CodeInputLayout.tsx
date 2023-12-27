@@ -48,7 +48,7 @@ export default function CodeInputLayout({
         {!isCopied ? (
           <HiOutlineClipboardCopy
             onClick={() => copyToClipBoard(code)}
-            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer hover:text-primary-purple active:scale-110 transition-opacity'
+            className='w-5 h-5 sm:w-6 sm:h-6 opacity-90 cursor-pointer hover:text-primary active:scale-110 transition-opacity'
             title={locale === 'ar' ? 'نسخ الكود' : 'Copy Code'}
           />
         ) : (

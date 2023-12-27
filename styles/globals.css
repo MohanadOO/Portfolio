@@ -2,9 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 196 100% 98%;
+    --foreground: 0 0% 7%;
+    --card: 196 100% 98%;
+    --card-foreground: 0 0% 7%;
+    --popover: 196 100% 98%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 254 57% 58%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 254 57% 58%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 210 20% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 210 20% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 254 57% 58%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 254 57% 58%;
+  }
+}
+
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 @layer components {
   .section_header {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple z-10 uppercase first-letter:py-5 ar:first-letter:py-2 first-letter:text-primary-white en:first-letter:pl-16 rtl:first-letter:pr-16  first-letter:bg-primary-purple first-letter:rounded-md  en:first-letter:shadow-left-lg rtl:first-letter:shadow-right-lg dark:first-letter:shadow-primary-white;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary z-10 uppercase first-letter:py-5 ar:first-letter:py-2 first-letter:text-background dark:first-letter:text-foreground en:first-letter:pl-16 rtl:first-letter:pr-16 first-letter:bg-primary first-letter:rounded-md  en:first-letter:shadow-left-lg rtl:first-letter:shadow-right-lg dark:first-letter:shadow-foreground;
   }
   .about-me p,
   .skills-desc {
@@ -16,6 +74,6 @@
   }
 
   .custom-thin-scrollbar {
-    @apply scrollbar-thin scrollbar-track-primary-purple/40 dark:scrollbar-track-primary-purple/20 scrollbar-thumb-primary-dark dark:scrollbar-thumb-primary-purple;
+    @apply scrollbar-thin scrollbar-track-primary/40 dark:scrollbar-track-primary/20 scrollbar-thumb-foreground dark:scrollbar-thumb-primary;
   }
 }

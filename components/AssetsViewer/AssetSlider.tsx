@@ -52,7 +52,7 @@ export default function AssetSlider() {
                           />
                         </picture>
                       ) : (
-                        <HiVideoCamera className='w-7 h-7 m-auto fill-primary-purple' />
+                        <HiVideoCamera className='w-7 h-7 m-auto fill-primary' />
                       )}
                     </>
                   ) : (

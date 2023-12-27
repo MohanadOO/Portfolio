@@ -80,7 +80,7 @@ export default function Categories({ categories }: { categories: Category[] }) {
               className={`${
                 category === title
                   ? 'border-b-black dark:border-b-white text-black dark:text-white cursor-auto'
-                  : 'border-b-gray-400 text-primary-gray-500 dark:text-primary-gray-400 hover:border-b-black hover:text-black hover:dark:text-white hover:dark:border-b-white'
+                  : 'border-b-gray-400 text-gray-500 dark:text-gray-400 hover:border-b-black hover:text-black hover:dark:text-white hover:dark:border-b-white'
               } whitespace-nowrap px-3 py-2 font-bold border-b-2`}
             >
               {index < BASE_CATEGORIES.length ? t(_id) : title}

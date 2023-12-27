@@ -59,7 +59,7 @@ export function PostLayout({
         id='article_post'
         dir={`${language === 'en' ? 'ltr' : 'rtl'}`}
       >
-        <section className='space-y-2 mb-5 border-y-2 border-primary-purple/40'>
+        <section className='space-y-2 mb-5 border-y-2 border-primary/40'>
           <PostHeader title={title} desc={desc} language={language} />
         </section>
 

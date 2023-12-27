@@ -43,7 +43,7 @@ export default function Layout({ children }) {
 
   return (
     <main
-      className={`min-h-screen relative flex flex-col ${lato.variable} ${cairo.variable} ${pattaya.variable} ${arefRuqaa.variable} en:font-lato ar:font-cairo selection:bg-primary-purple  selection:text-white`}
+      className={`min-h-screen relative flex flex-col ${lato.variable} ${cairo.variable} ${pattaya.variable} ${arefRuqaa.variable} en:font-lato ar:font-cairo selection:bg-primary  selection:text-white`}
     >
       <Nav />
       <button

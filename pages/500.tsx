@@ -7,7 +7,7 @@ export default function ErrorPage() {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}
-      className=' px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-primary-purple'
+      className=' px-10 mx-auto min-h-screen flex flex-col md:flex-row items-center justify-around py-24 text-primary'
       aria-labelledby='error-page'
     >
       <div className='flex flex-col items-center gap-5 xl:gap-10 max-w-sm xl:max-w-md'>
@@ -21,7 +21,7 @@ export default function ErrorPage() {
           Server Error
         </h1>
         <Link
-          className='md:self-start md:rtl:self-end py-2 px-5 rounded-md border border-primary-purple text-primary-purple hover:bg-primary-purple hover:text-primary-white transition-colors xl:text-lg'
+          className='md:self-start md:rtl:self-end py-2 px-5 rounded-md border border-primary text-primary hover:bg-primary hover:text-background transition-colors xl:text-lg'
           href='/'
         >
           Home Page

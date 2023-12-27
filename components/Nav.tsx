@@ -67,10 +67,10 @@ export default function Nav() {
                     py-3 px-2 sm:px-1 lg:px-3 xl:px-2 text-xs md:text-sm lg:text-base 
                     ${
                       pathname === item.URL
-                        ? ' border-b-2 border-primary-purple text-primary-purple dark:text-primary-white rounded-none cursor-default'
+                        ? ' border-b-2 border-primary text-primary dark:text-foreground rounded-none cursor-default'
                         : item.disabled
                         ? 'cursor-default text-gray-400 line-through'
-                        : 'ring-1 ring-transparent hover:ring-primary-black dark:hover:ring-primary-purple en:hover:shadow-left rtl:hover:shadow-right dark:hover:shadow-primary-purple transition-all'
+                        : 'ring-1 ring-transparent hover:ring-foreground dark:hover:ring-primary en:hover:shadow-left rtl:hover:shadow-right dark:hover:shadow-primary transition-all'
                     }
                   `}
         title={t(item.translate, '')}
@@ -86,12 +86,12 @@ export default function Nav() {
     <header
       className={`${
         isScrollDown ? 'translate-y-0' : 'translate-y-[-100px]'
-      } w-full fixed top-0 left-0 z-50 bg-primary-white dark:bg-primary-dark transition-transform duration-500 ease-out`}
+      } w-full fixed top-0 left-0 z-50 bg-background transition-transform duration-500 ease-out`}
     >
       <nav aria-label={locale === 'ar' ? language.ar.label : language.en.label}>
         {/* Desktop Navigation */}
-        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md shadow-primary-purple/10 dark:shadow-primary-purple/20 py-6 px-8 transition-colors text-primary-dark dark:text-primary-white md:px-10 lg:px-20 xl:px-32 2xl:px-40'>
-          <li className='font-pattaya ar:font-arefRuqaa font-normal first-letter:text-primary-purple text-sm md:text-base hover:text-primary-purple transition-colors duration-100 rtl:font-bold z-10'>
+        <ul className='hidden sm:flex items-center justify-between gap-5 shadow-md shadow-primary/10 dark:shadow-primary/20 py-6 px-8 transition-colors md:px-10 lg:px-20 xl:px-32 2xl:px-40'>
+          <li className='font-pattaya ar:font-arefRuqaa font-normal first-letter:text-primary text-sm md:text-base hover:text-primary transition-colors duration-100 rtl:font-bold z-10'>
             <Link title={t('name', '')} href='/'>
               {t('name', '')}
             </Link>
@@ -121,7 +121,7 @@ export default function Nav() {
                   >
                     <Menu.Items
                       as='ul'
-                      className='flex flex-col gap-4 absolute top-8 ltr:-right-10 rtl:-left-10 bg-primary-white dark:text-primary-dark shadow-lg  text-sm font-bold rounded-lg py-5 px-2 w-28'
+                      className='flex flex-col gap-4 absolute top-8 ltr:-right-10 rtl:-left-10 bg-background dark:text-foreground shadow-lg  text-sm font-bold rounded-lg py-5 px-2 w-28'
                     >
                       <Menu.Item as='li'>
                         <LanguageBtn locale={locale} language={language} />
@@ -140,7 +140,7 @@ export default function Nav() {
                           aria-label='RSS Feed'
                           className='flex gap-2'
                         >
-                          <HiRss className='w-4 h-4 md:w-5 md:h-5 fill-primary-purple' />
+                          <HiRss className='w-4 h-4 md:w-5 md:h-5 fill-primary' />
                           <span>RSS</span>
                         </a>
                       </Menu.Item>
@@ -155,8 +155,8 @@ export default function Nav() {
         </ul>
 
         {/* Mobile Navigation */}
-        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary-purple/10 py-5 px-10 relative z-20 bg-primary-white dark:bg-primary-dark transition-colors'>
-          <li className='font-pattaya ar:font-arefRuqaa font-normal rtl:font-bold first-letter:text-primary-purple hover:text-primary-purple transition-colors duration-300'>
+        <ul className='flex items-center justify-between sm:hidden gap-5 shadow-md rounded-md shadow-primary/10 py-5 px-10 relative z-20 bg-background dark:bg-foreground transition-colors'>
+          <li className='font-pattaya ar:font-arefRuqaa font-normal rtl:font-bold first-letter:text-primary hover:text-primary transition-colors duration-300'>
             <Link href='/' title={t('name', '')}>
               {t('name', '')}
             </Link>
@@ -167,7 +167,7 @@ export default function Nav() {
                 aria-expanded={openMenu}
                 aria-label={locale === 'ar' ? 'قائمة' : 'Menu'}
               >
-                <HiOutlineMenu className='fill-primary-purple dark:fill-primary-white' />
+                <HiOutlineMenu className='fill-primary dark:fill-background' />
               </button>
             </li>
           ) : (
@@ -176,15 +176,15 @@ export default function Nav() {
                 aria-expanded={openMenu}
                 aria-label={locale === 'ar' ? 'قائمة' : 'Menu'}
               >
-                <HiOutlineX className='fill-primary-purple dark:fill-primary-white' />
+                <HiOutlineX className='fill-primary dark:fill-background' />
               </button>
             </li>
           )}
 
           {openMenu && (
-            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-primary-white dark:bg-primary-dark shadow-md z-20 transition-colors border-t border-primary-purple/50'>
+            <ul className='absolute left-0 flex flex-col gap-10 text-center top-16 w-full p-6 bg-background dark:bg-foreground shadow-md z-20 transition-colors border-t border-primary/50'>
               {navigationItems}
-              <ul className='flex flex-wrap justify-center items-center font-bold gap-5 border-t border-primary-gray pt-5'>
+              <ul className='flex flex-wrap justify-center items-center font-bold gap-5 border-t border-border pt-5'>
                 <li>
                   <LanguageBtn locale={locale} language={language} />
                 </li>
@@ -199,7 +199,7 @@ export default function Nav() {
                     className='flex gap-2 items-center'
                     aria-label='RSS Feed'
                   >
-                    <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary-purple dark:fill-primary-white' />
+                    <HiRss className='w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-primary dark:fill-background' />
                     <span>RSS</span>
                   </a>
                 </li>

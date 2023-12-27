@@ -12,7 +12,7 @@ export default function PostRecommendations({
   return (
     <div
       id='recommendation'
-      className='my-16 md:my-20 border-y-2 border-primary-purple/40'
+      className='my-16 md:my-20 border-y-2 border-primary/40'
     >
       <h1 className='text-4xl md:text-6xl text-center font-bold my-16'>
         {t('recommendation')}

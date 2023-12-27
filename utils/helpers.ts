@@ -1,3 +1,6 @@
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 export const getURL = (locale?: string) => {
   let url =
     process?.env?.NEXT_PUBLIC_BASE_URL ?? // Set this to your site URL in production env.
@@ -8,4 +11,8 @@ export const getURL = (locale?: string) => {
   // Make sure to including trailing `/`.
   url = url.charAt(url.length - 1) === '/' ? url : `${url}/`
   return `${url}${locale === 'ar' ? 'ar/' : ''}`
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }

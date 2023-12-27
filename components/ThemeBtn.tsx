@@ -49,9 +49,9 @@ export default function ThemeBtn({ locale }) {
       className='flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group'
     >
       {theme === 'dark' ? (
-        <HiOutlineSun className='w-4 h-4 md:w-5 md:h-5 stroke-primary-purple group-hover:fill-primary-purple' />
+        <HiOutlineSun className='w-4 h-4 md:w-5 md:h-5 stroke-primary group-hover:fill-primary' />
       ) : (
-        <HiOutlineMoon className='w-4 h-4 md:w-5 md:h-5 stroke-primary-purple group-hover:fill-primary-purple' />
+        <HiOutlineMoon className='w-4 h-4 md:w-5 md:h-5 stroke-primary group-hover:fill-primary' />
       )}
       <span>{title}</span>
     </button>

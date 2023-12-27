@@ -21,7 +21,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
     <section className='py-8 inset-0 w-full h-full'>
       <div className='mx-auto'>
         {locale === 'ar' && language !== 'ar' ? (
-          <div className='bg-orange-600 dark:bg-orange-600 text-primary-white p-2 flex justify-center items-center gap-2 text-sm mb-5'>
+          <div className='bg-orange-600 dark:bg-orange-600 text-background p-2 flex justify-center items-center gap-2 text-sm mb-5'>
             <AiOutlineWarning className='w-5 h-5' />
             <span>الترجمة العربية غير متوفرة</span>
           </div>
@@ -30,7 +30,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
         )}
         <div className='flex flex-col gap-2'>
           {title ? (
-            <h1 className='text-4xl ar:leading-snug md:text-5xl md:ar:leading-snug lg:text-6xl lg:ar:leading-snug max-w-4xl text-primary-purple font-extrabold'>
+            <h1 className='text-4xl ar:leading-snug md:text-5xl md:ar:leading-snug lg:text-6xl lg:ar:leading-snug max-w-4xl text-primary font-extrabold'>
               {title}
             </h1>
           ) : (
@@ -45,7 +45,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
               ) : (
                 <h2 className='text-red-400 uppercase'>Author Not Found</h2>
               )}
-              <div className='w-0.5 h-5 bg-primary-purple' />
+              <div className='w-0.5 h-5 bg-primary' />
               {post.publishedAt ? (
                 <p>
                   {new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -61,10 +61,10 @@ export default function PostHeader({ language, title, desc }: PropsType) {
           </div>
           <div className='flex gap-5 mt-3'>
             <p className='flex items-center gap-2 font-bold'>
-              <HiEye className='w-5 h-5 text-primary-purple' /> {viewCount}
+              <HiEye className='w-5 h-5 text-primary' /> {viewCount}
             </p>
             <p className='flex items-center gap-2 font-bold'>
-              <HiOutlineHeart className='w-5 h-5 fill-primary-purple text-primary-purple dark:text-black' />{' '}
+              <HiOutlineHeart className='w-5 h-5 fill-primary text-primary dark:text-black' />{' '}
               {likeCount}
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function PostHeader({ language, title, desc }: PropsType) {
             </h2>
           )}
           {readingTime > 0 && (
-            <p className='flex items-center gap-2 md:text-lg text-primary-purple dark:text-primary-purple-300'>
+            <p className='flex items-center gap-2 md:text-lg text-primary'>
               <HiOutlineBookOpen className='w-4 h-4 md:w-5 md:h-5' />{' '}
               <span>
                 {readingTime} {language === 'ar' ? 'دقائق للقراءة' : 'min read'}

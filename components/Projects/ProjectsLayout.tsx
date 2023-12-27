@@ -17,7 +17,7 @@ export default function ProjectsLayout({ projects }) {
         openGraph={{ url: `${getURL(locale)}projects` }}
       />
       <section
-        className='min-h-full flex flex-col mt-10 text-primary-purple w-full py-20 px-4 sm:px-10 overflow-hidden'
+        className='min-h-full flex flex-col mt-10 text-primary w-full py-20 px-4 sm:px-10 overflow-hidden'
         aria-label='projects'
       >
         <div className='flex items-center my-10 mx-auto md:mx-0'>

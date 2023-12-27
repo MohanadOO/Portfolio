@@ -57,7 +57,7 @@ export default function Skills({
 
         {filterSkills.map((skills: Skill[]) => (
           <div key={skills[0].type.en}>
-            <h2 className='text-4xl text-center md:text-start font-bold text-primary-purple pb-5 mt-12 border-b-2'>
+            <h2 className='text-4xl text-center md:text-start font-bold text-primary pb-5 mt-12 border-b-2'>
               {skills[0].type[locale]}
             </h2>
             <ul className='flex my-8 items-center justify-center md:justify-start gap-x-5 gap-y-5 flex-wrap'>
@@ -68,7 +68,7 @@ export default function Skills({
                   style={{
                     boxShadow: `0px 0px 5px ${skill.color.hex}`,
                   }}
-                  className='border dark:border-primary-black child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
+                  className='border dark:border-foreground child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
                 >
                   <a href={skill.link} target='_blank'>
                     <CustomImage

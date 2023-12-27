@@ -54,7 +54,7 @@ export default function Certification({
         <div className='my-12 flex flex-col gap-5'>
           {certificates.map((item) => (
             <div
-              className='flex flex-col md:flex-row text-center md:text-start items-center justify-between gap-5 py-3 px-5 bg-gray-100 shadow-md dark:bg-zinc-800 dark:shadow-primary-white/5 rounded-md'
+              className='flex flex-col md:flex-row text-center md:text-start items-center justify-between gap-5 py-3 px-5 bg-gray-100 shadow-md dark:bg-zinc-800 dark:shadow-background/5 rounded-md'
               key={item.title}
             >
               <div className='flex flex-col md:flex-row gap-5 items-center'>
@@ -69,9 +69,7 @@ export default function Certification({
                   <a
                     href={item.courseUrl ? item.courseUrl : '#'}
                     className={`flex items-center gap-1 text-lg font-bold transition-colors ${
-                      item.courseUrl
-                        ? 'hover:text-primary-purple'
-                        : 'cursor-default'
+                      item.courseUrl ? 'hover:text-primary' : 'cursor-default'
                     }`}
                   >
                     {item.title}{' '}
@@ -89,7 +87,7 @@ export default function Certification({
                 <a
                   href={item.link}
                   target='_blank'
-                  className='flex gap-2 items-center mx-auto md:mx-0 rounded-full py-2 px-3 text-sm font-bold bg-primary-purple hover:bg-primary-purple-600 transition-colors text-primary-white'
+                  className='flex gap-2 items-center mx-auto md:mx-0 rounded-full py-2 px-3 text-sm font-bold bg-primary hover:bg-primary-600 transition-colors text-background'
                 >
                   {t('credential')}
                   <HiExternalLink className='rtl:-rotate-90' />

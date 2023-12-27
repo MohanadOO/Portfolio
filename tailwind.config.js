@@ -7,37 +7,47 @@ export const content = [
   './components/**/*.{js,ts,jsx,tsx}',
 ]
 export const theme = {
+  container: {
+    center: true,
+    padding: '2rem',
+    screens: {
+      '2xl': '1400px',
+    },
+  },
   extend: {
     colors: {
+      border: 'hsl(var(--border))',
+      input: 'hsl(var(--input))',
+      ring: 'hsl(var(--ring))',
+      background: 'hsl(var(--background))',
+      foreground: 'hsl(var(--foreground))',
       primary: {
-        white: '#F4FCFF',
-        black: '#042A44',
-        dark: '#121212',
-        gray: {
-          50: '#f4fcff',
-          100: '#eff6f9',
-          200: '#e1e7e9',
-          300: '#d0d5d7',
-          400: '#9fa3a5',
-          500: '#707374',
-          600: '#515455',
-          700: '#3f4141',
-          800: '#262728',
-          900: '#181818',
-        },
-        purple: {
-          DEFAULT: '#7357d1',
-          50: '#f1f1fe',
-          100: '#e1e1f9',
-          200: '#c9c8f3',
-          300: '#aca6ea',
-          400: '#8d7ddf',
-          500: '#7357d1',
-          600: '#6439cb',
-          700: '#582db8',
-          800: '#4a2799',
-          900: '#40287c',
-        },
+        DEFAULT: 'hsl(var(--primary))',
+        foreground: 'hsl(var(--primary-foreground))',
+      },
+      secondary: {
+        DEFAULT: 'hsl(var(--secondary))',
+        foreground: 'hsl(var(--secondary-foreground))',
+      },
+      destructive: {
+        DEFAULT: 'hsl(var(--destructive))',
+        foreground: 'hsl(var(--destructive-foreground))',
+      },
+      muted: {
+        DEFAULT: 'hsl(var(--muted))',
+        foreground: 'hsl(var(--muted-foreground))',
+      },
+      accent: {
+        DEFAULT: 'hsl(var(--accent))',
+        foreground: 'hsl(var(--accent-foreground))',
+      },
+      popover: {
+        DEFAULT: 'hsl(var(--popover))',
+        foreground: 'hsl(var(--popover-foreground))',
+      },
+      card: {
+        DEFAULT: 'hsl(var(--card))',
+        foreground: 'hsl(var(--card-foreground))',
       },
     },
     fontFamily: {
@@ -60,10 +70,31 @@ export const theme = {
       'left-lg': '-7px 5px 0 black',
       'right-lg': '7px 5px 0 black',
     },
+    borderRadius: {
+      lg: 'var(--radius)',
+      md: 'calc(var(--radius) - 2px)',
+      sm: 'calc(var(--radius) - 4px)',
+    },
+    keyframes: {
+      'accordion-down': {
+        from: { height: '0' },
+        to: { height: 'var(--radix-accordion-content-height)' },
+      },
+      'accordion-up': {
+        from: { height: 'var(--radix-accordion-content-height)' },
+        to: { height: '0' },
+      },
+    },
+    animation: {
+      'accordion-down': 'accordion-down 0.2s ease-out',
+      'accordion-up': 'accordion-up 0.2s ease-out',
+    },
   },
 }
+
 export const plugins = [
   require('tailwind-scrollbar'),
+  require('tailwindcss-animate'),
   function ({ addVariant }) {
     addVariant('child', '& > *')
     addVariant('child-hover', '& > *:hover')

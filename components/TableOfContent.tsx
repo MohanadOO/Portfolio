@@ -60,7 +60,7 @@ export default function TableOfContent({ locale, scroll }) {
   function getClass(type: number): string {
     switch (type) {
       case 1:
-        return `my-2 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-primary-purple`
+        return `my-2 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-base-purple`
       case 2:
         return `my-1 ltr:ml-1 sm:ltr:ml-0.5 rtl:mr-1 sm:rtl:mr-0.5 text-lg list-disc marker:text-teal-600 marker:dark:text-teal-500`
       case 3:
@@ -96,13 +96,13 @@ export default function TableOfContent({ locale, scroll }) {
           showTable
             ? 'translate-x-0'
             : 'en:translate-x-[-150%] ar:translate-x-[150%]'
-        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0  xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-primary-white dark:bg-primary-dark xl:bg-transparent z-30 custom-thin-scrollbar ltr:border-l rtl:border-r dark:border-white/10`}
+        } fixed en:left-0 ar:right-0 bottom-0 md:mx-10 lg:mx-20 p-5 transition-[top,transform] duration-500 ease-out xl:flex flex-col xl:sticky xl:mx-0  xl:ar:translate-x-0 xl:en:translate-x-0 w-full md:w-96 overflow-y-auto overflow-x-hidden xl:h-[85vh] mx-auto bg-background xl:bg-transparent z-30 custom-thin-scrollbar ltr:border-l rtl:border-r dark:border-white/10`}
       >
         <h1
           id='table-of-content'
-          className='flex items-center gap-2 font-bold text-lg border-b pb-4 text-primary-purple uppercase'
+          className='flex items-center gap-2 font-bold text-lg border-b border-foreground/80 pb-4 text-primary uppercase'
         >
-          <CiViewList className='w-6 h-6 fill-primary-purple' />{' '}
+          <CiViewList className='w-6 h-6 fill-base-purple' />{' '}
           {locale === 'ar' ? 'جدول المحتويات' : 'Table of Contents'}
         </h1>
         <ul className='flex flex-col p-4'>
@@ -111,9 +111,7 @@ export default function TableOfContent({ locale, scroll }) {
               key={id}
               id={`${id}_table`}
               onClick={() => handleLink(id)}
-              className={`${getClass(
-                type
-              )} text-primary-dark dark:text-primary-white cursor-pointer ${
+              className={`${getClass(type)} text-foreground cursor-pointer ${
                 activeId === id ? '' : 'opacity-80 hover:opacity-100'
               }`}
             >
@@ -121,7 +119,7 @@ export default function TableOfContent({ locale, scroll }) {
                 href={`#${id}`}
                 className={`${
                   activeId === id
-                    ? ' marker:text-primary-purple font-extrabold cursor-default underline underline-offset-4 text-base'
+                    ? ' marker:text-base-purple font-extrabold cursor-default underline underline-offset-4 text-base'
                     : 'text-sm'
                 } block py-0.5 px-0.5 `}
               >
