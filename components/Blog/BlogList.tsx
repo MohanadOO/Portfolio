@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { HiOutlineLink } from 'react-icons/hi'
-import PostCard from './PostCard'
+import PostCard, { PostCardSkeleton } from './PostCard'
 import { useReducedMotion, motion } from 'framer-motion'
 import Pagination from './Pagination'
 import { useRouter } from 'next/router'
@@ -40,7 +40,19 @@ export function BlogList({
     enabled: !preview,
   })
 
-  if (isLoading) return <Spinner />
+  if (isLoading)
+    return (
+      <motion.div
+        variants={variant(reduce)}
+        initial='initial'
+        animate='animate'
+        className='grid lg:grid-cols-2 2xl:grid-cols-3 gap-10 gap-y-16 pb-10 my-10'
+      >
+        {[1, 2, 3, 4, 5, 6].map((_) => {
+          return <PostCardSkeleton />
+        })}
+      </motion.div>
+    )
   if (error) return <ErrorMessage message={t('noResult')} />
 
   /* 

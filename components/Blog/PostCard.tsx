@@ -18,6 +18,7 @@ import {
 } from '../../utils/postUtils'
 import PostCategories from './PostCategories'
 import { useReducedMotion, motion } from 'framer-motion'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function PostCard({ post }: { post: Post }) {
   const reduce = useReducedMotion()
@@ -119,6 +120,29 @@ export default function PostCard({ post }: { post: Post }) {
         currCategory={currCategory}
       />
     </motion.div>
+  )
+}
+
+export function PostCardSkeleton() {
+  return (
+    <>
+      <div className='flex flex-col gap-2'>
+        <Skeleton className='w-full aspect-video' />
+        <div className='flex flex-col gap-2'>
+          <div className='flex gap-5'>
+            <Skeleton className='w-12 py-2' />
+            <Skeleton className='w-10 py-2' />
+          </div>
+          <Skeleton className='w-full py-2' />
+          <Skeleton className='w-full py-6' />
+        </div>
+        <div className='flex gap-2'>
+          <Skeleton className='w-20 p-2 rounded-full border border-foreground/20' />
+          <Skeleton className='w-20 p-2 rounded-full border border-foreground/20' />
+          <Skeleton className='w-20 p-2 rounded-full border border-foreground/20' />
+        </div>
+      </div>
+    </>
   )
 }
 

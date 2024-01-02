@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { HiSearch } from 'react-icons/hi'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useTranslation } from 'next-i18next'
+import { Input } from '@/components/ui/input'
 
 export default function SearchBar() {
   const { t } = useTranslation('blog')
@@ -31,12 +32,12 @@ export default function SearchBar() {
 
   return (
     <div className='w-full relative'>
-      <HiSearch className='w-5 h-5 absolute start-2 top-[50%] translate-y-[-50%] text-background' />
-      <input
+      <HiSearch className='w-5 h-5 absolute start-2 top-[50%] translate-y-[-50%] text-foreground' />
+      <Input
         type='text'
         value={search}
         onChange={handleChange}
-        className='w-full py-2 ps-10 rounded-xl outline-none focus:ring-2 focus:ring-offset-transparent focus:ring-primary focus:ring-offset-2 bg-neutral-800 text-background'
+        className='w-full ps-10'
         placeholder={t('searchPlaceholder')}
       />
     </div>
