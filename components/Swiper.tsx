@@ -46,13 +46,14 @@ export default function Swiper({ images }: PropsType) {
       >
         <CarouselContent className='flex aspect-video items-center shadow-lg rounded-lg'>
           {images.map((image, index) => (
-            <CarouselItem key={index} className='w-full rounded-lg'>
+            <CarouselItem key={index} className='w-full rounded-lg p-0'>
               <div className='relative aspect-video p-2 bg-transparent'>
                 <CustomImage
                   src={image ? urlFor(image).fit('max').url() : ''}
                   alt={image?.alt || 'Cover Image'}
                   fill
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'cover' }}
+                  className='rounded-lg'
                   property='true'
                 />
               </div>
