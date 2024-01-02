@@ -9,6 +9,14 @@ import { PortableText } from '@portabletext/react'
 import { getUrlFromId } from '../../sanity/schemas/video'
 import { usePost } from '../../hooks/usePost'
 import { useAssetViewer } from '../../hooks/useAssetViewer'
+import {
+  BlockQuote,
+  H1,
+  H2,
+  H3,
+  H4,
+  P,
+} from '@/components/ui/Typography/headers'
 
 function getText(text: any): string {
   return typeof text[0] === 'string' ? text[0] : text[0]?.props?.text
@@ -201,57 +209,37 @@ const DEFAULT_ITEMS = {
     h1: ({ children, value }: any) => {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
-        <h1
-          data-header='true'
-          id={id}
-          className='text-5xl md:text-6xl leading-tight md:leading-tight mt-10 mb-5 font-black text-primary scroll-m-20 relative group'
-        >
+        <H1 data-header='true' id={id}>
           {children}
-        </h1>
+        </H1>
       )
     },
     h2: ({ children, value }: any) => {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
-        <h2
-          data-header='true'
-          id={id}
-          className='text-4xl md:text-5xl leading-tight md:leading-tight mt-10 mb-5 font-black text-teal-600 dark:text-teal-500 scroll-m-20 relative group'
-        >
+        <H2 data-header='true' id={id}>
           {children}
-        </h2>
+        </H2>
       )
     },
     h3: ({ children, value }: any) => {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
-        <h3
-          data-header='true'
-          id={id}
-          className='text-2xl md:text-3xl mt-10 mb-5 font-black text-sky-600 dark:text-sky-500 scroll-m-20 relative group'
-        >
+        <H3 data-header='true' id={id}>
           {children}
-        </h3>
+        </H3>
       )
     },
     h4: ({ children, value }: any) => {
       const id = slugify(`${getText(children)}-${value._key}`)
       return (
-        <h4
-          data-header='true'
-          id={id}
-          className='text-xl md:text-2xl mt-10 mb-5 font-black text-amber-600 dark:text-amber-500 scroll-m-20 relative group'
-        >
+        <H4 data-header='true' id={id}>
           {children}
-        </h4>
+        </H4>
       )
     },
-    normal: ({ children }: any) => <p className='py-2'>{children}</p>,
-    blockquote: ({ children }: any) => (
-      <blockquote className='ltr:border-l-purple-500 rtl:border-r-purple-500 ltr:border-l-4 rtl:border-r-4 ltr:pl-5 rtl:pr-5 py-5 my-5'>
-        {children}
-      </blockquote>
-    ),
+    normal: ({ children }: any) => <P>{children}</P>,
+    blockquote: ({ children }: any) => <BlockQuote>{children}</BlockQuote>,
   },
   marks: {
     link: ({ children, value }: any) => {
