@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 import { client } from '@/sanity/sanity.client'
 import {
   ALL_PROJECTS_CATEGORIES_QUERY,
+  ALL_PROJECTS_QUERY,
 } from '@/sanity/queries/projects'
 import { Skeleton } from '@/components/ui/skeleton'
 import { ProjectCardSkeleton } from '@/components/Home/ProjectCard'
@@ -38,7 +39,7 @@ export default function ProjectsLayout({
     error: isErrorProjects,
   } = useQuery({
     queryKey: ['ProjectsAll'],
-    queryFn: () => client.fetch(getProjects()),
+    queryFn: () => client.fetch(ALL_PROJECTS_QUERY),
     initialData: projectsAPI,
     enabled: !preview,
   })
@@ -62,23 +63,29 @@ export default function ProjectsLayout({
     ...BASE_CATEGORIES,
   ]
 
-  if (isLoadingCategories || isLoadingProjects)
-    return [1, 2, 3].map((_) => {
-      return (
-        <section className='my-32 min-h-full flex flex-col text-primary w-full px-4 sm:px-10 overflow-hidden'>
-          <div className='flex flex-col  gap-3'>
-            <Skeleton className='w-72 mx-auto py-4' />
-            <Skeleton className='w-96 mx-auto p-2' />
-            <Separator className='my-2' />
-          </div>
-          <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 items-center'>
-            {[1, 2, 3, 4, 5, 6].map((_) => (
-              <ProjectCardSkeleton />
-            ))}
-          </div>
-        </section>
-      )
-    })
+  if (isLoadingCategories || isLoadingProjects) {
+    return (
+      <div className='my-32'>
+        {[1, 2, 3].map((_, index) => (
+          <section
+            key={index}
+            className='min-h-full flex flex-col text-primary w-full px-4 sm:px-10 overflow-hidden'
+          >
+            <div className='flex flex-col  gap-3'>
+              <Skeleton className='w-72 mx-auto py-4' />
+              <Skeleton className='w-96 mx-auto p-2' />
+              <Separator className='my-2' />
+            </div>
+            <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 items-center'>
+              {[1, 2, 3, 4, 5, 6].map((_) => (
+                <ProjectCardSkeleton />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <>
