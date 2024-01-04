@@ -9,7 +9,6 @@ import { useQuery } from '@tanstack/react-query'
 import { client } from '@/sanity/sanity.client'
 import {
   ALL_PROJECTS_CATEGORIES_QUERY,
-  getProjects,
 } from '@/sanity/queries/projects'
 import { Skeleton } from '@/components/ui/skeleton'
 import { ProjectCardSkeleton } from '@/components/Home/ProjectCard'

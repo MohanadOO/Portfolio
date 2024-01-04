@@ -8,7 +8,8 @@ export const TOP_SKILLS = `*[_type == 'mySkill' && topSkill == true]{
     alt
   },
   color {
-    hex
+    background{hex},
+    text{hex}
   },
   link
 }`

@@ -1,8 +1,8 @@
-import { Category } from './../../components/Blog/Categories'
 export const POSTS_PER_PAGE = 6
 const START_PAGE = (page: number) => page * POSTS_PER_PAGE - POSTS_PER_PAGE
 const END_PAGE = (page: number) => page * POSTS_PER_PAGE
 export const LIMIT_CATEGORIES = 5
+
 export const BASE_CATEGORIES = [
   {
     title: 'View All',

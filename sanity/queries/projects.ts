@@ -1,3 +1,7 @@
+export const PROJECT_PER_PAGE = 6
+const START_PAGE = (page: number) => page * PROJECT_PER_PAGE - PROJECT_PER_PAGE
+const END_PAGE = (page: number) => page * PROJECT_PER_PAGE
+
 export const ALL_PROJECTS_QUERY = `*[_type == 'project']{
   slug{current},
   _id,

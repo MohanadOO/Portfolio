@@ -67,9 +67,12 @@ export default function Skills({
                   key={skill.name}
                   title={skill.name}
                   style={{
-                    boxShadow: `0px 0px 5px ${skill.color?.background.hex}`,
+                    backgroundColor:
+                      skill.color?.background?.hex || 'hsl(var(--foreground))',
+                    color: skill.color?.text?.hex || 'hsl(var(--background))',
+                    boxShadow: `0px 0px 5px ${skill.color?.text?.hex}`,
                   }}
-                  className='border dark:border-foreground child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
+                  className='border dark:border-foreground child:w-28 child:text-center hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
                 >
                   <a href={skill.link} target='_blank'>
                     <CustomImage
