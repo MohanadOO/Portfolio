@@ -2,6 +2,7 @@
   "title": "Projects",
   "description": "List of website projects that I have created using different web tools and technologies.",
   "sectionHeader": "My Projects",
+  "sectionDescription": "List of all projects",
   "slug": {
     "slide": "Slide {{current}} of {{count}}"
   }

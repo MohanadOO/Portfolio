@@ -31,13 +31,13 @@ const singletonListItem = (
 
 const projects = [
   { typeName: 'project', title: 'Projects' },
-  { typeName: 'skill', title: 'Project Skills' },
+  { typeName: 'projectsCategory', title: 'Categories' },
 ]
 
 const certificate = [
   { typeName: 'certificate', title: 'Certificate' },
   { typeName: 'provider', title: 'Provider' },
-  { typeName: 'mySkill', title: 'My Skills' },
+  { typeName: 'mySkill', title: 'My Skills & Tools' },
 ]
 
 const blog = [
