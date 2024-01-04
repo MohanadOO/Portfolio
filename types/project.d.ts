@@ -4,7 +4,11 @@ type ProjectType = {
   title: { ar: string; en: string; _type: string }
   body: { ar: string; en: string; _type: string }
   mainImage: { alt: string; asset: { url: string } }
-  skills: { name: string; icon: { asset: { url: string } } }[]
+  tools: {
+    color: any
+    name: string
+    icon: { asset: { url: string } }
+  }[]
   github: string
   preview: string
 }
@@ -17,12 +21,20 @@ type ProjectCardType = {
 type SkillType = {
   name: string
   icon: { asset: { url: string } }
+  color?: {
+    background?: {
+      hex: string
+    }
+    text?: {
+      hex: string
+    }
+  }
 }
 
 type Skill = {
   name: string
   topSkill: boolean
-  type: { en: string; ar: string }
+  skillType: { en: string; ar: string }
   icon: {
     asset: {
       url: string
@@ -30,7 +42,8 @@ type Skill = {
     alt: string
   }
   color: {
-    hex: string
+    background: { hex: string }
+    text: { hex: string }
   }
   link: string
 }
@@ -51,7 +64,7 @@ type ProjectDetailsType = {
   body: TextType
   mainImage: ImageType
   images: ImageType[]
-  skills: SkillType[]
+  tools: SkillType[]
   github: string
   preview: string
 }

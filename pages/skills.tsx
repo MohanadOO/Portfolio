@@ -31,14 +31,14 @@ export default function Skills({
 
   const types: string[] = []
   for (let i = 0; i < skills.length; i++) {
-    const skillType = skills[i].type.en
+    const skillType = skills[i].skillType?.en
     if (!types.includes(skillType)) {
       types.push(skillType)
     }
   }
 
   const filterSkills = types.map((type) => {
-    return skills.filter((skill) => skill.type.en === type)
+    return skills.filter((skill) => skill.skillType?.en === type)
   })
 
   return (
@@ -57,9 +57,9 @@ export default function Skills({
         <P className='text-xl opacity-70 mb-24'>{t('description')}</P>
 
         {filterSkills.map((skills: Skill[]) => (
-          <div key={skills[0].type.en}>
+          <div key={skills[0].skillType?.en}>
             <h2 className='text-4xl text-center md:text-start font-bold text-primary pb-5 mt-12 border-b-2'>
-              {skills[0].type[locale]}
+              {skills[0].skillType?.[locale]}
             </h2>
             <ul className='flex my-8 items-center justify-center md:justify-start gap-x-5 gap-y-5 flex-wrap'>
               {skills.map((skill: Skill) => (
@@ -67,7 +67,7 @@ export default function Skills({
                   key={skill.name}
                   title={skill.name}
                   style={{
-                    boxShadow: `0px 0px 5px ${skill.color.hex}`,
+                    boxShadow: `0px 0px 5px ${skill.color?.background.hex}`,
                   }}
                   className='border dark:border-foreground child:w-28 child:text-center bg-gray-50 dark:bg-gray-800 hover:scale-110 transition-transform cursor-pointer child:flex child:flex-col child:items-center child:gap-2 child:py-1 child:px-1 md:child:py-3 md:child:px-3 rounded-md'
                 >

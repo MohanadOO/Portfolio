@@ -1,5 +1,4 @@
 import project from './project'
-import skill from './skill'
 import mySkill from './mySkill'
 import blockContent from './blockContent'
 import category from './category'
@@ -16,10 +15,12 @@ import imageType from './imageType'
 import codeEmbed from './codeEmbed'
 import customNoteType from './customNoteType'
 import assets from './assets'
+import projectsCategory from '@/sanity/schemas/projectsCategory'
+import skillCategory from '@/sanity/schemas/skillCategory'
+import boxColor from '@/sanity/schemas/boxColor'
 
 export const schemaTypes = [
   project,
-  skill,
   mySkill,
   about,
   certificate,
@@ -36,4 +37,7 @@ export const schemaTypes = [
   imageType,
   codeEmbed,
   assets,
+  projectsCategory,
+  skillCategory,
+  boxColor,
 ]

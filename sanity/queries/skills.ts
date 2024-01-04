@@ -16,7 +16,7 @@ export const TOP_SKILLS = `*[_type == 'mySkill' && topSkill == true]{
 export const ALL_SKILLS = `*[_type == 'mySkill']{
   name,
   topSkill,
-  type,
+  skillType->{en, ar},
   icon {
     asset-> {
       url
@@ -24,7 +24,8 @@ export const ALL_SKILLS = `*[_type == 'mySkill']{
     alt
   },
   color {
-    hex
+    background{hex},
+    text{hex}
   },
   link
 } | order(topSkill desc)`

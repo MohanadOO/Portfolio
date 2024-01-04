@@ -14,6 +14,13 @@ export default {
   },
   fields: [
     {
+      title: 'Featured',
+      description: 'Toggle this to make the project as featured',
+      name: 'features',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
       title: 'Project Title',
       name: 'title',
       type: 'localeString',
@@ -68,10 +75,10 @@ export default {
       ],
     },
     {
-      title: 'Skills',
-      name: 'skills',
+      title: 'Used Tools & Skills',
+      name: 'tools',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'skill' } }],
+      of: [{ type: 'reference', to: { type: 'mySkill' } }],
     },
     {
       name: 'github',

@@ -15,7 +15,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 export default function ProjectCard({ project, locale }: ProjectCardType) {
   const reduce = useReducedMotion()
   const { t } = useTranslation(['common'])
-  const { slug, mainImage, skills, github, preview } = project
+  const { slug, mainImage, tools, github, preview } = project
   const title = locale === 'ar' ? project.title?.ar : project.title?.en
   const body = locale === 'ar' ? project.body?.ar : project.body?.en
 
@@ -58,34 +58,31 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
         </div>
         <div className='p-5 flex w-full h-full flex-col items-start'>
           <ul className='w-full flex flex-wrap mb-7 gap-3 rtl:sm:flex-row-reverse'>
-            {skills?.map((skill) => (
-              <li
-                key={skill.name}
-                title={skill.name}
-                dir='ltr'
-                style={{
-                  backgroundColor:
-                    skill.color?.background?.hex || 'hsl(var(--foreground))',
-                  color: skill.color?.text?.hex || 'hsl(var(--background))',
-                  boxShadow: `0px 0px 5px ${
-                    skill.color?.text?.hex || 'hsl(var(--foreground))'
-                  }`,
-                }}
-                className={
-                  'gap-2 py-1 px-3 rounded-md font-bold h-7 flex items-center justify-center sm:flex-1 flex-[0.2_1_0%]'
-                }
-              >
-                <p className='hidden text-xs lg:text-sm sm:line-clamp-1'>
-                  {skill.name}
-                </p>
-                <CustomImage
-                  width={18}
-                  height={18}
-                  src={skill.icon.asset.url}
-                  alt={`${skill.name}`}
-                  aria-hidden='true'
-                />
-              </li>
+            {tools?.map((skill) => (
+            <li
+              key={skill.name}
+              title={skill.name}
+              dir='ltr'
+              style={{
+                backgroundColor:
+                  skill.color?.background?.hex || 'hsl(var(--foreground))',
+                color: skill.color?.text?.hex || 'hsl(var(--background))',
+              }}
+              className={
+                'gap-2 py-1 px-3 rounded-md font-bold h-7 flex items-center justify-center sm:flex-1 flex-[0.2_1_0%] ring-2 ring-border shadow-md text-center'
+              }
+            >
+              <p className='hidden text-xs lg:text-sm sm:line-clamp-1'>
+                {skill.name}
+              </p>
+              <CustomImage
+                width={18}
+                height={18}
+                src={skill.icon.asset.url}
+                alt={`${skill.name}`}
+                aria-hidden='true'
+              />
+            </li>
             ))}
           </ul>
           <h1

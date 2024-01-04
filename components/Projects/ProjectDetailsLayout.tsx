@@ -17,7 +17,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
   const project: ProjectDetailsType = projectDetails
   const { t } = useTranslation(['common'])
 
-  const { mainImage, images, skills, github, preview } = project
+  const { mainImage, images, tools, github, preview } = project
   const swiperImages = [mainImage]
   if (images && images.length > 0) {
     swiperImages.push(...images)
@@ -27,18 +27,29 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
   const title = locale === 'ar' ? project.title?.ar : project.title?.en
   const body = locale === 'ar' ? project.body?.ar : project.body?.en
 
-  const allSkills = skills?.map((skill: SkillType) => {
+  const allSkills = tools?.map((skill: SkillType) => {
     return (
       <li
-        className='cursor-pointer relative group flex gap-2 py-2 px-5 items-center rounded-md bg-foreground/20 text-background'
-        title={skill?.name}
-        key={`${skill?.name}_key`}
+        key={skill.name}
+        title={skill.name}
+        dir='ltr'
+        style={{
+          backgroundColor:
+            skill.color?.background?.hex || 'hsl(var(--foreground))',
+          color: skill.color?.text?.hex || 'hsl(var(--background))',
+        }}
+        className={
+          'gap-2 py-1 px-3 rounded-md font-bold h-7 flex items-center justify-center ring-2 ring-border shadow-md text-center'
+        }
       >
+        <p className='hidden text-xs lg:text-sm sm:line-clamp-1'>
+          {skill.name}
+        </p>
         <CustomImage
           width={18}
           height={18}
-          src={skill?.icon.asset.url}
-          alt={`${skill?.name}_icon`}
+          src={skill.icon.asset.url}
+          alt={`${skill.name}`}
           aria-hidden='true'
         />
       </li>
@@ -78,7 +89,7 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
             <h1 className='font-pattaya ar:font-arefRuqaa text-4xl lg:text-5xl xl:text-6xl text-primary dark:text-primary mt-10 lg:mt-0'>
               {title}
             </h1>
-            <ul className='w-full mb-2 flex flex-wrap gap-2 lg:max-h-32 lg:overflow-y-auto'>
+            <ul className='w-full my-4 flex flex-wrap gap-2 lg:max-h-32 lg:overflow-y-auto'>
               {allSkills}
             </ul>
             <p className='text-sm leading-loose sm:text-base sm:leading-loose md:text-lg md:leading-loose xl:text-lg xl:leading-loose lg:max-h-[150px] 2xl:max-h-[200px] overflow-y-auto xl:my-5'>
