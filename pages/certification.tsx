@@ -7,6 +7,8 @@ import urlFor from '../utils/urlFor'
 import { HiExternalLink } from 'react-icons/hi'
 import CustomImage from '../components/CustomImage'
 import { NextSeo } from 'next-seo'
+import { Button } from '@/components/ui/button'
+import { H1, P } from '@/components/ui/Typography/headers'
 
 export async function getStaticProps({ locale }) {
   const certificates: Certificate[] =
@@ -47,9 +49,9 @@ export default function Certification({
         aria-label={t('sectionHeader')}
         className='my-10 max-w-4xl mx-auto py-20 px-4 sm:px-10'
       >
-        <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
-        <h2 className='text-xl opacity-70 mb-10'>{t('description')}</h2>
-        <p className='text-xl opacity-70'>{t('p1')}</p>
+        <H1 className='my-5'>{t('sectionHeader')}</H1>
+        <P className='text-xl opacity-70 mb-10'>{t('description')}</P>
+        <P className='text-xl opacity-70'>{t('p1')}</P>
 
         <div className='my-12 flex flex-col gap-5'>
           {certificates.map((item) => (
@@ -84,14 +86,16 @@ export default function Certification({
                 </div>
               </div>
               {item.link && (
-                <a
-                  href={item.link}
-                  target='_blank'
-                  className='flex gap-2 items-center mx-auto md:mx-0 rounded-full py-2 px-3 text-sm font-bold bg-primary hover:bg-primary-600 transition-colors text-background'
-                >
-                  {t('credential')}
-                  <HiExternalLink className='rtl:-rotate-90' />
-                </a>
+                <Button asChild className='rounded-full font-bold'>
+                  <a
+                    href={item.link}
+                    target='_blank'
+                    className='flex gap-2 items-center'
+                  >
+                    {t('credential')}
+                    <HiExternalLink className='rtl:-rotate-90' />
+                  </a>
+                </Button>
               )}
             </div>
           ))}

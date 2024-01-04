@@ -7,6 +7,7 @@ import { ALL_SKILLS } from '../sanity/queries/skills'
 import CustomImage from '../components/CustomImage'
 import { NextSeo } from 'next-seo'
 import { getURL } from '../utils/helpers'
+import { H1, P } from '@/components/ui/Typography/headers'
 
 export async function getStaticProps({ locale }) {
   const skills = await client.fetch(ALL_SKILLS)
@@ -52,8 +53,8 @@ export default function Skills({
         aria-label={t('sectionHeader')}
         className='my-10 max-w-4xl mx-auto py-20 px-4 sm:px-10'
       >
-        <h1 className='text-5xl font-bold my-5'>{t('sectionHeader')}</h1>
-        <p className='text-xl opacity-70 mb-24'>{t('description')}</p>
+        <H1 className='text-5xl my-5'>{t('sectionHeader')}</H1>
+        <P className='text-xl opacity-70 mb-24'>{t('description')}</P>
 
         {filterSkills.map((skills: Skill[]) => (
           <div key={skills[0].type.en}>

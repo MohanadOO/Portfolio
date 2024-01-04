@@ -7,6 +7,7 @@ import Projects from './Projects'
 import { BlogList } from '../Blog/BlogList'
 import { useTranslation } from 'next-i18next'
 import React from 'react'
+import { H2 } from '@/components/ui/Typography/headers'
 
 export default function HomeLayout({ projects, skills, posts, resume }) {
   const { t } = useTranslation('home')
@@ -36,11 +37,9 @@ export default function HomeLayout({ projects, skills, posts, resume }) {
       {list.map((item) => (
         <React.Fragment key={item.id}>
           {item.header && (
-            <div className='flex justify-center items-center my-24 md:justify-start w-full '>
-              <h2 className='section_header'>
-                {t(`${item.header}.sectionHeader`, '')}
-              </h2>
-            </div>
+            <H2 className='w-full my-10 text-center md:text-start'>
+              {t(`${item.header}.sectionHeader`, '')}
+            </H2>
           )}
           {item.component}
         </React.Fragment>

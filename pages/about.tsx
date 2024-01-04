@@ -6,6 +6,7 @@ import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../components/Blog/RichTextComponents'
 import { NextSeo } from 'next-seo'
 import { getURL } from '../utils/helpers'
+import { H1 } from '@/components/ui/Typography/headers'
 
 export async function getStaticProps({ locale }) {
   const about = await client.fetch(
@@ -34,7 +35,7 @@ export default function About({ about, locale }) {
         aria-label={t('sectionHeader')}
         className='my-10 max-w-4xl mx-auto py-20 px-4 sm:px-10'
       >
-        <h1 className='text-5xl font-bold my-10'>{t('sectionHeader')}</h1>
+        <H1 className='my-12'>{t('sectionHeader')}</H1>
 
         <div className='w-full overflow-hidden text-gray-700 dark:text-gray-300 leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9'>
           <PortableText value={about[locale]} components={RichTextComponents} />

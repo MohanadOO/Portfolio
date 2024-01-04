@@ -9,6 +9,8 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { cardVariant } from '../../public/variants/MotionVariants'
 import CustomImage from '../CustomImage'
 import urlFor from '../../utils/urlFor'
+import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function ProjectCard({ project, locale }: ProjectCardType) {
   const reduce = useReducedMotion()
@@ -55,9 +57,24 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           </a>
         </div>
         <div className='p-5 flex w-full h-full flex-col items-start'>
-          <ul className='w-full flex flex-wrap mb-7 gap-3 child:gap-2 child:py-1 child:px-3 child:rounded-md child:bg-foreground child:text-background child:font-bold child:h-7 child:flex child:items-center child:justify-center child:sm:flex-1 child:flex-[0.2_1_0%] rtl:sm:flex-row-reverse'>
+          <ul className='w-full flex flex-wrap mb-7 gap-3 rtl:sm:flex-row-reverse'>
             {skills?.map((skill) => (
-              <li key={skill.name} title={skill.name} dir='ltr'>
+              <li
+                key={skill.name}
+                title={skill.name}
+                dir='ltr'
+                style={{
+                  backgroundColor:
+                    skill.color?.background?.hex || 'hsl(var(--foreground))',
+                  color: skill.color?.text?.hex || 'hsl(var(--background))',
+                  boxShadow: `0px 0px 5px ${
+                    skill.color?.text?.hex || 'hsl(var(--foreground))'
+                  }`,
+                }}
+                className={
+                  'gap-2 py-1 px-3 rounded-md font-bold h-7 flex items-center justify-center sm:flex-1 flex-[0.2_1_0%]'
+                }
+              >
                 <p className='hidden text-xs lg:text-sm sm:line-clamp-1'>
                   {skill.name}
                 </p>
@@ -73,21 +90,35 @@ export default function ProjectCard({ project, locale }: ProjectCardType) {
           </ul>
           <h1
             title={title}
-            className='font-pattaya ar:font-arefRuqaa text-3xl leading-loose sm:text-4xl sm:leading-loose text-primary line-clamp-1 '
+            className='font-pattaya ar:font-arefRuqaa text-2xl leading-loose sm:text-3xl sm:leading-loose text-primary line-clamp-1 '
           >
             {title}
           </h1>
           <p className='max-w-lg w-full text-xs sm:text-sm leading-7 pt-3 mb-5 text-foreground line-clamp-3'>
             {body}
           </p>
-          <Link
-            href={`projects/${slug?.current}`}
-            className='py-3 px-6 text-primary dark:text-white rounded-md font-bold border border-primary hover:bg-primary hover:text-background transition-colors en:hover:shadow-[-4px_4px_0_black] rtl:hover:shadow-[4px_4px_0_black] mt-auto'
-          >
-            {t('checkBtn')}
-          </Link>
+          <Button size='lg' asChild>
+            <Link href={`projects/${slug?.current}`} className='w-full text-lg'>
+              {t('checkBtn')}
+            </Link>
+          </Button>
         </div>
       </motion.div>
     </motion.div>
+  )
+}
+
+export function ProjectCardSkeleton() {
+  return (
+    <div className='w-full max-w-md rounded-md p-5'>
+      <Skeleton className='aspect-[16/12] overflow-hidden' />
+      <div className='flex justify-center gap-5 items-center py-3'>
+        <Skeleton className='w-24 py-2' />
+        <Skeleton className='w-24 py-2' />
+        <Skeleton className='w-24 py-2' />
+      </div>
+      <Skeleton className='my-5 py-3 w-full' />
+      <Skeleton className='py-7 w-full' />
+    </div>
   )
 }

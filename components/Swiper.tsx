@@ -52,7 +52,7 @@ export default function Swiper({ images }: PropsType) {
                   src={image ? urlFor(image).fit('max').url() : ''}
                   alt={image?.alt || 'Cover Image'}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'contain' }}
                   className='rounded-lg'
                   property='true'
                 />

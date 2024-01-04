@@ -30,7 +30,7 @@ export function H2({ children, className, ...props }: HeadingProps<'h2'>) {
   return (
     <h2
       className={cn(
-        'scroll-m-20 border-b pb-2 text-4xl md:text-5xl font-semibold tracking-tight first:mt-0 leading-tight md:leading-tight mt-10 mb-5  text-teal-600 dark:text-teal-500 relative group',
+        'scroll-m-20 border-b pb-2 text-4xl md:text-5xl font-semibold tracking-tight first:mt-0 leading-tight md:leading-relaxed mt-10 mb-5  text-teal-600 dark:text-teal-500 relative group',
         className
       )}
       {...props}

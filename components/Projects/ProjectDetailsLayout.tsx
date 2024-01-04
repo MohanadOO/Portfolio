@@ -9,6 +9,7 @@ import Swiper from '../Swiper'
 import { getURL } from '../../utils/helpers'
 import { useRouter } from 'next/router'
 import urlFor from '../../utils/urlFor'
+import { Button } from '@/components/ui/button'
 
 export default function ProjectDetailsLayout({ projectDetails, id }) {
   const reduce = useReducedMotion()
@@ -84,22 +85,30 @@ export default function ProjectDetailsLayout({ projectDetails, id }) {
               {body}
             </p>
             <div className='flex mb-32 lg:mb-0 gap-5'>
-              <a
-                className='flex items-center gap-1 py-1 px-4 border-2 border-foreground dark:border-background rounded-md shadow-md text-sm'
-                href={github}
-                target='_blank'
-              >
-                <span>{t('github')}</span>
-                <AiFillGithub className='w-5 h-5' />
-              </a>
-              <a
-                className='flex items-center gap-1 py-1 px-4 bg-primary text-background rounded-md shadow-md text-sm'
-                href={preview}
-                target='_blank'
-              >
-                <span>{t('preview')}</span>
-                <HiExternalLink className='w-5 h-5' />
-              </a>
+              {github && (
+                <Button asChild variant='outline'>
+                  <a
+                    className='flex items-center gap-2'
+                    href={github}
+                    target='_blank'
+                  >
+                    <span>{t('github')}</span>
+                    <AiFillGithub className='w-5 h-5' />
+                  </a>
+                </Button>
+              )}
+              {preview && (
+                <Button asChild>
+                  <a
+                    className='flex items-center gap-2'
+                    href={preview}
+                    target='_blank'
+                  >
+                    <span>{t('preview')}</span>
+                    <HiExternalLink className='w-5 h-5' />
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
         </div>
