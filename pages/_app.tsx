@@ -50,36 +50,50 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [dir])
 
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute="class">
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <DefaultSeo {...SEO()} />
 
         {/* Google Analytics Scripts */}
         <Script
-          strategy='lazyOnload'
+          strategy="lazyOnload"
           src={`https://www.googletagmanager.com/gtag/js?id=${
-            environment !== 'development' && !isPreview
+            environment !== "development" && !isPreview
               ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
-              : ''
+              : ""
           }`}
         />
-        <Script strategy='lazyOnload'>
+        <Script strategy="lazyOnload">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${
-                environment !== 'development' && !isPreview
+                environment !== "development" && !isPreview
                   ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
-                  : ''
+                  : ""
               }', {
               page_path: window.location.pathname,
               });
           `}
         </Script>
 
-        <MotionConfig reducedMotion='user'>
+        <Script
+          async
+          src="http://localhost:3000/script.js"
+          data-website-id="8c9a8cb1-b898-4696-b336-ed2927aa2420"
+        ></Script>
+
+        <Script type="text/javascript" strategy="lazyOnload">
+          {`(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ocp3307e5z");`}
+        </Script>
+
+        <MotionConfig reducedMotion="user">
           <Layout>
             <Component {...pageProps} />
           </Layout>
