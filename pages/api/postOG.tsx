@@ -7,7 +7,7 @@ export const config = {
 }
 
 const font = fetch(
-  new URL('../../public/fonts/LATOWEB-REGULAR.ttf', import.meta.url)
+  new URL('../../public/fonts/Lato-Regular.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 const OgImageHandler = async (req: NextRequest) => {
